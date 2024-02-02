@@ -1,0 +1,12 @@
+/Users/annafoldberg/Projects/GitHubTrial/GitHubTrial/bin/Debug/netcoreapp3.1/GitHubTrial.deps.json
+/Users/annafoldberg/Projects/GitHubTrial/GitHubTrial/bin/Debug/netcoreapp3.1/GitHubTrial.runtimeconfig.json
+/Users/annafoldberg/Projects/GitHubTrial/GitHubTrial/bin/Debug/netcoreapp3.1/GitHubTrial.runtimeconfig.dev.json
+/Users/annafoldberg/Projects/GitHubTrial/GitHubTrial/bin/Debug/netcoreapp3.1/GitHubTrial.dll
+/Users/annafoldberg/Projects/GitHubTrial/GitHubTrial/bin/Debug/netcoreapp3.1/GitHubTrial.pdb
+/Users/annafoldberg/Projects/GitHubTrial/GitHubTrial/obj/Debug/netcoreapp3.1/GitHubTrial.csprojAssemblyReference.cache
+/Users/annafoldberg/Projects/GitHubTrial/GitHubTrial/obj/Debug/netcoreapp3.1/GitHubTrial.AssemblyInfoInputs.cache
+/Users/annafoldberg/Projects/GitHubTrial/GitHubTrial/obj/Debug/netcoreapp3.1/GitHubTrial.AssemblyInfo.cs
+/Users/annafoldberg/Projects/GitHubTrial/GitHubTrial/obj/Debug/netcoreapp3.1/GitHubTrial.csproj.CoreCompileInputs.cache
+/Users/annafoldberg/Projects/GitHubTrial/GitHubTrial/obj/Debug/netcoreapp3.1/GitHubTrial.dll
+/Users/annafoldberg/Projects/GitHubTrial/GitHubTrial/obj/Debug/netcoreapp3.1/GitHubTrial.pdb
+/Users/annafoldberg/Projects/GitHubTrial/GitHubTrial/obj/Debug/netcoreapp3.1/GitHubTrial.genruntimeconfig.cache
