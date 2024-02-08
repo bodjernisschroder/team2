@@ -22,6 +22,7 @@ namespace AnnaConsoleApp
             Console.WriteLine("Alder: " + alder);
             Console.WriteLine(navn + " er " + alder + " år gammel");
             Console.ReadLine(); //Vi bruger ReadLine() til at sikre, at programmet forbliver åbent i terminalen
+            //Kommentar tilføjet for GitHub prøve
         }
     }
 }
