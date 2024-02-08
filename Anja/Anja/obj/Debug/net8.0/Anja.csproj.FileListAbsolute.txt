@@ -1,0 +1,14 @@
+C:\Users\ap339\source\repos\Anja\Anja\obj\Debug\net8.0\Anja.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ap339\source\repos\Anja\Anja\obj\Debug\net8.0\Anja.AssemblyInfoInputs.cache
+C:\Users\ap339\source\repos\Anja\Anja\obj\Debug\net8.0\Anja.AssemblyInfo.cs
+C:\Users\ap339\source\repos\Anja\Anja\obj\Debug\net8.0\Anja.csproj.CoreCompileInputs.cache
+C:\Users\ap339\source\repos\Anja\Anja\bin\Debug\net8.0\Anja.exe
+C:\Users\ap339\source\repos\Anja\Anja\bin\Debug\net8.0\Anja.deps.json
+C:\Users\ap339\source\repos\Anja\Anja\bin\Debug\net8.0\Anja.runtimeconfig.json
+C:\Users\ap339\source\repos\Anja\Anja\bin\Debug\net8.0\Anja.dll
+C:\Users\ap339\source\repos\Anja\Anja\bin\Debug\net8.0\Anja.pdb
+C:\Users\ap339\source\repos\Anja\Anja\obj\Debug\net8.0\Anja.dll
+C:\Users\ap339\source\repos\Anja\Anja\obj\Debug\net8.0\refint\Anja.dll
+C:\Users\ap339\source\repos\Anja\Anja\obj\Debug\net8.0\Anja.pdb
+C:\Users\ap339\source\repos\Anja\Anja\obj\Debug\net8.0\Anja.genruntimeconfig.cache
+C:\Users\ap339\source\repos\Anja\Anja\obj\Debug\net8.0\ref\Anja.dll
