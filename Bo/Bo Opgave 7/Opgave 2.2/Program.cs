@@ -4,7 +4,7 @@
     {
         private static void Main(string[] args)
         {
-            
+            /*
             //Opgave 2.2
 
             string hej = "Goddag allesammen, hvordan har i det?";
@@ -14,6 +14,11 @@
             Console.WriteLine("Længden af vores substring: " + hej.Substring(0, 6).Length); //Giver os længden på vores substring.
 
             //Med .Substring kan man tage dele af en string ud.
+            */
+
+            //Opgave 2.3
+
+
 
             Console.ReadLine();
            
