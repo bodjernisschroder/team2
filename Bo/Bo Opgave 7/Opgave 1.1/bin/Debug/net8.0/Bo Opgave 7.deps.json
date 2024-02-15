@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Bo Opgave 7/1.0.0": {
+        "runtime": {
+          "Bo Opgave 7.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Bo Opgave 7/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
