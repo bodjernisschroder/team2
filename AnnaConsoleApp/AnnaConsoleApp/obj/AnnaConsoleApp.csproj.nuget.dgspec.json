@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/annafoldberg/Desktop/AnnaConsoleApp/AnnaConsoleApp/AnnaConsoleApp.csproj": {}
+    "/Users/annafoldberg/Desktop/team2/AnnaConsoleApp/AnnaConsoleApp/AnnaConsoleApp.csproj": {}
   },
   "projects": {
-    "/Users/annafoldberg/Desktop/AnnaConsoleApp/AnnaConsoleApp/AnnaConsoleApp.csproj": {
+    "/Users/annafoldberg/Desktop/team2/AnnaConsoleApp/AnnaConsoleApp/AnnaConsoleApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/annafoldberg/Desktop/AnnaConsoleApp/AnnaConsoleApp/AnnaConsoleApp.csproj",
+        "projectUniqueName": "/Users/annafoldberg/Desktop/team2/AnnaConsoleApp/AnnaConsoleApp/AnnaConsoleApp.csproj",
         "projectName": "AnnaConsoleApp",
-        "projectPath": "/Users/annafoldberg/Desktop/AnnaConsoleApp/AnnaConsoleApp/AnnaConsoleApp.csproj",
+        "projectPath": "/Users/annafoldberg/Desktop/team2/AnnaConsoleApp/AnnaConsoleApp/AnnaConsoleApp.csproj",
         "packagesPath": "/Users/annafoldberg/.nuget/packages/",
-        "outputPath": "/Users/annafoldberg/Desktop/AnnaConsoleApp/AnnaConsoleApp/obj/",
+        "outputPath": "/Users/annafoldberg/Desktop/team2/AnnaConsoleApp/AnnaConsoleApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/annafoldberg/.nuget/NuGet/NuGet.Config"
