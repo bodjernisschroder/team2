@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "c7K83M7FbDz2htEWydFtP8OP8GH2nxU32SIelc8z3o0pcZfAfnSSoRdk9OkYvk8/g7+daor+TFz4qbt9/PyHwA==",
+  "success": true,
+  "projectFilePath": "/Users/annafoldberg/Desktop/team2/AnnaConsoleApp/AnnaConsoleApp/AnnaConsoleApp.csproj",
+  "expectedPackageFiles": [
+    "/Users/annafoldberg/.nuget/packages/microsoft.netcore.app.host.osx-x64/3.1.32/microsoft.netcore.app.host.osx-x64.3.1.32.nupkg.sha512"
+  ],
+  "logs": []
+}
