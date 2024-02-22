@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{67CA398D-0C67-4F20-8ADD-DC37A2D423C8}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.WeekSix FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="WeekSix/Person.cs">
+    <Files>
+      <File FileName="WeekSix/Program.cs" />
+      <File FileName="WeekSix/Group.cs" />
+      <File FileName="WeekSix/Manager.cs" />
+      <File FileName="WeekSix/Menu.cs" />
+      <File FileName="WeekSix/Person.cs" Line="8" Column="29" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="WeekSix" expanded="True">
+            <Node name="WeekSix">
+              <Node name="Menu.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
