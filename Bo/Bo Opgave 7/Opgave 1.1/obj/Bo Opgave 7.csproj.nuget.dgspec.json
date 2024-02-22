@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\Projekter\\team2\\Bo\\Bo Opgave 7\\Bo Opgave 7.csproj": {}
+    "C:\\Users\\burak\\source\\repos\\team2\\Bo\\Bo Opgave 7\\Opgave 1.1\\Bo Opgave 7.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\Projekter\\team2\\Bo\\Bo Opgave 7\\Bo Opgave 7.csproj": {
+    "C:\\Users\\burak\\source\\repos\\team2\\Bo\\Bo Opgave 7\\Opgave 1.1\\Bo Opgave 7.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\Projekter\\team2\\Bo\\Bo Opgave 7\\Bo Opgave 7.csproj",
+        "projectUniqueName": "C:\\Users\\burak\\source\\repos\\team2\\Bo\\Bo Opgave 7\\Opgave 1.1\\Bo Opgave 7.csproj",
         "projectName": "Bo Opgave 7",
-        "projectPath": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\Projekter\\team2\\Bo\\Bo Opgave 7\\Bo Opgave 7.csproj",
-        "packagesPath": "C:\\Users\\bosch\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\Projekter\\team2\\Bo\\Bo Opgave 7\\obj\\",
+        "projectPath": "C:\\Users\\burak\\source\\repos\\team2\\Bo\\Bo Opgave 7\\Opgave 1.1\\Bo Opgave 7.csproj",
+        "packagesPath": "C:\\Users\\burak\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\burak\\source\\repos\\team2\\Bo\\Bo Opgave 7\\Opgave 1.1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\bosch\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\burak\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

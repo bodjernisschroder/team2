@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("Anja"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0f0f6d07d95422b274b89b410c7b052f5e29f4e"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("Anja"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("Anja"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")> 

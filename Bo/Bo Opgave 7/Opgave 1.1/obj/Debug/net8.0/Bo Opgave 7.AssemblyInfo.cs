@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Bo Opgave 7")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b3592ebd3a06e40d314505946b35860f194361f9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0f0f6d07d95422b274b89b410c7b052f5e29f4e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Bo Opgave 7")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Bo Opgave 7")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
