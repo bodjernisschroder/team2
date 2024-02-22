@@ -1,0 +1,14 @@
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\1.12\bin\Debug\net8.0\1.12.exe
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\1.12\bin\Debug\net8.0\1.12.deps.json
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\1.12\bin\Debug\net8.0\1.12.runtimeconfig.json
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\1.12\bin\Debug\net8.0\1.12.dll
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\1.12\bin\Debug\net8.0\1.12.pdb
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\1.12\obj\Debug\net8.0\1.12.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\1.12\obj\Debug\net8.0\1.12.AssemblyInfoInputs.cache
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\1.12\obj\Debug\net8.0\1.12.AssemblyInfo.cs
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\1.12\obj\Debug\net8.0\1.12.csproj.CoreCompileInputs.cache
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\1.12\obj\Debug\net8.0\1.12.dll
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\1.12\obj\Debug\net8.0\refint\1.12.dll
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\1.12\obj\Debug\net8.0\1.12.pdb
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\1.12\obj\Debug\net8.0\1.12.genruntimeconfig.cache
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\1.12\obj\Debug\net8.0\ref\1.12.dll

@@ -1,0 +1,14 @@
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\Test til fylde kode\bin\Debug\net8.0\Test til fylde kode.exe
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\Test til fylde kode\bin\Debug\net8.0\Test til fylde kode.deps.json
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\Test til fylde kode\bin\Debug\net8.0\Test til fylde kode.runtimeconfig.json
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\Test til fylde kode\bin\Debug\net8.0\Test til fylde kode.dll
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\Test til fylde kode\bin\Debug\net8.0\Test til fylde kode.pdb
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\Test til fylde kode\obj\Debug\net8.0\Test til fylde kode.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\Test til fylde kode\obj\Debug\net8.0\Test til fylde kode.AssemblyInfoInputs.cache
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\Test til fylde kode\obj\Debug\net8.0\Test til fylde kode.AssemblyInfo.cs
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\Test til fylde kode\obj\Debug\net8.0\Test til fylde kode.csproj.CoreCompileInputs.cache
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\Test til fylde kode\obj\Debug\net8.0\Test til fylde kode.dll
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\Test til fylde kode\obj\Debug\net8.0\refint\Test til fylde kode.dll
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\Test til fylde kode\obj\Debug\net8.0\Test til fylde kode.pdb
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\Test til fylde kode\obj\Debug\net8.0\Test til fylde kode.genruntimeconfig.cache
+C:\Users\burak\source\repos\Egne opgaver\Uge8Opgaver\Test til fylde kode\obj\Debug\net8.0\ref\Test til fylde kode.dll
