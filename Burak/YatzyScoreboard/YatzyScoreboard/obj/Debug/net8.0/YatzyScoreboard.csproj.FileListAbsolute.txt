@@ -1,0 +1,14 @@
+C:\Users\burak\source\repos\Eksempler fra læringsmaterialet\YatzyScoreboard\YatzyScoreboard\bin\Debug\net8.0\YatzyScoreboard.exe
+C:\Users\burak\source\repos\Eksempler fra læringsmaterialet\YatzyScoreboard\YatzyScoreboard\bin\Debug\net8.0\YatzyScoreboard.deps.json
+C:\Users\burak\source\repos\Eksempler fra læringsmaterialet\YatzyScoreboard\YatzyScoreboard\bin\Debug\net8.0\YatzyScoreboard.runtimeconfig.json
+C:\Users\burak\source\repos\Eksempler fra læringsmaterialet\YatzyScoreboard\YatzyScoreboard\bin\Debug\net8.0\YatzyScoreboard.dll
+C:\Users\burak\source\repos\Eksempler fra læringsmaterialet\YatzyScoreboard\YatzyScoreboard\bin\Debug\net8.0\YatzyScoreboard.pdb
+C:\Users\burak\source\repos\Eksempler fra læringsmaterialet\YatzyScoreboard\YatzyScoreboard\obj\Debug\net8.0\YatzyScoreboard.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\burak\source\repos\Eksempler fra læringsmaterialet\YatzyScoreboard\YatzyScoreboard\obj\Debug\net8.0\YatzyScoreboard.AssemblyInfoInputs.cache
+C:\Users\burak\source\repos\Eksempler fra læringsmaterialet\YatzyScoreboard\YatzyScoreboard\obj\Debug\net8.0\YatzyScoreboard.AssemblyInfo.cs
+C:\Users\burak\source\repos\Eksempler fra læringsmaterialet\YatzyScoreboard\YatzyScoreboard\obj\Debug\net8.0\YatzyScoreboard.csproj.CoreCompileInputs.cache
+C:\Users\burak\source\repos\Eksempler fra læringsmaterialet\YatzyScoreboard\YatzyScoreboard\obj\Debug\net8.0\YatzyScoreboard.dll
+C:\Users\burak\source\repos\Eksempler fra læringsmaterialet\YatzyScoreboard\YatzyScoreboard\obj\Debug\net8.0\refint\YatzyScoreboard.dll
+C:\Users\burak\source\repos\Eksempler fra læringsmaterialet\YatzyScoreboard\YatzyScoreboard\obj\Debug\net8.0\YatzyScoreboard.pdb
+C:\Users\burak\source\repos\Eksempler fra læringsmaterialet\YatzyScoreboard\YatzyScoreboard\obj\Debug\net8.0\YatzyScoreboard.genruntimeconfig.cache
+C:\Users\burak\source\repos\Eksempler fra læringsmaterialet\YatzyScoreboard\YatzyScoreboard\obj\Debug\net8.0\ref\YatzyScoreboard.dll
