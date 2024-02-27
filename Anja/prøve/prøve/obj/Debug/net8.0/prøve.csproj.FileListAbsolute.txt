@@ -1,0 +1,15 @@
+C:\Users\ap339\Desktop\team2\Anja\prøve\prøve\bin\Debug\net8.0\prøve.exe
+C:\Users\ap339\Desktop\team2\Anja\prøve\prøve\bin\Debug\net8.0\prøve.deps.json
+C:\Users\ap339\Desktop\team2\Anja\prøve\prøve\bin\Debug\net8.0\prøve.runtimeconfig.json
+C:\Users\ap339\Desktop\team2\Anja\prøve\prøve\bin\Debug\net8.0\prøve.dll
+C:\Users\ap339\Desktop\team2\Anja\prøve\prøve\bin\Debug\net8.0\prøve.pdb
+C:\Users\ap339\Desktop\team2\Anja\prøve\prøve\obj\Debug\net8.0\prøve.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ap339\Desktop\team2\Anja\prøve\prøve\obj\Debug\net8.0\prøve.AssemblyInfoInputs.cache
+C:\Users\ap339\Desktop\team2\Anja\prøve\prøve\obj\Debug\net8.0\prøve.AssemblyInfo.cs
+C:\Users\ap339\Desktop\team2\Anja\prøve\prøve\obj\Debug\net8.0\prøve.csproj.CoreCompileInputs.cache
+C:\Users\ap339\Desktop\team2\Anja\prøve\prøve\obj\Debug\net8.0\prøve.sourcelink.json
+C:\Users\ap339\Desktop\team2\Anja\prøve\prøve\obj\Debug\net8.0\prøve.dll
+C:\Users\ap339\Desktop\team2\Anja\prøve\prøve\obj\Debug\net8.0\refint\prøve.dll
+C:\Users\ap339\Desktop\team2\Anja\prøve\prøve\obj\Debug\net8.0\prøve.pdb
+C:\Users\ap339\Desktop\team2\Anja\prøve\prøve\obj\Debug\net8.0\prøve.genruntimeconfig.cache
+C:\Users\ap339\Desktop\team2\Anja\prøve\prøve\obj\Debug\net8.0\ref\prøve.dll
