@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BoConsoleApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e946acad82b7b3e26dd7e2d7b966fb50b4b6d3ab")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0f0f6d07d95422b274b89b410c7b052f5e29f4e")]
 [assembly: System.Reflection.AssemblyProductAttribute("BoConsoleApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BoConsoleApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
