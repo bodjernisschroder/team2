@@ -1,0 +1,15 @@
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Projekter\team2\Bo\Bo Opgave 8\1.6\obj\Debug\net8.0\1.6.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Projekter\team2\Bo\Bo Opgave 8\1.6\obj\Debug\net8.0\1.6.AssemblyInfoInputs.cache
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Projekter\team2\Bo\Bo Opgave 8\1.6\obj\Debug\net8.0\1.6.AssemblyInfo.cs
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Projekter\team2\Bo\Bo Opgave 8\1.6\obj\Debug\net8.0\1.6.csproj.CoreCompileInputs.cache
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Projekter\team2\Bo\Bo Opgave 8\1.6\obj\Debug\net8.0\1.6.sourcelink.json
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Projekter\team2\Bo\Bo Opgave 8\1.6\bin\Debug\net8.0\1.6.exe
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Projekter\team2\Bo\Bo Opgave 8\1.6\bin\Debug\net8.0\1.6.deps.json
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Projekter\team2\Bo\Bo Opgave 8\1.6\bin\Debug\net8.0\1.6.runtimeconfig.json
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Projekter\team2\Bo\Bo Opgave 8\1.6\bin\Debug\net8.0\1.6.dll
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Projekter\team2\Bo\Bo Opgave 8\1.6\bin\Debug\net8.0\1.6.pdb
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Projekter\team2\Bo\Bo Opgave 8\1.6\obj\Debug\net8.0\1.6.dll
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Projekter\team2\Bo\Bo Opgave 8\1.6\obj\Debug\net8.0\refint\1.6.dll
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Projekter\team2\Bo\Bo Opgave 8\1.6\obj\Debug\net8.0\1.6.pdb
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Projekter\team2\Bo\Bo Opgave 8\1.6\obj\Debug\net8.0\1.6.genruntimeconfig.cache
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Projekter\team2\Bo\Bo Opgave 8\1.6\obj\Debug\net8.0\ref\1.6.dll
