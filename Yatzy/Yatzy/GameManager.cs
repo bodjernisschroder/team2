@@ -15,7 +15,7 @@ namespace Yatzy
         public void Run()
         {
             Start();
-            for (i = 0; i < 15; i++)
+            for (int i = 0; i < 15; i++)
             {
                 for (int j = 0; j < players.Length; j++)
                 {
@@ -26,7 +26,7 @@ namespace Yatzy
             End();
         }
 
-        private void Start()
+        public void Start()
         {
             Console.Write("Time to play Yatzy - Choose Player Count (1-4): ");
 
@@ -45,33 +45,43 @@ namespace Yatzy
                 // Typen Player oprettes på plads i i array'et.
                 players[i] = new Player();
                 players[i].Create(i);
-                playerNames[i] = playerArray[i].Name;
+                playerNames[i] = players[i].Name;
             }
             scoreBoard.Create(playerCount, playerNames);
-            currentPlayer = players[0];
+            currentPlayer = players[index];
         }
 
         public void PlayRound()
         {
+            Console.WriteLine("Current player: " + currentPlayer.Name + "\n");
+            scoreBoard.Show(players.Length);
             currentPlayer.Rolls += 3;
+
             var result = Dice.Roll(currentPlayer.Rolls, currentPlayer.Name);
+            
             currentPlayer.Rolls = result.rollsLeft;
             int cat = result.cat;
             int sum = result.sum;
-            scoreBoard.SetScore(cat, score, currentPlayer.Number)
+
+            scoreBoard.SetScore(cat, sum, currentPlayer.Number);
             scoreBoard.Sum(currentPlayer.Number);
-            scoreBoard.Show();
+            scoreBoard.Show(players.Length);
         }
 
         public void NextPlayer()
         {
-            currentPlayer = players[index++];
+            Console.WriteLine("{0}'s round ended.\n Press Enter for the next player's turn.", currentPlayer.Name);
+            Console.ReadLine();
+            Console.Clear();
+            index++;
+            currentPlayer = players[index];
+            Console.WriteLine("It is now {0}'s turn.", currentPlayer.Name);
         }
 
         public void End()
         {
-            scoreBoard.SetBonus();
-            scoreBoard.SetYatzyBonus();
+            scoreBoard.SetBonus(players.Length);
+            scoreBoard.SetYatzyBonus(players.Length);
             Console.WriteLine("{ 0 } won with { 1 } points", currentPlayer.Name, currentPlayer.Points);
         }
     }

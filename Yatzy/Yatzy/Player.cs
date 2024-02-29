@@ -10,13 +10,8 @@ namespace Yatzy
             Console.Write("Name of player {0}: ", (i+1));
             Name = Console.ReadLine();
             Number = i + 1;
-            //ScoreBoard = new ScoreBoard();
         }
 
-        //public void ShowScoreBoard()
-        //{
-        //    scoreBoard.Show();
-        //}
         public string Name { get; set; }
         public int Number { get; set; }
         public int Rolls { get; set; }

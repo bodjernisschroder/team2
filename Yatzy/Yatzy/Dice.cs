@@ -7,28 +7,27 @@ namespace Yatzy
     internal class Dice
     {
         public static Random r = new Random();
+        string str = "ABCDEFGHIJKLMN";
 
         public static (int rollsLeft, int cat, int sum) Roll(int rollsLeft, string player)
         {
             int[] dice = new int[5];
 
-            Console.Clear();
+            //Console.Clear();
             Console.WriteLine();
 
             dice = RollAll(dice);
             rollsLeft--;
+            int counter = rollsLeft;
 
-            for (int i = 0; i < rollsLeft; i++)
+            for (int i = 0; i < counter; i++)
             {
-                Console.Clear();
-                Console.WriteLine("Current player: " + player + "\n");
-                
+                //Console.Clear();
 
-                DisplayRollsAndCombinations(dice);
                 Console.WriteLine("You have {0} roll(s) left.\n", rollsLeft);
-
+                DisplayRollsAndCombinations(dice);
                 // Player chooses what dice to keep inbetween the 5 dice.
-                Console.Write("Select dice to keep (1-5), Enter to roll all, or 0 to finish round: ");
+                Console.Write("Select dice to keep (1-5), Enter to roll all, or pick a combo from A-N: ");
                 string userInput = Console.ReadLine();
 
                 // If the player chooses no die, then all dice are rerolled.
@@ -36,11 +35,15 @@ namespace Yatzy
                 {
                     dice = RollAll(dice);
                 }
-                // flet tjek om brugeren afslutter runden med A-N ind
-                else if (int.Parse(userInput) == 0)
-                {
-                    break;
-                }
+                //else if (userInput.Contains())
+                //{
+                //    //string brugerinput = Console.ReadLine().ToUpper();
+
+                //    var comboResult = pickCombo(brugerinput, dice);
+
+                //    Console.WriteLine("Dit svar er gemt! Tryk enter for næste spillers tur.");
+                //    Console.ReadLine();
+                //}
                 else
                 {
                     // If the player chose any number of dice to keep, we go through each die.
@@ -54,25 +57,20 @@ namespace Yatzy
                         }
                     }
                 }
+                rollsLeft--;
             }
-            Console.Clear();
-            Console.WriteLine("Current player: " + player + "\n");
+            //Console.Clear();
+            //Console.WriteLine("Current player: " + player + "\n");
             DisplayRollsAndCombinations(dice);
-            Console.WriteLine("{0}'s round ended. \n\nPlease select A-N to score or scratch a combination.", player);
+            Console.WriteLine("Please select A-N to score or scratch a combination.");
             string brugerinput = Console.ReadLine().ToUpper();
 
             var comboResult = pickCombo(brugerinput, dice);
 
-            Console.WriteLine($"Category: {comboResult.comboCategory}, Sum: {comboResult.sum}"); //Hurtig test til at se om pickCombo virker.
-
-            Console.WriteLine("Dit svar er gemt! Tryk enter for næste spillers tur.")
+            Console.WriteLine("Dit svar er gemt! Tryk enter for næste spillers tur.");
             Console.ReadLine();
 
             return (rollsLeft, comboResult.comboCategory, comboResult.sum);
-
-            // Dette skal det ændres til, når vi har DisplayRolls...() til at returnere resultatet
-            //result = DisplayRollsAndCombinations(dice);
-            //return (rollsLeft, result);
         }
 
         // Ændret int[] position til Roll() og tager det nu som input i stedet
@@ -179,7 +177,7 @@ namespace Yatzy
             }
             return onesCount;
         }
-        private static int twos(int[] dice)
+        public static int twos(int[] dice)
         {
             int twosCount = 0;
             for (int i = 0; i < dice.Length; i++)
@@ -191,7 +189,7 @@ namespace Yatzy
             }
             return twosCount;
         }
-        private static int threes(int[] dice)
+        public static int threes(int[] dice)
         {
             int threesCount = 0;
             for (int i = 0; i < dice.Length; i++)
@@ -203,7 +201,7 @@ namespace Yatzy
             }
             return threesCount;
         }
-        private static int fours(int[] dice)
+        public static int fours(int[] dice)
         {
             int foursCount = 0;
             for (int i = 0; i < dice.Length; i++)
@@ -215,7 +213,7 @@ namespace Yatzy
             }
             return foursCount;
         }
-        private static int fives(int[] dice)
+        public static int fives(int[] dice)
         {
             int fivesCount = 0;
             for (int i = 0; i < dice.Length; i++)
@@ -227,7 +225,7 @@ namespace Yatzy
             }
             return fivesCount;
         }
-        private static int sixes(int[] dice)
+        public static int sixes(int[] dice)
         {
             int sixesCount = 0;
             for (int i = 0; i < dice.Length; i++)
@@ -240,7 +238,7 @@ namespace Yatzy
             return sixesCount;
         }
 
-        private static int onePair(int[] dice)
+        public static int onePair(int[] dice)
         {
             var counts = new int[6];
             foreach (var roll in dice)
@@ -260,7 +258,7 @@ namespace Yatzy
             return largestPairValue;
         }
 
-        private static int twoPairs(int[] dice)
+        public static int twoPairs(int[] dice)
         {
             var counts = new int[6];
             foreach (var roll in dice)
@@ -295,7 +293,7 @@ namespace Yatzy
             }
         }
 
-        private static int calcThreeOfAKind(int[] dice)
+        public static int calcThreeOfAKind(int[] dice)
         {
             int[] sortArray = (int[])dice.Clone();
             Array.Sort(sortArray);
@@ -309,7 +307,7 @@ namespace Yatzy
             }
             return 0;
         }
-        private static int calcFourOfAKind(int[] dice)
+        public static int calcFourOfAKind(int[] dice)
         {
             int[] sortArray = (int[])dice.Clone();
             Array.Sort(sortArray);
@@ -321,7 +319,7 @@ namespace Yatzy
             return 0;
         }
 
-        private static int smallStraight(int[] dice)
+        public static int smallStraight(int[] dice)
         {
             int[] sortArray = (int[])dice.Clone();
             Array.Sort(sortArray);
@@ -329,14 +327,14 @@ namespace Yatzy
             else return 0;
         }
 
-        private static int largeStraight(int[] dice)
+        public static int largeStraight(int[] dice)
         {
             int[] sortArray = (int[])dice.Clone();
             Array.Sort(sortArray);
             if (sortArray[4] == 6 && sortArray[3] == 5 && sortArray[2] == 4 && sortArray[1] == 3 && sortArray[0] == 2) return 20;
             else return 0;
         }
-        private static int chance(int[] dice)
+        public static int chance(int[] dice)
         {
             int chanceCount = 0;
 
@@ -347,7 +345,7 @@ namespace Yatzy
 
             return chanceCount;
         }
-        private static int yatzy(int[] dice)
+        public static int yatzy(int[] dice)
         {
             var counts = new int[6];
             foreach (var roll in dice)
