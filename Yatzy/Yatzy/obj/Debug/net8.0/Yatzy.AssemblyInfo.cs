@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Yatzy")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fa3bd7681ad6c82f74ad84dd2fabb4b5c90defdc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cc45ac44417ec2126e0a2141d6d225dc7d700d43")]
 [assembly: System.Reflection.AssemblyProductAttribute("Yatzy")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Yatzy")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
