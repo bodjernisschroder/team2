@@ -106,6 +106,11 @@ namespace Yatzy
             Console.WriteLine();
         }
 
+        private static int scoreOrScratch(string)
+        {
+
+        }
+
         private static int ones(int[] rolls)
         {
             int onesCount = 0;
