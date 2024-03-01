@@ -31,6 +31,7 @@ namespace Yatzy
                 Console.Write("Select dice to keep (1-5), Enter to roll all, or pick a combo from A-N: ");
                 string userInput = Console.ReadLine();
 
+                
                 // If the player chooses no die, then all dice are rerolled.
                 if (string.IsNullOrWhiteSpace(userInput))
                 {
@@ -40,10 +41,7 @@ namespace Yatzy
                 {
                     // Brugeren har valgt at score en kombination, afbryd rulleprocessen
                     comboResult = pickCombo(userInput.ToUpper(), dice);
-
                     break;
-                    // Returner resultatet her for at afslutte metoden tidligt
-                    // return (rollsLeft, comboResult.comboCategory, comboResult.sum);
                 }
                 else
                 {
@@ -58,9 +56,11 @@ namespace Yatzy
                         }
                     }
                 }
+
                 rollsLeft--;
             }
-
+            
+            //If the player hasn't chosen a combination when there are no more rolls, ask them to pick or scratch a combination.
             if (comboResult.comboCategory == 0)
             {
                 DisplayRollsAndCombinations(dice);
@@ -69,17 +69,6 @@ namespace Yatzy
 
                 comboResult = pickCombo(brugerinput, dice);
             }
-
-            //Console.Clear();
-            //Console.WriteLine("Current player: " + player + "\n");
-            //DisplayRollsAndCombinations(dice);
-            //Console.WriteLine("Please select A-N to score or scratch a combination.");
-            //string brugerinput = Console.ReadLine().ToUpper();
-
-            //var comboResult = pickCombo(brugerinput, dice);
-
-            //Console.WriteLine("Dit svar er gemt! Tryk enter for næste spillers tur.");
-            //Console.ReadLine();
 
             return (rollsLeft, comboResult.comboCategory, comboResult.sum);
         }
