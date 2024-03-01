@@ -70,7 +70,7 @@ namespace Yatzy
 
         public void NextPlayer()
         {
-            Console.WriteLine("{0}'s round ended.\n Press Enter for the next player's turn.", currentPlayer.Name);
+            Console.WriteLine("\nYour turn is over {0}, and your score is saved.\nPress Enter for the next player's turn.", currentPlayer.Name);
             Console.ReadLine();
             Console.Clear();
             index++;

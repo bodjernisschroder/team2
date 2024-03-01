@@ -37,7 +37,7 @@ namespace Yatzy
             grid[16, 0] = "Yatzy Bonus";
             grid[17, 0] = "Sum";
 
-            for (int i = 0; i = playerAmount; i++)
+            for (int i = 0; i < playerAmount; i++)
             {
                 grid[0, i + 1] = playerNames[i]; // Assign player names correctly
             }

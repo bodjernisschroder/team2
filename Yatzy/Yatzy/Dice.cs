@@ -7,7 +7,7 @@ namespace Yatzy
     internal class Dice
     {
         public static Random r = new Random();
-        string str = "ABCDEFGHIJKLMN";
+        
 
         public static (int rollsLeft, int cat, int sum) Roll(int rollsLeft, string player)
         {
@@ -18,14 +18,15 @@ namespace Yatzy
 
             dice = RollAll(dice);
             rollsLeft--;
+            (int comboCategory, int sum) comboResult = (0, 0);
             int counter = rollsLeft;
 
             for (int i = 0; i < counter; i++)
             {
-                //Console.Clear();
-
+                string str = "ABCDEFGHIJKLMN";
                 Console.WriteLine("You have {0} roll(s) left.\n", rollsLeft);
                 DisplayRollsAndCombinations(dice);
+
                 // Player chooses what dice to keep inbetween the 5 dice.
                 Console.Write("Select dice to keep (1-5), Enter to roll all, or pick a combo from A-N: ");
                 string userInput = Console.ReadLine();
@@ -35,15 +36,15 @@ namespace Yatzy
                 {
                     dice = RollAll(dice);
                 }
-                //else if (userInput.Contains())
-                //{
-                //    //string brugerinput = Console.ReadLine().ToUpper();
+                else if (str.Contains(userInput.ToUpper()))
+                {
+                    // Brugeren har valgt at score en kombination, afbryd rulleprocessen
+                    comboResult = pickCombo(userInput.ToUpper(), dice);
 
-                //    var comboResult = pickCombo(brugerinput, dice);
-
-                //    Console.WriteLine("Dit svar er gemt! Tryk enter for næste spillers tur.");
-                //    Console.ReadLine();
-                //}
+                    break;
+                    // Returner resultatet her for at afslutte metoden tidligt
+                    // return (rollsLeft, comboResult.comboCategory, comboResult.sum);
+                }
                 else
                 {
                     // If the player chose any number of dice to keep, we go through each die.
@@ -59,16 +60,26 @@ namespace Yatzy
                 }
                 rollsLeft--;
             }
+
+            if (comboResult.comboCategory == 0)
+            {
+                DisplayRollsAndCombinations(dice);
+                Console.WriteLine("Please select A-N to score or scratch a combination.");
+                string brugerinput = Console.ReadLine().ToUpper();
+
+                comboResult = pickCombo(brugerinput, dice);
+            }
+
             //Console.Clear();
             //Console.WriteLine("Current player: " + player + "\n");
-            DisplayRollsAndCombinations(dice);
-            Console.WriteLine("Please select A-N to score or scratch a combination.");
-            string brugerinput = Console.ReadLine().ToUpper();
+            //DisplayRollsAndCombinations(dice);
+            //Console.WriteLine("Please select A-N to score or scratch a combination.");
+            //string brugerinput = Console.ReadLine().ToUpper();
 
-            var comboResult = pickCombo(brugerinput, dice);
+            //var comboResult = pickCombo(brugerinput, dice);
 
-            Console.WriteLine("Dit svar er gemt! Tryk enter for næste spillers tur.");
-            Console.ReadLine();
+            //Console.WriteLine("Dit svar er gemt! Tryk enter for næste spillers tur.");
+            //Console.ReadLine();
 
             return (rollsLeft, comboResult.comboCategory, comboResult.sum);
         }
