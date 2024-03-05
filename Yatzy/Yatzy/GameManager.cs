@@ -49,8 +49,8 @@ namespace Yatzy
 
         public void PlayRound()
         {
-            Console.WriteLine("Current player: " + currentPlayer.Name + "\n");
             scoreBoard.Show(players.Length);
+            Console.WriteLine("\nCurrent player: " + currentPlayer.Name + "\n");
             currentPlayer.Rolls += 3;
 
             var result = Dice.Roll(currentPlayer.Rolls, currentPlayer.Name, currentPlayer.EmptyCats);

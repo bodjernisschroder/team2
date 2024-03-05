@@ -12,7 +12,6 @@ namespace Yatzy
         public static (int rollsLeft, int cat, int sum) Roll(int rollsLeft, string player, int[] emptyCats)
         {
             int[] dice = new int[5];
-            Console.WriteLine();
 
             dice = RollAll(dice);
             rollsLeft--;
