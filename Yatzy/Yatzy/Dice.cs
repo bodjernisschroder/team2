@@ -12,14 +12,6 @@ namespace Yatzy
         public static (int rollsLeft, int cat, int sum) Roll(int rollsLeft, string player, int[] emptyCats)
         {
             int[] dice = new int[5];
-
-            //Console.Clear();
-            Console.WriteLine();
-            for (int i = 0; i < emptyCats.Length; i++)
-            {
-                Console.Write(emptyCats[i]);
-            }
-
             Console.WriteLine();
 
             dice = RollAll(dice);
@@ -37,7 +29,6 @@ namespace Yatzy
                 Console.Write("Select dice to keep (1-5), Enter to roll all, or pick a combo from A-N: ");
                 string userInput = Console.ReadLine();
 
-                
                 // If the player chooses no die, then all dice are rerolled.
                 if (string.IsNullOrWhiteSpace(userInput))
                 {
@@ -52,7 +43,7 @@ namespace Yatzy
                         if (emptyCats.Contains(comboResult.comboCategory)) break;
                         else
                         {
-                            Console.WriteLine("This field is not empty. Select another combo.");
+                            Console.WriteLine("You have already played this combo. Select another combo.");
                             Console.Write("Pick a combo from A-N: ");
                             userInput = Console.ReadLine();
                         }
@@ -62,7 +53,6 @@ namespace Yatzy
                 else
                 {
                     // If the player chose any number of dice to keep, we go through each die.
-
                     // If the die does not exist in the user selection of dice to keep, the die will be rerolled.
                     for (int j = 0; j < dice.Length; j++)
                     {
@@ -72,7 +62,15 @@ namespace Yatzy
                         }
                     }
                 }
-
+                // Clear terningekast
+                int visibleLines = Console.WindowHeight;
+                for (int j = 20; j < visibleLines; j++)
+                {
+                    Console.SetCursorPosition(0, j);
+                    Console.Write(new string(' ', Console.WindowWidth));
+                    Console.SetCursorPosition(0, j);
+                }
+                Console.SetCursorPosition(0, 20);
                 rollsLeft--;
             }
             
@@ -86,7 +84,7 @@ namespace Yatzy
                     string brugerinput = Console.ReadLine().ToUpper();
                     comboResult = pickCombo(brugerinput.ToUpper(), dice);
                     if (emptyCats.Contains(comboResult.comboCategory)) break;
-                    else Console.WriteLine("This field is not empty. Select another combo.");
+                    else Console.WriteLine("You have already played this combo. Select another combo.");
                 }
             }
 
@@ -108,9 +106,6 @@ namespace Yatzy
         {
             return r.Next(1, 7);
         }
-
-        // Lav metode, der holder øje med om brugeren inputter A-N - afslut runde og returnér resultat og rolls
-        // Og hvor den stopper op og venter på brugerens input før den går videre til næste bruger
 
         public static void DisplayRollsAndCombinations(int[] dice)
         {

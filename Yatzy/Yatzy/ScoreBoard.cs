@@ -12,11 +12,9 @@ namespace Yatzy
     {
         object?[,] grid;
 
-        public void Create(int playerAmount, string[] playerNames)
+        public void Create(string[] players)
         {
-            //try
-            //{
-            grid = new object[18, playerAmount + 1];
+            grid = new object[18, players.Length + 1];
 
             grid[0, 0] = "";
             grid[1, 0] = "Ones";
@@ -34,17 +32,20 @@ namespace Yatzy
             grid[13, 0] = "Chance";
             grid[14, 0] = "Yatzy";
             grid[15, 0] = "Bonus";
-            grid[16, 0] = "Yatzy Bonus";
-            grid[17, 0] = "Sum";
+            grid[16, 0] = "Sum";
 
-            for (int i = 0; i < playerAmount; i++)
+            for (int i = 0; i < players.Length; i++)
             {
-                grid[0, i + 1] = playerNames[i]; // Assign player names correctly
+                grid[0, i+1] = players[i];
             }
-            //catch (FormatException e)
-            //{
-            //    Console.WriteLine(e.Message);
-            //}
+
+            for (int i = 1; i < 17; i++)
+            {
+                for (int j = 1; j <= players.Length; j++)
+                {
+                    grid[i, j] = "";
+                }
+            }
         }
 
         public void SetScore(int cat, int score, int playerNumber)
@@ -54,47 +55,51 @@ namespace Yatzy
 
         public void SetBonus(int playerAmount)
         {
-            for (int i = 1; i < playerAmount; i++)
+            for (int i = 1; i <= playerAmount; i++)
             {
-                if (Convert.ToInt32(grid[1,i]) + Convert.ToInt32(grid[2,i]) + Convert.ToInt32(grid[3,i]) + Convert.ToInt32(grid[4,i]) + Convert.ToInt32(grid[5,i]) + Convert.ToInt32(grid[6,i]) >= 63)
-                    grid[15,i] = 50;
+                int topSum = Convert.ToInt32(grid[1, i]) + Convert.ToInt32(grid[2, i]) + Convert.ToInt32(grid[3, i]) + Convert.ToInt32(grid[4, i]) + Convert.ToInt32(grid[5, i]) + Convert.ToInt32(grid[6, i]);
+                if (topSum >= 93)
+                    grid[15,i] = 100;
+                else if (topSum >= 63)
+                    grid[15, i] = 50;
                 else
                     grid[15,i] = 0;
             }
         }
 
-        public void SetYatzyBonus(int playerAmount)
+        public void Sum(int playerNumber, int playerPoints)
         {
-            for (int i = 1; i < playerAmount; i++)
-            {
-                if (Convert.ToInt32(grid[15,i]) != 0)
-                    grid[15,i] = Convert.ToInt32(grid[15,i]) + 100;
-            }
-        }
-
-        public void Sum(int playerNumber)
-        {
-            int sum = 0;
-            for (int i = 2; i < 17; i++)
-            {
-                sum += Convert.ToInt32(grid[i,playerNumber]);
-            }
-            grid[17,playerNumber] = sum;
+            grid[16, playerNumber] = playerPoints;
         }
 
         public void Show(int playerAmount)
         {
 
-            for (int i = 0; i < 18; i++) //Rækker
+            for (int i = 0; i < 17; i++) //Rækker
             {
-                for (int j = 0; j < playerAmount; j++) //Kolonner
+                for (int j = 0; j <= playerAmount; j++) //Kolonner
                 {
-                    Console.Write(grid[i,j] + "\t");
+                    if (j == 0)
+                        Console.Write(PadObject(grid[i, j], 18));
+                    else
+                        Console.Write(PadObject(grid[i, j], 8));
                 }
-                //if (i == 0 || i == 6 || i == 14 || i == 16)
-                //    Console.WriteLine("----------------------------------------------------------------------------------------");
-                //else
                 Console.WriteLine();
+            }
+        }
+
+
+        static string PadObject(object obj, int totalWidth)
+        {
+            string objString = obj.ToString();
+            int padding = totalWidth - objString.Length; 
+            if (padding > 0)
+            {
+                return objString + new string(' ', padding);
+            }
+            else
+            {
+                return objString;
             }
         }
     }
