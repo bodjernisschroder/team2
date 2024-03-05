@@ -57,12 +57,13 @@ namespace Yatzy
             scoreBoard.Show(players.Length);
             currentPlayer.Rolls += 3;
 
-            var result = Dice.Roll(currentPlayer.Rolls, currentPlayer.Name);
+            var result = Dice.Roll(currentPlayer.Rolls, currentPlayer.Name, currentPlayer.EmptyCats);
             
             currentPlayer.Rolls = result.rollsLeft;
             int cat = result.cat;
             int sum = result.sum;
-
+            currentPlayer.EmptyCats = currentPlayer.UpdateEmpty(cat);
+            currentPlayer.Points += sum;
             scoreBoard.SetScore(cat, sum, currentPlayer.Number);
             scoreBoard.Sum(currentPlayer.Number);
             scoreBoard.Show(players.Length);
@@ -70,10 +71,11 @@ namespace Yatzy
 
         public void NextPlayer()
         {
-            Console.WriteLine("\nYour turn is over {0}, and your score is saved.\nPress Enter for the next player's turn.", currentPlayer.Name);
+            Console.WriteLine("\n{0}'s turn is over, and your score is saved.\nPress Enter for the next player's turn.", currentPlayer.Name);
             Console.ReadLine();
             Console.Clear();
-            index++;
+            if (index == players.Length-1) index = 0;
+            else index++;
             currentPlayer = players[index];
             Console.WriteLine("It is now {0}'s turn.", currentPlayer.Name);
         }

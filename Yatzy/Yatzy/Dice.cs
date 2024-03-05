@@ -7,13 +7,19 @@ namespace Yatzy
     internal class Dice
     {
         public static Random r = new Random();
-        
 
-        public static (int rollsLeft, int cat, int sum) Roll(int rollsLeft, string player)
+
+        public static (int rollsLeft, int cat, int sum) Roll(int rollsLeft, string player, int[] emptyCats)
         {
             int[] dice = new int[5];
 
             //Console.Clear();
+            Console.WriteLine();
+            for (int i = 0; i < emptyCats.Length; i++)
+            {
+                Console.Write(emptyCats[i]);
+            }
+
             Console.WriteLine();
 
             dice = RollAll(dice);
@@ -40,7 +46,17 @@ namespace Yatzy
                 else if (str.Contains(userInput.ToUpper()))
                 {
                     // Brugeren har valgt at score en kombination, afbryd rulleprocessen
-                    comboResult = pickCombo(userInput.ToUpper(), dice);
+                    while (true)
+                    {
+                        comboResult = pickCombo(userInput.ToUpper(), dice);
+                        if (emptyCats.Contains(comboResult.comboCategory)) break;
+                        else
+                        {
+                            Console.WriteLine("This field is not empty. Select another combo.");
+                            Console.Write("Pick a combo from A-N: ");
+                            userInput = Console.ReadLine();
+                        }
+                    }
                     break;
                 }
                 else
@@ -63,11 +79,15 @@ namespace Yatzy
             //If the player hasn't chosen a combination when there are no more rolls, ask them to pick or scratch a combination.
             if (comboResult.comboCategory == 0)
             {
-                DisplayRollsAndCombinations(dice);
-                Console.WriteLine("Please select A-N to score or scratch a combination.");
-                string brugerinput = Console.ReadLine().ToUpper();
-
-                comboResult = pickCombo(brugerinput, dice);
+                while (true)
+                {
+                    DisplayRollsAndCombinations(dice);
+                    Console.WriteLine("Please select A-N to score or scratch a combination.");
+                    string brugerinput = Console.ReadLine().ToUpper();
+                    comboResult = pickCombo(brugerinput.ToUpper(), dice);
+                    if (emptyCats.Contains(comboResult.comboCategory)) break;
+                    else Console.WriteLine("This field is not empty. Select another combo.");
+                }
             }
 
             return (rollsLeft, comboResult.comboCategory, comboResult.sum);

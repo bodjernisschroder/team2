@@ -77,7 +77,7 @@ namespace Yatzy
             int sum = 0;
             for (int i = 2; i < 17; i++)
             {
-                sum += Convert.ToInt32(grid[i,playerNumber + 1]);
+                sum += Convert.ToInt32(grid[i,playerNumber]);
             }
             grid[17,playerNumber] = sum;
         }
