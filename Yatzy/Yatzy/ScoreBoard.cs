@@ -59,7 +59,9 @@ namespace Yatzy
             {
                 int topSum = Convert.ToInt32(grid[1, i]) + Convert.ToInt32(grid[2, i]) + Convert.ToInt32(grid[3, i]) + Convert.ToInt32(grid[4, i]) + Convert.ToInt32(grid[5, i]) + Convert.ToInt32(grid[6, i]);
                 if (topSum >= 93)
-                    grid[15,i] = 100;
+                {
+                    grid[15, i] = 100;
+                }
                 else if (topSum >= 63)
                     grid[15, i] = 50;
                 else
