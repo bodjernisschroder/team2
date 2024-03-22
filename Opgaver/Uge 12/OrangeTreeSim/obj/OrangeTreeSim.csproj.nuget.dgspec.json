@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\Projekter\\team2\\Opgaver\\OrangeTreeSim\\OrangeTreeSim.csproj": {}
+    "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Opgaver\\OrangeTreeSim\\OrangeTreeSim.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\Projekter\\team2\\Opgaver\\OrangeTreeSim\\OrangeTreeSim.csproj": {
+    "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Opgaver\\OrangeTreeSim\\OrangeTreeSim.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\Projekter\\team2\\Opgaver\\OrangeTreeSim\\OrangeTreeSim.csproj",
+        "projectUniqueName": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Opgaver\\OrangeTreeSim\\OrangeTreeSim.csproj",
         "projectName": "OrangeTreeSim",
-        "projectPath": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\Projekter\\team2\\Opgaver\\OrangeTreeSim\\OrangeTreeSim.csproj",
-        "packagesPath": "C:\\Users\\bosch\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\Projekter\\team2\\Opgaver\\OrangeTreeSim\\obj\\",
+        "projectPath": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Opgaver\\OrangeTreeSim\\OrangeTreeSim.csproj",
+        "packagesPath": "C:\\Users\\abfol\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Opgaver\\OrangeTreeSim\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\bosch\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\abfol\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

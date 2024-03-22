@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OrangeTreeTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b914e623d67af63189e4dd7e438a6507bc1311ab")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d2d385debe7e60974dba6bde53481f806c3bdbaf")]
 [assembly: System.Reflection.AssemblyProductAttribute("OrangeTreeTest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OrangeTreeTest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
