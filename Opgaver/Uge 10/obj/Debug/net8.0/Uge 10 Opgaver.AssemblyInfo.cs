@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Uge 10 Opgaver")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+08575151b6ec774733fa1909b8ebc159253c2be7")]
 [assembly: System.Reflection.AssemblyProductAttribute("Uge 10 Opgaver")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Uge 10 Opgaver")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
