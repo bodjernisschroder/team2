@@ -14,9 +14,9 @@ namespace Genspil
         public int MinPlayers { get; set; }
         public int MaxPlayers { get; set; }
         public string Category { get; set; }
-        public int Condition { get; set; }
+        public string Condition { get; set; }
 
-        public Game(string name, decimal price, string language, int minplayers, int maxplayers, string category, int condition) 
+        public Game(string name, decimal price, string language, int minplayers, int maxplayers, string category, string condition) 
         {
             Name = name;
             Price = price;
