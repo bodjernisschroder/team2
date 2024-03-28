@@ -160,8 +160,8 @@ namespace Genspil
                     Console.WriteLine("╔═══════════════════════════════╗");
                     Console.WriteLine("║ Game Addition Form (Step 4/7) ║");
                     Console.WriteLine("╚═══════════════════════════════╝");
-
-                    Console.Write("Language: ");
+                    Console.WriteLine("Enter the language of the game: ");
+                    Console.Write("\nLanguage: ");
                     string language = Console.ReadLine();
                     Console.Clear();
 
@@ -229,20 +229,19 @@ namespace Genspil
                     Console.WriteLine("╔═══════════════════════════════╗");
                     Console.WriteLine("║ Game Addition Form (Step 6/7) ║");
                     Console.WriteLine("╚═══════════════════════════════╝");
-
-                    Console.Write("Min players: ");
+                    Console.WriteLine("Enter the minimum amount of players needed: ");
+                    Console.Write("\nMin players: ");
                     int minPlayers = int.Parse(Console.ReadLine());
                     Console.Clear();
 
                     Console.WriteLine("╔═══════════════════════════════╗");
                     Console.WriteLine("║ Game Addition Form (Step 7/7) ║");
                     Console.WriteLine("╚═══════════════════════════════╝");
-
-                    Console.Write("Max players: ");
+                    Console.WriteLine("Enter the minimum amount of players needed: ");
+                    Console.Write("\nMax players: ");
                     int maxPlayers = int.Parse(Console.ReadLine());
                     Console.Clear();
 
-                    //Confirmation box
                     int boxWidth = 50;
                     Console.WriteLine("\n╔" + new string('═', boxWidth) + "╗");
                     Console.WriteLine($"║ Game successfully added to the inventory!".PadRight(boxWidth) + " ║");
