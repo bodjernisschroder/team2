@@ -21,7 +21,7 @@ namespace Genspil
         // eller alternativt i en manager, som så kan indeholde de metoder,
         // der skal kaldes, når vi indtaster forskellige tal
         Stock stock = new Stock();
-
+        Search search = new Search();
 
         public Menu(string title, int size)
         {
@@ -263,6 +263,7 @@ namespace Genspil
                     break;
 
                 case 2:
+                    search.StartSearch();
                     //Søg efter et spil på lageret ved navn, kategori, stand, pris, eller mængde af spillere
                     break;
                 case 3:
