@@ -16,6 +16,16 @@ namespace Genspil
         public string Category { get; set; }
         public string Condition { get; set; }
 
+        public Game()
+        {
+            Name = ConsoleManager.AddName();
+            Condition = ConsoleManager.AddCondition();
+            Price = ConsoleManager.AddPrice(Condition);
+            Language = ConsoleManager.AddLanguage();
+            Category = ConsoleManager.AddCategory();
+            MinPlayers = ConsoleManager.AddMinPlayers();
+            MaxPlayers = ConsoleManager.AddMaxPlayers();
+        }
         public Game(string name, decimal price, string language, int minplayers, int maxplayers, string category, string condition) 
         {
             Name = name;
@@ -26,6 +36,5 @@ namespace Genspil
             Category = category;
             Condition = condition;
         }
-
     }
 }

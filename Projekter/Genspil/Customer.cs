@@ -1,25 +1,55 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Genspil
 {
-    internal class Customer
+    public class Customer
     {
-        public string Navn { get; set; }
+        public string Name { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
 
-        public Customer(string navn, string email, string phoneNumber)
+        public Customer()
         {
-            Navn = navn;
+            Name = ConsoleManager.AddCustomerName();
+            Email = ConsoleManager.AddCustomerEmail();
+            PhoneNumber = ConsoleManager.AddCustomerPhoneNumber();
+        }
+
+        public Customer(string name, string email, string phoneNumber)
+        {
+            Name = name;
             Email = email;
             PhoneNumber = phoneNumber;
         }
     }
 }
+
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Runtime.InteropServices;
+//using System.Text;
+//using System.Threading.Tasks;
+
+//namespace Genspil
+//{
+//    public class Customer
+//    {
+//        public string Name { get; set; }
+//        public string Email { get; set; }
+//        public string PhoneNumber { get; set; }
+
+//        public Customer(string name, string email, string phoneNumber)
+//        {
+//            Name = name;
+//            Email = email;
+//            PhoneNumber = phoneNumber;
+//        }
 
 //class Program
 //{

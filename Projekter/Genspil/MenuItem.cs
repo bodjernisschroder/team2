@@ -1,7 +1,7 @@
 ﻿using System;
 public class MenuItem
 {
-    public string Title;
+    public string Title { get;  }
 
     public MenuItem(string title)
     {
