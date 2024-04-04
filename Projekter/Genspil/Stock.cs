@@ -66,6 +66,16 @@ namespace Genspil
             list.Remove(list[gameID]);
         }
 
+        public void MoveGameToReservations(int gameID)
+        {
+            list.Remove(list[gameID]);
+        }
+
+        public void MoveGameFromReservations(Game game)
+        {
+            list.Add(game);
+        }
+
         public void Show()
         {
             for (int i = 0; i < list.Count; i++)

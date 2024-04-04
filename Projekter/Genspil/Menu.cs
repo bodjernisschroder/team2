@@ -50,28 +50,34 @@ namespace Genspil
                     ConsoleManager.Exit();
                     return false;
                 case 1:
-                    stock.AddGame();
-                    break;
-                case 2:
-                    Search.PerformSearch(stock);
-                    break;
-                case 3:
                     stock.Show();
                     break;
-                case 4:
-                    reservations.Add(stock.list);
+                case 2:
+                    stock.AddGame();
                     break;
-                case 5:
+                case 3:
                     stock.RemoveGame();
                     break;
+                case 4:
+                    reservations.Show();
+                    break;
+                case 5:
+                    int gameID = reservations.AddReservation(stock.list);
+                    stock.MoveGameToReservations(gameID);
+                    break;
                 case 6:
-                    stock.SortByName();
+                    KeyValuePair<Customer,Game> reservation = reservations.MoveGameToStock();
+                    stock.MoveGameFromReservations(reservation.Value);
+                    reservations.RemoveReservation(reservation);
                     break;
                 case 7:
-                    stock.SortByCategory();
+                    stock.SortByName();
                     break;
                 case 8:
-                    reservations.Show();
+                    stock.SortByCategory();
+                    break;
+                case 9:
+                    Search.PerformSearch(stock);
                     break;
                 default:
                     Console.WriteLine("Invalid input");
@@ -82,7 +88,6 @@ namespace Genspil
         }
     }
 }
-
 //using Genspil;
 //using System;
 //using System.ComponentModel.Design;

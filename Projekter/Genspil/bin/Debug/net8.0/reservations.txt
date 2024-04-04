@@ -1,1 +1,3 @@
 Anna;anna@gmail.com;30663014:The Mind;55,00;Danish;2;8;Card;Card
+Peter;peter@gmail.com;30662814:Catan;320,00;Danish;2;4;Strategy;Strategy
+Peter;peter@gmail.com;30662814:Ludo;0;Danish;2;4;Strategy;Needs repairing

@@ -53,25 +53,32 @@ namespace Genspil
             }
         }
 
-        public void Add(List<Game> stock)
+        public int AddReservation(List<Game> stock)
         {
             Customer customer = new Customer();
             int gameID = ConsoleManager.ReserveGame(stock);
             KeyValuePair<Customer,Game> reservation = new KeyValuePair<Customer, Game>(customer, stock[gameID]);
             list.Add(reservation);
             ConsoleManager.ReservationAdded(customer, stock[gameID]);
+            return gameID;
         }
 
-        public void Remove(Customer customer, Game game)
+        public void RemoveReservation(KeyValuePair<Customer, Game> reservation)
         {
-            if (list.Remove(new KeyValuePair<Customer, Game>(customer, game)))
+            if (list.Remove(reservation))
             {
-                ConsoleManager.ReservationRemoved(customer, game);
+                ConsoleManager.ReservationRemoved(reservation.Key, reservation.Value);
             }
             else
             {
                 Console.WriteLine("Reservation failed to be removed");
             }
+        }
+
+        public KeyValuePair<Customer,Game> MoveGameToStock()
+        {
+            int reservationID = ConsoleManager.RemoveReservedGame(list);
+            return list[reservationID];
         }
 
         public void Show()

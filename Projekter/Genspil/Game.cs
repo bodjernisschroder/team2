@@ -18,13 +18,13 @@ namespace Genspil
 
         public Game()
         {
-            Name = ConsoleManager.AddName();
-            Condition = ConsoleManager.AddCondition();
-            Price = ConsoleManager.AddPrice(Condition);
-            Language = ConsoleManager.AddLanguage();
-            Category = ConsoleManager.AddCategory();
-            MinPlayers = ConsoleManager.AddMinPlayers();
-            MaxPlayers = ConsoleManager.AddMaxPlayers();
+            Name = ConsoleManager.AddGameName();
+            Condition = ConsoleManager.AddGameCondition();
+            Price = ConsoleManager.AddGamePrice(Condition);
+            Language = ConsoleManager.AddGameLanguage();
+            Category = ConsoleManager.AddGameCategory();
+            MinPlayers = ConsoleManager.AddGameMinPlayers();
+            MaxPlayers = ConsoleManager.AddGameMaxPlayers();
         }
         public Game(string name, decimal price, string language, int minplayers, int maxplayers, string category, string condition) 
         {

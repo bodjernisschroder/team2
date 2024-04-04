@@ -1,3 +1,1 @@
-Catan;320,00;Danish;2;4;Strategy;Good
 The Mind;55,00;Danish;2;8;Card;Ok
-Ludo;0;Danish;2;4;Strategy;Needs repairing

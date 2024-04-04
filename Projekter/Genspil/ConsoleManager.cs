@@ -62,6 +62,17 @@ namespace Genspil
             ShowGame(game);
         }
 
+        public static void ShowGameID(List<Game> stock)
+        {
+            for (int i = 0; i < stock.Count; i++)
+            {
+                int boxWidth = 50;
+                Console.WriteLine("\n╔" + new string('═', boxWidth) + "╗");
+                Console.WriteLine($"║ Game ID: {i}".PadRight(boxWidth) + " ║");
+                ShowGame(stock[i]);
+            }
+        }
+
         public static void ShowReservation(Customer customer, Game game)
         {
             int boxWidth = 50;
@@ -83,9 +94,20 @@ namespace Genspil
             ShowReservation(customer, game);
         }
 
+        public static void ShowReservationID(List<KeyValuePair<Customer,Game>> reservations)
+        {
+            for (int i = 0; i < reservations.Count; i++)
+            {
+                int boxWidth = 50;
+                Console.WriteLine("\n╔" + new string('═', boxWidth) + "╗");
+                Console.WriteLine($"║ Reservation ID: {i}".PadRight(boxWidth) + " ║");
+                ShowReservation(reservations[i].Key, reservations[i].Value);
+            }
+        }
+
         /////////////////////////////////////////////////////////////////////////////
         // Related to Game
-        public static string AddName()
+        public static string AddGameName()
         {
             Console.Clear();
             Console.WriteLine("╔═══════════════════════════════╗");
@@ -98,7 +120,7 @@ namespace Genspil
             return name;
         }
 
-        public static string AddCondition()
+        public static string AddGameCondition()
         {
             Console.Clear();
             Console.WriteLine("╔═══════════════════════════════╗");
@@ -157,7 +179,7 @@ namespace Genspil
             return condition;
         }
 
-        public static decimal AddPrice(string condition)
+        public static decimal AddGamePrice(string condition)
         {
             Console.Clear();
             Console.WriteLine("╔═══════════════════════════════╗");
@@ -177,7 +199,7 @@ namespace Genspil
             return price;
         }
 
-        public static string AddLanguage()
+        public static string AddGameLanguage()
         {
             Console.Clear();
             Console.WriteLine("╔═══════════════════════════════╗");
@@ -189,7 +211,7 @@ namespace Genspil
             return language;
         }
 
-        public static string AddCategory()
+        public static string AddGameCategory()
         {
             Console.Clear();
             Console.WriteLine("╔═══════════════════════════════╗");
@@ -252,7 +274,7 @@ namespace Genspil
             return category;
         }
 
-        public static int AddMinPlayers()
+        public static int AddGameMinPlayers()
         {
             Console.Clear();
             Console.WriteLine("╔═══════════════════════════════╗");
@@ -264,7 +286,7 @@ namespace Genspil
             return minPlayers;
         }
 
-        public static int AddMaxPlayers()
+        public static int AddGameMaxPlayers()
         {
             Console.Clear();
             Console.WriteLine("╔═══════════════════════════════╗");
@@ -288,6 +310,15 @@ namespace Genspil
             ShowGame(game);
         }
 
+        public static int RemoveGame(List<Game> stock)
+        {
+            Console.Clear();
+            ShowGameID(stock);
+            Console.Write("Enter the ID of the game you want to remove from stock: ");
+            int gameToRemove = int.Parse(Console.ReadLine());
+            return gameToRemove;
+        }
+
         public static void GameRemoved(Game game)
         {
             Console.Clear();
@@ -298,42 +329,8 @@ namespace Genspil
             ShowGame(game);
         }
 
-        public static int RemoveGame(List<Game> stock)
-        {
-            for (int i = 0; i < stock.Count; i++)
-            {
-                int boxWidth = 50;
-                Console.WriteLine("\n╔" + new string('═', boxWidth) + "╗");
-                Console.WriteLine($"║ Game ID: {i}".PadRight(boxWidth) + " ║");
-                ShowGame(stock[i]);
-            }
-            Console.Write("Enter the ID of the game you want to remove from stock: ");
-            int gameToRemove = int.Parse(Console.ReadLine());
-            return gameToRemove;
-        }
-
         /////////////////////////////////////////////////////////////////////////////
         // Related to Reservations
-        public static void ReservationAdded(Customer customer, Game game)
-        {
-            Console.Clear();
-            int boxWidth = 50;
-            Console.WriteLine("\n╔" + new string('═', boxWidth) + "╗");
-            Console.WriteLine($"║ Reservation successfully added!".PadRight(boxWidth) + " ║");
-            Console.WriteLine($"║" + new string('═', boxWidth) + "║");
-            ShowReservation(customer, game);
-        }
-
-        public static void ReservationRemoved(Customer customer, Game game)
-        {
-            Console.Clear();
-            int boxWidth = 50;
-            Console.WriteLine("\n╔" + new string('═', boxWidth) + "╗");
-            Console.WriteLine($"║ Reservation successfully removed!".PadRight(boxWidth) + " ║");
-            ShowReservation(customer, game);
-            ShowGame(game);
-        }
-
         public static string AddCustomerName()
         {
             Console.Clear();
@@ -376,17 +373,38 @@ namespace Genspil
         public static int ReserveGame(List<Game> stock)
         {
             Console.Clear();
-            for (int i = 0; i < stock.Count; i++)
-            {
-                int boxWidth = 50;
-                Console.WriteLine("\n╔" + new string('═', boxWidth) + "╗");
-                Console.WriteLine($"║ Game ID: {i}".PadRight(boxWidth) + " ║");
-                ShowGame(stock[i]);
-            }
-
+            ShowGameID(stock);
             Console.Write("Enter the ID of the game you want to reserve: ");
             int gameToReserve = int.Parse(Console.ReadLine());
             return gameToReserve;
+        }
+
+        public static void ReservationAdded(Customer customer, Game game)
+        {
+            Console.Clear();
+            int boxWidth = 50;
+            Console.WriteLine("\n╔" + new string('═', boxWidth) + "╗");
+            Console.WriteLine($"║ Reservation successfully added!".PadRight(boxWidth) + " ║");
+            Console.WriteLine($"║" + new string('═', boxWidth) + "║");
+            ShowReservation(customer, game);
+        }
+
+        public static int RemoveReservedGame(List<KeyValuePair<Customer, Game>> reservations)
+        {
+            Console.Clear();
+            ShowReservationID(reservations);
+            Console.Write("Enter the ID of the reservation you want to remove: ");
+            int reservationID = int.Parse(Console.ReadLine());
+            return reservationID;
+        }
+
+        public static void ReservationRemoved(Customer customer, Game game)
+        {
+            Console.Clear();
+            int boxWidth = 50;
+            Console.WriteLine("\n╔" + new string('═', boxWidth) + "╗");
+            Console.WriteLine($"║ Reservation successfully removed!".PadRight(boxWidth) + " ║");
+            ShowReservation(customer, game);
         }
 
         /////////////////////////////////////////////////////////////////////////////
