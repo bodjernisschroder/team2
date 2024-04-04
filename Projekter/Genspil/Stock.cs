@@ -80,7 +80,7 @@ namespace Genspil
         {
             for (int i = 0; i < list.Count; i++)
             {
-                ConsoleManager.ShowGameOnly(list[i]);
+                ConsoleManager.ShowGameOnly(list[i], i);
             }
         }
 

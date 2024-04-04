@@ -9,12 +9,12 @@ using System.Collections.Generic;
 
 namespace Genspil
 {
-
     public class Menu
     {
         public string title;
         private MenuItem[] menuItems;
         private int itemCount = 0;
+        int gameID;
 
         Stock stock = new Stock("stock.txt");
         Reservations reservations = new Reservations("reservations.txt");
@@ -51,32 +51,41 @@ namespace Genspil
                     return false;
                 case 1:
                     stock.Show();
+
                     break;
                 case 2:
                     stock.AddGame();
                     break;
                 case 3:
-                    stock.RemoveGame();
+                    gameID = ConsoleManager.SelectGameToModify(stock.list);
+                    ConsoleManager.ModifyGameFromStock(stock.list[gameID]);
                     break;
                 case 4:
-                    reservations.Show();
+                    stock.RemoveGame();
                     break;
                 case 5:
-                    int gameID = reservations.AddReservation(stock.list);
-                    stock.MoveGameToReservations(gameID);
+                    reservations.Show();
                     break;
                 case 6:
-                    KeyValuePair<Customer,Game> reservation = reservations.MoveGameToStock();
+                    gameID = reservations.AddReservation(stock.list);
+                    stock.MoveGameToReservations(gameID);
+                    break;
+                case 7:
+                    gameID = ConsoleManager.SelectReservationToModify(reservations.list);
+                    ConsoleManager.ModifyReservation(reservations.list[gameID]);
+                    break;
+                case 8:
+                    KeyValuePair<Customer, Game> reservation = reservations.MoveGameToStock();
                     stock.MoveGameFromReservations(reservation.Value);
                     reservations.RemoveReservation(reservation);
                     break;
-                case 7:
+                case 9:
                     stock.SortByName();
                     break;
-                case 8:
+                case 10:
                     stock.SortByCategory();
                     break;
-                case 9:
+                case 11:
                     Search.PerformSearch(stock);
                     break;
                 default:

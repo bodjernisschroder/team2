@@ -1,3 +1,4 @@
+using Genspil;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -47,11 +48,12 @@ namespace Genspil
                     customerDetails = pair[0].Split(";").ToList();
                     gameDetails = pair[1].Split(";").ToList();
                     Customer customer = new Customer(customerDetails[0], customerDetails[1], customerDetails[2]);
-                    Game game = new Game(gameDetails[0], decimal.Parse(gameDetails[1]), gameDetails[2], int.Parse(gameDetails[3]), int.Parse(gameDetails[4]), gameDetails[5], gameDetails[5]);
+                    Game game = new Game(gameDetails[0], decimal.Parse(gameDetails[1]), gameDetails[2], int.Parse(gameDetails[3]), int.Parse(gameDetails[4]), gameDetails[5], gameDetails[6]);
                     list.Add(new KeyValuePair<Customer, Game>(customer, game));
                 }
             }
         }
+        
 
         public int AddReservation(List<Game> stock)
         {
@@ -83,13 +85,21 @@ namespace Genspil
 
         public void Show()
         {
-            foreach (KeyValuePair<Customer, Game> reservation in list)
+            for (int i = 0; i < list.Count; i++)
             {
-                ConsoleManager.ShowReservationOnly(reservation.Key, reservation.Value);
+                ConsoleManager.ShowReservationOnly(list[i].Key, list[i].Value, i);
             }
         }
     }
 }
+
+//public void Show()
+//{
+//    foreach (KeyValuePair<Customer, Game> reservation in list)
+//    {
+//        ConsoleManager.ShowReservationOnly(reservation.Key, reservation.Value);
+//    }
+//}
 
 //using System;
 //using System.Collections.Generic;

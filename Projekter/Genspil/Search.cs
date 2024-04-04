@@ -32,7 +32,7 @@ namespace Genspil
                 ConsoleManager.SearchResults();
                 for (int i = 0; i < results.Count; i++)
                 {
-                    ConsoleManager.ShowGame(results[i]);
+                    ConsoleManager.ShowGameOnly(results[i], i);
                 }
             }
             else
@@ -42,6 +42,51 @@ namespace Genspil
         }
     }
 }
+
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
+
+//namespace Genspil
+//{
+//    public static class Search
+//    {
+//        public static void PerformSearch(Stock stock)
+//        {
+//            List<Game> results = new List<Game>(); // Listen, som indeholder søgeresultaterne
+//            string searchQuery = ConsoleManager.SearchPrompt();
+
+//            // Går igennem alle spil i listen med spil
+//            foreach (Game game in stock.list)
+//            {
+//                // Tjekker om vores søgning matcher med enten navn, kategori eller stand
+//                if (game.Name.ToLower().Contains(searchQuery.ToLower()) ||
+//                    game.Category.ToLower().Contains(searchQuery.ToLower()) ||
+//                    game.Condition.ToLower().Contains(searchQuery.ToLower()))
+//                {
+//                    // Hvis der er et match, bliver spillene tilføjet til listen med søgeresultater
+//                    results.Add(game);
+//                }
+//            }
+
+//            // Printer søgeresulaterne 
+//            if (results.Count > 0)
+//            {
+//                ConsoleManager.SearchResults();
+//                for (int i = 0; i < results.Count; i++)
+//                {
+//                    ConsoleManager.ShowGame(results[i]);
+//                }
+//            }
+//            else
+//            {
+//                Console.WriteLine("No results found. Try again");
+//            }
+//        }
+//    }
+//}
 
 
 //using System;
