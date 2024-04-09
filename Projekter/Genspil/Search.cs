@@ -38,14 +38,16 @@ namespace Genspil
             searchList = MakeSearch(searchList);
         }
 
-        public static List<KeyValuePair<string,string>> MakeSearch(List<KeyValuePair<string,string>> searchList)
+        public static List<KeyValuePair<string, string>> MakeSearch(List<KeyValuePair<string, string>> searchList)
         {
-            for(int i = 0; i < searchList.Count; i++)
+            for (int i = 0; i < searchList.Count; i++)
             {
                 if (!searchList[i].Key.ToLower().Contains(searchList[i].Value.ToLower())) searchList.Remove(searchList[i]);
             }
             return searchList;
         }
+    }
+}
 
         // Noter
 
@@ -176,21 +178,21 @@ namespace Genspil
 
 
 // Printer søgeresulaterne 
-if (results.Count > 0)
-            {
-                ConsoleManager.SearchResults();
-                for (int i = 0; i < results.Count; i++)
-                {
-                    ConsoleManager.ShowGameOnly(results[i], i);
-                }
-            }
-            else
-            {
-                Console.WriteLine("No results found. Try again");
-            }
-        }
-    }
-}
+//if (results.Count > 0)
+//            {
+//                ConsoleManager.SearchResults();
+//                for (int i = 0; i < results.Count; i++)
+//                {
+//                    ConsoleManager.ShowGameOnly(results[i], i);
+//                }
+//            }
+//            else
+//            {
+//                Console.WriteLine("No results found. Try again");
+//            }
+//        }
+//    }
+//}
 
 
 //using System;
