@@ -706,7 +706,7 @@ namespace Genspil
 
         /////////////////////////////////////////////////////////////////////////////
         // Related to Reservation Modification
-        public static int SelectReservationToModify(List<KeyValuePair<Customer,Game>> reservations)
+        public static int SelectReservationToModify(List<KeyValuePair<Customer, Game>> reservations)
         {
             // Change to fit list reservation & ID
             Console.Clear();
@@ -824,14 +824,14 @@ namespace Genspil
             ReservationModified(reservation);
         }
 
-        public static void ModifyGameFromReservation(KeyValuePair<Customer,Game> reservation)
+        public static void ModifyGameFromReservation(KeyValuePair<Customer, Game> reservation)
         {
             bool modified = ModifyGame(reservation.Value);
             if (modified) ReservationModified(reservation);
             else ModifyReservation(reservation);
         }
 
-        public static void ReservationModified(KeyValuePair<Customer,Game> reservation)
+        public static void ReservationModified(KeyValuePair<Customer, Game> reservation)
         {
             Console.Clear();
             int boxWidth = 50;
@@ -885,12 +885,62 @@ namespace Genspil
 
         /////////////////////////////////////////////////////////////////////////////
         // Related to Search
-        public static string SearchPrompt()
+        public static string SearchPromptName()
         {
             Console.Clear();
-            Console.Write("Please enter game name, category, or condition: ");
-            string searchQuery = Console.ReadLine();
-            return searchQuery;
+            Console.WriteLine("╔═══════════════════════════════════╗");
+            Console.WriteLine("║ Game name (Step 1/5)              ║");
+            Console.WriteLine("╚═══════════════════════════════════╝");
+
+            Console.Write("Please enter the name of the game: ");
+            string searchQueryName = Console.ReadLine();
+            return searchQueryName;
+        }
+
+        public static string SearchPromptCategory()
+        {
+            Console.Clear();
+            Console.WriteLine("╔═══════════════════════════════════╗");
+            Console.WriteLine("║ Game category (Step 2/5)          ║");
+            Console.WriteLine("╚═══════════════════════════════════╝");
+
+            Console.Write("Please enter game category: ");
+            string searchQueryCategory = Console.ReadLine();
+            return searchQueryCategory;
+        }
+
+        public static decimal SearchPromptMinPrice()
+        {
+            Console.Clear();
+            Console.WriteLine("╔═══════════════════════════════════╗");
+            Console.WriteLine("║ Lower range price (Step 3/5)      ║");
+            Console.WriteLine("╚═══════════════════════════════════╝");
+
+            Console.Write("Please enter the lower range of the price: ");
+            decimal searchQueryMinPrice = decimal.Parse(Console.ReadLine());
+            return searchQueryMinPrice;
+        }
+
+        public static decimal SearchPromptMaxPrice()
+        {
+            Console.Clear();
+            Console.WriteLine("╔═══════════════════════════════════╗");
+            Console.WriteLine("║ Upper range price (Step 4/5)      ║");
+            Console.WriteLine("╚═══════════════════════════════════╝");
+            Console.Write("Please enter the upper range of the price: ");
+            decimal searchQueryMaxPrice = decimal.Parse(Console.ReadLine());
+            return searchQueryMaxPrice;
+        }
+
+        public static int SearchPromptPlayers()
+        {
+            Console.Clear();
+            Console.WriteLine("╔═══════════════════════════════════╗");
+            Console.WriteLine("║ Amount of players (Step 5/5)      ║");
+            Console.WriteLine("╚═══════════════════════════════════╝");
+            Console.Write("Please enter the number of players: ");
+            int searchQueryPlayers = int.Parse(Console.ReadLine());
+            return searchQueryPlayers;
         }
 
         public static void SearchResults()
@@ -900,7 +950,6 @@ namespace Genspil
             Console.WriteLine("\n╔" + new string('═', boxWidth) + "╗");
             Console.WriteLine($"║ Search Results ".PadRight(boxWidth) + " ║");
             Console.WriteLine("╚" + new string('═', boxWidth) + "╝");
-            Console.WriteLine();
         }
     }
 }
