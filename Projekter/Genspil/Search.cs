@@ -197,7 +197,7 @@ namespace Genspil
                 ConsoleManager.SearchResults();
                 for (int i = 0; i < results.Count; i++)
                 {
-                    ConsoleManager.ShowGame(results[i]);
+                    ConsoleManager.ShowGameOnly(results[i], i);
                 }
             }
             else
