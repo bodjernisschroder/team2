@@ -10,7 +10,5 @@ namespace Disaheim
     {
         low, medium, high
     }
-    internal class Enum
-    {
-    }
+   
 }
