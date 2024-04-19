@@ -22,7 +22,7 @@ namespace GettingReal
 
         public void Show()
         {
-            ConsoleManager.ShowMenu(title, menuItems);
+            ShowMenu(title, menuItems);
         }
 
         public void AddMenuItem(string menuTitle)
@@ -40,7 +40,7 @@ namespace GettingReal
             switch (userInput)
             {
                 case 0:
-                    ConsoleManager.Exit();
+                    Exit();
                     return false;
                 case 1:
 
@@ -81,6 +81,34 @@ namespace GettingReal
             }
             
             return true;
+        }
+
+        public static void Exit()
+        {
+            Console.Clear();
+            Console.WriteLine("Exiting...");
+        }
+        public static void ShowMenu(string title, MenuItem[] menuItems)
+        {
+            int menuWidth = 48;
+            Console.Clear();
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"\n{title}\n");
+            Console.ResetColor();
+
+            for (int i = 0; i < menuItems.Length; i++)
+            {
+                Console.BackgroundColor = i % 2 == 0 ? ConsoleColor.DarkGray : ConsoleColor.Gray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                string menuItem = $"{i + 1}. {menuItems[i].Title}";
+                menuItem = menuItem.PadRight(menuWidth, ' ');
+
+                Console.WriteLine(menuItem);
+                Console.ResetColor();
+            }
+
+            Console.Write("\nPick a number or type 0 to exit the program: ");
         }
     }
 }

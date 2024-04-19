@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\boprivate\\Projekter\\Getting Real\\Getting Real.csproj": {}
+    "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\team2\\Projekter\\Getting Real\\Getting Real.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\boprivate\\Projekter\\Getting Real\\Getting Real.csproj": {
+    "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\team2\\Projekter\\Getting Real\\Getting Real.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\boprivate\\Projekter\\Getting Real\\Getting Real.csproj",
+        "projectUniqueName": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\team2\\Projekter\\Getting Real\\Getting Real.csproj",
         "projectName": "Getting Real",
-        "projectPath": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\boprivate\\Projekter\\Getting Real\\Getting Real.csproj",
+        "projectPath": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\team2\\Projekter\\Getting Real\\Getting Real.csproj",
         "packagesPath": "C:\\Users\\bosch\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\boprivate\\Projekter\\Getting Real\\obj\\",
+        "outputPath": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\team2\\Projekter\\Getting Real\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bosch\\AppData\\Roaming\\NuGet\\NuGet.Config",
