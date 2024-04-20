@@ -5,18 +5,11 @@ internal class program
     private static void Main(string[] args)
     {
         bool active = true;
-        Menu nyMenu = new Menu("   _____ ______ _   _  _____ _____ _____ _      \r\n  / ____|  ____| \\ | |/ ____|  __ \\_   _| |     \r\n | |  __| |__  |  \\| | (___ | |__) || | | |     \r\n | | |_ |  __| | . ` |\\___ \\|  ___/ | | | |     \r\n | |__| | |____| |\\  |____) | |    _| |_| |____ \r\n  \\_____|______|_| \\_|_____/|_|   |_____|______|", 11);
-        nyMenu.AddMenuItem("Print Entire Stock");
-        nyMenu.AddMenuItem("Add Game To Stock");
-        nyMenu.AddMenuItem("Modify Game");
-        nyMenu.AddMenuItem("Remove Game From Stock");
-        nyMenu.AddMenuItem("Show Reserved Games");
-        nyMenu.AddMenuItem("Add Reservation");
-        nyMenu.AddMenuItem("Modify Reservation");
-        nyMenu.AddMenuItem("Remove Reservation");
-        nyMenu.AddMenuItem("Sort Stock By Name");
-        nyMenu.AddMenuItem("Sort Stock By Category");
-        nyMenu.AddMenuItem("Search Stock");
+        Menu nyMenu = new Menu("\r  ____        _     _ _           \r\n |  _ \\ _   _| |__ | (_) ___ ___  \r\n | |_) | | | | '_ \\| | |/ __/ _ \\ \r\n |  __/| |_| | |_) | | | (_| (_) |\r\n |_|    \\__,_|_.__/|_|_|\\___\\___/ \r\n", 4);
+        nyMenu.AddMenuItem("Opret nyt tilbud");
+        nyMenu.AddMenuItem("Se og rediger aktive tilbud");
+        nyMenu.AddMenuItem("Opret og rediger ydelser");
+        nyMenu.AddMenuItem("Luk program");
 
         while (active)
         {

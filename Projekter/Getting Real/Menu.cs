@@ -40,8 +40,8 @@ namespace GettingReal
             switch (userInput)
             {
                 case 0:
-                    Exit();
-                    return false;
+
+                    break;
                 case 1:
 
                     break;
@@ -49,32 +49,8 @@ namespace GettingReal
 
                     break;
                 case 3:
-
-                    break;
-                case 4:
- 
-                    break;
-                case 5:
-
-                    break;
-                case 6:
-
-                    break;
-                case 7:
-
-                    break;
-                case 8:
-                    
-                    break;
-                case 9:
-
-                    break;
-                case 10:
-
-                    break;
-                case 11:
-
-                    break;
+                    Exit();
+                    return false;
                 default:
                     Console.WriteLine("Invalid input");
                     break;
@@ -90,7 +66,7 @@ namespace GettingReal
         }
         public static void ShowMenu(string title, MenuItem[] menuItems)
         {
-            int menuWidth = 48;
+            int menuWidth = 35;
             Console.Clear();
 
             Console.ForegroundColor = ConsoleColor.Cyan;
