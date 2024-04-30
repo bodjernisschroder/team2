@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 tirsdag Bo\\DisaheimTest\\DisaheimTest.csproj": {}
+    "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\DisaheimTest\\DisaheimTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 tirsdag Bo\\DisaheimTest\\DisaheimTest.csproj": {
+    "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\DisaheimTest\\DisaheimTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 tirsdag Bo\\DisaheimTest\\DisaheimTest.csproj",
+        "projectUniqueName": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\DisaheimTest\\DisaheimTest.csproj",
         "projectName": "DisaheimTest",
-        "projectPath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 tirsdag Bo\\DisaheimTest\\DisaheimTest.csproj",
+        "projectPath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\DisaheimTest\\DisaheimTest.csproj",
         "packagesPath": "C:\\Users\\burak\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 tirsdag Bo\\DisaheimTest\\obj\\",
+        "outputPath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\DisaheimTest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\burak\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 tirsdag Bo\\Disaheim\\Disaheim.csproj": {
-                "projectPath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 tirsdag Bo\\Disaheim\\Disaheim.csproj"
+              "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\Disaheim\\Disaheim.csproj": {
+                "projectPath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\Disaheim\\Disaheim.csproj"
               },
-              "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 tirsdag Bo\\UtilityLib\\UtilityLib.csproj": {
-                "projectPath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 tirsdag Bo\\UtilityLib\\UtilityLib.csproj"
+              "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\UtilityLib\\UtilityLib.csproj": {
+                "projectPath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\UtilityLib\\UtilityLib.csproj"
               }
             }
           }
@@ -84,14 +84,14 @@
         }
       }
     },
-    "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 tirsdag Bo\\Disaheim\\Disaheim.csproj": {
+    "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\Disaheim\\Disaheim.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 tirsdag Bo\\Disaheim\\Disaheim.csproj",
+        "projectUniqueName": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\Disaheim\\Disaheim.csproj",
         "projectName": "Disaheim",
-        "projectPath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 tirsdag Bo\\Disaheim\\Disaheim.csproj",
+        "projectPath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\Disaheim\\Disaheim.csproj",
         "packagesPath": "C:\\Users\\burak\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 tirsdag Bo\\Disaheim\\obj\\",
+        "outputPath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\Disaheim\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\burak\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -139,14 +139,14 @@
         }
       }
     },
-    "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 tirsdag Bo\\UtilityLib\\UtilityLib.csproj": {
+    "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\UtilityLib\\UtilityLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 tirsdag Bo\\UtilityLib\\UtilityLib.csproj",
+        "projectUniqueName": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\UtilityLib\\UtilityLib.csproj",
         "projectName": "UtilityLib",
-        "projectPath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 tirsdag Bo\\UtilityLib\\UtilityLib.csproj",
+        "projectPath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\UtilityLib\\UtilityLib.csproj",
         "packagesPath": "C:\\Users\\burak\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 tirsdag Bo\\UtilityLib\\obj\\",
+        "outputPath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\UtilityLib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\burak\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -163,8 +163,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 tirsdag Bo\\Disaheim\\Disaheim.csproj": {
-                "projectPath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 tirsdag Bo\\Disaheim\\Disaheim.csproj"
+              "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\Disaheim\\Disaheim.csproj": {
+                "projectPath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\Disaheim\\Disaheim.csproj"
               }
             }
           }

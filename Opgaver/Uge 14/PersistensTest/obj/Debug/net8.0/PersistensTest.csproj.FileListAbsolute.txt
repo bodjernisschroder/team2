@@ -116,3 +116,13 @@ C:\Users\bosch\Dropbox\PC\Desktop\Skole\Projekter\team2\Opgaver\Uge 14\Persisten
 C:\Users\bosch\Dropbox\PC\Desktop\Skole\Projekter\team2\Opgaver\Uge 14\PersistensTest\obj\Debug\net8.0\PersistensTest.pdb
 C:\Users\bosch\Dropbox\PC\Desktop\Skole\Projekter\team2\Opgaver\Uge 14\PersistensTest\obj\Debug\net8.0\PersistensTest.genruntimeconfig.cache
 C:\Users\bosch\Dropbox\PC\Desktop\Skole\Projekter\team2\Opgaver\Uge 14\PersistensTest\obj\Debug\net8.0\ref\PersistensTest.dll
+C:\Users\burak\source\repos\team2\Opgaver\Uge 14\PersistensTest\bin\Debug\net8.0\CoverletSourceRootsMapping_PersistensTest
+C:\Users\burak\source\repos\team2\Opgaver\Uge 14\PersistensTest\obj\Debug\net8.0\PersistensTest.csproj.AssemblyReference.cache
+C:\Users\burak\source\repos\team2\Opgaver\Uge 14\PersistensTest\obj\Debug\net8.0\PersistensTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\burak\source\repos\team2\Opgaver\Uge 14\PersistensTest\obj\Debug\net8.0\PersistensTest.AssemblyInfoInputs.cache
+C:\Users\burak\source\repos\team2\Opgaver\Uge 14\PersistensTest\obj\Debug\net8.0\PersistensTest.AssemblyInfo.cs
+C:\Users\burak\source\repos\team2\Opgaver\Uge 14\PersistensTest\obj\Debug\net8.0\PersistensTest.csproj.CoreCompileInputs.cache
+C:\Users\burak\source\repos\team2\Opgaver\Uge 14\PersistensTest\obj\Debug\net8.0\PersistensTest.sourcelink.json
+C:\Users\burak\source\repos\team2\Opgaver\Uge 14\PersistensTest\obj\Debug\net8.0\PersistensTest.dll
+C:\Users\burak\source\repos\team2\Opgaver\Uge 14\PersistensTest\obj\Debug\net8.0\refint\PersistensTest.dll
+C:\Users\burak\source\repos\team2\Opgaver\Uge 14\PersistensTest\obj\Debug\net8.0\PersistensTest.pdb

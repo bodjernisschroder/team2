@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AQCdTL+4sYMeznp2NkextEl8SbbotrvB8s2HZVrPFyfuYPrtxomEgR86OSBKAL2bE5NVRUX/VvVSiCCvzbFRRw==",
+  "dgSpecHash": "c0MCGB2Rr5I9rHoZQKwi5BvJ4ZcSR79MOW7io/WRJzEgkJi4K+vyMtiir5WD9LPguf29qZ5wmrdU2jiUJHeMCA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 tirsdag Bo\\DisaheimTest\\DisaheimTest.csproj",
+  "projectFilePath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\DisaheimTest\\DisaheimTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\burak\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\burak\\.nuget\\packages\\microsoft.codecoverage\\17.6.0\\microsoft.codecoverage.17.6.0.nupkg.sha512",
