@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace GettingReal
 {
-    internal class PriceLevel
+    public enum PriceLevel
     {
+        High,
+        Medium,
+        Low,
+        Custom
     }
 }

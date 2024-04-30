@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\bosch\\.nuget\\packages\\": {}
+    "C:\\Users\\abfol\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\team2\\Projekter\\Getting Real\\Getting Real.csproj",
+      "projectUniqueName": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\Getting Real\\Getting Real.csproj",
       "projectName": "Getting Real",
-      "projectPath": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\team2\\Projekter\\Getting Real\\Getting Real.csproj",
-      "packagesPath": "C:\\Users\\bosch\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\team2\\Projekter\\Getting Real\\obj\\",
+      "projectPath": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\Getting Real\\Getting Real.csproj",
+      "packagesPath": "C:\\Users\\abfol\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\Getting Real\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\bosch\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\abfol\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -42,7 +42,9 @@
         ]
       },
       "restoreAuditProperties": {
-        "enableAudit": "default"
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -64,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
