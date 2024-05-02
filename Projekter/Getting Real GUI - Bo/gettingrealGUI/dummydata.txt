@@ -1,0 +1,24 @@
+Whacky Dogs,Dog playing a guitar solo
+Whacky Dogs,Dog riding a skateboard
+Whacky Dogs,Dog trying to catch its own tail
+Whacky Dogs,Dog wearing sunglasses
+Whacky Dogs,Dog balancing a sandwich on its head
+Whacky Dogs,Dog napping on a pizza
+Techy Birds,Bird programming in Python
+Techy Birds,Bird debugging a software project
+Techy Birds,Bird streaming a live coding session
+Techy Birds,Bird tweeting about tech trends
+Techy Birds,Bird soldering a circuit board
+Techy Birds,Bird making an IoT birdhouse
+Magical Bunnies,Bunny pulling a carrot from a hat
+Magical Bunnies,Bunny performing levitation
+Magical Bunnies,Bunny reading minds
+Magical Bunnies,Bunny conjuring a bouquet of lettuce
+Magical Bunnies,Bunny making bunnies disappear
+Magical Bunnies,Bunny bending spoons
+Quirky Cats,Cat DJing at a dance party
+Quirky Cats,Cat painting abstract art
+Quirky Cats,Cat wearing a monocle
+Quirky Cats,Cat typing a novel
+Quirky Cats,Cat pouncing on a laser pointer
+Quirky Cats,Cat hosting a podcast
