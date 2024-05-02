@@ -85,7 +85,7 @@ namespace GettingReal {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/gettingrealGUI;component/savepopup.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/gettingrealGUI;V1.0.0.0;component/savepopup.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\SavePopup.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

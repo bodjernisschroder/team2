@@ -109,7 +109,7 @@ namespace GettingReal {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/gettingrealGUI;component/budgetcreator.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/gettingrealGUI;V1.0.0.0;component/budgetcreator.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\BudgetCreator.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

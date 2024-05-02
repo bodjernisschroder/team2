@@ -53,7 +53,7 @@ namespace GettingReal {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/gettingrealGUI;component/productcreator.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/gettingrealGUI;V1.0.0.0;component/productcreator.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\ProductCreator.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
