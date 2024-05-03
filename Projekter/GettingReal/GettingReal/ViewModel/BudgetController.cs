@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
@@ -9,19 +10,21 @@ namespace GettingReal
 {
     public class BudgetController
     {
+        public static Budget Budget { get; private set; }
+
         // Har svært ved at gennemskue hvilken parameter, den skal have under budget
         // Måske returneres her til UI
-        public Budget CreateBudget()
+        public void CreateBudget()
         {
-            Budget budget = new Budget();
+            Budget = new Budget();
         }
         
         // Kan vi access dem uden at returnere dem?
-        public void CreateBudgetSuggestions(Budget budget) 
+        public void CreateBudgetSuggestions() 
         {
-            Budget highBudget = new Budget(budget, PriceLevel.High);
-            Budget medBudget = new Budget(budget, PriceLevel.Medium);
-            Budget lowBudget = new Budget(budget, PriceLevel.Low);
+            Budget highBudget = new Budget(Budget, PriceLevel.High);
+            Budget medBudget = new Budget(Budget, PriceLevel.Medium);
+            Budget lowBudget = new Budget(Budget, PriceLevel.Low);
         }
 
         public void SelectBudget() 
@@ -35,25 +38,27 @@ namespace GettingReal
             userSelection[2] = 3; //budget 3;
         }
 
-        public void AddProduct(Budget budget, Product product) 
-        { 
-            budget.Products.Add(product);
-            UpdateSum(budget);
+        public void AddProduct(string name, int timeEstimate) 
+        {
+            ProductController productController = new ProductController();
+            Product product = productController.CreateProduct(name, timeEstimate, Budget.PriceLevel);
+            Budget.Products.Add(product);
+            UpdateSum();
         }
 
-        public void RemoveProduct (Budget budget, Product product)
+        public void RemoveProduct (Product product)
         {
-            budget.Products.Remove(product);
-            UpdateSum(budget);
+            Budget.Products.Remove(product);
+            UpdateSum();
         }
         
-        public void ChangePriceLevel(Budget budget, PriceLevel priceLevel)
+        public void ChangePriceLevel(PriceLevel priceLevel)
         {
-            budget.PriceLevel = priceLevel;
+            Budget.PriceLevel = priceLevel;
             ProductController productController = new ProductController();
-            foreach (Product product in budget.Products)
+            foreach (Product product in Budget.Products)
             {
-                productController.ChangePriceLevel(product, budget.PriceLevel);
+                productController.ChangePriceLevel(product, Budget.PriceLevel);
             }
         }
 
@@ -62,17 +67,17 @@ namespace GettingReal
             budget.CalculateDiscount(discountPercentage);
         }
 
-        public void UpdateSum(Budget budget)
+        public void UpdateSum()
         {
-            budget.CalculateSum();
+            Budget.CalculateSum();
         }
 
-        public void ResetBudget(Budget budget)
+        public void ResetBudget()
         {
-            budget.Products.Clear();
-            budget.PriceLevel = PriceLevel.High;
-            budget.DiscountPercentage = 0;
-            UpdateSum(budget);
+            Budget.Products.Clear();
+            Budget.PriceLevel = PriceLevel.High;
+            Budget.DiscountPercentage = 0;
+            UpdateSum();
         }
     }
 }

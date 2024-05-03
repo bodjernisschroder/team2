@@ -35,14 +35,6 @@ namespace GettingReal
             set { _price = value; }
         }
 
-        public Product(string name, int timeEstimate)
-        {
-            Name = name;
-            TimeEstimate = timeEstimate;
-            PriceLevel = PriceLevel.High;
-            Price = CalculatePrice();
-        }
-
         public Product(string name, int timeEstimate, PriceLevel priceLevel)
         {
             Name = name;

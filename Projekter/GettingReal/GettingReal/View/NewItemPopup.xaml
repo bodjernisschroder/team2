@@ -3,21 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression.blend/2008"
         xmlns:mc="http://schemas.microsoft.com/markup-compatibility/2006"
-        Title="Tilføj ydelser til tilbud" Height="575" Width="400"
+        Title="Tilføj ydelse til tilbud" Height="575" Width="400"
         ResizeMode="NoResize">
     <StackPanel Margin="10">
         <Label Content="Vælg en ydelse fra listen:" Margin="2,0,0,0"/>
-        <ListBox x:Name="lstSelection" SelectionMode="Single" Height="300" Width="350"/>
+        <ListBox x:Name="lstSelection" SelectionMode="Single" MouseDoubleClick="LstSelection_DoubleClick" Height="300" Width="350"/>
 
-        <Label Content="Vælg prisniveau:" Margin="2,0,0,0"/>
-        <ComboBox x:Name="cbDropdown" Width="350">
-            <ComboBoxItem Content="Lav"/>
-            <ComboBoxItem Content="Middel"/>
-            <ComboBoxItem Content="Høj"/>
-        </ComboBox>
+        <!-- <Label Content="Vælg prisniveau:" Margin="2,0,0,0"/>  -->
+        <!-- <ComboBox x:Name="cbDropdown" Width="350">  -->
+            <!-- <ComboBoxItem Content="Lav"/>  -->
+            <!-- <ComboBoxItem Content="Middel"/>  -->
+            <!-- <ComboBoxItem Content="Høj"/>  -->
+        <!-- </ComboBox> -->
 
-        <Label Content="Indtast rabat % (valgfri):" Margin="2,0,0,0"/>
-        <TextBox x:Name="txtRabat" Width="350" Text=""/>
+        <!-- <Label Content="Indtast rabat % (valgfri):" Margin="2,0,0,0"/> -->
+        <!-- <TextBox x:Name="txtRabat" Width="350" Text=""/> -->
 
         <Label Content="Indtast estimeret antal timer for opgave:" Margin="2,0,0,0"/>
         <TextBox x:Name="txtTimeEstimat" Width="350" Text=""/>

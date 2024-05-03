@@ -15,17 +15,12 @@ namespace GettingReal
         private double _discountPercentage;
         private int _sum;
 
-        //Product product = new Product("", 0);
-        
-
         public List<Product> Products 
         {     
             get { return _products; }
             set {  _products = value; }
         }
 
-        // Er i tvivl om denne skal med, da den allerede findes i Product.cs - Den er tilføjet her også anyways
-        // Skal budget have et pricelevel generelt eller skal alle pricelevels for products ændres
         public PriceLevel PriceLevel 
         { 
             get { return _priceLevel; } 

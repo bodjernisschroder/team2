@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -10,61 +7,63 @@ namespace GettingReal
 {
     public partial class NewItemPopup : Window
     {
+        public string ProductName { get; set; }
+        public int ProductTimeEstimate { get; set; }
+
+        public DataHandler CatalogueDataHandler { get; set; }
 
         public NewItemPopup()
         {
             InitializeComponent();
 
-            // Erstattes af dictionary loaded fra DataHandler
-            //string[] lines = File.ReadAllLines("C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\boprivate\\Projekter\\Getting Real UI\\gettingrealGUI\\dummydata.txt");
-            //foreach (var line in lines)
-            //{
-            //    var parts = line.Split(',');
-            //    lstSelection.Items.Add(new ListBoxItem { Content = parts[1] });
-            //}
+            CatalogueDataHandler = new DataHandler("ydelser.txt");
+            CatalogueDataHandler.LoadCatalogue();
+
+            // Dette skal gentages hver gang NewItemPopup kaldes,
+            // ligesom andre værdier, såsom lstSelection.Items skal nulstilles
+            // Lige nu køres nedenstående kun ved new NewItemPopup (selvfølgelig)
+            // Derfor crasher programmet, når vi forsøger at tilføje en ny.
+            for (int i = 0; i < Catalogue.CategorizedProducts.Keys.Count; i++)
+            {
+                lstSelection.Items.Add(new ListBoxItem { Content = Catalogue.CategorizedProducts.Keys.ElementAt(i) } );
+            }
         }
 
+        private void LstSelection_DoubleClick(object sender, EventArgs e)
+        {
+            if (!(lstSelection.SelectedItem is string))
+            {
+                ListBoxItem selectedItem = (ListBoxItem)lstSelection.SelectedItem;
+                string category = selectedItem.Content.ToString();
+                lstSelection.Items.Clear();
+                List<string> productsInCategory = Catalogue.CategorizedProducts[category];
+                foreach (string product in productsInCategory)
+                {
+                    Trace.WriteLine(product);
+                    lstSelection.Items.Add(product);
+                }
+                // Gør så timeestimatfeltet først er synligt efter dette - eller enabled, hvis synligt
+                // er for kompliceret eller kræver et helt nyt vindue
+            }
+        }
         private void btnAddNewItemOK_Click(object sender, RoutedEventArgs e)
         {
-            string selectedProduct = (string)lstSelection.SelectedProduct;
-
-            // Disabled indtil product er valgt i stedet
+            // Indbyg, at den er disabled indtil product er valgt i stedet for dette
             //if (selectedProduct == null)
             //{
             //    MessageBox.Show("Vælg en ydelse fra listen for at fortsætte...");
             //    return;
             //}
 
-            string description = selectedProduct.Content.ToString();
-
-            ComboBoxItem selectedPriceLevel = (ComboBoxItem)cbDropdown.SelectedItem;
-            string priceLevelString = selectedPriceLevel.Content.ToString().ToLower();
-
-            double priceLevel = priceLevelString switch
-            {
-                "low" => 1100,
-                "middel" => 1350,
-                "høj" => 1600,
-            };
-
-            double timeEstimat = double.Parse(txtTimeEstimat.Text);
-            double rabat = double.Parse(txtRabat.Text) / 100;
-            double totalPrice = (timeEstimat * priceLevel) * (1 - rabat);
-
-            totalPrice = Math.Ceiling(totalPrice / 1000) * 1000;
-
-            BudgetItem newItem = new BudgetItem(totalPrice, description);
-            BudgetCreator.BudgetItems.Add(newItem);
-
-            Trace.WriteLine("OK");
-
+            BudgetController budgetController = new BudgetController();
+            ProductName = (string)lstSelection.SelectedItem;
+            ProductTimeEstimate = int.Parse(txtTimeEstimat.Text);
+            budgetController.AddProduct(ProductName, ProductTimeEstimate);
             DialogResult = true;
             Close();
         }
         private void btnAddNewItemFortryd_Click(object sender, RoutedEventArgs e)
         {
-            Trace.WriteLine("Fortryd");
-
             DialogResult = false;
             Close();
         }

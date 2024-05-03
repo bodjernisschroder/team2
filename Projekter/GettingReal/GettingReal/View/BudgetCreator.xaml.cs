@@ -1,22 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Microsoft.Win32;
-
 
 namespace GettingReal
 {
@@ -25,28 +8,29 @@ namespace GettingReal
     /// </summary>
     public partial class BudgetCreator : UserControl
     {
-        public Budget Budget {  get; set; }
 
         public BudgetCreator()
         {
             InitializeComponent();
 
-            BudgetController budgetController = new BudgetController();
-            Budget = budgetController.CreateBudget();
-            myDataGrid.ItemsSource = Budget.Products;
+            DataContext = new BudgetController();
+
+            BudgetController budgetController = (BudgetController)DataContext;
+            budgetController.CreateBudget();
         }
 
         private void btnNewBudget_Click(object sender, RoutedEventArgs e)
         {
             NewItemPopup newItemPopup = new NewItemPopup();
 
-            // Hvad sker der her?
-            //if (newItemPopup.ShowDialog() == true)
-            //{
-            //    UpdateTotal();
-            //    myDataGrid.ItemsSource = null;
-            //    myDataGrid.ItemsSource = Budget.Products;
-            //}
+            if (newItemPopup.ShowDialog() == true)
+            {
+                myDataGrid.ItemsSource = null;
+                myDataGrid.ItemsSource = BudgetController.Budget.Products;
+                BudgetController budgetController = (BudgetController)DataContext;
+                budgetController.UpdateSum();
+                lblTotalPris.Content = BudgetController.Budget.Sum;
+            }
         }
 
         private void btnSaveBudget_Click(object sender, RoutedEventArgs e)
@@ -73,8 +57,8 @@ namespace GettingReal
 
             if (loadDialog.ShowDialog() == true)
             {
-                BudgetController budgetController = new BudgetController();
-                budgetController.ResetBudget(Budget);
+                BudgetController budgetController = (BudgetController)DataContext;
+                budgetController.ResetBudget();
                 // Kald en metode i DataHandler, som gør dette
 
                 //using (StreamReader reader = new StreamReader(loadDialog.FilePath))
@@ -89,7 +73,7 @@ namespace GettingReal
                 //    }
                 //}
                 // Budget.Products = det, der er loadet (add efter hvert load?)
-                budgetController.UpdateSum(Budget);
+                budgetController.UpdateSum();
             }
         }
 
@@ -100,12 +84,13 @@ namespace GettingReal
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            var button = (Button)sender;
-            Product product = (Budget.Products)button.DataContext;
-            BudgetController budgetController = new BudgetController();
-            budgetController.RemoveProduct(Budget, product);
-            // Lav databinding på det herunder i stedet, altså lblTotalPris
-            //if (Budget.Products.Count == 0) lblTotalPris.Content = $"0,00 kr.";
+            Button button = (Button)sender;
+            Product product = (Product)button.DataContext;
+            BudgetController budgetController = (BudgetController)DataContext;
+            budgetController.RemoveProduct(product);
+            myDataGrid.ItemsSource = null;
+            myDataGrid.ItemsSource = BudgetController.Budget.Products;
+            lblTotalPris.Content = BudgetController.Budget.Sum;
         }
     }
 }

@@ -8,12 +8,6 @@ namespace GettingReal
 {
     public class ProductController
     {
-        public Product CreateProduct(string name, int timeEstimate)
-        {
-            Product product = new Product(name, timeEstimate);
-            return product;
-        }
-
         public Product CreateProduct(string name, int timeEstimate, PriceLevel priceLevel)
         {
             Product product = new Product(name, timeEstimate, priceLevel);
