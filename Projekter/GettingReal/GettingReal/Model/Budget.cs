@@ -44,6 +44,8 @@ namespace GettingReal
             Products = new List<Product>();
             PriceLevel = PriceLevel.High; 
         }
+
+        // Kan måske være overflødig - Lad os vende denne
         public Budget(Budget budget, PriceLevel priceLevel)
         {
             Products = new List<Product>();

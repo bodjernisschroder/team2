@@ -49,3 +49,10 @@ C:\Users\abfol\OneDrive\Documents\Datamatiker\team2\Projekter\GettingReal\Gettin
 C:\Users\abfol\OneDrive\Documents\Datamatiker\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\GettingReal.sourcelink.json
 C:\Users\abfol\OneDrive\Documents\Datamatiker\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\GettingReal.genruntimeconfig.cache
 C:\Users\abfol\OneDrive\Documents\Datamatiker\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\ref\GettingReal.dll
+C:\Users\burak\source\repos\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\View\NewItemPopup.baml
+C:\Users\burak\source\repos\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\View\LoadPopup.g.cs
+C:\Users\burak\source\repos\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\View\NewItemPopup.g.cs
+C:\Users\burak\source\repos\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\View\SavePopup.g.cs
+C:\Users\burak\source\repos\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\View\BudgetCreator.baml
+C:\Users\burak\source\repos\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\View\LoadPopup.baml
+C:\Users\burak\source\repos\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\View\SavePopup.baml

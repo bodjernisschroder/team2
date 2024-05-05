@@ -1,104 +1,104 @@
-Strategi,Kommunikationsstrategi 
-Strategi,Kommunikationsplan
-Strategi,Marketingstrategi 
 Strategi,AI-workshop  
-Strategi,Brand-positionering
-Strategi,Kernefortælling
-Strategi,Kommunebranding
-Strategi,Kendskabsundersøgelse
-Strategi,Kunderejse
-Strategi,Personas
-Strategi,Retainer på strategi
-Strategi,Omdømmeanalyse
-Strategi,Interessentanalyse
-Strategi,Strategisk rebranding
-Strategi,Strategiworkshop
-Strategi,Interviews
-Strategi,Brugerundersøgelser
+Strategi,Analyse
 Strategi,Befolkningsundersøgelser
-Strategi,Medarbejderundersøgelser
+Strategi,Brand-positionering
+Strategi,Brugerundersøgelser
+Strategi,EB-sparring
+Strategi,Employee advocacy
 Strategi,Employer branding
 Strategi,Employer branding-strategi
-Strategi,Implementering af EVP-koncept
-Strategi,Employee advocacy
-Strategi,Rekrutteringskommunikation
-Strategi,Rekrutteringskampagne 
-Strategi,EB-sparring
-Strategi,PR-strategi
-Strategi,PR-indsats
-Strategi,Krisekommunikation
-Strategi,Kriseberedskab
-Strategi,Issues management
-Strategi,Kommunikationsmåling
-Strategi,Kommunikationsrådgivning
 Strategi,ESG-rapportering
-Strategi,Tone of voice
-Strategi,Analyse
+Strategi,Implementering af EVP-koncept
+Strategi,Interessentanalyse
+Strategi,Interviews
+Strategi,Issues management
+Strategi,Kendskabsundersøgelse
+Strategi,Kernefortælling
 Strategi,Klippekort på sparring
-Indhold,Artikler
-Indhold,Brand-guide
-Indhold,Retainer på content
-Indhold,Blogindlæg
-Indhold,Content plan
-Indhold,Content offer
-Indhold,Indhold til sociale medier
-Indhold,Pressemeddelelser 
-Indhold,Visuel identitet
-Indhold,Budskabstræning
-Indhold,Medietræning
-Indhold,Årsrapporter
-Indhold,CSR-rapporter
-Indhold,Medieovervågning
-Indhold,Proaktiv og reaktiv pressekontakt
-Indhold,Debatindlæg
-Indhold,Thought leadership
-Indhold,Bæredygtighedskommunikation
-Indhold,Informationskampagner
-Indhold,Udvikling af kreative koncepter
-Indhold,Kampagne-PR
-Indhold,Nyt website
-Indhold,Webtekster
-Indhold,Klumme
+Strategi,Kommunebranding
+Strategi,Kommunikationsmåling
+Strategi,Kommunikationsplan
+Strategi,Kommunikationsrådgivning
+Strategi,Kommunikationsstrategi 
+Strategi,Kriseberedskab
+Strategi,Krisekommunikation
+Strategi,Kunderejse
+Strategi,Marketingstrategi 
+Strategi,Medarbejderundersøgelser
+Strategi,Omdømmeanalyse
+Strategi,Personas
+Strategi,PR-indsats
+Strategi,PR-strategi
+Strategi,Rekrutteringskampagne 
+Strategi,Rekrutteringskommunikation
+Strategi,Retainer på strategi
+Strategi,Strategisk rebranding
+Strategi,Strategiworkshop
+Strategi,Tone of voice
 Indhold,Adfærds- og holdnignskampagner
-Indhold,Adfærdsdesign
 Indhold,Adfærdsanalyse
+Indhold,Adfærdsdesign
+Indhold,Artikler
+Indhold,Blogindlæg
+Indhold,Brand-guide
+Indhold,Budskabstræning
+Indhold,Bæredygtighedskommunikation
+Indhold,Content offer
+Indhold,Content plan
+Indhold,CSR-rapporter
+Indhold,Debatindlæg
+Indhold,Indhold til sociale medier
+Indhold,Informationskampagner
+Indhold,Kampagne-PR
+Indhold,Klumme
+Indhold,Medieovervågning
+Indhold,Medietræning
+Indhold,Nyt website
 Indhold,Oversættelse af tekster
-Digital marketing,LinkedIn-annoncering
-Digital marketing,Retainer på annoncering
-Digital marketing,Projektledelse
-Digital marketing,LinkedIn-workshop
-Digital marketing,HubSpot-assistance 
-Digital marketing,HubSpot-onboarding
-Digital marketing,Google Ads-annoncering
+Indhold,Pressemeddelelser 
+Indhold,Proaktiv og reaktiv pressekontakt
+Indhold,Retainer på content
+Indhold,Thought leadership
+Indhold,Udvikling af kreative koncepter
+Indhold,Visuel identitet
+Indhold,Webtekster
+Indhold,Årsrapporter
+Digital marketing,Account Based Marketing
+Digital marketing,Assitance til ActiveCampaign, Mailchimp osv.
+Digital marketing,Digital strategi
+Digital marketing,E-mail kursus
 Digital marketing,E-mail marketing
 Digital marketing,E-mail marketnig audit
 Digital marketing,Facebook-annoncering
-Digital marketing,Snapchat-annoncering
-Digital marketing,Twitch-annoncering
-Digital marketing,Pinterest-annoncering
-Digital marketing,Assitance til ActiveCampaign, Mailchimp osv.
-Digital marketing,Instagram-annoncering
+Digital marketing,Google Ads-annoncering
+Digital marketing,HubSpot-assistance 
+Digital marketing,HubSpot-onboarding
 Digital marketing,Inbound marketing
-Digital marketing,SoMe-strategi
-Digital marketing,Digital strategi
-Digital marketing,SEO
-Digital marketing,SoMe-workshop
+Digital marketing,Instagram-annoncering
 Digital marketing,Klippekort på teknisk support
-Digital marketing,Account Based Marketing
-Digital marketing,Social listening 
+Digital marketing,LinkedIn-annoncering
+Digital marketing,LinkedIn-workshop
 Digital marketing,Marketing automation 
-Digital marketing,E-mail kursus
+Digital marketing,Pinterest-annoncering
+Digital marketing,Projektledelse
+Digital marketing,Retainer på annoncering
+Digital marketing,SEO
+Digital marketing,Snapchat-annoncering
+Digital marketing,Social listening 
+Digital marketing,SoMe-strategi
+Digital marketing,SoMe-workshop
+Digital marketing,Twitch-annoncering
+Film,Animationsfilm
 Film,Brandfilm
+Film,Case-film
+Film,E-learning film
+Film,Employer branding-film
+Film,Filmoptagelser 
+Film,Interne film
+Film,Kampagnefilm
+Film,Klipning
 Film,Kursus i filmklipning
 Film,Manuskript
-Film,Case-film
-Film,Storyboard
-Film,Filmoptagelser 
-Film,Klipning
-Film,E-learning film
-Film,Animationsfilm
 Film,Produktfilm
+Film,Storyboard
 Film,Webinarproduktion
-Film,Kampagnefilm
-Film,Employer branding-film
-Film,Interne film

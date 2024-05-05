@@ -7,7 +7,7 @@ namespace GettingReal
         public MainWindow()
         {
             InitializeComponent();
-
+            
         }
 
         private void btnTilbud_Click(object sender, RoutedEventArgs e)

@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.microsoft.com/markup-compatibility/2006"
         Title="Tilføj ydelse til tilbud" Height="575" Width="400"
         ResizeMode="NoResize">
-    <StackPanel Margin="10">
-        <Label Content="Vælg en ydelse fra listen:" Margin="2,0,0,0"/>
+    <StackPanel Margin="10" HorizontalAlignment="Center">
+        <Label Content="Vælg en ydelse fra listen:" Margin="5,0,0,0" Width="350" HorizontalAlignment="Center"/>
         <ListBox x:Name="lstSelection" SelectionMode="Single" MouseDoubleClick="LstSelection_DoubleClick" Height="300" Width="350"/>
 
         <!-- <Label Content="Vælg prisniveau:" Margin="2,0,0,0"/>  -->
         <!-- <ComboBox x:Name="cbDropdown" Width="350">  -->
-            <!-- <ComboBoxItem Content="Lav"/>  -->
-            <!-- <ComboBoxItem Content="Middel"/>  -->
-            <!-- <ComboBoxItem Content="Høj"/>  -->
+        <!-- <ComboBoxItem Content="Lav"/>  -->
+        <!-- <ComboBoxItem Content="Middel"/>  -->
+        <!-- <ComboBoxItem Content="Høj"/>  -->
         <!-- </ComboBox> -->
 
         <!-- <Label Content="Indtast rabat % (valgfri):" Margin="2,0,0,0"/> -->

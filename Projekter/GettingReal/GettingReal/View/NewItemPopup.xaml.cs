@@ -67,5 +67,12 @@ namespace GettingReal
             DialogResult = false;
             Close();
         }
+
+        //Min tanke med metoden her var at oprette knap, hvis man ønsker at tilføje en ny ydelse fra en anden
+        // kategori uden at trykke på 'fortryd'. 
+        private void btnPreviousSection_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
