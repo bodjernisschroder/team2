@@ -29,7 +29,9 @@ namespace GettingReal
                 myDataGrid.ItemsSource = BudgetController.Budget.Products;
                 BudgetController budgetController = (BudgetController)DataContext;
                 budgetController.UpdateSum();
-                lblTotalPris.Content = BudgetController.Budget.Sum;
+
+                //:C viser et tal som en valuta i stedet, som default bruger den samme valuta som det system brugeren sidder på.
+                lblTotalPris.Content = $"{BudgetController.Budget.Sum:C}";
             }
         }
 
@@ -90,7 +92,7 @@ namespace GettingReal
             budgetController.RemoveProduct(product);
             myDataGrid.ItemsSource = null;
             myDataGrid.ItemsSource = BudgetController.Budget.Products;
-            lblTotalPris.Content = BudgetController.Budget.Sum;
+            lblTotalPris.Content = $"{BudgetController.Budget.Sum:C}";
         }
     }
 }

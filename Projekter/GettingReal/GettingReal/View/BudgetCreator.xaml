@@ -62,7 +62,7 @@
             <DockPanel Width="500" Height="40" Background="#282828">
 
                 <!-- <Label Name="lblSamletPris" DockPanel.Dock="Left"  Margin="5,0,0,0" Foreground="white" FontSize="18" Content="Samlet pris:" HorizontalAlignment="Center" VerticalAlignment="Center"/> -->
-                <Label Name="lblTotalPris" DockPanel.Dock="Right" Margin="0,0,5,0" Foreground="white" FontSize="18" Content="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label Name="lblTotalPris" DockPanel.Dock="Right" Margin="0,0,5,0" Foreground="white" FontSize="18" Content="0,00 kr." HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 
                 <Label DockPanel.Dock="Right" Width="0"/>
 
