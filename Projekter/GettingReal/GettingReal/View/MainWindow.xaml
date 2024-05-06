@@ -41,7 +41,7 @@
             <Label Content="Version 1.0" DockPanel.Dock="Bottom" HorizontalAlignment="Center" FontWeight="Bold" FontFamily="Arial" Foreground="White"/>
 
             <StackPanel DockPanel.Dock="Top">
-                <Image Source="pack://application:,,,/images/publico_light.png"/>
+                <Image Source="pack://application:,,,/view/img/publico_light.png"/>
                 <Button x:Name="btnTilbud" Content="Opret nyt tilbud" Click="btnTilbud_Click" Style="{StaticResource MenuItemButtonStyle}"/>
                 <Button x:Name="btnExitProgram" Content="Luk program" Click="btnExitProgram_Click" Style="{StaticResource MenuItemButtonStyle}"/>
 
