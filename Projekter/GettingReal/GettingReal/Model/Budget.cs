@@ -18,25 +18,41 @@ namespace GettingReal
         public List<Product> Products 
         {     
             get { return _products; }
-            set {  _products = value; }
+            private set
+            {
+                if (value != null) _products = value;
+                else throw new ArgumentNullException(nameof(Products), "Products list cannot be set to null.");
+            }
         }
 
         public PriceLevel PriceLevel 
         { 
-            get { return _priceLevel; } 
-            set { _priceLevel = value; } 
+            get { return _priceLevel; }
+            set
+            {
+                if (Enum.IsDefined(typeof(PriceLevel), value)) _priceLevel = value;
+                else throw new ArgumentException("Invalid price level value.");
+            }
         }
 
         public double DiscountPercentage 
         { 
-            get { return _discountPercentage; } 
-            set { _discountPercentage = value; } 
+            get { return _discountPercentage; }
+            set
+            {
+                if (value >= 0 && value <= 35) _discountPercentage = value;
+                else throw new ArgumentOutOfRangeException(nameof(DiscountPercentage), "Discount percentage must be between 0 and 35.");
+            }
         }
 
         public int Sum 
         { 
-            get { return _sum; }  
-            set { _sum = value; }
+            get { return _sum; }
+            private set
+            {
+                if (value >= 0) _sum = value;
+                else throw new ArgumentOutOfRangeException(nameof(Sum), "Sum must be a non-negative value.");
+            }
         }
 
         public Budget()
@@ -44,16 +60,6 @@ namespace GettingReal
             Products = new List<Product>();
             PriceLevel = PriceLevel.High; 
         }
-
-        // Kan måske være overflødig - Lad os vende denne
-        public Budget(Budget budget, PriceLevel priceLevel)
-        {
-            Products = new List<Product>();
-            PriceLevel = priceLevel; 
-            Budget budget1 = budget;
-        }
-
-
 
         public void CalculateDiscount (double discountPercentage)
         {

@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
+using System.Data;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace GettingReal
@@ -6,8 +8,9 @@ namespace GettingReal
     /// <summary>
     /// Interaction logic for TilbudControl.xaml
     /// </summary>
-    public partial class BudgetCreator : UserControl
+    public partial class BudgetCreator : UserControl, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public BudgetCreator()
         {
@@ -17,6 +20,7 @@ namespace GettingReal
 
             BudgetController budgetController = (BudgetController)DataContext;
             budgetController.CreateBudget();
+
         }
 
         private void btnNewBudget_Click(object sender, RoutedEventArgs e)
@@ -82,6 +86,25 @@ namespace GettingReal
         private void btnQuestion_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void PriceColumn_LostFocus(object sender, RoutedEventArgs e)
+        {
+            DataRowView row = ((FrameworkElement)sender).DataContext as DataRowView;
+
+            int price = (int)row["Price"];
+            Product product = (Product)row["Product"];
+
+            //string price = ((sender as FrameworkElement).DataContext as DataRowView)["PriceColumn"].ToString();
+
+            ProductController productController = new ProductController();
+            productController.MakeCustomPrice(product, price);
+
+            BudgetController budgetController = (BudgetController)DataContext;
+            budgetController.UpdateSum();
+
+            myDataGrid.Items.Refresh();
+            lblTotalPris.Content = $"{BudgetController.Budget.Sum:C}";
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)

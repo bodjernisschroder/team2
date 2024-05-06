@@ -7,10 +7,59 @@ namespace GettingReal
 {
     public partial class NewItemPopup : Window
     {
-        public string ProductName { get; set; }
-        public int ProductTimeEstimate { get; set; }
+        private string _productName;
 
-        public DataHandler CatalogueDataHandler { get; set; }
+        public string ProductName
+        {
+            get { return _productName; }
+            set
+            {
+                if (Catalogue.CategorizedProducts.Any(category => category.Value.Contains(value)))
+                {
+                    _productName = value;
+                }
+                else
+                {
+                    throw new ArgumentException("The product does not exist in any category.");
+                }
+            }
+        }
+
+        private int _productTimeEstimate;
+
+        public int ProductTimeEstimate
+        {
+            get { return _productTimeEstimate; }
+            set
+            {
+                if (value > 0)
+                {
+                    _productTimeEstimate = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException(nameof(ProductTimeEstimate), "Product time estimate must be greater than 0.");
+                }
+            }
+        }
+
+        private DataHandler _catalogueDataHandler;
+
+        public DataHandler CatalogueDataHandler
+        {
+            get { return _catalogueDataHandler; }
+            set
+            {
+                if (value != null)
+                {
+                    _catalogueDataHandler = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Catalogue data handler cannot be null");
+                }
+            }
+        }
 
         public NewItemPopup()
         {
@@ -19,16 +68,14 @@ namespace GettingReal
             CatalogueDataHandler = new DataHandler("ydelser.txt");
             CatalogueDataHandler.LoadCatalogue();
 
-            // Dette skal gentages hver gang NewItemPopup kaldes,
-            // ligesom andre værdier, såsom lstSelection.Items skal nulstilles
-            // Lige nu køres nedenstående kun ved new NewItemPopup (selvfølgelig)
-            // Derfor crasher programmet, når vi forsøger at tilføje en ny.
             for (int i = 0; i < Catalogue.CategorizedProducts.Keys.Count; i++)
             {
                 lstSelection.Items.Add(new ListBoxItem { Content = Catalogue.CategorizedProducts.Keys.ElementAt(i) } );
             }
         }
 
+        // Programmet crasher hvis man kommer til at dobbeltklikke på en ydelse efter at have valgt kategori
+        // Skal håndteres heri, tror jeg
         private void LstSelection_DoubleClick(object sender, EventArgs e)
         {
             if (!(lstSelection.SelectedItem is string))

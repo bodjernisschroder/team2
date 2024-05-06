@@ -20,12 +20,6 @@ namespace GettingReal
         }
         
         // Kan vi access dem uden at returnere dem?
-        public void CreateBudgetSuggestions() 
-        {
-            Budget highBudget = new Budget(Budget, PriceLevel.High);
-            Budget medBudget = new Budget(Budget, PriceLevel.Medium);
-            Budget lowBudget = new Budget(Budget, PriceLevel.Low);
-        }
 
         public void SelectBudget() 
         {

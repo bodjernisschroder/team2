@@ -46,8 +46,15 @@
                 <DataGrid x:Name="myDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Budget.Products}" SelectionUnit="Cell" HeadersVisibility="Column" IsReadOnly="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Ydelse" Width="*" Binding="{Binding Name}"/>
-                        <DataGridTextColumn Header="Pris" Width="75" Binding="{Binding Price}"/>
-
+                        <DataGridTextColumn x:Name="PriceColumn" Header="Pris" Width="75">
+                            <DataGridTextColumn.Binding>
+                                <Binding Path="Price" Mode="TwoWay" UpdateSourceTrigger="LostFocus">
+                                    <Binding.ValidationRules>
+                                        <ExceptionValidationRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </DataGridTextColumn.Binding>
+                        </DataGridTextColumn>
                         <DataGridTemplateColumn Header="Delete" Width="45">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>

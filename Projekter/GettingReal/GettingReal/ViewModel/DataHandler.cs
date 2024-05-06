@@ -21,8 +21,7 @@ namespace GettingReal
         {
             if (!File.Exists(DataFileName))
             {
-                Trace.WriteLine("Error: File does not exist.");
-                return;
+                throw new ArgumentException("File does not exist.", nameof(DataFileName));
             }
 
             using (StreamReader reader = new StreamReader(DataFileName))
