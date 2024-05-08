@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Security;
 using System.Text;
@@ -13,7 +14,8 @@ namespace GettingReal
         private List<Product> _products;
         private PriceLevel _priceLevel;
         private double _discountPercentage;
-        private int _sum;
+        private double _discountAmount;
+        private double _sum;
 
         public List<Product> Products 
         {     
@@ -40,12 +42,22 @@ namespace GettingReal
             get { return _discountPercentage; }
             set
             {
-                if (value >= 0 && value <= 35) _discountPercentage = value;
+                if (value >= 0.0 && value <= 35.0) _discountPercentage = value;
                 else throw new ArgumentOutOfRangeException(nameof(DiscountPercentage), "Discount percentage must be between 0 and 35.");
             }
         }
 
-        public int Sum 
+        public double DiscountAmount
+        {
+            get { return _discountAmount; }
+            private set
+            {
+                if (value >= 0) _discountAmount = value;
+                else throw new ArgumentOutOfRangeException(nameof(DiscountPercentage), "Discount amount must be a non-negative value.");
+            }
+        }
+
+        public double Sum 
         { 
             get { return _sum; }
             private set
@@ -61,25 +73,21 @@ namespace GettingReal
             PriceLevel = PriceLevel.High; 
         }
 
-        public void CalculateDiscount (double discountPercentage)
+        public void CalculateDiscount (int discountPercentage)
         {
-            double discountAmount = Sum * (discountPercentage/100.0); //discountamount er rabatten i kroner og øre 
-            double discountedPrice = Sum - discountAmount; //discountedPrice er den nye pris efter rabatten
-
-            DiscountPercentage = (Sum/discountedPrice)*100.0; //Her beregnes den procentvise rabat - gemt i property DiscountPercentage
+            DiscountPercentage = discountPercentage;
+            DiscountAmount = Sum * (discountPercentage/100.0);
         }
+
         public void CalculateSum()
         {
-
-            int sum = 0;
+            double sum = 0;
             foreach (Product product in Products)
             {
                sum += product.Price; 
             }
 
-            Sum = sum; 
-            
+            Sum = sum - DiscountAmount;
         }
-
     }
 }

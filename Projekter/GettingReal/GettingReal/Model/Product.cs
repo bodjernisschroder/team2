@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,7 +43,10 @@ namespace GettingReal
             get { return _priceLevel; }
             set
             {
-                if (Enum.IsDefined(typeof(PriceLevel), value)) _priceLevel = value;
+                if (Enum.IsDefined(typeof(PriceLevel), value))
+                {
+                    _priceLevel = value;
+                }
                 else throw new ArgumentException("Invalid price level value.");
             }
         }
@@ -52,7 +56,10 @@ namespace GettingReal
             get { return _price; }
             set
             {
-                if (value >= 0) _price = value;
+                if (value >= 0)
+                {
+                    _price = value;
+                }
                 else throw new ArgumentOutOfRangeException("Price cannot be negative.");
             }
         }
@@ -62,21 +69,24 @@ namespace GettingReal
             Name = name;
             TimeEstimate = timeEstimate;
             PriceLevel = priceLevel;
-            Price = CalculatePrice();
+            CalculatePrice();
         }
 
-        public int CalculatePrice()
+        public void CalculatePrice()
         {
             switch (PriceLevel)
             {
                 case PriceLevel.Low:
-                    return 1100 * TimeEstimate;
+                    Price = 1100 * TimeEstimate;
+                    break;
                 case PriceLevel.Medium:
-                    return 1400 * TimeEstimate;
+                    Price = 1400 * TimeEstimate;
+                    break;
                 case PriceLevel.High:
-                    return 1600 * TimeEstimate;
+                    Price = 1600 * TimeEstimate;
+                    break;
                 case PriceLevel.Custom:
-                    return Price;
+                    break;
                 default:
                     throw new NotImplementedException();
             }

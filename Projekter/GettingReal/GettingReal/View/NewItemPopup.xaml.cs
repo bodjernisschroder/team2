@@ -74,8 +74,7 @@ namespace GettingReal
             }
         }
 
-        // Programmet crasher hvis man kommer til at dobbeltklikke på en ydelse efter at have valgt kategori
-        // Skal håndteres heri, tror jeg
+        // Programmet crasher hvis man dobbeltklikker et sted i grid'et, der ikke har en værdi
         private void LstSelection_DoubleClick(object sender, EventArgs e)
         {
             if (!(lstSelection.SelectedItem is string))

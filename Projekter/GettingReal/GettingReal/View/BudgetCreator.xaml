@@ -27,34 +27,36 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Foreground" Value="Gray"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
-        
+
     </UserControl.Resources>
 
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Background="white" >
             <DockPanel Width="500" Height="40" Background="#282828">
-
-                <Button Name="btnQuestion" DockPanel.Dock="Left" Content="❓" Style="{StaticResource IconStyle}" Click="btnQuestion_Click"/>
-                <Button Name="btnNewBudget" DockPanel.Dock="Right" Content="➕" Style="{StaticResource IconStyle}" Click="btnNewBudget_Click"/>
-                <Button Name="btnSaveBudget" DockPanel.Dock="Right" Content="💾" Style="{StaticResource IconStyle}" Click="btnSaveBudget_Click"/>
-                <Button Name="btnLoadBudget" DockPanel.Dock="Right" Content="📁" Style="{StaticResource IconStyle}" Click="btnLoadBudget_Click"/>
+                <!--<Button Name="btnQuestion" DockPanel.Dock="Left" Content="❓" Style="{StaticResource IconStyle}" Click="btnQuestion_Click"/> -->
+                <Label Content="Prisniveau:" Foreground="White" FontSize="14" VerticalAlignment="Center"/>
+                <Button Name="btnPriceLevelLow" DockPanel.Dock="Left" Content="💲" Style="{StaticResource IconStyle}" Click="PriceLevel_Click" Width="15" Margin="10,0,0,0"/>
+                <Button Name="btnPriceLevelMedium" DockPanel.Dock="Left" Content="💲💲" Style="{StaticResource IconStyle}" Click="PriceLevel_Click" Width="40"/>
+                <Button Name="btnPriceLevelHigh" DockPanel.Dock="Left" Content="💲💲💲" Style="{StaticResource IconStyle}" Click="PriceLevel_Click" Width="40" IsEnabled="False"/>
+                <CheckBox Content="CheckBox" Width="20" DockPanel.Dock="Left" VerticalAlignment="Center" Margin="10,0,0,0" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+                <Label Content="Lås Tilpassede Priser" Foreground="White" FontSize="14" VerticalAlignment="Center"/>
+                <Button Name="btnNewBudget" DockPanel.Dock="Right" Content="➕" Style="{StaticResource IconStyle}" Click="NewBudget_Click" Width="40"/>
+                <Button Name="btnSaveBudget" DockPanel.Dock="Right" Content="💾" Style="{StaticResource IconStyle}" Click="SaveBudget_Click" Width="40"/>
+                <Button Name="btnLoadBudget" DockPanel.Dock="Right" Content="📁" Style="{StaticResource IconStyle}" Click="LoadBudget_Click" Width="40"/>
                 <Label DockPanel.Dock="Right" Width="0"/>
-                
             </DockPanel>
-            <Border BorderBrush="#282828" BorderThickness="3" Width="500" Height="375">
-                <DataGrid x:Name="myDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Budget.Products}" SelectionUnit="Cell" HeadersVisibility="Column" IsReadOnly="False">
+            <Border BorderBrush="#282828" BorderThickness="3" Width="500" Height="325">
+                <DataGrid x:Name="myDataGrid" CellEditEnding="MyDataGrid_CellEditEnding" KeyDown="EnterKeyDown" AutoGenerateColumns="False" ItemsSource="{Binding Budget.Products}" SelectionUnit="Cell" HeadersVisibility="Column" Margin="0,0,0,-3" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Ydelse" Width="*" Binding="{Binding Name}"/>
-                        <DataGridTextColumn x:Name="PriceColumn" Header="Pris" Width="75">
-                            <DataGridTextColumn.Binding>
-                                <Binding Path="Price" Mode="TwoWay" UpdateSourceTrigger="LostFocus">
-                                    <Binding.ValidationRules>
-                                        <ExceptionValidationRule />
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </DataGridTextColumn.Binding>
-                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Time Estimat" Width="100" Binding="{Binding TimeEstimate}"/>
+                        <DataGridTextColumn x:Name="PriceColumn" Header="Pris" Width="75" Binding="{Binding Price}"/>
                         <DataGridTemplateColumn Header="Delete" Width="45">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -64,16 +66,24 @@
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-
             </Border>
+            <DockPanel Width="500" Height="30" Background="#282828">
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Label Content="Rabat:" Foreground="White" FontSize="14" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtRabat" Text="{Binding Path=Budget.DiscountPercentage}" Width="50" Margin="0,0,5,0" VerticalAlignment="Center" LostFocus="TextRabat_LostFocus" Background="Black" Foreground="White" BorderBrush="White" BorderThickness="1" Height="25" FontSize="14" KeyDown="EnterKeyDown"/>
+                    <Label Content="%" Foreground="White" FontSize="14" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                </StackPanel>
+            </DockPanel>
             <DockPanel Width="500" Height="40" Background="#282828">
-
-                <!-- <Label Name="lblSamletPris" DockPanel.Dock="Left"  Margin="5,0,0,0" Foreground="white" FontSize="18" Content="Samlet pris:" HorizontalAlignment="Center" VerticalAlignment="Center"/> -->
-                <Label Name="lblTotalPris" DockPanel.Dock="Right" Margin="0,0,5,0" Foreground="white" FontSize="18" Content="0,00 kr." HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                
-                <Label DockPanel.Dock="Right" Width="0"/>
-
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <!-- <Label Name="lblSamletPris" DockPanel.Dock="Left"  Margin="5,0,0,0" Foreground="white" FontSize="18" Content="Samlet pris:" HorizontalAlignment="Center" VerticalAlignment="Center"/> -->
+                    <Label Content="Sum:" Foreground="White" FontSize="18" VerticalAlignment="Center"/>
+                    <Label Name="lblTotalPris" Margin="0,0,5,0" Foreground="white" FontSize="18" Content="{Binding Path=Budget.Sum}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Label Content="kr." Foreground="White" FontSize="18" VerticalAlignment="Center"/>
+                    <Label DockPanel.Dock="Right" Width="0"/>
+                </StackPanel>
             </DockPanel>
         </StackPanel>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="969,70,0,0" VerticalAlignment="Top" Width="0"/>
     </Grid>
 </UserControl>

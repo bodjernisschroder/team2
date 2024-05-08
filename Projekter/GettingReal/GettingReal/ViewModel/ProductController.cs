@@ -20,6 +20,12 @@ namespace GettingReal
             UpdatePrice(product);
         }
 
+        public void ChangeTimeEstimate(Product product, int timeEstimate, PriceLevel priceLevel)
+        {
+            product.TimeEstimate = timeEstimate;
+            ChangePriceLevel(product, priceLevel);
+        }
+
         public void ChangePriceLevel(Product product, PriceLevel priceLevel)
         {
             product.PriceLevel = priceLevel;

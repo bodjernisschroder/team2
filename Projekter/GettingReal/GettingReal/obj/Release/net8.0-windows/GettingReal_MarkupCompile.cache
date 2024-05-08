@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\abfol\OneDrive\Documents\Datamatiker\team2\Projekter\GettingReal\GettingReal\obj\Release\net8.0-windows\
+C:\Users\abfol\OneDrive\Documents\Datamatiker\PrivateRepository\GettingReal\GettingReal\obj\Release\net8.0-windows\
 GettingReal
 none
 false
 TRACE;RELEASE;NET;NET8_0;NETCOREAPP
-C:\Users\abfol\OneDrive\Documents\Datamatiker\team2\Projekter\GettingReal\GettingReal\App.xaml
-5-1011675828
+C:\Users\abfol\OneDrive\Documents\Datamatiker\PrivateRepository\GettingReal\GettingReal\App.xaml
+6-2115789549
 
-16-1294788667
+16-299937876
 198155382431
-View\BudgetCreator.xaml;View\LoadPopup.xaml;View\MainWindow.xaml;View\NewItemPopup.xaml;View\SavePopup.xaml;
+View\BudgetCreator.xaml;View\BudgetSuggestions.xaml;View\LoadPopup.xaml;View\MainWindow.xaml;View\NewItemPopup.xaml;View\SavePopup.xaml;
 
 True
 
