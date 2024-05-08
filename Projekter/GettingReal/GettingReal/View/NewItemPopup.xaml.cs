@@ -74,39 +74,38 @@ namespace GettingReal
             }
         }
 
-        // Programmet crasher hvis man dobbeltklikker et sted i grid'et, der ikke har en værdi
         private void LstSelection_DoubleClick(object sender, EventArgs e)
         {
-            if (!(lstSelection.SelectedItem is string))
+            if (lstSelection.SelectedItem is ListBoxItem selectedItem)
             {
-                ListBoxItem selectedItem = (ListBoxItem)lstSelection.SelectedItem;
                 string category = selectedItem.Content.ToString();
                 lstSelection.Items.Clear();
                 List<string> productsInCategory = Catalogue.CategorizedProducts[category];
                 foreach (string product in productsInCategory)
                 {
-                    Trace.WriteLine(product);
-                    lstSelection.Items.Add(product);
+                    lstSelection.Items.Add(new ListBoxItem { Content = product });
                 }
-                // Gør så timeestimatfeltet først er synligt efter dette - eller enabled, hvis synligt
-                // er for kompliceret eller kræver et helt nyt vindue
+                txtTimeEstimat.IsEnabled = true;
             }
+            UpdateOKButtonState();
         }
+
+
         private void btnAddNewItemOK_Click(object sender, RoutedEventArgs e)
         {
-            // Indbyg, at den er disabled indtil product er valgt i stedet for dette
-            //if (selectedProduct == null)
-            //{
-            //    MessageBox.Show("Vælg en ydelse fra listen for at fortsætte...");
-            //    return;
-            //}
-
             BudgetController budgetController = new BudgetController();
-            ProductName = (string)lstSelection.SelectedItem;
-            ProductTimeEstimate = int.Parse(txtTimeEstimat.Text);
-            budgetController.AddProduct(ProductName, ProductTimeEstimate);
-            DialogResult = true;
-            Close();
+
+            if (lstSelection.SelectedItem is ListBoxItem selectedItem)
+            {
+                if (int.TryParse(txtTimeEstimat.Text, out int timeEstimate) && timeEstimate > 0)
+                {
+                    ProductName = selectedItem.Content.ToString();
+                    ProductTimeEstimate = timeEstimate;
+                    budgetController.AddProduct(ProductName, ProductTimeEstimate);
+                    DialogResult = true;
+                    Close();
+                }
+            }
         }
         private void btnAddNewItemFortryd_Click(object sender, RoutedEventArgs e)
         {
@@ -114,11 +113,21 @@ namespace GettingReal
             Close();
         }
 
-        //Min tanke med metoden her var at oprette knap, hvis man ønsker at tilføje en ny ydelse fra en anden
-        // kategori uden at trykke på 'fortryd'. 
         private void btnPreviousSection_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void UpdateOKButtonState()
+        {
+            bool productSelected = lstSelection.SelectedItem != null;
+            bool timeIsValid = int.TryParse(txtTimeEstimat.Text, out int timeEstimate) && timeEstimate > 0; 
+
+            btnAddNewItemOK.IsEnabled = productSelected && timeIsValid; 
+        }
+        private void TxtTimeEstimat_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateOKButtonState();
         }
     }
 }

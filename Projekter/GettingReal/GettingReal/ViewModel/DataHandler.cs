@@ -12,6 +12,8 @@ namespace GettingReal
     {
         public string DataFileName { get; }
 
+        public DataHandler() { }
+
         public DataHandler(string dataFileName)
         {
             DataFileName = dataFileName;
@@ -35,5 +37,32 @@ namespace GettingReal
                 }
             }
         }
+        public void LoadBudgetFromFile(string filePath, BudgetController budgetController)
+        {
+            budgetController.ResetBudget();
+            using (StreamReader reader = new StreamReader(filePath))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    var parts = line.Split(',');
+                    budgetController.AddProduct(parts[0], int.Parse(parts[1]));
+                }
+            }
+            budgetController.UpdateSum();
+        }
+
+        public static void SaveBudgetToFile(string filePath, List<Product> products)
+        {
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                foreach (var product in products)
+                {
+                    writer.WriteLine($"{product.Name},{product.TimeEstimate}");
+                }
+            }
+        }
+
     }
+
 }

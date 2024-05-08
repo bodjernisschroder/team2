@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\abfol\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\abfol\\.nuget\\packages"
+      "C:\\Users\\bosch\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\bosch\\.nuget\\packages"
     ],
     "configProperties": {
       "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": true,

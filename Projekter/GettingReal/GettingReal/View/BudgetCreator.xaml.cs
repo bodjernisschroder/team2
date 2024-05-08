@@ -25,6 +25,7 @@ namespace GettingReal
 
             BudgetController budgetController = (BudgetController)DataContext;
             budgetController.CreateBudget();
+            UpdateGrid();
         }
 
         private void NewBudget_Click(object sender, RoutedEventArgs e)
@@ -49,43 +50,23 @@ namespace GettingReal
 
             if (saveDialog.ShowDialog() == true)
             {
-                // Kald en metode i DataHandler, som gør dette
-
-                //using (StreamWriter writer = new StreamWriter(saveDialog.FilePath))
-                //{
-                //    foreach (var item in Budget.Products)
-                //    {
-                //        writer.WriteLine($"{item.Description},{item.Amount}");
-                //    }
-                //}
+                List<Product> products = BudgetController.Budget.Products;
+                DataHandler.SaveBudgetToFile(saveDialog.FilePath, products);
             }
         }
 
         private void LoadBudget_Click(object sender, RoutedEventArgs e)
         {
             LoadPopup loadDialog = new LoadPopup();
-
             if (loadDialog.ShowDialog() == true)
             {
+                DataHandler dataHandler = new DataHandler();
                 BudgetController budgetController = (BudgetController)DataContext;
-                budgetController.ResetBudget();
-                // Kald en metode i DataHandler, som gør dette
-
-                //using (StreamReader reader = new StreamReader(loadDialog.FilePath))
-                //{
-                //    string line;
-                //    while ((line = reader.ReadLine()) != null)
-                //    {
-                //        var parts = line.Split(',');
-
-                //        var newItem = new Budget.Products(double.Parse(parts[1]), parts[0]);
-                //        Budget.Products.Add(newItem);
-                //    }
-                //}
-                // Budget.Products = det, der er loadet (add efter hvert load?)
-                budgetController.UpdateSum();
+                dataHandler.LoadBudgetFromFile(loadDialog.FilePath, budgetController);
             }
+            UpdateGrid();
         }
+
 
         private void MyDataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
