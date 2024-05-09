@@ -22,6 +22,8 @@ namespace GettingReal.View
         public BudgetSuggestions()
         {
             InitializeComponent();
+
+            //Dette vil være en tilføjelse til 2.semesters projekt
         }
     }
 }

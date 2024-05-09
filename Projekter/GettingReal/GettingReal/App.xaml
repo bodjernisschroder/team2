@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:GettingReal"
              StartupUri="View\MainWindow.xaml">
     <Application.Resources>
-         
+        <!--Font style serif og sans serif-->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/View/Fonts.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -19,7 +19,7 @@
             <Setter Property="Margin" Value="15,15,5,0"/>
             <Setter Property="Padding" Value="5"/>
             <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="FontFamily" Value="{StaticResource SansSemiBold}"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">

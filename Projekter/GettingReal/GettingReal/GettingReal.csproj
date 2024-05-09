@@ -9,10 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="View\fonts\PPFragment-SansSemiBold.ttf" />
+    <None Remove="View\fonts\PPFragment-SerifRegular.ttf" />
     <None Remove="View\img\publico_light.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="View\fonts\PPFragment-SansSemiBold.ttf" />
+    <Resource Include="View\fonts\PPFragment-SerifRegular.ttf" />
     <Resource Include="View\img\publico_light.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>

@@ -18,6 +18,9 @@
     <Page Update="View\BudgetSuggestions.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\Fonts.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\LoadPopup.xaml">
       <SubType>Designer</SubType>
     </Page>

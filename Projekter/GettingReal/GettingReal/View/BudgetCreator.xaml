@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:GettingReal"
-             mc:Ignorable="d"
+             
+             mc:Ignorable="d"       
              d:DesignHeight="450" d:DesignWidth="800">
 
     <UserControl.Resources>
@@ -16,7 +16,7 @@
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="FontSize" Value="15"/>
-            <Setter Property="FontFamily" Value="Helvetica"/>
+            <Setter Property="FontFamily" Value="{StaticResource SansSemiBold}"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Height" Value="40"/>
             <Setter Property="Width" Value="40"/>
@@ -34,8 +34,10 @@
             </Style.Triggers>
         </Style>
 
+    
     </UserControl.Resources>
-
+    
+    
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Background="white" >
             <DockPanel Width="500" Height="40" Background="#282828">
@@ -52,11 +54,11 @@
                 <Label DockPanel.Dock="Right" Width="0"/>
             </DockPanel>
             <Border BorderBrush="#282828" BorderThickness="3" Width="500" Height="325">
-                <DataGrid x:Name="myDataGrid" CellEditEnding="MyDataGrid_CellEditEnding" KeyDown="EnterKeyDown" AutoGenerateColumns="False" ItemsSource="{Binding Budget.Products}" SelectionUnit="Cell" HeadersVisibility="Column" Margin="0,0,0,-3" >
+                <DataGrid x:Name="myDataGrid" CellEditEnding="MyDataGrid_CellEditEnding" KeyDown="EnterKeyDown" AutoGenerateColumns="False" ItemsSource="{Binding Budget.Products}" SelectionUnit="Cell" HeadersVisibility="Column" Margin="0,0,0,-3">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Ydelse" Width="*" Binding="{Binding Name}"/>
-                        <DataGridTextColumn Header="Time Estimat" Width="100" Binding="{Binding TimeEstimate}"/>
-                        <DataGridTextColumn x:Name="PriceColumn" Header="Pris" Width="75" Binding="{Binding Price}"/>
+                        <DataGridTextColumn Header="Ydelse" Width="*" Binding="{Binding Path=Product.Name}"/>
+                        <DataGridTextColumn Header="Time Estimat" Width="100" Binding="{Binding Path=Product.TimeEstimate}"/>
+                        <DataGridTextColumn x:Name="PriceColumn" Header="Pris" Width="75" Binding="{Binding Path=Product.Price}"/>
                         <DataGridTemplateColumn Header="Delete" Width="45">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -78,7 +80,7 @@
                 <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <!-- <Label Name="lblSamletPris" DockPanel.Dock="Left"  Margin="5,0,0,0" Foreground="white" FontSize="18" Content="Samlet pris:" HorizontalAlignment="Center" VerticalAlignment="Center"/> -->
                     <Label Content="Sum:" Foreground="White" FontSize="18" VerticalAlignment="Center"/>
-                    <Label Name="lblTotalPris" Margin="0,0,5,0" Foreground="white" FontSize="18" Content="{Binding Path=Budget.Sum}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Label Name="lblTotalPris" Margin="0,0,5,0" Foreground="white" FontSize="18"  HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding Path=Budget.Sum}"/>
                     <Label DockPanel.Dock="Right" Width="0"/>
                 </StackPanel>
             </DockPanel>

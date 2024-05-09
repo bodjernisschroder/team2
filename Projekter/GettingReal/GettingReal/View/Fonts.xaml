@@ -1,0 +1,6 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <FontFamily x:Key="RegularSerif">/GettingReal;component/fonts/PPFragment-SerifRegular.ttf</FontFamily>
+    <FontFamily x:Key="SansSemiBold">/GettingReal;component/fonts/PPFragment-SansSemiBold.ttf</FontFamily>
+    
+</ResourceDictionary>

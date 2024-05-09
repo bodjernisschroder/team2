@@ -76,18 +76,38 @@ namespace GettingReal
 
         private void LstSelection_DoubleClick(object sender, EventArgs e)
         {
-            if (lstSelection.SelectedItem is ListBoxItem selectedItem)
-            {
-                string category = selectedItem.Content.ToString();
-                lstSelection.Items.Clear();
-                List<string> productsInCategory = Catalogue.CategorizedProducts[category];
-                foreach (string product in productsInCategory)
+           
+                try
                 {
-                    lstSelection.Items.Add(new ListBoxItem { Content = product });
+
+                    if (lstSelection.SelectedItem is ListBoxItem selectedItem)
+                    {
+                        string category = selectedItem.Content.ToString();
+                        lstSelection.Items.Clear();
+                        List<string> productsInCategory = Catalogue.CategorizedProducts[category];
+                        foreach (string product in productsInCategory)
+                        {
+                            lstSelection.Items.Add(new ListBoxItem { Content = product });
+                        }
+                        txtTimeEstimat.IsEnabled = true;
+                    }
+                    UpdateOKButtonState();
                 }
-                txtTimeEstimat.IsEnabled = true;
-            }
-            UpdateOKButtonState();
+
+                catch (KeyNotFoundException)
+                {
+                    ShowKeyNotFoundErrorMessage();
+                    // Et kodestykke som viser listen igen - Prøvet så mange gange nu og kan ikke helt gennemskue, hvordan :)
+                }
+
+        }
+        
+
+        private void ShowKeyNotFoundErrorMessage()
+        {
+          
+            ErrorMessageTextBlock.Visibility = Visibility.Visible;
+            
         }
 
 

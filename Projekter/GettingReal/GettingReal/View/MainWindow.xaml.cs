@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 
+
 namespace GettingReal
 {
     public partial class MainWindow : Window
@@ -7,6 +8,7 @@ namespace GettingReal
         public MainWindow()
         {
             InitializeComponent();
+
             
         }
 
