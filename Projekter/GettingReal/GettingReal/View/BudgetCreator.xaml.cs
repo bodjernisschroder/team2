@@ -68,6 +68,16 @@ namespace GettingReal
         }
 
 
+        private void CopyToClipboard_Click(object sender, RoutedEventArgs e)
+        {
+            myDataGrid.SelectAll();
+            DataObject dataObj = new DataObject();
+            Clipboard.SetDataObject(dataObj, true);
+            myDataGrid.ClipboardCopyMode = DataGridClipboardCopyMode.ExcludeHeader;
+
+        }
+
+
         private void MyDataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
             BudgetController budgetController = (BudgetController)DataContext;
@@ -166,5 +176,8 @@ namespace GettingReal
             myDataGrid.ItemsSource = BudgetController.Budget.Products;
             lblTotalPris.Content = $"{BudgetController.Budget.Sum:C}";
         }
+
+  
+
     }
 }

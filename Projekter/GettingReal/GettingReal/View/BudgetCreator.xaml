@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:GettingReal"
              
              mc:Ignorable="d"       
              d:DesignHeight="450" d:DesignWidth="800">
@@ -51,14 +52,15 @@
                 <Button Name="btnNewBudget" DockPanel.Dock="Right" Content="➕" Style="{StaticResource IconStyle}" Click="NewBudget_Click" Width="40"/>
                 <Button Name="btnSaveBudget" DockPanel.Dock="Right" Content="💾" Style="{StaticResource IconStyle}" Click="SaveBudget_Click" Width="40"/>
                 <Button Name="btnLoadBudget" DockPanel.Dock="Right" Content="📁" Style="{StaticResource IconStyle}" Click="LoadBudget_Click" Width="40"/>
+                <Button Name="btnCopyToClipboard" DockPanel.Dock="Right" Content="📋" Style="{StaticResource IconStyle}" Click="CopyToClipboard_Click" Width="40"/>
                 <Label DockPanel.Dock="Right" Width="0"/>
             </DockPanel>
             <Border BorderBrush="#282828" BorderThickness="3" Width="500" Height="325">
-                <DataGrid x:Name="myDataGrid" CellEditEnding="MyDataGrid_CellEditEnding" KeyDown="EnterKeyDown" AutoGenerateColumns="False" ItemsSource="{Binding Budget.Products}" SelectionUnit="Cell" HeadersVisibility="Column" Margin="0,0,0,-3">
+                <DataGrid x:Name="myDataGrid" CellEditEnding="MyDataGrid_CellEditEnding" KeyDown="EnterKeyDown" AutoGenerateColumns="False" ItemsSource="{Binding Products}" SelectionUnit="Cell" HeadersVisibility="Column" Margin="0,0,0,-3">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Ydelse" Width="*" Binding="{Binding Path=Product.Name}"/>
-                        <DataGridTextColumn Header="Time Estimat" Width="100" Binding="{Binding Path=Product.TimeEstimate}"/>
-                        <DataGridTextColumn x:Name="PriceColumn" Header="Pris" Width="75" Binding="{Binding Path=Product.Price}"/>
+                        <DataGridTextColumn Header="Ydelse" Width="*" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="Time Estimat" Width="100" Binding="{Binding TimeEstimate}"/>
+                        <DataGridTextColumn x:Name="PriceColumn" Header="Pris" Width="75" Binding="{Binding Price}"/>
                         <DataGridTemplateColumn Header="Delete" Width="45">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -72,7 +74,7 @@
             <DockPanel Width="500" Height="30" Background="#282828">
                 <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <Label Content="Rabat:" Foreground="White" FontSize="14" VerticalAlignment="Center"/>
-                    <TextBox x:Name="txtRabat" Text="{Binding Path=Budget.DiscountPercentage}" Width="50" Margin="0,0,5,0" VerticalAlignment="Center" LostFocus="TextRabat_LostFocus" Background="Black" Foreground="White" BorderBrush="White" BorderThickness="1" Height="25" FontSize="14" KeyDown="EnterKeyDown"/>
+                    <TextBox x:Name="txtRabat" Text="{Binding DiscountPercentage}" Width="50" Margin="0,0,5,0" VerticalAlignment="Center" LostFocus="TextRabat_LostFocus" Background="Black" Foreground="White" BorderBrush="White" BorderThickness="1" Height="25" FontSize="14" KeyDown="EnterKeyDown"/>
                     <Label Content="%" Foreground="White" FontSize="14" VerticalAlignment="Center" Margin="0,0,5,0"/>
                 </StackPanel>
             </DockPanel>
@@ -80,7 +82,7 @@
                 <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <!-- <Label Name="lblSamletPris" DockPanel.Dock="Left"  Margin="5,0,0,0" Foreground="white" FontSize="18" Content="Samlet pris:" HorizontalAlignment="Center" VerticalAlignment="Center"/> -->
                     <Label Content="Sum:" Foreground="White" FontSize="18" VerticalAlignment="Center"/>
-                    <Label Name="lblTotalPris" Margin="0,0,5,0" Foreground="white" FontSize="18"  HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding Path=Budget.Sum}"/>
+                    <Label Name="lblTotalPris" Margin="0,0,5,0" Foreground="white" FontSize="18"  HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding Sum}"/>
                     <Label DockPanel.Dock="Right" Width="0"/>
                 </StackPanel>
             </DockPanel>
