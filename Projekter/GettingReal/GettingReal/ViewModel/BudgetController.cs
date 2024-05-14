@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GettingReal.View;
 
-namespace GettingReal 
+namespace GettingReal
 {
     public class BudgetController
     {
@@ -18,7 +18,33 @@ namespace GettingReal
         {
             Budget = new Budget();
         }
-        
+
+        public double DiscountPercentage
+        {
+            get { return Budget.DiscountPercentage; }
+            set
+            {
+                if (Budget.DiscountPercentage != value)
+                {
+                    Budget.DiscountPercentage = value;
+                    OnPropertyChanged("DiscountPercentage");
+                }
+            }
+        }
+
+        public static double Sum
+        { 
+            get { return Budget.Sum; }              
+        }
+
+        public static List<Product> Products
+        {
+            get { return Budget.Products; }
+        }
+            
+
+
+
         public void AddProduct(string name, int timeEstimate) 
         {
             ProductController productController = new ProductController();
@@ -76,6 +102,13 @@ namespace GettingReal
             Budget.PriceLevel = PriceLevel.High;
             Budget.DiscountPercentage = 0;
             UpdateSum();
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

@@ -5,6 +5,8 @@ using System.Windows.Controls;
 using System.Diagnostics;
 using System.Windows.Input;
 using System.Diagnostics.Eventing.Reader;
+using System.Text;
+using System.Windows.Data;
 
 namespace GettingReal
 {
@@ -68,14 +70,97 @@ namespace GettingReal
         }
 
 
+
         private void CopyToClipboard_Click(object sender, RoutedEventArgs e)
         {
-            myDataGrid.SelectAll();
-            DataObject dataObj = new DataObject();
-            Clipboard.SetDataObject(dataObj, true);
-            myDataGrid.ClipboardCopyMode = DataGridClipboardCopyMode.ExcludeHeader;
+            //Kalder metoden nedenfor for, når der klikkes på knappen i programmet
+            CopyToClipboard(myDataGrid);
 
         }
+
+        // Metoden, som sikrer, at Kopiering af datagrid virker
+        private void CopyToClipboard(DataGrid datagrid)
+        {
+            StringBuilder myStringBuilder = new StringBuilder();
+            myStringBuilder.AppendLine("<html><body><table>");
+
+            // Samler navne i kolonner
+            myStringBuilder.Append("<tr>");
+
+            // Vi bruger et for loop her i stedet for et for each,
+            // så den sidste kolonne med 'delete' ikke kommer med 
+            for (int i = 0; i < datagrid.Columns.Count-1; i++)
+            {
+                myStringBuilder.AppendFormat("<th>{0}</th>", datagrid.Columns[i].Header);
+
+            }
+            myStringBuilder.AppendLine("</tr>");
+
+
+
+            // Tilføjer rækker
+            foreach (var item in datagrid.Items)
+            {
+                myStringBuilder.Append("<tr>");
+
+                // Samme princip med for loops er også gældende her - bare for rækker
+                for (int j = 0; j < datagrid.Columns.Count -1; j++)
+
+                {
+                    if (datagrid.Columns[j] is DataGridBoundColumn boundColumn)
+                    {
+                     
+                        var binding = boundColumn.Binding as Binding;
+                        if (binding != null)
+                        {
+                            var path = binding.Path.Path;
+                            var value = item.GetType().GetProperty(path)?.GetValue(item, null)?.ToString();
+                            myStringBuilder.AppendFormat("<td>{0}</td>", value);
+                        }
+                    }
+
+
+                }
+                myStringBuilder.AppendLine("</tr>");
+
+            }
+
+
+            myStringBuilder.AppendLine("</table></body></html>");
+            string clipboardHtml = FormatHtmlClipboard(myStringBuilder.ToString());
+            Clipboard.SetText(clipboardHtml, TextDataFormat.Html);
+
+        }
+        private string FormatHtmlClipboard(string html)
+        {
+
+            // Header til HTML
+            const string Header =
+                "Version:0.9\r\n" +
+                "StartHTML:00000097\r\n" +
+                "EndHTML:{0}\r\n" +
+                "StartFragment:00000131\r\n" +
+                "EndFragment:{1}\r\n";
+
+            const string StartFragment = "<!--StartFragment-->";
+            const string EndFragment = "<!--EndFragment-->";
+
+            string htmlDocument = StartFragment + html + EndFragment;
+
+            int startHtml = Header.Length - 8; // Bruges til at justere Længden på headeren
+            int endHtml = startHtml + htmlDocument.Length;
+            int startFragment = startHtml + StartFragment.Length;
+            int endFragment = startFragment + html.Length;
+
+            string header = string.Format(Header, endHtml.ToString("D9"), endFragment.ToString("D9"));
+
+            return header + htmlDocument;
+        }
+
+
+
+
+
 
 
         private void MyDataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
