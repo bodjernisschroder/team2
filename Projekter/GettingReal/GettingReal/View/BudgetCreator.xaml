@@ -42,9 +42,9 @@
             <DockPanel Width="500" Height="40" Background="#282828">
                 <!--<Button Name="btnQuestion" DockPanel.Dock="Left" Content="❓" Style="{StaticResource IconStyle}" Click="btnQuestion_Click"/> -->
                 <Label Content="Prisniveau:" Foreground="White" FontSize="14" VerticalAlignment="Center"/>
-                <Button Name="btnPriceLevelLow" DockPanel.Dock="Left" Content="💲" Style="{StaticResource IconStyle}" Click="PriceLevel_Click" Width="15" Margin="10,0,0,0"/>
-                <Button Name="btnPriceLevelMedium" DockPanel.Dock="Left" Content="💲💲" Style="{StaticResource IconStyle}" Click="PriceLevel_Click" Width="40"/>
-                <Button Name="btnPriceLevelHigh" DockPanel.Dock="Left" Content="💲💲💲" Style="{StaticResource IconStyle}" Click="PriceLevel_Click" Width="40" IsEnabled="False"/>
+                <Button Name="btnPriceLevelLow" DockPanel.Dock="Left" Content="1" Style="{StaticResource IconStyle}" Click="PriceLevel_Click" Width="25"/>
+                <Button Name="btnPriceLevelMedium" DockPanel.Dock="Left" Content="2" Style="{StaticResource IconStyle}" Click="PriceLevel_Click" Width="25"/>
+                <Button Name="btnPriceLevelHigh" DockPanel.Dock="Left" Content="3" Style="{StaticResource IconStyle}" Click="PriceLevel_Click" Width="25" IsEnabled="False"/>
                 <CheckBox Content="CheckBox" Width="20" DockPanel.Dock="Left" VerticalAlignment="Center" Margin="10,0,0,0" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
                 <Label Content="Lås Tilpassede Priser" Foreground="White" FontSize="14" VerticalAlignment="Center"/>
                 <Button Name="btnNewBudget" DockPanel.Dock="Right" Content="➕" Style="{StaticResource IconStyle}" Click="NewBudget_Click" Width="40"/>
