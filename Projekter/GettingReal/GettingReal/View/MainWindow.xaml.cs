@@ -12,14 +12,38 @@ namespace GettingReal
             
         }
 
+
+
         private void btnTilbud_Click(object sender, RoutedEventArgs e)
         {
-            MainContent.Content = new BudgetCreator();
+
+            MessageBoxResult result = MessageBox.Show("Er du sikker på, at du vil oprette et nyt tilbud?", "Bekræft oprettelsen", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.OK)
+            {
+                MainContent.Content = new BudgetCreator();
+            }
+
         }
+
+        
 
         private void btnExitProgram_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            MessageBoxResult result = MessageBox.Show("Er du sikker på, at du vil lukke programmet?", "Bekræft lukning", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+
+
+            if (result == MessageBoxResult.OK)
+            {
+                Close();
+            }
+
+
+
         }
+
     }
+
 }
+
+
