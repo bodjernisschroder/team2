@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
+using System.Windows.Input;
 using WPFAndMVVM2.Models;
 
 namespace WPFAndMVVM2.ViewModels
@@ -71,11 +72,17 @@ namespace WPFAndMVVM2.ViewModels
             //SelectedPerson = PersonsVM[PersonsVM.Count - 1];
         }
 
-        
+        public void DeleteSelectedPerson()
+        {
+            SelectedPerson.DeletePerson(personRepo);
+            PersonsVM.Remove(SelectedPerson);
+        }
+        public ICommand NewCmd { get; set; } = new NewCommand();
+        public ICommand DeleteCmd { get; set; } = new DeleteCommand();
 
 
 
-        
+
 
 
     }

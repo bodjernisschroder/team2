@@ -29,17 +29,5 @@ namespace WPFAndMVVM2
  
             DataContext = mvm;
         }
-
-        private void btnNewPerson_Click(object sender, RoutedEventArgs e)
-        {
-            mvm.AddDefaultPerson();
-            myListBox.ScrollIntoView(mvm.SelectedPerson);
-            //ListBox listBox = (ListBox)FindName("myListBox");
-        }
-
-        private void btnDeletePerson_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

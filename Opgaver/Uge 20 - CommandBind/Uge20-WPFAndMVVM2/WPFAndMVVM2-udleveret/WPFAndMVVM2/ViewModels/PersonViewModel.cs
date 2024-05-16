@@ -28,13 +28,20 @@ namespace WPFAndMVVM2.ViewModels
             get { return person.Age; } 
             set { person.Age = value; }
         }
+        
         public string Phone 
         { 
             get { return person.Phone; } 
             set { person.Phone = value; }
         }
+        
+        public int Id { get { return person.Id; } }
 
 
+        public void DeletePerson(PersonRepository personRepo)
+        {
+            personRepo.Remove(Id);
+        }
         
 
         public PersonViewModel (Person person)

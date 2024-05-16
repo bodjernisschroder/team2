@@ -18,3 +18,24 @@ C:\Users\burak\Downloads\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\obj
 C:\Users\burak\Downloads\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\obj\Debug\net6.0-windows7.0\WPFAndMVVM2.pdb
 C:\Users\burak\Downloads\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\obj\Debug\net6.0-windows7.0\WPFAndMVVM2.genruntimeconfig.cache
 C:\Users\burak\Downloads\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\obj\Debug\net6.0-windows7.0\ref\WPFAndMVVM2.dll
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Opgaver\Uge 20 - CommandBind\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\bin\Debug\net6.0-windows7.0\WPFAndMVVM2.exe
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Opgaver\Uge 20 - CommandBind\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\bin\Debug\net6.0-windows7.0\WPFAndMVVM2.deps.json
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Opgaver\Uge 20 - CommandBind\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\bin\Debug\net6.0-windows7.0\WPFAndMVVM2.runtimeconfig.json
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Opgaver\Uge 20 - CommandBind\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\bin\Debug\net6.0-windows7.0\WPFAndMVVM2.dll
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Opgaver\Uge 20 - CommandBind\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\bin\Debug\net6.0-windows7.0\WPFAndMVVM2.pdb
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Opgaver\Uge 20 - CommandBind\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\obj\Debug\net6.0-windows7.0\Views\MainWindow.g.cs
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Opgaver\Uge 20 - CommandBind\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\obj\Debug\net6.0-windows7.0\App.g.cs
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Opgaver\Uge 20 - CommandBind\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\obj\Debug\net6.0-windows7.0\WPFAndMVVM2_MarkupCompile.cache
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Opgaver\Uge 20 - CommandBind\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\obj\Debug\net6.0-windows7.0\WPFAndMVVM2_MarkupCompile.lref
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Opgaver\Uge 20 - CommandBind\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\obj\Debug\net6.0-windows7.0\Views\MainWindow.baml
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Opgaver\Uge 20 - CommandBind\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\obj\Debug\net6.0-windows7.0\WPFAndMVVM2.g.resources
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Opgaver\Uge 20 - CommandBind\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\obj\Debug\net6.0-windows7.0\WPFAndMVVM2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Opgaver\Uge 20 - CommandBind\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\obj\Debug\net6.0-windows7.0\WPFAndMVVM2.AssemblyInfoInputs.cache
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Opgaver\Uge 20 - CommandBind\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\obj\Debug\net6.0-windows7.0\WPFAndMVVM2.AssemblyInfo.cs
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Opgaver\Uge 20 - CommandBind\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\obj\Debug\net6.0-windows7.0\WPFAndMVVM2.csproj.CoreCompileInputs.cache
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Opgaver\Uge 20 - CommandBind\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\obj\Debug\net6.0-windows7.0\WPFAndMVVM2.sourcelink.json
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Opgaver\Uge 20 - CommandBind\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\obj\Debug\net6.0-windows7.0\WPFAndMVVM2.dll
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Opgaver\Uge 20 - CommandBind\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\obj\Debug\net6.0-windows7.0\refint\WPFAndMVVM2.dll
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Opgaver\Uge 20 - CommandBind\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\obj\Debug\net6.0-windows7.0\WPFAndMVVM2.pdb
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Opgaver\Uge 20 - CommandBind\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\obj\Debug\net6.0-windows7.0\WPFAndMVVM2.genruntimeconfig.cache
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Opgaver\Uge 20 - CommandBind\Uge20-WPFAndMVVM2\WPFAndMVVM2-udleveret\WPFAndMVVM2\obj\Debug\net6.0-windows7.0\ref\WPFAndMVVM2.dll
