@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\boprivate\\Programmerings Opgaver\\Uge 20 - Frugter\\Frugter\\Frugter.csproj": {}
+    "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\team2\\Opgaver\\Uge 20 - Frugter\\Frugter\\Frugter.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\boprivate\\Programmerings Opgaver\\Uge 20 - Frugter\\Frugter\\Frugter.csproj": {
+    "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\team2\\Opgaver\\Uge 20 - Frugter\\Frugter\\Frugter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\boprivate\\Programmerings Opgaver\\Uge 20 - Frugter\\Frugter\\Frugter.csproj",
+        "projectUniqueName": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\team2\\Opgaver\\Uge 20 - Frugter\\Frugter\\Frugter.csproj",
         "projectName": "Frugter",
-        "projectPath": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\boprivate\\Programmerings Opgaver\\Uge 20 - Frugter\\Frugter\\Frugter.csproj",
+        "projectPath": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\team2\\Opgaver\\Uge 20 - Frugter\\Frugter\\Frugter.csproj",
         "packagesPath": "C:\\Users\\bosch\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\boprivate\\Programmerings Opgaver\\Uge 20 - Frugter\\Frugter\\obj\\",
+        "outputPath": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\team2\\Opgaver\\Uge 20 - Frugter\\Frugter\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bosch\\AppData\\Roaming\\NuGet\\NuGet.Config",

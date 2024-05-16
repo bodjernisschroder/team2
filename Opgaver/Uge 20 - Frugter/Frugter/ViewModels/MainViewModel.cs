@@ -12,15 +12,6 @@ namespace Frugter.ViewModels
         private ProductViewModel _productViewModel;
         public ObservableCollection<ProductViewModel> ProductsVM { get; set;}
 
-        public MainViewModel()
-        {
-            _productRepo = new ProductRepo();
-            ProductsVM = new ObservableCollection<ProductViewModel>();
-
-            foreach (var product in _productRepo.Products)
-            {
-                ProductsVM.Add(new ProductViewModel(product));
-            }
-        }
+       
     }
 }

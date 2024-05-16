@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Frugter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af4b9b36fd44a2b19895feef4b42cad82deb6c16")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4f7ac93f2fb23ed36e736a320f34842884df6af")]
 [assembly: System.Reflection.AssemblyProductAttribute("Frugter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Frugter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
