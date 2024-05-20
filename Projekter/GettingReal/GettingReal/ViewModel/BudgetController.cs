@@ -14,11 +14,6 @@ namespace GettingReal
     {
         public static Budget Budget { get; private set; }
 
-        public void CreateBudget()
-        {
-            Budget = new Budget();
-        }
-
         public double DiscountPercentage
         {
             get { return Budget.DiscountPercentage; }
@@ -41,9 +36,11 @@ namespace GettingReal
         {
             get { return Budget.Products; }
         }
-            
 
-
+        public void CreateBudget()
+        {
+            Budget = new Budget();
+        }
 
         public void AddProduct(string name, int timeEstimate) 
         {

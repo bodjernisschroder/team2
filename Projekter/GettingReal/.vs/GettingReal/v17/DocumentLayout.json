@@ -1,54 +1,66 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\",
+  "WorkspaceRootPath": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\privaterepository\\gettingreal\\gettingreal\\view\\budgetcreator.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\view\\budgetcreator.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\privaterepository\\gettingreal\\gettingreal\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\privaterepository\\gettingreal\\gettingreal\\model\\pricelevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\model\\pricelevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\privaterepository\\gettingreal\\gettingreal\\model\\catalogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\model\\catalogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\privaterepository\\gettingreal\\gettingreal\\model\\budget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\model\\budget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\privaterepository\\gettingreal\\gettingreal\\view\\budgetsuggestions.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\view\\budgetsuggestions.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\privaterepository\\gettingreal\\gettingreal\\view\\budgetcreator.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\view\\budgetcreator.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\privaterepository\\gettingreal\\gettingreal\\viewmodel\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\team2\\projekter\\gettingreal\\gettingreal\\viewmodel\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\viewmodel\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\privaterepository\\gettingreal\\gettingreal\\viewmodel\\datahandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\team2\\projekter\\gettingreal\\gettingreal\\viewmodel\\datahandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\viewmodel\\datahandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\privaterepository\\gettingreal\\gettingreal\\viewmodel\\budgetcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\team2\\projekter\\gettingreal\\gettingreal\\viewmodel\\budgetcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\viewmodel\\budgetcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\privaterepository\\gettingreal\\gettingreal\\view\\newitempopup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\view\\newitempopup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\team2\\projekter\\gettingreal\\gettingreal\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\privaterepository\\gettingreal\\gettingreal\\view\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\team2\\projekter\\gettingreal\\gettingreal\\view\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\view\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\team2\\projekter\\gettingreal\\gettingreal\\view\\loadpopup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\view\\loadpopup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\team2\\projekter\\gettingreal\\gettingreal\\view\\budgetsuggestions.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\view\\budgetsuggestions.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\team2\\projekter\\gettingreal\\gettingreal\\view\\budgetsuggestions.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\view\\budgetsuggestions.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\team2\\projekter\\gettingreal\\gettingreal\\view\\budgetcreator.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\view\\budgetcreator.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\team2\\projekter\\gettingreal\\gettingreal\\view\\budgetcreator.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\view\\budgetcreator.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\team2\\projekter\\gettingreal\\gettingreal\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\team2\\projekter\\gettingreal\\gettingreal\\model\\pricelevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\model\\pricelevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\team2\\projekter\\gettingreal\\gettingreal\\model\\catalogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\model\\catalogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\team2\\projekter\\gettingreal\\gettingreal\\model\\budget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\model\\budget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\team2\\projekter\\gettingreal\\gettingreal\\view\\newitempopup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\view\\newitempopup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\8.0.204\\Sdks\\Microsoft.NET.Sdk.WindowsDesktop\\targets\\Microsoft.WinFX.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
@@ -57,35 +69,23 @@
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\abfol\\AppData\\Local\\Temp\\.vsdbgsrc\\b8b74ed96cb310e7521b08fc2fd291b3e429a4b509c86c75e9f5ab857cffbff6\\PropertyPathWorker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\privaterepository\\gettingreal\\gettingreal\\view\\loadpopup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\view\\loadpopup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\privaterepository\\gettingreal\\gettingreal\\view\\budgetsuggestions.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\view\\budgetsuggestions.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\privaterepository\\gettingreal\\gettingreal\\view\\newitempopup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\team2\\projekter\\gettingreal\\gettingreal\\view\\newitempopup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\view\\newitempopup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\privaterepository\\gettingreal\\gettingreal\\view\\loadpopup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\team2\\projekter\\gettingreal\\gettingreal\\view\\loadpopup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\view\\loadpopup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\privaterepository\\gettingreal\\gettingreal\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\privaterepository\\gettingreal\\gettingreal\\view\\savepopup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\team2\\projekter\\gettingreal\\gettingreal\\view\\savepopup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\view\\savepopup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\privaterepository\\gettingreal\\gettingreal\\view\\savepopup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\team2\\projekter\\gettingreal\\gettingreal\\view\\savepopup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\view\\savepopup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\privaterepository\\gettingreal\\gettingreal\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|c:\\users\\abfol\\onedrive\\documents\\datamatiker\\team2\\projekter\\gettingreal\\gettingreal\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{499D4E80-73FE-4FCF-995A-B6BD2443C66B}|GettingReal\\GettingReal.csproj|solutionrelative:gettingreal\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -96,7 +96,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -108,37 +108,36 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "Microsoft.WinFX.targets",
               "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\Sdks\\Microsoft.NET.Sdk.WindowsDesktop\\targets\\Microsoft.WinFX.targets",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\8.0.204\\Sdks\\Microsoft.NET.Sdk.WindowsDesktop\\targets\\Microsoft.WinFX.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\8.0.204\\Sdks\\Microsoft.NET.Sdk.WindowsDesktop\\targets\\Microsoft.WinFX.targets",
               "ToolTip": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\Sdks\\Microsoft.NET.Sdk.WindowsDesktop\\targets\\Microsoft.WinFX.targets",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\8.0.204\\Sdks\\Microsoft.NET.Sdk.WindowsDesktop\\targets\\Microsoft.WinFX.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\8.0.204\\Sdks\\Microsoft.NET.Sdk.WindowsDesktop\\targets\\Microsoft.WinFX.targets",
               "ViewState": "AQIAAFkCAAAAAAAAAAAlwMECAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2024-05-08T08:26:36.332Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-08T08:26:36.332Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "ProductController.cs",
-              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\ViewModel\\ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\ViewModel\\ProductController.cs",
               "RelativeDocumentMoniker": "GettingReal\\ViewModel\\ProductController.cs",
-              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\ViewModel\\ProductController.cs",
+              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\ViewModel\\ProductController.cs",
               "RelativeToolTip": "GettingReal\\ViewModel\\ProductController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAwAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-03T12:20:56.942Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "DataHandler.cs",
-              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\ViewModel\\DataHandler.cs",
+              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\ViewModel\\DataHandler.cs",
               "RelativeDocumentMoniker": "GettingReal\\ViewModel\\DataHandler.cs",
-              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\ViewModel\\DataHandler.cs",
+              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\ViewModel\\DataHandler.cs",
               "RelativeToolTip": "GettingReal\\ViewModel\\DataHandler.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -147,24 +146,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 9,
               "Title": "BudgetCreator.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\BudgetCreator.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\BudgetCreator.xaml.cs",
               "RelativeDocumentMoniker": "GettingReal\\View\\BudgetCreator.xaml.cs",
-              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\BudgetCreator.xaml.cs",
+              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\BudgetCreator.xaml.cs",
               "RelativeToolTip": "GettingReal\\View\\BudgetCreator.xaml.cs",
-              "ViewState": "AQIAAIkAAAAAAAAAAAAswKkAAAAZAAAA",
+              "ViewState": "AQIAAHsAAAAAAAAAAAAowKkAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-03T12:20:56.91Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "BudgetCreator.xaml",
-              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\BudgetCreator.xaml",
+              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\BudgetCreator.xaml",
               "RelativeDocumentMoniker": "GettingReal\\View\\BudgetCreator.xaml",
-              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\BudgetCreator.xaml",
+              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\BudgetCreator.xaml",
               "RelativeToolTip": "GettingReal\\View\\BudgetCreator.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-05-03T12:20:56.899Z",
@@ -172,101 +171,96 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "PropertyPathWorker.cs",
               "DocumentMoniker": "C:\\Users\\abfol\\AppData\\Local\\Temp\\.vsdbgsrc\\b8b74ed96cb310e7521b08fc2fd291b3e429a4b509c86c75e9f5ab857cffbff6\\PropertyPathWorker.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\b8b74ed96cb310e7521b08fc2fd291b3e429a4b509c86c75e9f5ab857cffbff6\\PropertyPathWorker.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\b8b74ed96cb310e7521b08fc2fd291b3e429a4b509c86c75e9f5ab857cffbff6\\PropertyPathWorker.cs",
               "ToolTip": "C:\\Users\\abfol\\AppData\\Local\\Temp\\.vsdbgsrc\\b8b74ed96cb310e7521b08fc2fd291b3e429a4b509c86c75e9f5ab857cffbff6\\PropertyPathWorker.cs",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\b8b74ed96cb310e7521b08fc2fd291b3e429a4b509c86c75e9f5ab857cffbff6\\PropertyPathWorker.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\b8b74ed96cb310e7521b08fc2fd291b3e429a4b509c86c75e9f5ab857cffbff6\\PropertyPathWorker.cs",
               "ViewState": "AQIAAJMEAAAAAAAAAAAhwLIEAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-06T15:20:18.363Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "NewItemPopup.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\NewItemPopup.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\NewItemPopup.xaml.cs",
               "RelativeDocumentMoniker": "GettingReal\\View\\NewItemPopup.xaml.cs",
-              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\NewItemPopup.xaml.cs",
+              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\NewItemPopup.xaml.cs",
               "RelativeToolTip": "GettingReal\\View\\NewItemPopup.xaml.cs",
               "ViewState": "AQIAAFEAAAAAAAAAAAAmwHAAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T12:20:56.828Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-03T12:20:56.828Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
               "Title": "Product.cs",
-              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\Model\\Product.cs",
+              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\Model\\Product.cs",
               "RelativeDocumentMoniker": "GettingReal\\Model\\Product.cs",
-              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\Model\\Product.cs",
+              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\Model\\Product.cs",
               "RelativeToolTip": "GettingReal\\Model\\Product.cs",
               "ViewState": "AQIAAEAAAAAAAAAAAAAkwAwAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T12:20:56.92Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-03T12:20:56.92Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 2,
               "Title": "BudgetController.cs",
-              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\ViewModel\\BudgetController.cs",
+              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\ViewModel\\BudgetController.cs",
               "RelativeDocumentMoniker": "GettingReal\\ViewModel\\BudgetController.cs",
-              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\ViewModel\\BudgetController.cs",
+              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\ViewModel\\BudgetController.cs",
               "RelativeToolTip": "GettingReal\\ViewModel\\BudgetController.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAACsAAABUAAAA",
+              "ViewState": "AQIAACIAAAAAAAAAAAA5wC8AAABfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-03T12:20:56.936Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 13,
               "Title": "Budget.cs",
-              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\Model\\Budget.cs",
+              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\Model\\Budget.cs",
               "RelativeDocumentMoniker": "GettingReal\\Model\\Budget.cs",
-              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\Model\\Budget.cs",
+              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\Model\\Budget.cs",
               "RelativeToolTip": "GettingReal\\Model\\Budget.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAF0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T12:20:56.93Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-03T12:20:56.93Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 11,
               "Title": "PriceLevel.cs",
-              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\Model\\PriceLevel.cs",
+              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\Model\\PriceLevel.cs",
               "RelativeDocumentMoniker": "GettingReal\\Model\\PriceLevel.cs",
-              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\Model\\PriceLevel.cs",
+              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\Model\\PriceLevel.cs",
               "RelativeToolTip": "GettingReal\\Model\\PriceLevel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T12:20:56.925Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-03T12:20:56.925Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
               "Title": "Catalogue.cs",
-              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\Model\\Catalogue.cs",
+              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\Model\\Catalogue.cs",
               "RelativeDocumentMoniker": "GettingReal\\Model\\Catalogue.cs",
-              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\Model\\Catalogue.cs",
+              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\Model\\Catalogue.cs",
               "RelativeToolTip": "GettingReal\\Model\\Catalogue.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAAoAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T13:50:21.405Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-03T13:50:21.405Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "BudgetSuggestions.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\BudgetSuggestions.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\BudgetSuggestions.xaml.cs",
               "RelativeDocumentMoniker": "GettingReal\\View\\BudgetSuggestions.xaml.cs",
-              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\BudgetSuggestions.xaml.cs",
+              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\BudgetSuggestions.xaml.cs",
               "RelativeToolTip": "GettingReal\\View\\BudgetSuggestions.xaml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -275,36 +269,37 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 4,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "GettingReal\\View\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\MainWindow.xaml.cs",
               "RelativeToolTip": "GettingReal\\View\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAxwAEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-03T12:20:56.955Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 5,
               "Title": "LoadPopup.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\LoadPopup.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\LoadPopup.xaml.cs",
               "RelativeDocumentMoniker": "GettingReal\\View\\LoadPopup.xaml.cs",
-              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\LoadPopup.xaml.cs",
+              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\LoadPopup.xaml.cs",
               "RelativeToolTip": "GettingReal\\View\\LoadPopup.xaml.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABgAAAAlAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-03T12:20:56.886Z"
+              "WhenOpened": "2024-05-03T12:20:56.886Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 7,
               "Title": "BudgetSuggestions.xaml",
-              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\BudgetSuggestions.xaml",
+              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\BudgetSuggestions.xaml",
               "RelativeDocumentMoniker": "GettingReal\\View\\BudgetSuggestions.xaml",
-              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\BudgetSuggestions.xaml",
+              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\BudgetSuggestions.xaml",
               "RelativeToolTip": "GettingReal\\View\\BudgetSuggestions.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-05-06T14:00:34.794Z",
@@ -312,45 +307,45 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "NewItemPopup.xaml",
-              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\NewItemPopup.xaml",
+              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\NewItemPopup.xaml",
               "RelativeDocumentMoniker": "GettingReal\\View\\NewItemPopup.xaml",
-              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\NewItemPopup.xaml",
+              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\NewItemPopup.xaml",
               "RelativeToolTip": "GettingReal\\View\\NewItemPopup.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-05-03T12:20:56.876Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "LoadPopup.xaml",
-              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\LoadPopup.xaml",
+              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\LoadPopup.xaml",
               "RelativeDocumentMoniker": "GettingReal\\View\\LoadPopup.xaml",
-              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\LoadPopup.xaml",
+              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\LoadPopup.xaml",
               "RelativeToolTip": "GettingReal\\View\\LoadPopup.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-03T12:20:56.894Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-03T12:20:56.894Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\MainWindow.xaml",
               "RelativeDocumentMoniker": "GettingReal\\View\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\MainWindow.xaml",
               "RelativeToolTip": "GettingReal\\View\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-03T12:20:56.947Z"
+              "WhenOpened": "2024-05-03T12:20:56.947Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 19,
               "Title": "SavePopup.xaml",
-              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\SavePopup.xaml",
+              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\SavePopup.xaml",
               "RelativeDocumentMoniker": "GettingReal\\View\\SavePopup.xaml",
-              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\SavePopup.xaml",
+              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\SavePopup.xaml",
               "RelativeToolTip": "GettingReal\\View\\SavePopup.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-05-03T12:20:56.902Z"
@@ -359,9 +354,9 @@
               "$type": "Document",
               "DocumentIndex": 20,
               "Title": "SavePopup.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\SavePopup.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\SavePopup.xaml.cs",
               "RelativeDocumentMoniker": "GettingReal\\View\\SavePopup.xaml.cs",
-              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\View\\SavePopup.xaml.cs",
+              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\View\\SavePopup.xaml.cs",
               "RelativeToolTip": "GettingReal\\View\\SavePopup.xaml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -371,9 +366,9 @@
               "$type": "Document",
               "DocumentIndex": 21,
               "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\App.xaml",
+              "DocumentMoniker": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\App.xaml",
               "RelativeDocumentMoniker": "GettingReal\\App.xaml",
-              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\PrivateRepository\\GettingReal\\GettingReal\\App.xaml",
+              "ToolTip": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\App.xaml",
               "RelativeToolTip": "GettingReal\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-05-03T12:20:56.951Z",
