@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using GettingReal.View;
+﻿using System.ComponentModel;
 
 namespace GettingReal
 {
@@ -67,17 +59,6 @@ namespace GettingReal
                     if (product.PriceLevel != PriceLevel.Custom) productController.ChangePriceLevel(product, Budget.PriceLevel);
                 }
                 else productController.ChangePriceLevel(product, Budget.PriceLevel);
-            }
-            UpdateSum();
-        }
-
-        public void ChangePriceLevelIgnoreCustom(PriceLevel priceLevel)
-        {
-            Budget.PriceLevel = priceLevel;
-            ProductController productController = new ProductController();
-            foreach (Product product in Budget.Products)
-            {
-                productController.ChangePriceLevel(product, Budget.PriceLevel);
             }
             UpdateSum();
         }

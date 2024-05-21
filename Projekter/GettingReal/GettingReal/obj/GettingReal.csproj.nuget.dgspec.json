@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\GettingReal.csproj": {}
+    "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\team2\\Projekter\\GettingReal\\GettingReal\\GettingReal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\GettingReal.csproj": {
+    "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\team2\\Projekter\\GettingReal\\GettingReal\\GettingReal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\GettingReal.csproj",
+        "projectUniqueName": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\team2\\Projekter\\GettingReal\\GettingReal\\GettingReal.csproj",
         "projectName": "GettingReal",
-        "projectPath": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\GettingReal.csproj",
-        "packagesPath": "C:\\Users\\abfol\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\abfol\\OneDrive\\Documents\\Datamatiker\\team2\\Projekter\\GettingReal\\GettingReal\\obj\\",
+        "projectPath": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\team2\\Projekter\\GettingReal\\GettingReal\\GettingReal.csproj",
+        "packagesPath": "C:\\Users\\bosch\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bosch\\Dropbox\\PC\\Desktop\\Skole\\team2\\Projekter\\GettingReal\\GettingReal\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\abfol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bosch\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -36,9 +36,7 @@
           ]
         },
         "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
+          "enableAudit": "default"
         }
       },
       "frameworks": {
@@ -63,7 +61,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

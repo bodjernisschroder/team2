@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-using System.Diagnostics;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace GettingReal
@@ -76,40 +74,31 @@ namespace GettingReal
 
         private void LstSelection_DoubleClick(object sender, EventArgs e)
         {
-           
-                try
+            try
+            {
+                if (lstSelection.SelectedItem is ListBoxItem selectedItem)
                 {
-
-                    if (lstSelection.SelectedItem is ListBoxItem selectedItem)
+                    string category = selectedItem.Content.ToString();
+                    lstSelection.Items.Clear();
+                    List<string> productsInCategory = Catalogue.CategorizedProducts[category];
+                    foreach (string product in productsInCategory)
                     {
-                        string category = selectedItem.Content.ToString();
-                        lstSelection.Items.Clear();
-                        List<string> productsInCategory = Catalogue.CategorizedProducts[category];
-                        foreach (string product in productsInCategory)
-                        {
-                            lstSelection.Items.Add(new ListBoxItem { Content = product });
-                        }
-                        txtTimeEstimat.IsEnabled = true;
+                        lstSelection.Items.Add(new ListBoxItem { Content = product });
                     }
-                    UpdateOKButtonState();
+                    txtTimeEstimat.IsEnabled = true;
                 }
-
-                catch (KeyNotFoundException)
-                {
-                    ShowKeyNotFoundErrorMessage();
-                    // Et kodestykke som viser listen igen - Prøvet så mange gange nu og kan ikke helt gennemskue, hvordan :)
-                }
-
+                UpdateOKButtonState();
+            }
+            catch (KeyNotFoundException)
+            {
+                ShowKeyNotFoundErrorMessage();
+            }
         }
         
-
         private void ShowKeyNotFoundErrorMessage()
         {
-          
             ErrorMessageTextBlock.Visibility = Visibility.Visible;
-            
         }
-
 
         private void btnAddNewItemOK_Click(object sender, RoutedEventArgs e)
         {
@@ -133,16 +122,10 @@ namespace GettingReal
             Close();
         }
 
-        private void btnPreviousSection_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void UpdateOKButtonState()
         {
             bool productSelected = lstSelection.SelectedItem != null;
             bool timeIsValid = int.TryParse(txtTimeEstimat.Text, out int timeEstimate) && timeEstimate > 0; 
-
             btnAddNewItemOK.IsEnabled = productSelected && timeIsValid; 
         }
         private void TxtTimeEstimat_TextChanged(object sender, TextChangedEventArgs e)

@@ -122,3 +122,5 @@ C:\Users\burak\source\repos\team2\Projekter\GettingReal\GettingReal\obj\Debug\ne
 C:\Users\burak\source\repos\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\View\BudgetSuggestions.baml
 C:\Users\burak\source\repos\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\View\Fonts.baml
 C:\Users\burak\source\repos\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\App.baml
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\View\Fonts.baml
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\App.baml

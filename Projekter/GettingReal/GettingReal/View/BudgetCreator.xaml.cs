@@ -1,18 +1,12 @@
 ﻿using System.ComponentModel;
-using System.Data;
 using System.Windows;
 using System.Windows.Controls;
-using System.Diagnostics;
 using System.Windows.Input;
-using System.Diagnostics.Eventing.Reader;
 using System.Text;
 using System.Windows.Data;
 
 namespace GettingReal
 {
-    /// <summary>
-    /// Interaction logic for TilbudControl.xaml
-    /// </summary>
     public partial class BudgetCreator : UserControl, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -69,13 +63,10 @@ namespace GettingReal
             UpdateGrid();
         }
 
-
-
         private void CopyToClipboard_Click(object sender, RoutedEventArgs e)
         {
             //Kalder metoden nedenfor for, når der klikkes på knappen i programmet
             CopyToClipboard(myDataGrid);
-
         }
 
         // Metoden, som sikrer, at Kopiering af datagrid virker
@@ -92,11 +83,8 @@ namespace GettingReal
             for (int i = 0; i < datagrid.Columns.Count-1; i++)
             {
                 myStringBuilder.AppendFormat("<th>{0}</th>", datagrid.Columns[i].Header);
-
             }
             myStringBuilder.AppendLine("</tr>");
-
-
 
             // Tilføjer rækker
             foreach (var item in datagrid.Items)
@@ -105,7 +93,6 @@ namespace GettingReal
 
                 // Samme princip med for loops er også gældende her - bare for rækker
                 for (int j = 0; j < datagrid.Columns.Count -1; j++)
-
                 {
                     if (datagrid.Columns[j] is DataGridBoundColumn boundColumn)
                     {
@@ -118,23 +105,15 @@ namespace GettingReal
                             myStringBuilder.AppendFormat("<td>{0}</td>", value);
                         }
                     }
-
-
                 }
                 myStringBuilder.AppendLine("</tr>");
-
             }
-
-
             myStringBuilder.AppendLine("</table></body></html>");
             string clipboardHtml = FormatHtmlClipboard(myStringBuilder.ToString());
             Clipboard.SetText(clipboardHtml, TextDataFormat.Html);
-
         }
         private string FormatHtmlClipboard(string html)
         {
-
-            // Header til HTML
             const string Header =
                 "Version:0.9\r\n" +
                 "StartHTML:00000097\r\n" +
@@ -147,7 +126,7 @@ namespace GettingReal
 
             string htmlDocument = StartFragment + html + EndFragment;
 
-            int startHtml = Header.Length - 8; // Bruges til at justere Længden på headeren
+            int startHtml = Header.Length - 8;
             int endHtml = startHtml + htmlDocument.Length;
             int startFragment = startHtml + StartFragment.Length;
             int endFragment = startFragment + html.Length;
@@ -156,12 +135,6 @@ namespace GettingReal
 
             return header + htmlDocument;
         }
-
-
-
-
-
-
 
         private void MyDataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
@@ -187,7 +160,6 @@ namespace GettingReal
                     else productController.ChangeTimeEstimate(product, int.Parse(editedTextBox.Text));
                 }
             }
-
             budgetController.UpdateSum();
             UpdateGrid();
         }
@@ -261,8 +233,5 @@ namespace GettingReal
             myDataGrid.ItemsSource = BudgetController.Budget.Products;
             lblTotalPris.Content = $"{BudgetController.Budget.Sum:C}";
         }
-
-  
-
     }
 }

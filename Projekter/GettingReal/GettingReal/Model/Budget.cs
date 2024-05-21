@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Security;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GettingReal
+﻿namespace GettingReal
 {
     public class Budget 
     {
-        
         private List<Product> _products;
         private PriceLevel _priceLevel;
         private double _discountPercentage;
@@ -86,7 +77,6 @@ namespace GettingReal
             {
                sum += product.Price; 
             }
-
             Sum = sum - DiscountAmount;
         }
     }
