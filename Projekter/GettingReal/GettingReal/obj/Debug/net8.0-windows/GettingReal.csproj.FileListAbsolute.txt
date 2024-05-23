@@ -64,7 +64,6 @@ C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Projekter\GettingReal\GettingReal\
 C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\View\MainWindow.baml
 C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\View\NewItemPopup.baml
 C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\View\BudgetCreator.g.cs
-C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\View\BudgetSuggestions.g.cs
 C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\View\LoadPopup.g.cs
 C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\View\MainWindow.g.cs
 C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\View\NewItemPopup.g.cs
@@ -73,7 +72,6 @@ C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Projekter\GettingReal\GettingReal\
 C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\GettingReal_MarkupCompile.cache
 C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\GettingReal_MarkupCompile.lref
 C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\View\BudgetCreator.baml
-C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\View\BudgetSuggestions.baml
 C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\View\LoadPopup.baml
 C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\View\SavePopup.baml
 C:\Users\bosch\Dropbox\PC\Desktop\Skole\team2\Projekter\GettingReal\GettingReal\obj\Debug\net8.0-windows\GettingReal.g.resources
