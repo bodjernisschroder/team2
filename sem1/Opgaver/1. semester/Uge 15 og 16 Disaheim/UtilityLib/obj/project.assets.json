@@ -1,0 +1,91 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "Disaheim/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Disaheim.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Disaheim.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Disaheim/1.0.0": {
+      "type": "project",
+      "path": "../Disaheim/Disaheim.csproj",
+      "msbuildProject": "../Disaheim/Disaheim.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "Disaheim >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\burak\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\UtilityLib\\UtilityLib.csproj",
+      "projectName": "UtilityLib",
+      "projectPath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\UtilityLib\\UtilityLib.csproj",
+      "packagesPath": "C:\\Users\\burak\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\UtilityLib\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\burak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {
+            "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\Disaheim\\Disaheim.csproj": {
+              "projectPath": "C:\\Users\\burak\\source\\repos\\team2\\Opgaver\\Uge 15 og 16 Disaheim\\Disaheim\\Disaheim.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+﻿<Window x:Class="GettingReal.LoadPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GettingReal"
+        mc:Ignorable="d"
+        Title="SavePopup" Height="175" Width="325"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid>
+        <Label Content="Tryk på gennemse og vælg den ønskede fil:" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtboxLoadPath" HorizontalAlignment="Left" Height="18" TextWrapping="NoWrap" Text="" VerticalAlignment="Center" Width="202" Margin="10,0,0,0"/>
+        <Button x:Name="btnLoadGennemse" Content="Gennemse" HorizontalAlignment="Left" Height="18" Margin="217,0,0,0" VerticalAlignment="Center" Width="73" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,0" Click="btnLoadGennemse_Click"/>
+        <Button x:Name="btnLoadOk" Content="OK" Width="60" HorizontalAlignment="Left" Margin="152,105,0,0" VerticalAlignment="Top" Click="btnLoadOk_Click"/>
+        <Button x:Name="btnLoadFortryd" Content="Fortryd" Width="60" HorizontalAlignment="Left" Margin="230,105,0,0" VerticalAlignment="Top" Click="btnLoadFortryd_Click"/>
+    </Grid>
+</Window>

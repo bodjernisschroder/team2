@@ -1,0 +1,14 @@
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Opgaver\Uge 10 Opgaver\bin\Debug\net8.0\Uge 10 Opgaver.exe
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Opgaver\Uge 10 Opgaver\bin\Debug\net8.0\Uge 10 Opgaver.deps.json
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Opgaver\Uge 10 Opgaver\bin\Debug\net8.0\Uge 10 Opgaver.runtimeconfig.json
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Opgaver\Uge 10 Opgaver\bin\Debug\net8.0\Uge 10 Opgaver.dll
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Opgaver\Uge 10 Opgaver\bin\Debug\net8.0\Uge 10 Opgaver.pdb
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Opgaver\Uge 10 Opgaver\obj\Debug\net8.0\Uge 10 Opgaver.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Opgaver\Uge 10 Opgaver\obj\Debug\net8.0\Uge 10 Opgaver.AssemblyInfoInputs.cache
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Opgaver\Uge 10 Opgaver\obj\Debug\net8.0\Uge 10 Opgaver.AssemblyInfo.cs
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Opgaver\Uge 10 Opgaver\obj\Debug\net8.0\Uge 10 Opgaver.csproj.CoreCompileInputs.cache
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Opgaver\Uge 10 Opgaver\obj\Debug\net8.0\Uge 10 Opgaver.dll
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Opgaver\Uge 10 Opgaver\obj\Debug\net8.0\refint\Uge 10 Opgaver.dll
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Opgaver\Uge 10 Opgaver\obj\Debug\net8.0\Uge 10 Opgaver.pdb
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Opgaver\Uge 10 Opgaver\obj\Debug\net8.0\Uge 10 Opgaver.genruntimeconfig.cache
+C:\Users\bosch\Dropbox\PC\Desktop\Skole\Opgaver\Uge 10 Opgaver\obj\Debug\net8.0\ref\Uge 10 Opgaver.dll

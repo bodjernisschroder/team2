@@ -1,0 +1,73 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="dummydata.txt" />
+    <None Remove="dummydata.txt.txt" />
+    <None Remove="fonts\PPFragment-GlareExtraBold.otf" />
+    <None Remove="fonts\PPFragment-GlareLight.otf" />
+    <None Remove="fonts\PPFragment-GlareRegular.otf" />
+    <None Remove="fonts\PPFragment-SansExtraBold.otf" />
+    <None Remove="fonts\PPFragment-SansLight.otf" />
+    <None Remove="fonts\PPFragment-SansRegular.otf" />
+    <None Remove="fonts\PPFragment-SerifExtraBold.otf" />
+    <None Remove="fonts\PPFragment-SerifLight.otf" />
+    <None Remove="fonts\PPFragment-SerifRegular.otf" />
+    <None Remove="fonts\PPFragment-TextRegular.otf" />
+    <None Remove="images\Publico-logo-light.png" />
+    <None Remove="images\publico_light.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="dummydata.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fonts\PPFragment-GlareExtraBold.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fonts\PPFragment-GlareLight.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fonts\PPFragment-GlareRegular.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fonts\PPFragment-SansLight.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fonts\PPFragment-SansRegular.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fonts\PPFragment-SerifExtraBold.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fonts\PPFragment-SerifLight.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fonts\PPFragment-SerifRegular.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\publico_light.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="LoadPopup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="images\publico_sort.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,15 @@
+C:\Users\abfol\OneDrive\Documents\Datamatiker\team2\Opgaver\Uge 14.2\Persistens\Persistens\obj\Debug\net8.0\Persistens.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\abfol\OneDrive\Documents\Datamatiker\team2\Opgaver\Uge 14.2\Persistens\Persistens\obj\Debug\net8.0\Persistens.AssemblyInfoInputs.cache
+C:\Users\abfol\OneDrive\Documents\Datamatiker\team2\Opgaver\Uge 14.2\Persistens\Persistens\obj\Debug\net8.0\Persistens.AssemblyInfo.cs
+C:\Users\abfol\OneDrive\Documents\Datamatiker\team2\Opgaver\Uge 14.2\Persistens\Persistens\obj\Debug\net8.0\Persistens.csproj.CoreCompileInputs.cache
+C:\Users\abfol\OneDrive\Documents\Datamatiker\team2\Opgaver\Uge 14.2\Persistens\Persistens\obj\Debug\net8.0\Persistens.sourcelink.json
+C:\Users\abfol\OneDrive\Documents\Datamatiker\team2\Opgaver\Uge 14.2\Persistens\Persistens\bin\Debug\net8.0\Persistens.exe
+C:\Users\abfol\OneDrive\Documents\Datamatiker\team2\Opgaver\Uge 14.2\Persistens\Persistens\bin\Debug\net8.0\Persistens.deps.json
+C:\Users\abfol\OneDrive\Documents\Datamatiker\team2\Opgaver\Uge 14.2\Persistens\Persistens\bin\Debug\net8.0\Persistens.runtimeconfig.json
+C:\Users\abfol\OneDrive\Documents\Datamatiker\team2\Opgaver\Uge 14.2\Persistens\Persistens\bin\Debug\net8.0\Persistens.dll
+C:\Users\abfol\OneDrive\Documents\Datamatiker\team2\Opgaver\Uge 14.2\Persistens\Persistens\bin\Debug\net8.0\Persistens.pdb
+C:\Users\abfol\OneDrive\Documents\Datamatiker\team2\Opgaver\Uge 14.2\Persistens\Persistens\obj\Debug\net8.0\Persistens.dll
+C:\Users\abfol\OneDrive\Documents\Datamatiker\team2\Opgaver\Uge 14.2\Persistens\Persistens\obj\Debug\net8.0\refint\Persistens.dll
+C:\Users\abfol\OneDrive\Documents\Datamatiker\team2\Opgaver\Uge 14.2\Persistens\Persistens\obj\Debug\net8.0\Persistens.pdb
+C:\Users\abfol\OneDrive\Documents\Datamatiker\team2\Opgaver\Uge 14.2\Persistens\Persistens\obj\Debug\net8.0\Persistens.genruntimeconfig.cache
+C:\Users\abfol\OneDrive\Documents\Datamatiker\team2\Opgaver\Uge 14.2\Persistens\Persistens\obj\Debug\net8.0\ref\Persistens.dll

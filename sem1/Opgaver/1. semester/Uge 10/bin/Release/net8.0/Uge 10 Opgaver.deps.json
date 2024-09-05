@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Uge 10 Opgaver/1.0.0": {
+        "runtime": {
+          "Uge 10 Opgaver.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Uge 10 Opgaver/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
