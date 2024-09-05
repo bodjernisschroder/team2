@@ -1,3 +1,5 @@
+using RegionSyd;
+
 namespace RegionSyd.Tests;
 
 [TestClass]
