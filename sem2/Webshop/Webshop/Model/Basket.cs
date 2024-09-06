@@ -1,10 +1,10 @@
 using System;
 
-namespace RegionSyd
+namespace Webshop
 {
     public class Basket
     {
         public int BasketId { get; set; }
-        public float Discount { get; set; }
+        public decimal Discount { get; set; }
     }
 }

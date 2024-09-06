@@ -1,6 +1,6 @@
 using System;
 
-namespace RegionSyd
+namespace Webshop
 {
     public class Order
     {

@@ -1,6 +1,6 @@
-using RegionSyd;
+using Webshop;
 
-namespace RegionSyd.Tests;
+namespace Webshop.Tests;
 
 [TestClass]
 public class UnitTest1
