@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\AnnaFoldberg\\team2\\sem2\\RegionSyd\\RegionSyd\\RegionSyd.csproj": {}
+    "C:\\Users\\AnnaFoldberg\\team2\\sem2\\Webshop\\Webshop.Tests\\Webshop.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\AnnaFoldberg\\team2\\sem2\\RegionSyd\\RegionSyd\\RegionSyd.csproj": {
+    "C:\\Users\\AnnaFoldberg\\team2\\sem2\\Webshop\\Webshop.Tests\\Webshop.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\AnnaFoldberg\\team2\\sem2\\RegionSyd\\RegionSyd\\RegionSyd.csproj",
-        "projectName": "RegionSyd",
-        "projectPath": "C:\\Users\\AnnaFoldberg\\team2\\sem2\\RegionSyd\\RegionSyd\\RegionSyd.csproj",
+        "projectUniqueName": "C:\\Users\\AnnaFoldberg\\team2\\sem2\\Webshop\\Webshop.Tests\\Webshop.Tests.csproj",
+        "projectName": "Webshop.Tests",
+        "projectPath": "C:\\Users\\AnnaFoldberg\\team2\\sem2\\Webshop\\Webshop.Tests\\Webshop.Tests.csproj",
         "packagesPath": "C:\\Users\\AnnaFoldberg\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\AnnaFoldberg\\team2\\sem2\\RegionSyd\\RegionSyd\\obj\\",
+        "outputPath": "C:\\Users\\AnnaFoldberg\\team2\\sem2\\Webshop\\Webshop.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -22,7 +22,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net8.0-windows"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -30,8 +30,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0-windows7.0": {
-            "targetAlias": "net8.0-windows",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -47,8 +47,26 @@
         }
       },
       "frameworks": {
-        "net8.0-windows7.0": {
-          "targetAlias": "net8.0-windows",
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.8.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -63,9 +81,6 @@
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
-            },
-            "Microsoft.WindowsDesktop.App.WPF": {
-              "privateAssets": "none"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.304/PortableRuntimeIdentifierGraph.json"

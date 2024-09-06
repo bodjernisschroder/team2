@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\AnnaFoldberg\\team2\\sem2\\RegionSyd\\RegionSyd\\RegionSyd.csproj",
-      "projectName": "RegionSyd",
-      "projectPath": "C:\\Users\\AnnaFoldberg\\team2\\sem2\\RegionSyd\\RegionSyd\\RegionSyd.csproj",
+      "projectUniqueName": "C:\\Users\\AnnaFoldberg\\team2\\sem2\\Webshop\\Webshop\\Webshop.csproj",
+      "projectName": "Webshop",
+      "projectPath": "C:\\Users\\AnnaFoldberg\\team2\\sem2\\Webshop\\Webshop\\Webshop.csproj",
       "packagesPath": "C:\\Users\\AnnaFoldberg\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\AnnaFoldberg\\team2\\sem2\\RegionSyd\\RegionSyd\\obj\\",
+      "outputPath": "C:\\Users\\AnnaFoldberg\\team2\\sem2\\Webshop\\Webshop\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
