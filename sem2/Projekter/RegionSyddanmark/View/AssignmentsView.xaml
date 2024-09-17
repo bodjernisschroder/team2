@@ -4,9 +4,71 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RegionSyd.View"
+        xmlns:viewModel="clr-namespace:RegionSyd.ViewModel"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800">
+        Title="Opgavebank" MinHeight="500" MinWidth="800">
+    <Window.DataContext>
+        <viewModel:AssignmentsViewModel/>
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <DataGrid x:Name="AssignmentsDataGrid"
+                  ItemsSource="{Binding Assignments}"
+                  AutoGenerateColumns="False"
+                  Grid.Row="0"
+                  Grid.Column="0"
+                  Margin="5">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Header="Selected" Binding="{Binding IsSelected}" />
+                <DataGridTextColumn Header="Region" Binding="{Binding Region}" />
+                <DataGridTextColumn Header="RegionalId" Binding="{Binding RegionalID}" />
+                <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                <DataGridTextColumn Header="Tidspunkt" Binding="{Binding ScheduledDateTime}" />
+                <DataGridTextColumn Header="Fra" Binding="{Binding FromAddress}" />
+                <DataGridTextColumn Header="Til" Binding="{Binding ToAddress}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- AssignmentCombos DataGrid -->
+        <DataGrid x:Name="AssignmentCombosDataGrid"
+                  ItemsSource="{Binding AssignmentCombos}"
+                  AutoGenerateColumns="False"
+                  Grid.Row="0"
+                  Grid.Column="1"
+                  Margin="5">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                <DataGridTemplateColumn Header="Assignments">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding AssignmentIds}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Actions">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Slet"
+                                Command="{Binding DataContext.RemoveComboCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                CommandParameter="{Binding}"
+                                Margin="5"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Kombinér"
+                Command="{Binding AddComboCommand}"
+                Grid.Row="1"
+                Margin="5,360,10,5"/>
     </Grid>
 </Window>
