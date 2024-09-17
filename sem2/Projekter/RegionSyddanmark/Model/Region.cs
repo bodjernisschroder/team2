@@ -12,6 +12,6 @@ namespace RegionSyd.Model
         Midtjylland,
         Nordjylland,
         Sjælland,
-        Hovadstaden
+        Hovedstaden
     }
 }

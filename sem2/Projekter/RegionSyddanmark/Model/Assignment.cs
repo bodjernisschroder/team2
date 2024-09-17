@@ -15,9 +15,9 @@ namespace RegionSyd.Model
         public DateTime ScheduledDateTime { get; set; }
         public string FromAddress { get; set; }
         public string ToAddress { get; set; }
-        public DateTime ServiceGoal { get; set; }
+        //public DateTime ServiceGoal { get; set; }
 
-        public Assignment(Region region, int regionalID, Type type, string description, DateTime scheduledDateTime, string fromAddress, string toAddress, DateTime serviceGoal)
+        public Assignment(Region region, int regionalID, Type type, string description, DateTime scheduledDateTime, string fromAddress, string toAddress)
         {
             this.Region = region;
             this.RegionalID = regionalID;
@@ -26,7 +26,7 @@ namespace RegionSyd.Model
             this.ScheduledDateTime = scheduledDateTime;
             this.FromAddress = fromAddress;
             this.ToAddress = toAddress;
-            this.ServiceGoal = serviceGoal;
+            //this.ServiceGoal = serviceGoal;
         }
     }
 }
