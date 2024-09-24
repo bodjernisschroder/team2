@@ -6,69 +6,78 @@
         xmlns:local="clr-namespace:RegionSyd.View"
         xmlns:viewModel="clr-namespace:RegionSyd.ViewModel"
         mc:Ignorable="d"
-        Title="Opgavebank" MinHeight="500" MinWidth="800">
+        Title="Opgavebank" MinHeight="500" MinWidth="500" Width="900" Height="550"
+        ResizeMode="NoResize">
     <Window.DataContext>
         <viewModel:AssignmentsViewModel/>
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
 
         <DataGrid x:Name="AssignmentsDataGrid"
                   ItemsSource="{Binding Assignments}"
                   AutoGenerateColumns="False"
                   Grid.Row="0"
-                  Grid.Column="0"
-                  Margin="5">
+                  Width="auto"
+                  Height="200"
+                  Margin="25"
+                  CanUserResizeRows="False"
+                  CanUserResizeColumns="False"
+                  HeadersVisibility="Column">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="Selected" Binding="{Binding IsSelected}" />
-                <DataGridTextColumn Header="Region" Binding="{Binding Region}" />
-                <DataGridTextColumn Header="RegionalId" Binding="{Binding RegionalID}" />
-                <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
-                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                <DataGridTextColumn Header="Tidspunkt" Binding="{Binding ScheduledDateTime}" />
-                <DataGridTextColumn Header="Fra" Binding="{Binding FromAddress}" />
-                <DataGridTextColumn Header="Til" Binding="{Binding ToAddress}" />
+                <DataGridTextColumn Header="Region" Binding="{Binding Region}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="RegionalId" Binding="{Binding RegionalID}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Type" Binding="{Binding Type}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Tidspunkt" Binding="{Binding ScheduledDateTime}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Fra" Binding="{Binding FromAddress}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Til" Binding="{Binding ToAddress}" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <!-- AssignmentCombos DataGrid -->
         <DataGrid x:Name="AssignmentCombosDataGrid"
                   ItemsSource="{Binding AssignmentCombos}"
                   AutoGenerateColumns="False"
-                  Grid.Row="0"
-                  Grid.Column="1"
-                  Margin="5">
+                  Grid.Row="1"
+                  IsReadOnly="True"
+                  CanUserResizeRows="False"
+                  CanUserResizeColumns="False"
+                  Width="auto"
+                  Height="200"
+                  Margin="25"
+                  HeadersVisibility="Column">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
-                <DataGridTemplateColumn Header="Assignments">
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="0.1*" />
+                <DataGridTemplateColumn Header="Kombinerede opgaver" Width="0.8*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding AssignmentIds}" />
+                            <TextBlock Text="{Binding AssignmentIds}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Actions">
+                <DataGridTemplateColumn Header="Actions" Width="0.1*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Content="Slet"
-                                Command="{Binding DataContext.RemoveComboCommand, RelativeSource={RelativeSource AncestorType=Window}}"
-                                CommandParameter="{Binding}"
-                                Margin="5"/>
+                                    Command="{Binding DataContext.RemoveComboCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                    CommandParameter="{Binding}"
+                                    Margin="5"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Kombinér"
+
+        <Button Content="Kombinér valgte opgaver"
                 Command="{Binding AddComboCommand}"
-                Grid.Row="1"
-                Margin="5,360,10,5"/>
+                VerticalAlignment="Top"
+                Margin="350,230,350,0"
+                Width="170"
+                Padding="10" Grid.RowSpan="2"/>
     </Grid>
 </Window>
