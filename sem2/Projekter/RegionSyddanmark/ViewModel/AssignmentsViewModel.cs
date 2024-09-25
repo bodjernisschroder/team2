@@ -21,11 +21,13 @@ namespace RegionSyd.ViewModel
         public AssignmentComboViewModel SelectedCombo { get; set; }
         public RelayCommand AddComboCommand { get; }
         public RelayCommandT<AssignmentComboViewModel> RemoveComboCommand { get; }
+        public RelayCommandT<AssignmentViewModel> RemoveAssignmentCommand { get; }
 
         public AssignmentsViewModel()
         {
             AddComboCommand = new RelayCommand(AddCombo);
             RemoveComboCommand = new RelayCommandT<AssignmentComboViewModel>(RemoveCombo);
+            RemoveAssignmentCommand = new RelayCommandT<AssignmentViewModel>(RemoveAssignment);
             Assignments = new();
             AssignmentCombos = new();
             selectedAssignments = new();
@@ -35,7 +37,13 @@ namespace RegionSyd.ViewModel
                 Assignments.Add(assignmentViewModel);
             }
         }
-
+        public void RemoveAssignment(object parameter)
+        {
+            if (parameter is AssignmentViewModel assignment)
+            {
+                Assignments.Remove(assignment);
+            }
+        }
         public void AddCombo()
         {
             foreach (AssignmentViewModel assignment in Assignments)

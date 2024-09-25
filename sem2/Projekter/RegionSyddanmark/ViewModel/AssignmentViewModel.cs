@@ -110,6 +110,8 @@ namespace RegionSyd.ViewModel
             Model = assignment;
         }
 
+       
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string propertyName = null)

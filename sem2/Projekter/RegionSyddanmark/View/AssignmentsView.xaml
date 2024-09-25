@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:RegionSyd.View"
         xmlns:viewModel="clr-namespace:RegionSyd.ViewModel"
         mc:Ignorable="d"
-        Title="Opgavebank" MinHeight="500" MinWidth="500" Width="900" Height="550"
+        Title="Opgavebank" MinHeight="500" Width="900" Height="550"
         ResizeMode="NoResize">
     <Window.DataContext>
         <viewModel:AssignmentsViewModel/>
@@ -33,11 +33,22 @@
                 <DataGridTextColumn Header="Region" Binding="{Binding Region}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="RegionalId" Binding="{Binding RegionalID}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Type" Binding="{Binding Type}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Description" Binding="{Binding Description}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Beskrivelse" Binding="{Binding Description}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Tidspunkt" Binding="{Binding ScheduledDateTime}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Fra" Binding="{Binding FromAddress}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Til" Binding="{Binding ToAddress}" IsReadOnly="True"/>
+                <DataGridTemplateColumn Header="Actions" Width="0.1*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Slet"
+                            Command="{Binding DataContext.RemoveAssignmentCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                            CommandParameter="{Binding}"
+                            Margin="2"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
+            
         </DataGrid>
 
         <DataGrid x:Name="AssignmentCombosDataGrid"
