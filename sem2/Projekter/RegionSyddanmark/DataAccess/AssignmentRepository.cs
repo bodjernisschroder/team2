@@ -4,134 +4,130 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RegionSyd.Model;
+using Microsoft.Data.SqlClient;
 
 namespace RegionSyd.DataAccess
 {
-    class AssignmentRepository : IRepository<Assignment>
+    public class AssignmentRepository : IRepository<Assignment>
     {
-        public List<Assignment> Assignments { get; set; }
+        private readonly string _connectionString;
 
-        // midlertidig til test
-        private static Model.Type type1 = new Model.Type { Name = "Type 1", ServiceGoal = DateTime.Now.AddDays(10) };
-        private static Model.Type type2 = new Model.Type { Name = "Type 2", ServiceGoal = DateTime.Now.AddDays(20) };
-        private static Model.Type type3 = new Model.Type { Name = "Type 3", ServiceGoal = DateTime.Now.AddDays(30) };
-
-        public AssignmentRepository() 
+        public AssignmentRepository(string connectionString)
         {
-            Assignments = new List<Assignment>();
-            InitializeExample();
+            _connectionString = connectionString;
         }
+
+        public IEnumerable<Assignment> GetAll()
+        {
+            var assignments = new List<Assignment>();
+            string query = "SELECT * FROM ASSIGNMENT";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+
+                        assignments.Add(new Assignment
+                        {
+                            RegionEnum = (RegionEnum)reader["Region"],
+                            RegionalId = (int)reader["RegionalId"],
+                            Type = (Model.Type)reader["Type"],
+                            Description = (string)reader["Description"],
+                            ScheduledDateTime = (DateTime)reader["ScheduledDateTime"],
+                            FromAddress = (string)reader["FromAddress"],
+                            ToAddress = (string)reader["ToAddress"]
+                        });
+                    }
+                }
+            }
+            return assignments;
+        }
+
+        public Assignment GetById(int id)
+        {
+            Assignment assignment = null;
+            string query = "SELECT * FROM ASSIGNMENT WHERE AssignmentID = @AssignmentID";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@AssignmentID", id);
+                connection.Open();
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        assignment = new Assignment
+                        {
+                            RegionEnum = (RegionEnum)reader["Region"],
+                            RegionalId = (int)reader["RegionalId"],
+                            Type = (Model.Type)reader["Type"],
+                            Description = (string)reader["Description"],
+                            ScheduledDateTime = (DateTime)reader["ScheduledDateTime"],
+                            FromAddress = (string)reader["FromAddress"],
+                            ToAddress = (string)reader["ToAddress"]
+                        };
+                    }
+                }
+            }
+            return assignment;
+        }
+
         public void Add(Assignment assignment)
         {
-            Assignments.Add(assignment);
+            string query = "INSERT INTO ASSIGNMENT (Region, RegionalId, Type, Description, ScheduledDateTime, FromAddress, ToAddress) VALUES (@Region, @RegionalId, @Type, @Description, @ScheduledDateTime, @FromAddress, @ToAddress)";
+            
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Region", assignment.RegionEnum);
+                command.Parameters.AddWithValue("@RegionalId", assignment.RegionalId);
+                command.Parameters.AddWithValue("@Type", assignment.Type);
+                command.Parameters.AddWithValue("@Description", assignment.Description);
+                command.Parameters.AddWithValue("@ScheduledDateTime", assignment.ScheduledDateTime);
+                command.Parameters.AddWithValue("@FromAddress", assignment.FromAddress);
+                command.Parameters.AddWithValue("@ToAddress", assignment.ToAddress);
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
         }
 
-        public void Remove(Assignment assignment)
+        public void Update(Assignment assignment)
         {
-            Assignments.Remove(assignment);
+            string query = "UPDATE ASSIGNMENT SET Region = @Region, Type = @Type, Description = @Description, ScheduledDateTime = @ScheduledDateTime, FromAddress = @FromAddress, ToAddress = @ToAddress  WHERE RegionalId = @RegionalId";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query);
+                command.Parameters.AddWithValue("@Region", assignment.RegionEnum);
+                command.Parameters.AddWithValue("@Type", assignment.Type);
+                command.Parameters.AddWithValue("@Description", assignment.Description);
+                command.Parameters.AddWithValue("@ScheduledDateTime", assignment.ScheduledDateTime);
+                command.Parameters.AddWithValue("@FromAddress", assignment.FromAddress);
+                command.Parameters.AddWithValue("@ToAddress", assignment.ToAddress);
+                command.Parameters.AddWithValue("@RegionalId", assignment.RegionalId);
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
         }
 
-        private void InitializeExample()
+        public void Delete(int id)
         {
-            Assignments.Add(new Assignment(
-                Region.Syddanmark,
-                1001,
-                type1, // Use the Type instance
-                "Task 1 Description",
-                DateTime.Now.AddDays(1),
-                "123 Main St",
-                "456 Elm St"
-            ));
+            string query = "DELETE FROM ASSIGNMENT WHERE RegionalId = @RegionalId";
 
-            Assignments.Add(new Assignment(
-                Region.Midtjylland,
-                1002,
-                type2, // Use the Type instance
-                "Task 2 Description",
-                DateTime.Now.AddDays(3),
-                "789 Oak St",
-                "101 Pine St"
-            ));
-
-            Assignments.Add(new Assignment(
-                Region.Nordjylland,
-                1003,
-                type3, // Use the Type instance
-                "Task 3 Description",
-                DateTime.Now.AddDays(5),
-                "112 Maple St",
-                "131 Birch St"
-            ));
-
-            Assignments.Add(new Assignment(
-    Region.Syddanmark,
-    1004,
-    type1, // Reuse the Type instance
-    "Task 4 Description",
-    DateTime.Now.AddDays(7),
-    "400 Forest Ave",
-    "500 River Rd"
-));
-
-            Assignments.Add(new Assignment(
-                Region.Hovedstaden,
-                1005,
-                type2, // Reuse the Type instance
-                "Task 5 Description",
-                DateTime.Now.AddDays(10),
-                "600 Palm St",
-                "700 Oak St"
-            ));
-
-            Assignments.Add(new Assignment(
-                Region.Sjælland,
-                1006,
-                type3, // Reuse the Type instance
-                "Task 6 Description",
-                DateTime.Now.AddDays(12),
-                "800 Cedar St",
-                "900 Pine St"
-            ));
-
-            Assignments.Add(new Assignment(
-                Region.Midtjylland,
-                1007,
-                type1, // Use Type 1 instance
-                "Task 7 Description",
-                DateTime.Now.AddDays(14),
-                "100 Birch Rd",
-                "200 Willow Rd"
-            ));
-
-            Assignments.Add(new Assignment(
-                Region.Nordjylland,
-                1008,
-                type2, // Use Type 2 instance
-                "Task 8 Description",
-                DateTime.Now.AddDays(16),
-                "300 Maple Rd",
-                "400 Spruce St"
-            ));
-
-            Assignments.Add(new Assignment(
-                Region.Syddanmark,
-                1009,
-                type3, // Use Type 3 instance
-                "Task 9 Description",
-                DateTime.Now.AddDays(18),
-                "500 Elm Rd",
-                "600 Redwood St"
-            ));
-
-            Assignments.Add(new Assignment(
-                Region.Hovedstaden,
-                1010,
-                type1, // Use Type 1 instance
-                "Task 10 Description",
-                DateTime.Now.AddDays(20),
-                "700 Pine Ave",
-                "800 Oak Ave"
-            ));
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand(query);
+                command.Parameters.AddWithValue("@RegionalId", id);
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
         }
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Extensions.Configuration;
 using RegionSyd.ViewModel;
 
 namespace RegionSyd.View
@@ -23,6 +24,17 @@ namespace RegionSyd.View
         public AssignmentsView()
         {
             InitializeComponent();
+
+            // Retrieve the connection string from app settings
+            string connectionString = (Application.Current as App)?.Configuration.GetConnectionString("RegionSydDatabase");
+
+            if (connectionString == null)
+            {
+                MessageBox.Show("Connection string not found.");
+                // Handle the error accordingly, maybe close the application
+            }
+             
+            DataContext = new AssignmentsViewModel(connectionString);
         }
     }
 }

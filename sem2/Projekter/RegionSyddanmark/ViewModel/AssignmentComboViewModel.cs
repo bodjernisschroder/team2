@@ -10,37 +10,37 @@ using System.ComponentModel;
 
 namespace RegionSyd.ViewModel
 {
-    class AssignmentComboViewModel : INotifyPropertyChanged
+    public class AssignmentComboViewModel : INotifyPropertyChanged
     {
         public AssignmentCombo Model { get; private set; }
 
-        public int ID
+        public int ComboId
         {
-            get { return Model.ID; }
+            get { return Model.ComboId; }
             set
             {
-                Model.ID = value;
-                OnPropertyChanged(nameof(ID));
+                Model.ComboId = value;
+                OnPropertyChanged(nameof(ComboId));
             }
         }
 
-        public List<Assignment> Assignments
-        {
-            get { return Model.Assignments; }
-            set
-            {
-                Model.Assignments = value;
-                OnPropertyChanged(nameof(ID));
-            }
-        }
+        // public List<Assignment> Assignments
+        // {
+        //     get { return Model.Assignments; }
+        //     set
+        //     {
+        //         Model.Assignments = value;
+        //         OnPropertyChanged(nameof(Assignments)); // Her stod Id før, var det meningen?
+        //     }
+        // }
 
-        public string AssignmentIds
-        {
-            get
-            {
-                return string.Join(", ", Assignments.Select(a => a.RegionalID));
-            }
-        }
+        // public string AssignmentIds
+        // {
+        //     get
+        //     {
+        //         return string.Join(", ", Assignments.Select(a => a.RegionalId));
+        //     }
+        // }
 
         public AssignmentComboViewModel(AssignmentCombo combo)
         {

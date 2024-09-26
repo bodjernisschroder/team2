@@ -10,9 +10,10 @@ using System.ComponentModel;
 
 namespace RegionSyd.ViewModel
 {
-    class AssignmentViewModel : INotifyPropertyChanged
+    public class AssignmentViewModel : INotifyPropertyChanged
     {
         public Assignment Model { get; private set; }
+       
 
         private bool _isSelected;
         public bool IsSelected
@@ -25,23 +26,23 @@ namespace RegionSyd.ViewModel
             }
         }
 
-        public Region Region
+        public RegionEnum RegionEnum
         {
-            get { return Model.Region; }
+            get { return Model.RegionEnum; }
             set
             {
-                Model.Region = value;
-                OnPropertyChanged(nameof(Region));
+                Model.RegionEnum = value;
+                OnPropertyChanged(nameof(RegionEnum));
             }
         }
 
-        public int RegionalID
+        public int RegionalId
         {
-            get { return Model.RegionalID; }
+            get { return Model.RegionalId; }
             set
             {
-                Model.RegionalID = value;
-                OnPropertyChanged(nameof(RegionalID));
+                Model.RegionalId = value;
+                OnPropertyChanged(nameof(RegionalId));
             }
         }
 
@@ -52,6 +53,16 @@ namespace RegionSyd.ViewModel
             {
                 Model.Type = value;
                 OnPropertyChanged(nameof(Type));
+            }
+        }
+
+        public int ComboId
+        {
+            get { return Model.ComboId; }
+            set
+            {
+                Model.ComboId = value;
+                OnPropertyChanged(nameof(ComboId));
             }
         }
 
@@ -95,22 +106,20 @@ namespace RegionSyd.ViewModel
             }
         }
 
-        //public DateTime ServiceGoal
-        //{
-        //    get { return Model.ServiceGoal; }
-        //    set
-        //    {
-        //        Model.ServiceGoal = value;
-        //        OnPropertyChanged(nameof(ServiceGoal));
-        //    }
-        //}
+        public String ServiceGoal
+        {
+            get { return Model.Type.ServiceGoal; }
+            set
+            {
+                Model.Type.ServiceGoal = value;
+                OnPropertyChanged(nameof(ServiceGoal));
+            }
+        }
 
         public AssignmentViewModel(Assignment assignment)
         {
             Model = assignment;
         }
-
-       
 
         public event PropertyChangedEventHandler PropertyChanged;
 

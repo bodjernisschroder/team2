@@ -3,14 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RegionSyd.View"
-        xmlns:viewModel="clr-namespace:RegionSyd.ViewModel"
         mc:Ignorable="d"
-        Title="Opgavebank" MinHeight="500" Width="900" Height="550"
+        Title="Opgavebank" MinHeight="500" Width="1000" Height="550"
         ResizeMode="NoResize">
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <viewModel:AssignmentsViewModel/>
-    </Window.DataContext>
+    </Window.DataContext>-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -30,14 +28,16 @@
                   HeadersVisibility="Column">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="Selected" Binding="{Binding IsSelected}" />
-                <DataGridTextColumn Header="Region" Binding="{Binding Region}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="RegionalId" Binding="{Binding RegionalID}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Type" Binding="{Binding Type}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Beskrivelse" Binding="{Binding Description}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Region" Binding="{Binding RegionEnum}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="RegionalId" Binding="{Binding RegionalId}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Type" Binding="{Binding Type.Name}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Servicemål" Binding="{Binding ServiceGoal}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Beskrivelse" Binding="{Binding Description}" IsReadOnly="True" Width="*"/>
                 <DataGridTextColumn Header="Tidspunkt" Binding="{Binding ScheduledDateTime}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Fra" Binding="{Binding FromAddress}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Til" Binding="{Binding ToAddress}" IsReadOnly="True"/>
-                <DataGridTemplateColumn Header="Actions" Width="0.1*">
+                <DataGridTextColumn Header="KomboID" Binding="{Binding ComboId}" IsReadOnly="True"/>
+                <DataGridTemplateColumn Header="Actions" Width="0.3*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Content="Slet"
@@ -51,7 +51,7 @@
             
         </DataGrid>
 
-        <DataGrid x:Name="AssignmentCombosDataGrid"
+        <!--<DataGrid x:Name="AssignmentCombosDataGrid"
                   ItemsSource="{Binding AssignmentCombos}"
                   AutoGenerateColumns="False"
                   Grid.Row="1"
@@ -63,7 +63,7 @@
                   Margin="25"
                   HeadersVisibility="Column">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="0.1*" />
+                <DataGridTextColumn Header="ID" Binding="{Binding ComboId}" Width="0.1*" />
                 <DataGridTemplateColumn Header="Kombinerede opgaver" Width="0.8*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -82,7 +82,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
-        </DataGrid>
+        </DataGrid>-->
 
         <Button Content="Kombinér valgte opgaver"
                 Command="{Binding AddComboCommand}"

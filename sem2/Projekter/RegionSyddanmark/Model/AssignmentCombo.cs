@@ -6,33 +6,31 @@ using System.Threading.Tasks;
 
 namespace RegionSyd.Model
 {
-    class AssignmentCombo
+    public class AssignmentCombo
     {
-        private static int _lastId = 0;
+        // private static int _lastId = 0;
 
-        private int _id;
-        public int ID
+        private int _comboId;
+        public int ComboId
         {
-            get { return _id; }
-            set { _id = value; }
+            get { return _comboId; }
+            set { _comboId = value; }
         }
 
-        private List<Assignment> _assignments;
-        public List<Assignment> Assignments
-        {
-            get { return _assignments; }
-            set { _assignments = value; }
-        }
+        // private List<Assignment> _assignments;
+        // public List<Assignment> Assignments
+        // {
+        //     get { return _assignments; }
+        //     set { _assignments = value; }
+        // }
 
-        public AssignmentCombo(List<Assignment> assignments)
-        {
-            _id = GetNextId();
-            _assignments = assignments;
-        }
+        // public AssignmentCombo();
 
-        private static int GetNextId()
-        {
-            return ++_lastId;
-        }
+        // public AssignmentCombo(List<Assignment> assignments);
+
+        // private static int GetNextId()
+        // {
+        //     return ++_lastId;
+        // }
     }
 }

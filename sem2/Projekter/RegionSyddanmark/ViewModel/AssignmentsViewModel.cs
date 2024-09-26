@@ -11,10 +11,12 @@ using System.Collections.ObjectModel;
 
 namespace RegionSyd.ViewModel
 {
-    class AssignmentsViewModel : INotifyPropertyChanged
+    public class AssignmentsViewModel : INotifyPropertyChanged
     {
-        private AssignmentRepository assignmentRepo = new();
-        private AssignmentComboRepository assignmentComboRepo = new();
+        private AssignmentRepository assignmentRepo;
+        private AssignmentComboRepository assignmentComboRepo;
+        private RegionRepository regionRepo;
+        private TypeRepository typeRepo;
         private List<AssignmentViewModel> selectedAssignments;
         public ObservableCollection<AssignmentViewModel> Assignments { get; private set; }
         public ObservableCollection<AssignmentComboViewModel> AssignmentCombos { get; private set; }
@@ -23,18 +25,27 @@ namespace RegionSyd.ViewModel
         public RelayCommandT<AssignmentComboViewModel> RemoveComboCommand { get; }
         public RelayCommandT<AssignmentViewModel> RemoveAssignmentCommand { get; }
 
-        public AssignmentsViewModel()
+        public AssignmentsViewModel(string connectionString)
         {
             AddComboCommand = new RelayCommand(AddCombo);
             RemoveComboCommand = new RelayCommandT<AssignmentComboViewModel>(RemoveCombo);
             RemoveAssignmentCommand = new RelayCommandT<AssignmentViewModel>(RemoveAssignment);
-            Assignments = new();
-            AssignmentCombos = new();
+            assignmentRepo = new AssignmentRepository(connectionString);
+            assignmentComboRepo = new AssignmentComboRepository(connectionString);
+            regionRepo = new RegionRepository(connectionString);
+            typeRepo = new TypeRepository(connectionString);
+            Assignments = new ObservableCollection<AssignmentViewModel>();
+            AssignmentCombos = new ObservableCollection<AssignmentComboViewModel>();
             selectedAssignments = new();
-            foreach (Assignment assignment in assignmentRepo.Assignments)
+            foreach (Assignment assignment in assignmentRepo.GetAll())
             {
                 AssignmentViewModel assignmentViewModel = new AssignmentViewModel(assignment);
                 Assignments.Add(assignmentViewModel);
+            }
+            foreach (AssignmentCombo combo in assignmentComboRepo.GetAll())
+            {
+                AssignmentComboViewModel assignmentComboViewModel = new AssignmentComboViewModel(combo);
+                AssignmentCombos.Add(assignmentComboViewModel);
             }
         }
         public void RemoveAssignment(object parameter)
@@ -42,25 +53,35 @@ namespace RegionSyd.ViewModel
             if (parameter is AssignmentViewModel assignment)
             {
                 Assignments.Remove(assignment);
+                assignmentRepo.Delete(assignment.Model.RegionalId);
             }
         }
+
         public void AddCombo()
         {
             foreach (AssignmentViewModel assignment in Assignments)
                 if (assignment.IsSelected) selectedAssignments.Add(assignment);
             if (selectedAssignments.Count > 0) 
             {
-                List<Assignment> selectedAssignmentsAsAssignments = new List<Assignment>();
+                AssignmentCombo combo = new AssignmentCombo();
+                assignmentComboRepo.Add(combo);
                 foreach (AssignmentViewModel assignment in selectedAssignments)
                 {
-                    assignmentRepo.Remove(assignment.Model);
-                    Assignments.Remove(assignment);
-                    selectedAssignmentsAsAssignments.Add(assignment.Model);
+                    assignment.ComboId = combo.ComboId;
+                    assignmentRepo.Update(assignment.Model);
                 }
-                AssignmentCombo combo = new AssignmentCombo(selectedAssignmentsAsAssignments);
-                assignmentComboRepo.Add(combo);
-                AssignmentComboViewModel comboViewModel = new AssignmentComboViewModel(combo);
-                AssignmentCombos.Add(comboViewModel);
+
+                // List<Assignment> selectedAssignmentsAsAssignments = new List<Assignment>();
+                // foreach (AssignmentViewModel assignment in selectedAssignments)
+                // {
+                //     assignmentRepo.Delete(assignment.Model.RegionalId);
+                //     Assignments.Remove(assignment);
+                //     selectedAssignmentsAsAssignments.Add(assignment.Model);
+                // }
+                // AssignmentCombo combo = new AssignmentCombo(selectedAssignmentsAsAssignments);
+                // assignmentComboRepo.Add(combo);
+                // AssignmentComboViewModel comboViewModel = new AssignmentComboViewModel(combo);
+                // AssignmentCombos.Add(comboViewModel);
             }
             selectedAssignments.Clear();
         }
@@ -70,7 +91,7 @@ namespace RegionSyd.ViewModel
             if (parameter is AssignmentComboViewModel combo)
             {
                 AssignmentCombos.Remove(combo);
-                assignmentComboRepo.Remove(combo.Model);
+                assignmentComboRepo.Delete(combo.Model.ComboId);
             }
         }
 
