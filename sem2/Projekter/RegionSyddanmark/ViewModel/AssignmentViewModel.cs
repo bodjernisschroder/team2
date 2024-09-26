@@ -46,7 +46,7 @@ namespace RegionSyd.ViewModel
             }
         }
 
-        public RegionSyd.Model.Type Type
+        public Model.Type Type
         {
             get { return Model.Type; }
             set

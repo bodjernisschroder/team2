@@ -35,7 +35,7 @@ namespace RegionSyd.DataAccess
                         types.Add(new Model.Type
                         {
                             TypeId = (int)reader["TypeId"],
-                            Name = (string)reader["Name"],
+                            Name = (string)reader["TypeName"],
                             ServiceGoal = (string)reader["ServiceGoal"],
                         });
                     }
@@ -62,7 +62,7 @@ namespace RegionSyd.DataAccess
                         type = new Model.Type
                         {
                             TypeId = (int)reader["TypeId"],
-                            Name = (string)reader["Name"],
+                            Name = (string)reader["TypeName"],
                             ServiceGoal = (string)reader["ServiceGoal"]
                         };
                     }
@@ -73,7 +73,7 @@ namespace RegionSyd.DataAccess
 
         public void Add(Model.Type type)
         {
-            string query = "INSERT INTO TYPE (TypeId, Name, ServiceGoal) VALUES (@TypeId, @Name, @Type, @ServiceGoal)";
+            string query = "INSERT INTO TYPE (TypeId, TypeName, ServiceGoal) VALUES (@TypeId, @Name, @Type, @ServiceGoal)";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -88,7 +88,7 @@ namespace RegionSyd.DataAccess
 
         public void Update(Model.Type type)
         {
-            string query = "UPDATE TYPE SET Name = @Name, ServiceGoal = @ServiceGoal WHERE TypeId = @TypeId";
+            string query = "UPDATE TYPE SET TypeName = @Name, ServiceGoal = @ServiceGoal WHERE TypeId = @TypeId";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {

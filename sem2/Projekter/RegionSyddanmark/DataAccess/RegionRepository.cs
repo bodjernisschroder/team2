@@ -34,7 +34,7 @@ namespace RegionSyd.DataAccess
 
                             regions.Add(new Region
                             {
-                                RegionEnum = (RegionEnum)reader["RegionEnum"]
+                                RegionEnum = (RegionEnum)reader["RegionId"]
 
                             });
                         }

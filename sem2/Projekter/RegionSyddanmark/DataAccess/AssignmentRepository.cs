@@ -34,13 +34,14 @@ namespace RegionSyd.DataAccess
 
                         assignments.Add(new Assignment
                         {
-                            RegionEnum = (RegionEnum)reader["Region"],
-                            RegionalId = (int)reader["RegionalId"],
-                            Type = (Model.Type)reader["Type"],
+                            RegionEnum = (RegionEnum)(int)reader["RegionId"],
+                            RegionalId = (int)reader["RegionalAssignmentId"],
+                            Type = (Model.Type)reader["TypeId"],
                             Description = (string)reader["Description"],
                             ScheduledDateTime = (DateTime)reader["ScheduledDateTime"],
                             FromAddress = (string)reader["FromAddress"],
-                            ToAddress = (string)reader["ToAddress"]
+                            ToAddress = (string)reader["ToAddress"],
+                            ComboId = (int)reader["ComboId"]
                         });
                     }
                 }
@@ -51,12 +52,12 @@ namespace RegionSyd.DataAccess
         public Assignment GetById(int id)
         {
             Assignment assignment = null;
-            string query = "SELECT * FROM ASSIGNMENT WHERE AssignmentID = @AssignmentID";
+            string query = "SELECT * FROM ASSIGNMENT WHERE RegionalAssignmentId = @RegionalAssignmentID";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@AssignmentID", id);
+                command.Parameters.AddWithValue("@RegionalAssignmentID", id);
                 connection.Open();
 
                 using (SqlDataReader reader = command.ExecuteReader())
@@ -65,13 +66,14 @@ namespace RegionSyd.DataAccess
                     {
                         assignment = new Assignment
                         {
-                            RegionEnum = (RegionEnum)reader["Region"],
-                            RegionalId = (int)reader["RegionalId"],
-                            Type = (Model.Type)reader["Type"],
+                            RegionEnum = (RegionEnum)(int)reader["RegionId"],
+                            RegionalId = (int)reader["RegionalAssignmentId"],
+                            Type = (Model.Type)reader["TypeId"],
                             Description = (string)reader["Description"],
                             ScheduledDateTime = (DateTime)reader["ScheduledDateTime"],
                             FromAddress = (string)reader["FromAddress"],
-                            ToAddress = (string)reader["ToAddress"]
+                            ToAddress = (string)reader["ToAddress"],
+                            ComboId = (int)reader["ComboId"]
                         };
                     }
                 }
@@ -81,14 +83,14 @@ namespace RegionSyd.DataAccess
 
         public void Add(Assignment assignment)
         {
-            string query = "INSERT INTO ASSIGNMENT (Region, RegionalId, Type, Description, ScheduledDateTime, FromAddress, ToAddress) VALUES (@Region, @RegionalId, @Type, @Description, @ScheduledDateTime, @FromAddress, @ToAddress)";
+            string query = "INSERT INTO ASSIGNMENT (RegionId, RegionalAssignmentId, TypeId, Description, ScheduledDateTime, FromAddress, ToAddress, ComboId) VALUES (@Region, @RegionalId, @Type, @Description, @ScheduledDateTime, @FromAddress, @ToAddress, @ComboId)";
             
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Region", assignment.RegionEnum);
+                command.Parameters.AddWithValue("@Region", (int)assignment.RegionEnum);
                 command.Parameters.AddWithValue("@RegionalId", assignment.RegionalId);
-                command.Parameters.AddWithValue("@Type", assignment.Type);
+                command.Parameters.AddWithValue("@Type", assignment.Type.TypeId);
                 command.Parameters.AddWithValue("@Description", assignment.Description);
                 command.Parameters.AddWithValue("@ScheduledDateTime", assignment.ScheduledDateTime);
                 command.Parameters.AddWithValue("@FromAddress", assignment.FromAddress);
@@ -100,17 +102,18 @@ namespace RegionSyd.DataAccess
 
         public void Update(Assignment assignment)
         {
-            string query = "UPDATE ASSIGNMENT SET Region = @Region, Type = @Type, Description = @Description, ScheduledDateTime = @ScheduledDateTime, FromAddress = @FromAddress, ToAddress = @ToAddress  WHERE RegionalId = @RegionalId";
+            string query = "UPDATE ASSIGNMENT SET RegionId = @Region, TypeId = @Type, Description = @Description, ScheduledDateTime = @ScheduledDateTime, FromAddress = @FromAddress, ToAddress = @ToAddress, ComboId = @ComboId WHERE RegionalAssignmentId = @RegionalId";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query);
-                command.Parameters.AddWithValue("@Region", assignment.RegionEnum);
-                command.Parameters.AddWithValue("@Type", assignment.Type);
+                command.Parameters.AddWithValue("@Region", (int)assignment.RegionEnum);
+                command.Parameters.AddWithValue("@Type", assignment.Type.TypeId);
                 command.Parameters.AddWithValue("@Description", assignment.Description);
                 command.Parameters.AddWithValue("@ScheduledDateTime", assignment.ScheduledDateTime);
                 command.Parameters.AddWithValue("@FromAddress", assignment.FromAddress);
                 command.Parameters.AddWithValue("@ToAddress", assignment.ToAddress);
+                command.Parameters.AddWithValue("@ComboId", assignment.ComboId);
                 command.Parameters.AddWithValue("@RegionalId", assignment.RegionalId);
                 connection.Open();
                 command.ExecuteNonQuery();
@@ -119,7 +122,7 @@ namespace RegionSyd.DataAccess
 
         public void Delete(int id)
         {
-            string query = "DELETE FROM ASSIGNMENT WHERE RegionalId = @RegionalId";
+            string query = "DELETE FROM ASSIGNMENT WHERE RegionalAssignmentId = @RegionalId";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
