@@ -34,7 +34,7 @@ namespace RegionSyd.DataAccess
 
                         types.Add(new Model.Type
                         {
-                            TypeId = (int)reader["TypeId"],
+                            TypeId = reader.IsDBNull(reader.GetOrdinal("TypeId")) ? 0 : (int)reader["TypeId"],
                             Name = (string)reader["TypeName"],
                             ServiceGoal = (string)reader["ServiceGoal"],
                         });
@@ -61,7 +61,7 @@ namespace RegionSyd.DataAccess
                     {
                         type = new Model.Type
                         {
-                            TypeId = (int)reader["TypeId"],
+                            TypeId = reader.IsDBNull(reader.GetOrdinal("TypeId")) ? 0 : (int)reader["TypeId"],
                             Name = (string)reader["TypeName"],
                             ServiceGoal = (string)reader["ServiceGoal"]
                         };

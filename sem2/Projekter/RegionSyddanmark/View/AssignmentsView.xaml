@@ -28,7 +28,7 @@
                   HeadersVisibility="Column">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="Selected" Binding="{Binding IsSelected}" />
-                <DataGridTextColumn Header="Region" Binding="{Binding RegionEnum}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Region" Binding="{Binding RegionId}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="RegionalId" Binding="{Binding RegionalId}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Type" Binding="{Binding Type.Name}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Servicemål" Binding="{Binding ServiceGoal}" IsReadOnly="True"/>
@@ -51,7 +51,7 @@
             
         </DataGrid>
 
-        <!--<DataGrid x:Name="AssignmentCombosDataGrid"
+        <DataGrid x:Name="AssignmentCombosDataGrid"
                   ItemsSource="{Binding AssignmentCombos}"
                   AutoGenerateColumns="False"
                   Grid.Row="1"
@@ -82,7 +82,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
-        </DataGrid>-->
+        </DataGrid>
 
         <Button Content="Kombinér valgte opgaver"
                 Command="{Binding AddComboCommand}"

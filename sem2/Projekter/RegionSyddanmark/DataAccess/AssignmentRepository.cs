@@ -34,14 +34,14 @@ namespace RegionSyd.DataAccess
 
                         assignments.Add(new Assignment
                         {
-                            RegionEnum = (RegionEnum)(int)reader["RegionId"],
-                            RegionalId = (int)reader["RegionalAssignmentId"],
-                            Type = (Model.Type)reader["TypeId"],
+                            RegionId = reader.IsDBNull(reader.GetOrdinal("RegionId")) ? 0 : (int)reader["RegionId"],
+                            RegionalId = reader.IsDBNull(reader.GetOrdinal("RegionalAssignmentId")) ? 0 : (int)reader["RegionalAssignmentId"],
+                            TypeId = reader.IsDBNull(reader.GetOrdinal("TypeId")) ? 0 : (int)reader["TypeId"],
                             Description = (string)reader["Description"],
                             ScheduledDateTime = (DateTime)reader["ScheduledDateTime"],
                             FromAddress = (string)reader["FromAddress"],
                             ToAddress = (string)reader["ToAddress"],
-                            ComboId = (int)reader["ComboId"]
+                            ComboId = reader.IsDBNull(reader.GetOrdinal("ComboId")) ? 0 : (int)reader["ComboId"]
                         });
                     }
                 }
@@ -66,14 +66,14 @@ namespace RegionSyd.DataAccess
                     {
                         assignment = new Assignment
                         {
-                            RegionEnum = (RegionEnum)(int)reader["RegionId"],
-                            RegionalId = (int)reader["RegionalAssignmentId"],
-                            Type = (Model.Type)reader["TypeId"],
+                            RegionId = reader.IsDBNull(reader.GetOrdinal("RegionId")) ? 0 : (int)reader["RegionId"],
+                            RegionalId = reader.IsDBNull(reader.GetOrdinal("RegionalAssignmentId")) ? 0 : (int)reader["RegionalAssignmentId"],
+                            TypeId = reader.IsDBNull(reader.GetOrdinal("TypeId")) ? 0 : (int)reader["TypeId"],
                             Description = (string)reader["Description"],
                             ScheduledDateTime = (DateTime)reader["ScheduledDateTime"],
                             FromAddress = (string)reader["FromAddress"],
                             ToAddress = (string)reader["ToAddress"],
-                            ComboId = (int)reader["ComboId"]
+                            ComboId = reader.IsDBNull(reader.GetOrdinal("ComboId")) ? 0 : (int)reader["ComboId"]
                         };
                     }
                 }
@@ -83,14 +83,14 @@ namespace RegionSyd.DataAccess
 
         public void Add(Assignment assignment)
         {
-            string query = "INSERT INTO ASSIGNMENT (RegionId, RegionalAssignmentId, TypeId, Description, ScheduledDateTime, FromAddress, ToAddress, ComboId) VALUES (@Region, @RegionalId, @Type, @Description, @ScheduledDateTime, @FromAddress, @ToAddress, @ComboId)";
+            string query = "INSERT INTO ASSIGNMENT (RegionId, RegionalAssignmentId, TypeId, Description, ScheduledDateTime, FromAddress, ToAddress, ComboId) VALUES (@RegionId, @RegionalId, @TypeId, @Description, @ScheduledDateTime, @FromAddress, @ToAddress, @ComboId)";
             
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Region", (int)assignment.RegionEnum);
+                command.Parameters.AddWithValue("@RegionId", (int)assignment.RegionId);
                 command.Parameters.AddWithValue("@RegionalId", assignment.RegionalId);
-                command.Parameters.AddWithValue("@Type", assignment.Type.TypeId);
+                command.Parameters.AddWithValue("@TypeId", assignment.TypeId);
                 command.Parameters.AddWithValue("@Description", assignment.Description);
                 command.Parameters.AddWithValue("@ScheduledDateTime", assignment.ScheduledDateTime);
                 command.Parameters.AddWithValue("@FromAddress", assignment.FromAddress);
@@ -102,13 +102,13 @@ namespace RegionSyd.DataAccess
 
         public void Update(Assignment assignment)
         {
-            string query = "UPDATE ASSIGNMENT SET RegionId = @Region, TypeId = @Type, Description = @Description, ScheduledDateTime = @ScheduledDateTime, FromAddress = @FromAddress, ToAddress = @ToAddress, ComboId = @ComboId WHERE RegionalAssignmentId = @RegionalId";
+            string query = "UPDATE ASSIGNMENT SET RegionId = @RegionId, TypeId = @TypeId, Description = @Description, ScheduledDateTime = @ScheduledDateTime, FromAddress = @FromAddress, ToAddress = @ToAddress, ComboId = @ComboId WHERE RegionalAssignmentId = @RegionalId";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query);
-                command.Parameters.AddWithValue("@Region", (int)assignment.RegionEnum);
-                command.Parameters.AddWithValue("@Type", assignment.Type.TypeId);
+                command.Parameters.AddWithValue("@RegionId", (int)assignment.RegionId);
+                command.Parameters.AddWithValue("@TypeId", assignment.TypeId);
                 command.Parameters.AddWithValue("@Description", assignment.Description);
                 command.Parameters.AddWithValue("@ScheduledDateTime", assignment.ScheduledDateTime);
                 command.Parameters.AddWithValue("@FromAddress", assignment.FromAddress);

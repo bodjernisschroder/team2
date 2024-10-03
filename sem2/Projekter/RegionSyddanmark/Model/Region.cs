@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 
 namespace RegionSyd.Model
 {
-    public enum RegionEnum
-    {
-        Syddanmark = 1,
-        Midtjylland,
-        Nordjylland,
-        Sjælland,
-        Hovedstaden
-    }
+    //public enum RegionEnum
+    //{
+    //    Syddanmark = 1,
+    //    Midtjylland,
+    //    Nordjylland,
+    //    Sjælland,
+    //    Hovedstaden
+    //}
 
     public class Region
     {
-        public RegionEnum RegionEnum { get; set; }
+        //public RegionEnum RegionEnum { get; set; }
+
+        public int RegionId { get; set; }
     }
 }

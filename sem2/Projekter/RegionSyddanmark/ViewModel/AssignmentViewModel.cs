@@ -26,13 +26,13 @@ namespace RegionSyd.ViewModel
             }
         }
 
-        public RegionEnum RegionEnum
+        public int RegionId
         {
-            get { return Model.RegionEnum; }
+            get { return Model.RegionId; }
             set
             {
-                Model.RegionEnum = value;
-                OnPropertyChanged(nameof(RegionEnum));
+                Model.RegionId = value;
+                OnPropertyChanged(nameof(RegionId));
             }
         }
 
@@ -46,13 +46,13 @@ namespace RegionSyd.ViewModel
             }
         }
 
-        public Model.Type Type
+        public int TypeId
         {
-            get { return Model.Type; }
+            get { return Model.TypeId; }
             set
             {
-                Model.Type = value;
-                OnPropertyChanged(nameof(Type));
+                Model.TypeId = value;
+                OnPropertyChanged(nameof(TypeId));
             }
         }
 
@@ -108,10 +108,10 @@ namespace RegionSyd.ViewModel
 
         public String ServiceGoal
         {
-            get { return Model.Type.ServiceGoal; }
+            get { return Model.ServiceGoal; }
             set
             {
-                Model.Type.ServiceGoal = value;
+                Model.ServiceGoal = value;
                 OnPropertyChanged(nameof(ServiceGoal));
             }
         }

@@ -9,7 +9,7 @@ namespace RegionSyd.Model
     public class Type
     {
         // private static int _lastId = 0;
-        // private int _id;
+        //private int _id;
         public int TypeId { get; set; }
         public string Name { get; set; }
         public string ServiceGoal { get; set; }

@@ -34,7 +34,7 @@ namespace RegionSyd.DataAccess
 
                             regions.Add(new Region
                             {
-                                RegionEnum = (RegionEnum)reader["RegionId"]
+                                RegionId = reader.IsDBNull(reader.GetOrdinal("RegionId")) ? 0 : (int)reader["RegionId"]
 
                             });
                         }
@@ -60,7 +60,7 @@ namespace RegionSyd.DataAccess
                         {
                             region = new Region
                             {
-                                RegionEnum = (RegionEnum)reader["RegionEnum"]
+                                RegionId = reader.IsDBNull(reader.GetOrdinal("RegionId")) ? 0 : (int)reader["RegionId"]
                             };
                         }
                     }
@@ -70,14 +70,16 @@ namespace RegionSyd.DataAccess
 
             public void Add(Region region)
             {
-                string query = "INSERT INTO REGION (RegionId) DEFAULT VALUES";
+            //string query = "INSERT INTO REGION (RegionId) DEFAULT VALUES";
 
-                using (SqlConnection connection = new SqlConnection(_connectionString))
-                {
-                    SqlCommand command = new SqlCommand(query, connection);
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                }
+            //using (SqlConnection connection = new SqlConnection(_connectionString))
+            //{
+            //    SqlCommand command = new SqlCommand(query, connection);
+            //    connection.Open();
+            //    command.ExecuteNonQuery();
+            //}
+
+                throw new NotImplementedException();
             }
 
             public void Update(Region region)

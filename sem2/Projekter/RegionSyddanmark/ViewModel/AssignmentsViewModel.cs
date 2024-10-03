@@ -68,7 +68,7 @@ namespace RegionSyd.ViewModel
                 foreach (AssignmentViewModel assignment in selectedAssignments)
                 {
                     assignment.ComboId = combo.ComboId;
-                    assignmentRepo.Update(assignment.Model);
+                    // assignmentRepo.Update(assignment.Model);
                 }
 
                 // List<Assignment> selectedAssignmentsAsAssignments = new List<Assignment>();

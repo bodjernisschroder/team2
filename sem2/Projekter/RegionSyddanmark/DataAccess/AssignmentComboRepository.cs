@@ -34,7 +34,7 @@ namespace RegionSyd.DataAccess
 
                         assignmentcombos.Add(new AssignmentCombo
                         {
-                            ComboId = (int)reader["ComboId"],
+                            ComboId = reader.IsDBNull(reader.GetOrdinal("ComboId")) ? 0 : (int)reader["ComboId"],
                             
                         });
                     }
@@ -60,7 +60,7 @@ namespace RegionSyd.DataAccess
                     {
                         assignmentcombo = new AssignmentCombo
                         {
-                            ComboId = (int)reader["ComboId"]
+                            ComboId = reader.IsDBNull(reader.GetOrdinal("ComboId")) ? 0 : (int)reader["ComboId"]
                         };
                     }
                 }
@@ -70,14 +70,20 @@ namespace RegionSyd.DataAccess
 
         public void Add(AssignmentCombo assignmentcombo)
         {
-            string query = "INSERT INTO ASSIGNMENTCOMBO (ComboId) DEFAULT VALUES";
+
+
+            string query = "INSERT INTO ASSIGNMENTCOMBO DEFAULT VALUES; SELECT SCOPE_IDENTITY();";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
                 connection.Open();
                 command.ExecuteNonQuery();
+                // comboId = Convert.ToInt32(command.ExecuteScalar());
             }
+
+            
+            //throw new NotImplementedException();
         }
 
         public void Update(AssignmentCombo assignmentcombo)
@@ -96,6 +102,13 @@ namespace RegionSyd.DataAccess
                 connection.Open();
                 command.ExecuteNonQuery();
             }
+        }
+
+        public void CombineAssignments(List<int> idList)
+        {
+            string query = "Inner Join ... Select ... AssignmentId join med ComboId";
+
+            string query2 = "SELECT Assignment.RegionalAssignmentId, ";
         }
     }
 }
