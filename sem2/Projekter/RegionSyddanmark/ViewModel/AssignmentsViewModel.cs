@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RegionSyd.Model;
+﻿using RegionSyd.Model;
 using RegionSyd.DataAccess;
 using RegionSyd.Utilities;
 using System.ComponentModel;
@@ -47,6 +42,7 @@ namespace RegionSyd.ViewModel
                 AssignmentComboViewModel assignmentComboViewModel = new AssignmentComboViewModel(combo);
                 AssignmentCombos.Add(assignmentComboViewModel);
             }
+           
         }
         public void RemoveAssignment(object parameter)
         {
@@ -57,33 +53,37 @@ namespace RegionSyd.ViewModel
             }
         }
 
-        public void AddCombo()
+        private void AddCombo()
         {
-            foreach (AssignmentViewModel assignment in Assignments)
-                if (assignment.IsSelected) selectedAssignments.Add(assignment);
-            if (selectedAssignments.Count > 0) 
-            {
-                AssignmentCombo combo = new AssignmentCombo();
-                assignmentComboRepo.Add(combo);
-                foreach (AssignmentViewModel assignment in selectedAssignments)
-                {
-                    assignment.ComboId = combo.ComboId;
-                    // assignmentRepo.Update(assignment.Model);
-                }
+            var selectedAssignments = Assignments.Where(a => a.IsSelected).ToList();
 
-                // List<Assignment> selectedAssignmentsAsAssignments = new List<Assignment>();
-                // foreach (AssignmentViewModel assignment in selectedAssignments)
-                // {
-                //     assignmentRepo.Delete(assignment.Model.RegionalId);
-                //     Assignments.Remove(assignment);
-                //     selectedAssignmentsAsAssignments.Add(assignment.Model);
-                // }
-                // AssignmentCombo combo = new AssignmentCombo(selectedAssignmentsAsAssignments);
-                // assignmentComboRepo.Add(combo);
-                // AssignmentComboViewModel comboViewModel = new AssignmentComboViewModel(combo);
-                // AssignmentCombos.Add(comboViewModel);
+            if (selectedAssignments.Count == 0)
+            {
+                return;
             }
-            selectedAssignments.Clear();
+
+            var combo = new AssignmentCombo();
+
+            if (selectedAssignments.Count >= 1)
+                combo.RegionalId1 = selectedAssignments[0].RegionalId;
+            if (selectedAssignments.Count >= 2)
+                combo.RegionalId2 = selectedAssignments[1].RegionalId;
+            if (selectedAssignments.Count >= 3)
+                combo.RegionalId3 = selectedAssignments[2].RegionalId;
+            if (selectedAssignments.Count >= 4)
+                combo.RegionalId4 = selectedAssignments[3].RegionalId;
+            if (selectedAssignments.Count >= 5)
+                combo.RegionalId5 = selectedAssignments[4].RegionalId;
+
+            assignmentComboRepo.Add(combo);
+
+            var comboViewModel = new AssignmentComboViewModel(combo);
+            AssignmentCombos.Add(comboViewModel);
+
+            foreach (var assignment in selectedAssignments)
+            {
+                assignment.IsSelected = false;  
+            }
         }
 
         public void RemoveCombo(object parameter)

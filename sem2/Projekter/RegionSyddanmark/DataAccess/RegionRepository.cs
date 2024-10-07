@@ -1,10 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
 using RegionSyd.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RegionSyd.DataAccess
 {
@@ -70,15 +65,6 @@ namespace RegionSyd.DataAccess
 
             public void Add(Region region)
             {
-            //string query = "INSERT INTO REGION (RegionId) DEFAULT VALUES";
-
-            //using (SqlConnection connection = new SqlConnection(_connectionString))
-            //{
-            //    SqlCommand command = new SqlCommand(query, connection);
-            //    connection.Open();
-            //    command.ExecuteNonQuery();
-            //}
-
                 throw new NotImplementedException();
             }
 

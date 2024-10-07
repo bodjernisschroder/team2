@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using RegionSyd.Model;
-using RegionSyd.DataAccess;
-using RegionSyd.Utilities;
 using System.ComponentModel;
+using Type = RegionSyd.Model.Type;
 
 namespace RegionSyd.ViewModel
 {
@@ -14,6 +8,7 @@ namespace RegionSyd.ViewModel
     {
         public Assignment Model { get; private set; }
        
+        public Type TypeModel { get; private set; }
 
         private bool _isSelected;
         public bool IsSelected
@@ -106,13 +101,12 @@ namespace RegionSyd.ViewModel
             }
         }
 
-        public String ServiceGoal
+        public string ServiceGoal
         {
-            get { return Model.ServiceGoal; }
-            set
+            get 
             {
-                Model.ServiceGoal = value;
-                OnPropertyChanged(nameof(ServiceGoal));
+                if (Model.TypeId == 1) return "15 minutter";
+                else return "3 timer";
             }
         }
 

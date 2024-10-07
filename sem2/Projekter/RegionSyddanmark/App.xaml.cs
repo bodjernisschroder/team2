@@ -7,9 +7,6 @@ using System.IO;
 
 namespace RegionSyd
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
 
@@ -17,7 +14,6 @@ namespace RegionSyd
 
         public App()
         {
-            // Set up configuration sources.
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);

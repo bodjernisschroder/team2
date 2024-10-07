@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using RegionSyd.Model;
 
 namespace RegionSyd.DataAccess
@@ -31,11 +26,14 @@ namespace RegionSyd.DataAccess
                 {
                     while (reader.Read())
                     {
-
                         assignmentcombos.Add(new AssignmentCombo
                         {
                             ComboId = reader.IsDBNull(reader.GetOrdinal("ComboId")) ? 0 : (int)reader["ComboId"],
-                            
+                            RegionalId1 = reader.IsDBNull(reader.GetOrdinal("RegionalId1")) ? 0 : (int)reader["RegionalId1"],
+                            RegionalId2 = reader.IsDBNull(reader.GetOrdinal("RegionalId2")) ? 0 : (int)reader["RegionalId2"],
+                            RegionalId3 = reader.IsDBNull(reader.GetOrdinal("RegionalId3")) ? 0 : (int)reader["RegionalId3"],
+                            RegionalId4 = reader.IsDBNull(reader.GetOrdinal("RegionalId4")) ? 0 : (int)reader["RegionalId4"],
+                            RegionalId5 = reader.IsDBNull(reader.GetOrdinal("RegionalId5")) ? 0 : (int)reader["RegionalId5"]
                         });
                     }
                 }
@@ -60,7 +58,12 @@ namespace RegionSyd.DataAccess
                     {
                         assignmentcombo = new AssignmentCombo
                         {
-                            ComboId = reader.IsDBNull(reader.GetOrdinal("ComboId")) ? 0 : (int)reader["ComboId"]
+                            ComboId = reader.IsDBNull(reader.GetOrdinal("ComboId")) ? 0 : (int)reader["ComboId"],
+                            RegionalId1 = reader.IsDBNull(reader.GetOrdinal("RegionalId1")) ? 0 : (int)reader["RegionalId1"],
+                            RegionalId2 = reader.IsDBNull(reader.GetOrdinal("RegionalId2")) ? 0 : (int)reader["RegionalId2"],
+                            RegionalId3 = reader.IsDBNull(reader.GetOrdinal("RegionalId3")) ? 0 : (int)reader["RegionalId3"],
+                            RegionalId4 = reader.IsDBNull(reader.GetOrdinal("RegionalId4")) ? 0 : (int)reader["RegionalId4"],
+                            RegionalId5 = reader.IsDBNull(reader.GetOrdinal("RegionalId5")) ? 0 : (int)reader["RegionalId5"]
                         };
                     }
                 }
@@ -70,20 +73,24 @@ namespace RegionSyd.DataAccess
 
         public void Add(AssignmentCombo assignmentcombo)
         {
-
-
-            string query = "INSERT INTO ASSIGNMENTCOMBO DEFAULT VALUES; SELECT SCOPE_IDENTITY();";
+            string query = "INSERT INTO ASSIGNMENTCOMBO " +
+                "(RegionalId1, RegionalId2, RegionalId3, RegionalId4, RegionalId5) " +
+                "VALUES (@RegionalId1, @RegionalId2, @RegionalId3, @RegionalId4, @RegionalId5)" + 
+                "SELECT SCOPE_IDENTITY();";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
-                connection.Open();
-                command.ExecuteNonQuery();
-                // comboId = Convert.ToInt32(command.ExecuteScalar());
-            }
 
-            
-            //throw new NotImplementedException();
+                command.Parameters.AddWithValue("@RegionalId1", assignmentcombo.RegionalId1);
+                command.Parameters.AddWithValue("@RegionalId2", assignmentcombo.RegionalId2);
+                command.Parameters.AddWithValue("@RegionalId3", assignmentcombo.RegionalId3);
+                command.Parameters.AddWithValue("@RegionalId4", assignmentcombo.RegionalId4);
+                command.Parameters.AddWithValue("@RegionalId5", assignmentcombo.RegionalId5);
+                connection.Open();
+                int newComboId = Convert.ToInt32(command.ExecuteScalar());
+                assignmentcombo.ComboId = newComboId;
+            }
         }
 
         public void Update(AssignmentCombo assignmentcombo)
@@ -97,18 +104,11 @@ namespace RegionSyd.DataAccess
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                SqlCommand command = new SqlCommand(query);
+                SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@ComboId", id);
                 connection.Open();
                 command.ExecuteNonQuery();
             }
-        }
-
-        public void CombineAssignments(List<int> idList)
-        {
-            string query = "Inner Join ... Select ... AssignmentId join med ComboId";
-
-            string query2 = "SELECT Assignment.RegionalAssignmentId, ";
         }
     }
 }

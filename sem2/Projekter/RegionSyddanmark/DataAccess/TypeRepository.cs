@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Data.SqlClient;
-using RegionSyd.Model;
+﻿using Microsoft.Data.SqlClient;
 
 namespace RegionSyd.DataAccess
 {
@@ -35,7 +29,7 @@ namespace RegionSyd.DataAccess
                         types.Add(new Model.Type
                         {
                             TypeId = reader.IsDBNull(reader.GetOrdinal("TypeId")) ? 0 : (int)reader["TypeId"],
-                            Name = (string)reader["TypeName"],
+                            TypeName = (string)reader["TypeName"],
                             ServiceGoal = (string)reader["ServiceGoal"],
                         });
                     }
@@ -62,7 +56,7 @@ namespace RegionSyd.DataAccess
                         type = new Model.Type
                         {
                             TypeId = reader.IsDBNull(reader.GetOrdinal("TypeId")) ? 0 : (int)reader["TypeId"],
-                            Name = (string)reader["TypeName"],
+                            TypeName = (string)reader["TypeName"],
                             ServiceGoal = (string)reader["ServiceGoal"]
                         };
                     }
@@ -73,13 +67,13 @@ namespace RegionSyd.DataAccess
 
         public void Add(Model.Type type)
         {
-            string query = "INSERT INTO TYPE (TypeId, TypeName, ServiceGoal) VALUES (@TypeId, @Name, @Type, @ServiceGoal)";
+            string query = "INSERT INTO TYPE (TypeId, TypeName, ServiceGoal) VALUES (@TypeId, @TypeName, @ServiceGoal)";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@TypeId", type.TypeId);
-                command.Parameters.AddWithValue("@Name", type.Name);
+                command.Parameters.AddWithValue("@TypeName", type.TypeName);
                 command.Parameters.AddWithValue("@ServiceGoal", type.ServiceGoal);
                 connection.Open();
                 command.ExecuteNonQuery();
@@ -88,13 +82,13 @@ namespace RegionSyd.DataAccess
 
         public void Update(Model.Type type)
         {
-            string query = "UPDATE TYPE SET TypeName = @Name, ServiceGoal = @ServiceGoal WHERE TypeId = @TypeId";
+            string query = "UPDATE TYPE SET TypeName = @TypeName, ServiceGoal = @ServiceGoal WHERE TypeId = @TypeId";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                SqlCommand command = new SqlCommand(query);
+                SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@TypeId", type.TypeId);
-                command.Parameters.AddWithValue("@Name", type.Name);
+                command.Parameters.AddWithValue("@TypeName", type.TypeName);
                 command.Parameters.AddWithValue("@ServiceGoal", type.ServiceGoal);
                 connection.Open();
                 command.ExecuteNonQuery();
@@ -107,7 +101,7 @@ namespace RegionSyd.DataAccess
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                SqlCommand command = new SqlCommand(query);
+                SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@TypeId", id);
                 connection.Open();
                 command.ExecuteNonQuery();

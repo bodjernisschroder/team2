@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RegionSyd.Model
+﻿namespace RegionSyd.Model
 {
     public class Assignment
     {
@@ -17,17 +11,5 @@ namespace RegionSyd.Model
         public string FromAddress { get; set; }
         public string ToAddress { get; set; }
         public string ServiceGoal { get; set; }
-
-        //public Assignment(Region region, int regionalID, Type type, string description, DateTime scheduledDateTime, string fromAddress, string toAddress)
-        //{
-        //    this.Region = region;
-        //    this.RegionalID = regionalID;
-        //    this.Type = type;
-        //    this.Description = description;
-        //    this.ScheduledDateTime = scheduledDateTime;
-        //    this.FromAddress = fromAddress;
-        //    this.ToAddress = toAddress;
-        //    //this.ServiceGoal = serviceGoal;
-        //}
     }
 }

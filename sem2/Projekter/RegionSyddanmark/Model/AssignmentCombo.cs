@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RegionSyd.Model
+﻿namespace RegionSyd.Model
 {
     public class AssignmentCombo
     {
-        // private static int _lastId = 0;
-
         private int _comboId;
         public int ComboId
         {
@@ -17,20 +9,12 @@ namespace RegionSyd.Model
             set { _comboId = value; }
         }
 
-        // private List<Assignment> _assignments;
-        // public List<Assignment> Assignments
-        // {
-        //     get { return _assignments; }
-        //     set { _assignments = value; }
-        // }
+        public int RegionalId1 { get; set; }
+        public int RegionalId2 { get; set; }
+        public int RegionalId3 { get; set; }
+        public int RegionalId4 { get; set; }
+        public int RegionalId5 { get; set; }
 
-        // public AssignmentCombo();
-
-        // public AssignmentCombo(List<Assignment> assignments);
-
-        // private static int GetNextId()
-        // {
-        //     return ++_lastId;
-        // }
+        public string RegionalComboString { get; set; }
     }
 }

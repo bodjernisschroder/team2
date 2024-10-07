@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RegionSyd.Model;
+﻿using RegionSyd.Model;
 using Microsoft.Data.SqlClient;
 
 namespace RegionSyd.DataAccess
@@ -83,51 +78,49 @@ namespace RegionSyd.DataAccess
 
         public void Add(Assignment assignment)
         {
-            string query = "INSERT INTO ASSIGNMENT (RegionId, RegionalAssignmentId, TypeId, Description, ScheduledDateTime, FromAddress, ToAddress, ComboId) VALUES (@RegionId, @RegionalId, @TypeId, @Description, @ScheduledDateTime, @FromAddress, @ToAddress, @ComboId)";
-            
+
+            string query = "INSERT INTO ASSIGNMENT (RegionId, RegionalAssignmentId, TypeId, Description, ScheduledDateTime, FromAddress, ToAddress, ComboId) " +
+                           "VALUES (@RegionId, @RegionalAssignmentId, @TypeId, @Description, @ScheduledDateTime, @FromAddress, @ToAddress, @ComboId);" +
+                           "SELECT SCOPE_IDENTITY();";
+
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@RegionId", (int)assignment.RegionId);
-                command.Parameters.AddWithValue("@RegionalId", assignment.RegionalId);
+                command.Parameters.AddWithValue("@RegionalAssignmentId", assignment.RegionalId);
                 command.Parameters.AddWithValue("@TypeId", assignment.TypeId);
                 command.Parameters.AddWithValue("@Description", assignment.Description);
                 command.Parameters.AddWithValue("@ScheduledDateTime", assignment.ScheduledDateTime);
                 command.Parameters.AddWithValue("@FromAddress", assignment.FromAddress);
                 command.Parameters.AddWithValue("@ToAddress", assignment.ToAddress);
                 connection.Open();
-                command.ExecuteNonQuery();
             }
         }
 
         public void Update(Assignment assignment)
         {
-            string query = "UPDATE ASSIGNMENT SET RegionId = @RegionId, TypeId = @TypeId, Description = @Description, ScheduledDateTime = @ScheduledDateTime, FromAddress = @FromAddress, ToAddress = @ToAddress, ComboId = @ComboId WHERE RegionalAssignmentId = @RegionalId";
+            string query = "UPDATE Assignment SET ComboId = @ComboId WHERE RegionaAssignmentlId = @RegionalAssignmentId";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(_connectionString))  
             {
-                SqlCommand command = new SqlCommand(query);
-                command.Parameters.AddWithValue("@RegionId", (int)assignment.RegionId);
-                command.Parameters.AddWithValue("@TypeId", assignment.TypeId);
-                command.Parameters.AddWithValue("@Description", assignment.Description);
-                command.Parameters.AddWithValue("@ScheduledDateTime", assignment.ScheduledDateTime);
-                command.Parameters.AddWithValue("@FromAddress", assignment.FromAddress);
-                command.Parameters.AddWithValue("@ToAddress", assignment.ToAddress);
+                SqlCommand command = new SqlCommand(query, connection);  
+
                 command.Parameters.AddWithValue("@ComboId", assignment.ComboId);
-                command.Parameters.AddWithValue("@RegionalId", assignment.RegionalId);
-                connection.Open();
+                command.Parameters.AddWithValue("@RegionalAssignmentId", assignment.RegionalId);
+
+                connection.Open();  
                 command.ExecuteNonQuery();
             }
         }
-
+       
         public void Delete(int id)
         {
-            string query = "DELETE FROM ASSIGNMENT WHERE RegionalAssignmentId = @RegionalId";
+            string query = "DELETE FROM ASSIGNMENT WHERE RegionalAssignmentId = @RegionalAssignmentId";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                SqlCommand command = new SqlCommand(query);
-                command.Parameters.AddWithValue("@RegionalId", id);
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@RegionalAssignmentId", id);
                 connection.Open();
                 command.ExecuteNonQuery();
             }
