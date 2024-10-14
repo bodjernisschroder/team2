@@ -1,0 +1,123 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Opgaver\\LINQ\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6918D92D-6F66-4558-A922-ED03B583BC20}|BonusAppUnitTest\\BonusAppUnitTest.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\opgaver\\linq\\bonusappunittest\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6918D92D-6F66-4558-A922-ED03B583BC20}|BonusAppUnitTest\\BonusAppUnitTest.csproj|solutionrelative:bonusappunittest\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DA759AA-67E9-4260-A46D-3B1FD6D59870}|BonusApp\\BonusApp.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\opgaver\\linq\\bonusapp\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DA759AA-67E9-4260-A46D-3B1FD6D59870}|BonusApp\\BonusApp.csproj|solutionrelative:bonusapp\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DA759AA-67E9-4260-A46D-3B1FD6D59870}|BonusApp\\BonusApp.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\opgaver\\linq\\bonusapp\\bonuses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DA759AA-67E9-4260-A46D-3B1FD6D59870}|BonusApp\\BonusApp.csproj|solutionrelative:bonusapp\\bonuses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6918D92D-6F66-4558-A922-ED03B583BC20}|BonusAppUnitTest\\BonusAppUnitTest.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\opgaver\\linq\\bonusappunittest\\bonusappunittest.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{6918D92D-6F66-4558-A922-ED03B583BC20}|BonusAppUnitTest\\BonusAppUnitTest.csproj|solutionrelative:bonusappunittest\\bonusappunittest.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DA759AA-67E9-4260-A46D-3B1FD6D59870}|BonusApp\\BonusApp.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\opgaver\\linq\\bonusapp\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DA759AA-67E9-4260-A46D-3B1FD6D59870}|BonusApp\\BonusApp.csproj|solutionrelative:bonusapp\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DA759AA-67E9-4260-A46D-3B1FD6D59870}|BonusApp\\BonusApp.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\opgaver\\linq\\bonusapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DA759AA-67E9-4260-A46D-3B1FD6D59870}|BonusApp\\BonusApp.csproj|solutionrelative:bonusapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{26341fe2-71dd-46fd-bb1b-2e51a92a0d64}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BonusAppUnitTest.csproj",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Opgaver\\LINQ\\BonusAppUnitTest\\BonusAppUnitTest.csproj",
+              "RelativeDocumentMoniker": "BonusAppUnitTest\\BonusAppUnitTest.csproj",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Opgaver\\LINQ\\BonusAppUnitTest\\BonusAppUnitTest.csproj",
+              "RelativeToolTip": "BonusAppUnitTest\\BonusAppUnitTest.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-10T08:33:30.271Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Opgaver\\LINQ\\BonusAppUnitTest\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "BonusAppUnitTest\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Opgaver\\LINQ\\BonusAppUnitTest\\UnitTest1.cs",
+              "RelativeToolTip": "BonusAppUnitTest\\UnitTest1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "OverriddenGroupName": "BonusAppUnitTest",
+              "WhenOpened": "2024-10-10T08:30:00.682Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Opgaver\\LINQ\\BonusApp\\Program.cs",
+              "RelativeDocumentMoniker": "BonusApp\\Program.cs",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Opgaver\\LINQ\\BonusApp\\Program.cs",
+              "RelativeToolTip": "BonusApp\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T08:25:56.429Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Bonuses.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Opgaver\\LINQ\\BonusApp\\Bonuses.cs",
+              "RelativeDocumentMoniker": "BonusApp\\Bonuses.cs",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Opgaver\\LINQ\\BonusApp\\Bonuses.cs",
+              "RelativeToolTip": "BonusApp\\Bonuses.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T08:25:52.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Opgaver\\LINQ\\BonusApp\\Product.cs",
+              "RelativeDocumentMoniker": "BonusApp\\Product.cs",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Opgaver\\LINQ\\BonusApp\\Product.cs",
+              "RelativeToolTip": "BonusApp\\Product.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T08:25:50.272Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Opgaver\\LINQ\\BonusApp\\Order.cs",
+              "RelativeDocumentMoniker": "BonusApp\\Order.cs",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Opgaver\\LINQ\\BonusApp\\Order.cs",
+              "RelativeToolTip": "BonusApp\\Order.cs",
+              "ViewState": "AQIAADkAAAAAAAAAAAAAAE8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "OverriddenGroupName": "BonusApp",
+              "WhenOpened": "2024-10-10T08:19:02.213Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

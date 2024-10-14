@@ -15,17 +15,23 @@ namespace BonusAppUnitTest
             order.AddProduct(new Product
             {
                 Name = "Mælk",
-                Value = 10.0
+                Value = 10.0,
+                AvailableFrom = new DateTime(2024, 3, 1),
+                AvailableTo = new DateTime(2024, 3, 5)
             });
             order.AddProduct(new Product
             {
                 Name = "Smør",
-                Value = 15.0
+                Value = 15.0,
+                AvailableFrom = new DateTime(2024, 3, 3),
+                AvailableTo = new DateTime(2024, 3, 4)
             });
             order.AddProduct(new Product
             {
                 Name = "Pålæg",
-                Value = 20.0
+                Value = 20.0,
+                AvailableFrom = new DateTime(2024, 3, 4),
+                AvailableTo = new DateTime(2024, 3, 7)
             });
         }
         [TestMethod]
@@ -62,6 +68,81 @@ namespace BonusAppUnitTest
 
             order.Bonus = Bonuses.FlatTwoIfAmountMoreThanFive;
             Assert.AreEqual(43.0, order.GetTotalPrice());
+        }
+
+        [TestMethod]
+        public void GetValueOfProductsByDate_Test()
+        {
+            Assert.AreEqual(0.0, order.GetValueOfProducts(new DateTime(2024, 2, 28)));
+            Assert.AreEqual(10.0, order.GetValueOfProducts(new DateTime(2024, 3, 2)));
+            Assert.AreEqual(25.0, order.GetValueOfProducts(new DateTime(2024, 3, 3)));
+            Assert.AreEqual(45.0, order.GetValueOfProducts(new DateTime(2024, 3, 4)));
+        }
+
+        [TestMethod]
+        public void SortByAvailableToTest()
+        {
+            List<Product> result = order.SortProductOrderByAvailableTo();
+
+            Assert.AreEqual(3, result.Count);
+            Assert.AreEqual("Smør", result[0].Name);
+            Assert.AreEqual("Mælk", result[1].Name);
+            Assert.AreEqual("Pålæg", result[2].Name);
+        }
+
+        [TestMethod]
+        public void GetTotalPriceByDate_Test()
+        {
+            Assert.AreEqual(0.0, order.GetTotalPrice(new DateTime(2024, 2, 28), x => x * 0.2));
+            Assert.AreEqual(8.0, order.GetTotalPrice(new DateTime(2024, 3, 2), x => x * 0.2));
+            Assert.AreEqual(20.0, order.GetTotalPrice(new DateTime(2024, 3, 3), x => x * 0.2));
+            Assert.AreEqual(36.0, order.GetTotalPrice(new DateTime(2024, 3, 4), x => x * 0.2));
+        }
+
+        [TestMethod]
+        public void SortProductOrderByName_Test()
+        {
+            List<Product> result = order.SortProductOrderBy(x => x.Name);
+
+            Assert.AreEqual(3, result.Count);
+            Assert.AreEqual("Mælk", result[0].Name);
+            Assert.AreEqual("Pålæg", result[1].Name);
+            Assert.AreEqual("Smør", result[2].Name);
+
+
+        }
+
+        [TestMethod]
+        public void SortProductOrderByValue_Test()
+        {
+            List<Product> result = order.SortProductOrderBy(x => x.Value);
+
+            Assert.AreEqual(3, result.Count);
+            Assert.AreEqual("Mælk", result[0].Name);
+            Assert.AreEqual("Smør", result[1].Name);
+            Assert.AreEqual("Pålæg", result[2].Name);
+        }
+
+        [TestMethod]
+        public void SortProductOrderByAvailableFrom_Test() 
+        { 
+            List<Product> result = order.SortProductOrderBy(x => x.AvailableFrom);
+
+            Assert.AreEqual(3, result.Count);
+            Assert.AreEqual("Mælk", result[0].Name);
+            Assert.AreEqual("Smør", result[1].Name);
+            Assert.AreEqual("Pålæg", result[2].Name);
+        }
+
+        [TestMethod]
+        public void SortProductOrderByAvailableTo_Test()
+        {
+            List<Product> result = order.SortProductOrderBy(x => x.AvailableTo);
+
+            Assert.AreEqual(3, result.Count);
+            Assert.AreEqual("Smør", result[0].Name);
+            Assert.AreEqual("Mælk", result[1].Name);
+            Assert.AreEqual("Pålæg", result[2].Name);
         }
     }
 }

@@ -1,0 +1,15 @@
+C:\Users\burak\source\repos\team2\sem2\Opgaver\LINQ\BonusApp\bin\Debug\net6.0\BonusApp.exe
+C:\Users\burak\source\repos\team2\sem2\Opgaver\LINQ\BonusApp\bin\Debug\net6.0\BonusApp.deps.json
+C:\Users\burak\source\repos\team2\sem2\Opgaver\LINQ\BonusApp\bin\Debug\net6.0\BonusApp.runtimeconfig.json
+C:\Users\burak\source\repos\team2\sem2\Opgaver\LINQ\BonusApp\bin\Debug\net6.0\BonusApp.dll
+C:\Users\burak\source\repos\team2\sem2\Opgaver\LINQ\BonusApp\bin\Debug\net6.0\BonusApp.pdb
+C:\Users\burak\source\repos\team2\sem2\Opgaver\LINQ\BonusApp\obj\Debug\net6.0\BonusApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\burak\source\repos\team2\sem2\Opgaver\LINQ\BonusApp\obj\Debug\net6.0\BonusApp.AssemblyInfoInputs.cache
+C:\Users\burak\source\repos\team2\sem2\Opgaver\LINQ\BonusApp\obj\Debug\net6.0\BonusApp.AssemblyInfo.cs
+C:\Users\burak\source\repos\team2\sem2\Opgaver\LINQ\BonusApp\obj\Debug\net6.0\BonusApp.csproj.CoreCompileInputs.cache
+C:\Users\burak\source\repos\team2\sem2\Opgaver\LINQ\BonusApp\obj\Debug\net6.0\BonusApp.sourcelink.json
+C:\Users\burak\source\repos\team2\sem2\Opgaver\LINQ\BonusApp\obj\Debug\net6.0\BonusApp.dll
+C:\Users\burak\source\repos\team2\sem2\Opgaver\LINQ\BonusApp\obj\Debug\net6.0\refint\BonusApp.dll
+C:\Users\burak\source\repos\team2\sem2\Opgaver\LINQ\BonusApp\obj\Debug\net6.0\BonusApp.pdb
+C:\Users\burak\source\repos\team2\sem2\Opgaver\LINQ\BonusApp\obj\Debug\net6.0\BonusApp.genruntimeconfig.cache
+C:\Users\burak\source\repos\team2\sem2\Opgaver\LINQ\BonusApp\obj\Debug\net6.0\ref\BonusApp.dll
