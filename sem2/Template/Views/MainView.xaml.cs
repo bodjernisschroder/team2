@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using Template.ViewModel;
 
 namespace Template.View
 {

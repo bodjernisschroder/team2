@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace Template.ViewModel
+namespace Template.ViewModels
 {
     // Implements INotifyPropertyChanged and can then be inherited by other ViewModels
     public class BaseViewModel : INotifyPropertyChanged

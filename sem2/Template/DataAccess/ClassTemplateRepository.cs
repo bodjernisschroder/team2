@@ -1,4 +1,4 @@
-﻿using Template.Model;
+﻿using Template.Models;
 using Microsoft.Data.SqlClient;
 
 namespace Template.DataAccess

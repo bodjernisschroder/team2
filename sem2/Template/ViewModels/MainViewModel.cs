@@ -1,7 +1,7 @@
 using Template.DataAccess;
-using Template.Model;
+using Template.Models;
 
-namespace Template.ViewModel
+namespace Template.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
