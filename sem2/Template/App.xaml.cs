@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System.Windows;
 using Template.DataAccess;
+using Template.ViewModels;
+using Template.Views;
 
 namespace Template
 {
@@ -15,8 +17,15 @@ namespace Template
             var configuration = LoadConfiguration();
             string connectionString = configuration.GetConnectionString("DefaultConnection");
 
-            // Initialize the repository with the retrieved connection string
+            // Initialize repositories with the retrieved connection string
             var classTemplateRepository = new ClassTemplateRepository(connectionString);
+
+            // Pass repositories to ViewModels
+            var mainViewModel = new MainViewModel(classTemplateRepository);
+
+            // Set the DataContext or use mainViewModel as needed
+            var mainWindow = new MainWindow { DataContext = mainViewModel };
+            // mainWindow.Show();
         }
 
         // Method to load the configuration settings from appsettings.json

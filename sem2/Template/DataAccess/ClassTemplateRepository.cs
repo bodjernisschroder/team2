@@ -1,5 +1,5 @@
 ﻿using Template.Models;
-using Microsoft.Data.SqlClient;
+using Microsoft.Data.Sqlite;
 
 namespace Template.DataAccess
 {
@@ -20,20 +20,25 @@ namespace Template.DataAccess
             var template = new List<ClassTemplate>();
             string query = "SELECT * FROM CLASSTEMPLATE";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqliteConnection connection = new SqliteConnection(_connectionString))
             {
-                SqlCommand command = new SqlCommand(query, connection);
+                SqliteCommand command = new SqliteCommand(query, connection);
                 connection.Open(); // Open the SQL connection
 
-                using (SqlDataReader reader = command.ExecuteReader())
+                using (SqliteDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
                         // Populate the object from the SQL data
                         template.Add(new ClassTemplate
                         {
-                            ClassTemplateId = reader.IsDBNull(reader.GetOrdinal("ClassTemplateId")) ? 0 : (int)reader["ClassTemplateId"],
-                            Description = (string)reader["Description"],
+                            ClassTemplateId = reader.IsDBNull(reader.GetOrdinal("ClassTemplateId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("ClassTemplateId")),
+
+                            // Directly cast "Description" to string, no need for DBNull check if it's guaranteed to be non-null
+                            Description = reader.IsDBNull(reader.GetOrdinal("Description")) ? string.Empty : reader.GetString(reader.GetOrdinal("Description")),
+
+                            // Check if "RelatedId" is DBNull, if not cast it from Int64 to Int32
+                            RelatedId = reader.IsDBNull(reader.GetOrdinal("RelatedId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("RelatedId"))
                         });
                     }
                 }
@@ -47,21 +52,22 @@ namespace Template.DataAccess
             ClassTemplate template = null;
             string query = "SELECT * FROM CLASSTEMPLATE WHERE ClassTemplateId = @ClassTemplateId"; 
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqliteConnection connection = new SqliteConnection(_connectionString))
             {
-                SqlCommand command = new SqlCommand(query, connection);
+                SqliteCommand command = new SqliteCommand(query, connection);
                 command.Parameters.AddWithValue("@ClassTemplateId", id);
                 connection.Open();
 
-                using (SqlDataReader reader = command.ExecuteReader())
+                using (SqliteDataReader reader = command.ExecuteReader())
                 {
                     if (reader.Read())
                     {
                         // Populate the object from the SQL data
                         template = new ClassTemplate
                         {
-                            ClassTemplateId = reader.IsDBNull(reader.GetOrdinal("TemplateId")) ? 0 : (int)reader["TemplateId"],
-                            Description = (string)reader["Description"],
+                            ClassTemplateId = reader.IsDBNull(reader.GetOrdinal("ClassTemplateId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("ClassTemplateId")),
+                            Description = reader.IsDBNull(reader.GetOrdinal("Description")) ? string.Empty : reader.GetString(reader.GetOrdinal("Description")),
+                            RelatedId = reader.IsDBNull(reader.GetOrdinal("RelatedId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("RelatedId"))
                         };
                     }
                 }
@@ -72,34 +78,33 @@ namespace Template.DataAccess
         // Method to add a new record to the database
         public void Add(ClassTemplate classTemplate)
         {
-
-            string query = "INSERT INTO CLASSTEMPLATE (ClassTemplateId, Description) " +
-                           "VALUES (@ClassTemplateId, @Description);" +
+            string query = "INSERT INTO CLASSTEMPLATE (Description, RelatedId) " +
+                           "VALUES (@Description, @RelatedId);" +
                            "SELECT SCOPE_IDENTITY();";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqliteConnection connection = new SqliteConnection(_connectionString))
             {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@ClassTemplateId", (int)classTemplate.ClassTemplateId);
+                SqliteCommand command = new SqliteCommand(query, connection);
                 command.Parameters.AddWithValue("@Description", classTemplate.Description);
-
+                command.Parameters.AddWithValue("@RelatedId", (int)classTemplate.RelatedId);
                 connection.Open();
+                int classTemplateId = Convert.ToInt32(command.ExecuteScalar());
+                classTemplate.ClassTemplateId = classTemplateId;
             }
         }
 
         // Method to update an existing record in the database
         public void Update(ClassTemplate classTemplate)
         {
-            string query = "UPDATE CLASSTEMPLATE SET RelatedId = @RelatedId WHERE ClassTemplateId = @ClassTemplateId";
+            string query = "UPDATE CLASSTEMPLATE SET Description = @Description, RelatedId = @RelatedId WHERE ClassTemplateId = @ClassTemplateId";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))  
+            using (SqliteConnection connection = new SqliteConnection(_connectionString))  
             {
-                SqlCommand command = new SqlCommand(query, connection);  
-
-                command.Parameters.AddWithValue("@RelatedId", classTemplate.RelatedId);
+                SqliteCommand command = new SqliteCommand(query, connection);  
                 command.Parameters.AddWithValue("@ClassTemplateId", classTemplate.ClassTemplateId);
-
-                connection.Open();  
+                command.Parameters.AddWithValue("@Description", classTemplate.Description);
+                command.Parameters.AddWithValue("@RelatedId", classTemplate.RelatedId);
+                connection.Open();
                 command.ExecuteNonQuery(); // Execute the update query
             }
         }
@@ -109,9 +114,9 @@ namespace Template.DataAccess
         {
             string query = "DELETE FROM CLASSTEMPLATE WHERE ClassTemplateId = @ClassTemplateId";
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqliteConnection connection = new SqliteConnection(_connectionString))
             {
-                SqlCommand command = new SqlCommand(query, connection);
+                SqliteCommand command = new SqliteCommand(query, connection);
                 command.Parameters.AddWithValue("@ClassTemplateId", id);
                 connection.Open();
                 command.ExecuteNonQuery(); // Execute the delete query

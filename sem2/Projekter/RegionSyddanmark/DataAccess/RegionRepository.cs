@@ -63,12 +63,12 @@ namespace RegionSyd.DataAccess
                 return region;
             }
 
-            public void Add()
+            public void Add(Region region)
             {
                 throw new NotImplementedException();
             }
 
-            public void Update()
+            public void Update(Region region)
             {
                 throw new NotImplementedException();
             }
