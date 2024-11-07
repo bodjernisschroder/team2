@@ -1,6 +1,6 @@
 using System.Windows.Input;
 
-namespace Template.Utilities
+namespace Publico_Kommunikation_Project.Utilities
 {
     public class RelayCommand<T> : ICommand
     {

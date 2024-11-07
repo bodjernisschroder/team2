@@ -1,9 +1,9 @@
-using Template.DataAccess;
-using Template.Models;
+using Publico_Kommunikation_Project.DataAccess;
+using Publico_Kommunikation_Project.Models;
 using System.Collections.ObjectModel;
-using Template.Utilities;
+using Publico_Kommunikation_Project.Utilities;
 
-namespace Template.ViewModels
+namespace Publico_Kommunikation_Project.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {

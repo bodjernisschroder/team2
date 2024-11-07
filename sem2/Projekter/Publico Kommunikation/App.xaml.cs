@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System.Windows;
-using Template.DataAccess;
-using Template.ViewModels;
-using Template.Views;
+using Publico_Kommunikation_Project.DataAccess;
+using Publico_Kommunikation_Project.ViewModels;
+using Publico_Kommunikation_Project.Views;
 
-namespace Template
+namespace Publico_Kommunikation_Project
 {
     public partial class App : Application
     {

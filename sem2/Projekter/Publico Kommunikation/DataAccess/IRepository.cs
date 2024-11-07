@@ -1,4 +1,4 @@
-﻿namespace Template.DataAccess
+﻿namespace Publico_Kommunikation_Project.DataAccess
 {
     public interface IRepository<T> where T : class
     {

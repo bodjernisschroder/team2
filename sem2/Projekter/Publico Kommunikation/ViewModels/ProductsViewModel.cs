@@ -4,15 +4,15 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Template.Models;
+using Publico_Kommunikation_Project.Models;
 
-namespace Template.ViewModels
+namespace Publico_Kommunikation_Project.ViewModels
 {
-    public class ClassTemplateViewModel : BaseViewModel
+    public class ProductsViewModel : BaseViewModel
     {
         public ClassTemplate Model { get; private set; }
 
-        public ClassTemplateViewModel(ClassTemplate classTemplate)
+        public ProductsViewModel(ClassTemplate classTemplate)
         {
             Model = classTemplate;
         }

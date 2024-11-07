@@ -1,17 +1,17 @@
-﻿using Template.Models;
+﻿using Publico_Kommunikation_Project.Models;
 using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
 
-namespace Template.DataAccess
+namespace Publico_Kommunikation_Project.DataAccess
 {
     // Repository class implementing the IRepository interface
-    public class ClassTemplateRepository : IRepository<ClassTemplate>
+    public class QuoteRepository : IRepository<Quote>
     {
         private readonly string _connectionString; // Connection string for the SQL database
 
         // Constructor to initialize the repository with a connection string
-        public ClassTemplateRepository(string connectionString)
+        public QuoteRepository(string connectionString)
         {
             _connectionString = connectionString;
         }
@@ -22,13 +22,13 @@ namespace Template.DataAccess
         String SqlconString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         // Method to retrieve all records from the database
-        public IEnumerable<ClassTemplate> GetAll()
+        public IEnumerable<Quote> GetAll()
         {
-            var template = new List<ClassTemplate>();
+            var quote = new List<Quote>();
             using (sqlCon = new SqlConnection(SqlconString))
             {
                 sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspGetAllClassTemplate", sqlCon);
+                SqlCommand sql_cmnd = new SqlCommand("uspGetAllQuote", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
 
                 using (SqlDataReader reader = sql_cmnd.ExecuteReader())
@@ -36,75 +36,75 @@ namespace Template.DataAccess
                     while (reader.Read())
                     {
                         // Populate the object from the SQL data
-                        template.Add(new ClassTemplate
+                        quote.Add(new Quote
                         {
-                            ClassTemplateId = reader.IsDBNull(reader.GetOrdinal("ClassTemplateId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("ClassTemplateId")),
-
-                            // Directly cast "Description" to string, no need for DBNull check if it's guaranteed to be non-null
-                            Description = reader.IsDBNull(reader.GetOrdinal("Description")) ? string.Empty : reader.GetString(reader.GetOrdinal("Description")),
-
-                            // Check if "RelatedId" is DBNull, if not cast it from Int64 to Int32
-                            RelatedId = reader.IsDBNull(reader.GetOrdinal("RelatedId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("RelatedId"))
+                            QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("QuoteId")),
+                            HourlyRate = reader.IsDBNull(reader.GetOrdinal("HourlyRate")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("HourlyRate")),
+                            DiscountPercentage = reader.IsDBNull(reader.GetOrdinal("DiscountPercentage")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("DiscountPercentage")),
+                            Sum = reader.IsDBNull(reader.GetOrdinal("Sum")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("Sum"))
                         });
                     }
                 }
             }
-            return template;
+            return quote;
         }
 
         // Method to retrieve a specific record by its Id
-        public ClassTemplate GetById(int id) 
+        public Quote GetById(int id) 
         {
-            ClassTemplate template = null;
+            Quote quote = null;
             using (sqlCon = new SqlConnection(SqlconString))
             {
                 sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspCreateClassTemplate", sqlCon);
+                SqlCommand sql_cmnd = new SqlCommand("uspCreateQuote", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
-                sql_cmnd.Parameters.AddWithValue("@ClassTemplateId", SqlDbType.Int).Value = id;
+                sql_cmnd.Parameters.AddWithValue("@QuoteId", SqlDbType.Int).Value = id;
 
                 using (SqlDataReader reader = sql_cmnd.ExecuteReader())
                 {
                     if (reader.Read())
                     {
                         // Populate the object from the SQL data
-                        template = new ClassTemplate
+                        quote = new Quote
                         {
-                            ClassTemplateId = reader.IsDBNull(reader.GetOrdinal("ClassTemplateId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("ClassTemplateId")),
-                            Description = reader.IsDBNull(reader.GetOrdinal("Description")) ? string.Empty : reader.GetString(reader.GetOrdinal("Description")),
-                            RelatedId = reader.IsDBNull(reader.GetOrdinal("RelatedId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("RelatedId"))
+                            QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("QuoteId")),
+                            HourlyRate = reader.IsDBNull(reader.GetOrdinal("HourlyRate")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("HourlyRate")),
+                            DiscountPercentage = reader.IsDBNull(reader.GetOrdinal("DiscountPercentage")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("DiscountPercentage")),
+                            Sum = reader.IsDBNull(reader.GetOrdinal("Sum")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("Sum"))
                         };
                     }
                 }
             }
-            return template;
+            return quote;
         }
 
         // Method to add a new record to the database
-        public void Add(ClassTemplate classTemplate)
+        public void Add(Quote quote)
         {
             using (sqlCon = new SqlConnection(SqlconString))
             {
                 sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspCreateClassTemplate", sqlCon);
+                SqlCommand sql_cmnd = new SqlCommand("uspCreateQuote", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
-                sql_cmnd.Parameters.AddWithValue("@Description", SqlDbType.NVarChar).Value = classTemplate.Description;
-                sql_cmnd.Parameters.AddWithValue("@RelatedId", SqlDbType.Int).Value = classTemplate.RelatedId;
+                sql_cmnd.Parameters.AddWithValue("@HourlyRate", SqlDbType.Int).Value = quote.HourlyRate;
+                sql_cmnd.Parameters.AddWithValue("@DiscountPercentage", SqlDbType.Float).Value = quote.DiscountPercentage;
+                sql_cmnd.Parameters.AddWithValue("@Sum", SqlDbType.Float).Value = quote.Sum;
                 sql_cmnd.ExecuteNonQuery();
             }
         }
 
         // Method to update an existing record in the database
-        public void Update(ClassTemplate classTemplate)
+        public void Update(Quote quote)
         {
             using (sqlCon = new SqlConnection(SqlconString))
             {
                 sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspUpdateClassTemplate", sqlCon);
+                SqlCommand sql_cmnd = new SqlCommand("uspUpdateQuote", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
-                sql_cmnd.Parameters.AddWithValue("@ClassTemplateId", SqlDbType.Int).Value = classTemplate.ClassTemplateId;
-                sql_cmnd.Parameters.AddWithValue("@Description", SqlDbType.NVarChar).Value = classTemplate.Description;
-                sql_cmnd.Parameters.AddWithValue("@RelatedId", SqlDbType.Int).Value = classTemplate.RelatedId;
+                sql_cmnd.Parameters.AddWithValue("@QuoteId", SqlDbType.Int).Value = quote.QuoteId;
+                sql_cmnd.Parameters.AddWithValue("@HourlyRate", SqlDbType.Int).Value = quote.HourlyRate;
+                sql_cmnd.Parameters.AddWithValue("@DiscountPercentage", SqlDbType.Float).Value = quote.DiscountPercentage;
+                sql_cmnd.Parameters.AddWithValue("@Sum", SqlDbType.Float).Value = quote.Sum;
                 sql_cmnd.ExecuteNonQuery();
             }
         }
@@ -115,9 +115,9 @@ namespace Template.DataAccess
             using (sqlCon = new SqlConnection(SqlconString))
             {
                 sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspDeleteClassTemplate", sqlCon);
+                SqlCommand sql_cmnd = new SqlCommand("uspDeleteQuote", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
-                sql_cmnd.Parameters.AddWithValue("@ClassTemplateId", SqlDbType.Int).Value = id;
+                sql_cmnd.Parameters.AddWithValue("@QuoteId", SqlDbType.Int).Value = id;
                 sql_cmnd.ExecuteNonQuery();
             }
         }

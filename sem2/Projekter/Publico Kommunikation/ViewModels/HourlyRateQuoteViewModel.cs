@@ -4,9 +4,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Template.Models;
+using Publico_Kommunikation_Project.Models;
 
-namespace Template.ViewModels
+namespace Publico_Kommunikation_Project.ViewModels
 {
     public class ClassTemplateViewModel : BaseViewModel
     {

@@ -1,12 +1,12 @@
-﻿<Window x:Class="Template.Views.MainWindow"
+﻿<Window x:Class="Publico_Kommunikation_Project.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-        xmlns:local="clr-namespace:Template.ViewModels" 
+        xmlns:local="clr-namespace:Publico_Kommunikation_Project.ViewModels" 
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
         mc:Ignorable="d"
-        Title="Template" MinHeight="500" Width="1000" Height="550"
+        Title="Publico Kommunikation" MinHeight="500" Width="1000" Height="550"
         ResizeMode="NoResize">
         <!-- xmlns:i="clr-namespace:Microsoft.VisualBasic;assembly=Microsoft.VisualBasic"  -->
         <!-- xmlns:i2="http://schemas.microsoft.com/netfx/2009/xaml/presentation" -->

@@ -1,17 +1,17 @@
-﻿using Template.Models;
+﻿using Publico_Kommunikation_Project.Models;
 using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
 
-namespace Template.DataAccess
+namespace Publico_Kommunikation_Project.DataAccess
 {
     // Repository class implementing the IRepository interface
-    public class ClassTemplateRepository : IRepository<ClassTemplate>
+    public class ProductRepository : IRepository<Product>
     {
         private readonly string _connectionString; // Connection string for the SQL database
 
         // Constructor to initialize the repository with a connection string
-        public ClassTemplateRepository(string connectionString)
+        public ProductRepository(string connectionString)
         {
             _connectionString = connectionString;
         }
@@ -22,13 +22,13 @@ namespace Template.DataAccess
         String SqlconString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         // Method to retrieve all records from the database
-        public IEnumerable<ClassTemplate> GetAll()
+        public IEnumerable<Product> GetAll()
         {
-            var template = new List<ClassTemplate>();
+            var product = new List<Product>();
             using (sqlCon = new SqlConnection(SqlconString))
             {
                 sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspGetAllClassTemplate", sqlCon);
+                SqlCommand sql_cmnd = new SqlCommand("uspGetAllProduct", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
 
                 using (SqlDataReader reader = sql_cmnd.ExecuteReader())
@@ -36,75 +36,75 @@ namespace Template.DataAccess
                     while (reader.Read())
                     {
                         // Populate the object from the SQL data
-                        template.Add(new ClassTemplate
+                        product.Add(new Product
                         {
-                            ClassTemplateId = reader.IsDBNull(reader.GetOrdinal("ClassTemplateId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("ClassTemplateId")),
+                            ProductId = reader.IsDBNull(reader.GetOrdinal("ProductId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("ProductId")),
 
-                            // Directly cast "Description" to string, no need for DBNull check if it's guaranteed to be non-null
-                            Description = reader.IsDBNull(reader.GetOrdinal("Description")) ? string.Empty : reader.GetString(reader.GetOrdinal("Description")),
+                            // Directly cast to string, no need for DBNull check if it's guaranteed to be non-null
+                            ProductName = reader.IsDBNull(reader.GetOrdinal("ProductName")) ? string.Empty : reader.GetString(reader.GetOrdinal("ProductName")),
 
-                            // Check if "RelatedId" is DBNull, if not cast it from Int64 to Int32
-                            RelatedId = reader.IsDBNull(reader.GetOrdinal("RelatedId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("RelatedId"))
+                            // Check if DBNull, if not cast it from Int64 to Int32
+                            CategoryId = reader.IsDBNull(reader.GetOrdinal("CategoryId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("CategoryId"))
                         });
                     }
                 }
             }
-            return template;
+            return product;
         }
 
         // Method to retrieve a specific record by its Id
-        public ClassTemplate GetById(int id) 
+        public Product GetById(int id) 
         {
-            ClassTemplate template = null;
+            Product product = null;
             using (sqlCon = new SqlConnection(SqlconString))
             {
                 sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspCreateClassTemplate", sqlCon);
+                SqlCommand sql_cmnd = new SqlCommand("uspCreateProduct", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
-                sql_cmnd.Parameters.AddWithValue("@ClassTemplateId", SqlDbType.Int).Value = id;
+                sql_cmnd.Parameters.AddWithValue("@ProductId", SqlDbType.Int).Value = id;
 
                 using (SqlDataReader reader = sql_cmnd.ExecuteReader())
                 {
                     if (reader.Read())
                     {
                         // Populate the object from the SQL data
-                        template = new ClassTemplate
+                        product = new Product
                         {
-                            ClassTemplateId = reader.IsDBNull(reader.GetOrdinal("ClassTemplateId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("ClassTemplateId")),
-                            Description = reader.IsDBNull(reader.GetOrdinal("Description")) ? string.Empty : reader.GetString(reader.GetOrdinal("Description")),
-                            RelatedId = reader.IsDBNull(reader.GetOrdinal("RelatedId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("RelatedId"))
+                            ProductId = reader.IsDBNull(reader.GetOrdinal("ProductId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("ProductId")),
+                            ProductName = reader.IsDBNull(reader.GetOrdinal("ProductName")) ? string.Empty : reader.GetString(reader.GetOrdinal("ProductName")),
+                            CategoryId = reader.IsDBNull(reader.GetOrdinal("CategoryId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("CategoryId"))
                         };
                     }
                 }
             }
-            return template;
+            return product;
         }
 
         // Method to add a new record to the database
-        public void Add(ClassTemplate classTemplate)
+        public void Add(Product product)
         {
             using (sqlCon = new SqlConnection(SqlconString))
             {
                 sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspCreateClassTemplate", sqlCon);
+                SqlCommand sql_cmnd = new SqlCommand("uspCreateProduct", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
-                sql_cmnd.Parameters.AddWithValue("@Description", SqlDbType.NVarChar).Value = classTemplate.Description;
-                sql_cmnd.Parameters.AddWithValue("@RelatedId", SqlDbType.Int).Value = classTemplate.RelatedId;
+                sql_cmnd.Parameters.AddWithValue("@ProductName", SqlDbType.NVarChar).Value = product.ProductName;
+                sql_cmnd.Parameters.AddWithValue("@CategoryId", SqlDbType.Int).Value = product.CategoryId;
                 sql_cmnd.ExecuteNonQuery();
             }
         }
 
         // Method to update an existing record in the database
-        public void Update(ClassTemplate classTemplate)
+        public void Update(Product product)
         {
             using (sqlCon = new SqlConnection(SqlconString))
             {
                 sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspUpdateClassTemplate", sqlCon);
+                SqlCommand sql_cmnd = new SqlCommand("uspUpdateProduct", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
-                sql_cmnd.Parameters.AddWithValue("@ClassTemplateId", SqlDbType.Int).Value = classTemplate.ClassTemplateId;
-                sql_cmnd.Parameters.AddWithValue("@Description", SqlDbType.NVarChar).Value = classTemplate.Description;
-                sql_cmnd.Parameters.AddWithValue("@RelatedId", SqlDbType.Int).Value = classTemplate.RelatedId;
+                sql_cmnd.Parameters.AddWithValue("@ProductId", SqlDbType.Int).Value = product.ProductId;
+                sql_cmnd.Parameters.AddWithValue("@ProductName", SqlDbType.NVarChar).Value = product.ProductName;
+                sql_cmnd.Parameters.AddWithValue("@CategoryId", SqlDbType.Int).Value = product.CategoryId;
                 sql_cmnd.ExecuteNonQuery();
             }
         }
@@ -115,9 +115,9 @@ namespace Template.DataAccess
             using (sqlCon = new SqlConnection(SqlconString))
             {
                 sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspDeleteClassTemplate", sqlCon);
+                SqlCommand sql_cmnd = new SqlCommand("uspDeleteProduct", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
-                sql_cmnd.Parameters.AddWithValue("@ClassTemplateId", SqlDbType.Int).Value = id;
+                sql_cmnd.Parameters.AddWithValue("@ProductId", SqlDbType.Int).Value = id;
                 sql_cmnd.ExecuteNonQuery();
             }
         }

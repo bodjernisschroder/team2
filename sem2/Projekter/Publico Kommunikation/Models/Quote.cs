@@ -1,9 +1,10 @@
-﻿namespace Template.Models
+﻿namespace Publico_Kommunikation_Project.Models
 {
-    public class ClassTemplate
+    public class Quote
     {
-        public int ClassTemplateId { get; set; }
-        public string Description { get; set; }
-        public int RelatedId { get; set; }
+        public int QuoteId { get; set; }
+        public double HourlyRate { get; set; }
+        public double DiscountPercentage { get; set; }
+        public double Sum { get; set; }
     }
 }

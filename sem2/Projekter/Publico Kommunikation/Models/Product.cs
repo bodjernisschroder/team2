@@ -1,9 +1,9 @@
-﻿namespace Template.Models
+﻿namespace Publico_Kommunikation_Project.Models
 {
-    public class ClassTemplate
+    public class Product
     {
-        public int ClassTemplateId { get; set; }
-        public string Description { get; set; }
-        public int RelatedId { get; set; }
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
+        public int CategoryId { get; set; }
     }
 }

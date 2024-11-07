@@ -4,46 +4,46 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Template.Models;
+using Publico_Kommunikation_Project.Models;
 
-namespace Template.ViewModels
+namespace Publico_Kommunikation_Project.ViewModels
 {
-    public class ClassTemplateViewModel : BaseViewModel
+    public class ProductViewModel : BaseViewModel
     {
-        public ClassTemplate Model { get; private set; }
+        public Product Model { get; private set; }
 
-        public ClassTemplateViewModel(ClassTemplate classTemplate)
+        public ProductViewModel(Product product)
         {
-            Model = classTemplate;
+            Model = product;
         }
 
-        public int ClassTemplateId
+        public int ProductId
         {
-            get { return Model.ClassTemplateId; }
+            get { return Model.ProductId; }
             set 
             { 
-                Model.ClassTemplateId = value;
-                OnPropertyChanged(nameof(ClassTemplateId));
+                Model.ProductId = value;
+                OnPropertyChanged(nameof(ProductId));
             }
         }
 
-        public string Description
+        public string ProductName
         {
-            get { return Model.Description; }
+            get { return Model.ProductName; }
             set
             {
-                Model.Description = value;
-                OnPropertyChanged(nameof(Description));
+                Model.ProductName = value;
+                OnPropertyChanged(nameof(ProductName));
             }
         }
 
-        public int RelatedId
+        public int CategoryId
         {
-            get { return Model.RelatedId; }
+            get { return Model.CategoryId; }
             set
             {
-                Model.RelatedId = value;
-                OnPropertyChanged(nameof(RelatedId));
+                Model.CategoryId = value;
+                OnPropertyChanged(nameof(CategoryId));
             }
         }
 

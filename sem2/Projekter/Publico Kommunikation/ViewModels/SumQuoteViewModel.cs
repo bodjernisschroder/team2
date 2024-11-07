@@ -1,63 +1,115 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Template.Models;
+using Publico_Kommunikation_Project.Models;
+using Publico_Kommunikation_Project.Utilities;
+using Publico_Kommunikation_Project.DataAccess;
 
-namespace Template.ViewModels
+namespace Publico_Kommunikation_Project.ViewModels
 {
-    public class ClassTemplateViewModel : BaseViewModel
+    public class SumQuoteViewModel : BaseViewModel
     {
-        public ClassTemplate Model { get; private set; }
+        private int _quoteId;
+        private double _hourlyRate;
+        private double _discountPercentage;
+        private double _sum;
 
-        public ClassTemplateViewModel(ClassTemplate classTemplate)
+        public virtual double HourlyRate 
         {
-            Model = classTemplate;
-        }
+            get { return _hourlyRate; }
 
-        public int ClassTemplateId
-        {
-            get { return Model.ClassTemplateId; }
-            set 
-            { 
-                Model.ClassTemplateId = value;
-                OnPropertyChanged(nameof(ClassTemplateId));
-            }
-        }
-
-        public string Description
-        {
-            get { return Model.Description; }
             set
             {
-                Model.Description = value;
-                OnPropertyChanged(nameof(Description));
+                _hourlyRate = value;
+                OnPropertyChanged(nameof(HourlyRate));
             }
         }
 
-        public int RelatedId
+        public int QuoteId
         {
-            get { return Model.RelatedId; }
+            get { return _quoteId; }
             set
             {
-                Model.RelatedId = value;
-                OnPropertyChanged(nameof(RelatedId));
+                _quoteId = value;
+                OnPropertyChanged(nameof(QuoteId));
             }
         }
 
-        private bool _isSelected;
-        public bool IsSelected
+        public double DiscountPercentage
         {
-            get => _isSelected;
+            get { return _discountPercentage; }
             set
             {
-                _isSelected = value;
-                OnPropertyChanged(nameof(IsSelected));
+                _discountPercentage = value;
+                OnPropertyChanged(nameof(DiscountPercentage));
             }
+        }
+
+        public virtual double Sum
+        {
+            get { return _sum; }
+
+            set
+            {
+                _sum = value;
+                OnPropertyChanged(nameof(Sum));
+            }
+        }
+
+        public ObservableCollection<ProductViewModel> SelectedProducts;
+        private QuoteProductRepository _quoteProductRepository;
+        public ObservableCollection<QuoteProduct> QuoteProducts;
+        public RelayCommand<int> GetByIdClassTemplateCommand { get; }
+        public RelayCommand<ProductViewModel> AddProductsCommand { get; }
+        public RelayCommand<QuoteProduct> DeleteQuoteProductCommand { get; }
+
+
+        public SumQuoteViewModel(Quote quote)
+        {
+            //Load method call
+        }
+
+        //Enten at have en GetAll eller en GetById 
+        public void GetAllQuoteProducts(int quoteId)
+        {
+           //Alle dem, som passer med QuoteProducts
+           //Indsæt dem, som har den quoteId - som parameter
+           //- indsættes i den liste, som hedder QuoteProducts
+        }
+
+
+        // Retrieves ClassTemplate by ID and adds to collection
+        public void GetByIdQuoteProduct(int quoteId)
+        {
+            //Den her instantierer listen med QuoteProducts - vi laver det tirsdag
+            //QuoteProducts.
+        }
+
+
+        // Adds ClassTemplate to collections
+        // Går igennem listen med SelectedProducts og opretter og tilføjer dem til QuoteProducts
+        public void AddQuoteProduct(QuoteProduct quoteProduct)
+        {
+           
+        }
+
+        // Updates Repository
+        //Update QuoteProduct 
+        public void UpdateQuoteProduct(QuoteProduct quoteProduct)
+        {
+
+        }
+
+        // Deletes ClassTemplate from collections
+        // Deletes QuoteProduct
+        public void DeleteQuoteProduct(QuoteProduct quoteProduct)
+        {
+          
         }
         
-       
     }
 }
