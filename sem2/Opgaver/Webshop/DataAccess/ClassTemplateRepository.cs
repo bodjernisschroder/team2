@@ -1,7 +1,5 @@
 ﻿using Template.Models;
-using System.Data;
-using System.Configuration;
-using System.Data.SqlClient;
+using Microsoft.Data.Sqlite;
 
 namespace Template.DataAccess
 {
@@ -16,22 +14,18 @@ namespace Template.DataAccess
             _connectionString = connectionString;
         }
 
-        // Stored procedure
-        SqlConnection sqlCon = null;
-
-        String SqlconString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
         // Method to retrieve all records from the database
         public IEnumerable<ClassTemplate> GetAll()
         {
             var template = new List<ClassTemplate>();
-            using (sqlCon = new SqlConnection(SqlconString))
-            {
-                sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspGetAllClassTemplate", sqlCon);
-                sql_cmnd.CommandType = CommandType.StoredProcedure;
+            string query = "SELECT * FROM CLASSTEMPLATE";
 
-                using (SqlDataReader reader = sql_cmnd.ExecuteReader())
+            using (SqliteConnection connection = new SqliteConnection(_connectionString))
+            {
+                SqliteCommand command = new SqliteCommand(query, connection);
+                connection.Open(); // Open the SQL connection
+
+                using (SqliteDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
@@ -49,21 +43,22 @@ namespace Template.DataAccess
                     }
                 }
             }
-            return template;
+            return template; // Return the list of objects gathered from the database
         }
 
         // Method to retrieve a specific record by its Id
-        public ClassTemplate GetById(int id) 
+        public ClassTemplate GetById(int id)
         {
             ClassTemplate template = null;
-            using (sqlCon = new SqlConnection(SqlconString))
-            {
-                sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspCreateClassTemplate", sqlCon);
-                sql_cmnd.CommandType = CommandType.StoredProcedure;
-                sql_cmnd.Parameters.AddWithValue("@ClassTemplateId", SqlDbType.Int).Value = id;
+            string query = "SELECT * FROM CLASSTEMPLATE WHERE ClassTemplateId = @ClassTemplateId"; 
 
-                using (SqlDataReader reader = sql_cmnd.ExecuteReader())
+            using (SqliteConnection connection = new SqliteConnection(_connectionString))
+            {
+                SqliteCommand command = new SqliteCommand(query, connection);
+                command.Parameters.AddWithValue("@ClassTemplateId", id);
+                connection.Open();
+
+                using (SqliteDataReader reader = command.ExecuteReader())
                 {
                     if (reader.Read())
                     {
@@ -77,48 +72,54 @@ namespace Template.DataAccess
                     }
                 }
             }
-            return template;
+            return template; // Return the object, or null if not found
         }
 
         // Method to add a new record to the database
         public void Add(ClassTemplate classTemplate)
         {
-            using (sqlCon = new SqlConnection(SqlconString))
+            string query = "INSERT INTO CLASSTEMPLATE (Description, RelatedId) " +
+                           "VALUES (@Description, @RelatedId);" +
+                           "SELECT SCOPE_IDENTITY();";
+
+            using (SqliteConnection connection = new SqliteConnection(_connectionString))
             {
-                sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspCreateClassTemplate", sqlCon);
-                sql_cmnd.CommandType = CommandType.StoredProcedure;
-                sql_cmnd.Parameters.AddWithValue("@Description", SqlDbType.NVarChar).Value = classTemplate.Description;
-                sql_cmnd.Parameters.AddWithValue("@RelatedId", SqlDbType.Int).Value = classTemplate.RelatedId;
-                sql_cmnd.ExecuteNonQuery();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                command.Parameters.AddWithValue("@Description", classTemplate.Description);
+                command.Parameters.AddWithValue("@RelatedId", (int)classTemplate.RelatedId);
+                connection.Open();
+                int classTemplateId = Convert.ToInt32(command.ExecuteScalar());
+                classTemplate.ClassTemplateId = classTemplateId;
             }
         }
 
         // Method to update an existing record in the database
         public void Update(ClassTemplate classTemplate)
         {
-            using (sqlCon = new SqlConnection(SqlconString))
+            string query = "UPDATE CLASSTEMPLATE SET Description = @Description, RelatedId = @RelatedId WHERE ClassTemplateId = @ClassTemplateId";
+
+            using (SqliteConnection connection = new SqliteConnection(_connectionString))  
             {
-                sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspUpdateClassTemplate", sqlCon);
-                sql_cmnd.CommandType = CommandType.StoredProcedure;
-                sql_cmnd.Parameters.AddWithValue("@ClassTemplateId", SqlDbType.Int).Value = classTemplate.ClassTemplateId;
-                sql_cmnd.Parameters.AddWithValue("@Description", SqlDbType.NVarChar).Value = classTemplate.Description;
-                sql_cmnd.Parameters.AddWithValue("@RelatedId", SqlDbType.Int).Value = classTemplate.RelatedId;
-                sql_cmnd.ExecuteNonQuery();
+                SqliteCommand command = new SqliteCommand(query, connection);  
+                command.Parameters.AddWithValue("@ClassTemplateId", classTemplate.ClassTemplateId);
+                command.Parameters.AddWithValue("@Description", classTemplate.Description);
+                command.Parameters.AddWithValue("@RelatedId", classTemplate.RelatedId);
+                connection.Open();
+                command.ExecuteNonQuery(); // Execute the update query
             }
         }
 
         // Method to delete a record from the database by its Id
         public void Delete(int id)
         {
-            using (sqlCon = new SqlConnection(SqlconString))
+            string query = "DELETE FROM CLASSTEMPLATE WHERE ClassTemplateId = @ClassTemplateId";
+
+            using (SqliteConnection connection = new SqliteConnection(_connectionString))
             {
-                sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspDeleteClassTemplate", sqlCon);
-                sql_cmnd.CommandType = CommandType.StoredProcedure;
-                sql_cmnd.Parameters.AddWithValue("@ClassTemplateId", SqlDbType.Int).Value = id;
-                sql_cmnd.ExecuteNonQuery();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                command.Parameters.AddWithValue("@ClassTemplateId", id);
+                connection.Open();
+                command.ExecuteNonQuery(); // Execute the delete query
             }
         }
     }
