@@ -7,14 +7,14 @@ VALUES
 (3, 103, 'Third class template');
 GO
 
---Populater Kategoritabellen med de 4 faste værdier 
+--Insert values for CATEGORY table 
 INSERT INTO CATEGORY (CategoryId, CategoryName) VALUES ('Strategi');--1
 INSERT INTO CATEGORY (CategoryId, CategoryName) VALUES ('Indhold');--2
 INSERT INTO CATEGORY (CategoryId, CategoryName) VALUES ('Digital Marketing');--3
 INSERT INTO CATEGORY (CategoryId, CategoryName) VALUES ('Film');--4
 GO
 
---Populater Produkttabellen med ydelserne fra GettingReal - Strategi
+--Insert values for PRODUCT table - Strategi
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('AI-workshop', 1);
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Analyse', 1);
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Befolkningsundersøgelser', 1);
@@ -55,7 +55,7 @@ INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Strategiworkshop', 1);
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Tone of voice', 1);
 GO
 
---Populater Produkttabellen med ydelserne fra GettingReal - Indhold
+--Insert values for PRODUCT table - Indhold
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Adfærds- og holdningskampagner', 2);
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Adfærdsanalyse', 2);
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Adfærdsdesign', 2);
@@ -87,7 +87,7 @@ INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Webtekster', 2);
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Årsrapporter', 2);
 GO
 
---Populater Produkttabellen med ydelserne fra GettingReal - Indhold
+--Insert values for PRODUCT table - Digital marketing
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Account Based Marketing', 3);
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Assistance til ActiveCampaign, Mailchimp osv.', 3);
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Digital strategi', 3);
@@ -115,7 +115,7 @@ INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('SoMe-workshop', 3);
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Twitch-annoncering', 3);
 GO
 
---Populater Produkttabellen med ydelserne fra GettingReal - Film
+--Insert values for PRODUCT table - Film
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Animationsfilm', 4);
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Brandfilm', 4);
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Case-film', 4);
@@ -128,6 +128,7 @@ INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Klipning', 4);
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Kursus i filmklip', 4);
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Manuskript', 4);
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Produktfilm', 4);
+INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Projektledelse', 4);
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Storyboard', 4);
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Webinarproduktion', 4);
 GO

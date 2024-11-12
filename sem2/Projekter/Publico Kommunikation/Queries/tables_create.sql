@@ -8,23 +8,53 @@ CREATE TABLE CLASSTEMPLATE (
 		REFERENCES RELATEDTABLE(RelatedId) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
+
 CREATE TABLE RELATEDTABLE (
     RelatedId INT IDENTITY PRIMARY KEY, 
     RelatedName NVARCHAR(50) UNIQUE NOT NULL,
 	Value INT DEFAULT 0 NOT NULL,
-CONSTRAINT CK_RelatedTable_Value CHECK (Value BETWEEN 0 AND 100)
+	CONSTRAINT CK_RelatedTable_Value CHECK (Value BETWEEN 0 AND 100)
 );
 
---Opretter CATEGORY Tabellen
+
+--Creates CATEGORY table
 CREATE TABLE CATEGORY (
-	CategoriId INT PRIMARY KEY IDENTITY(1,1), 
-	CategoryName NVARCHAR(30) 
+	CategoryId INT IDENTITY PRIMARY KEY,
+	CategoryName NVARCHAR(50) NOT NULL,
+	CONSTRAINT UQ_Category_CategoryName UNIQUE (CategoryName)
 );
 GO
---Opretter PRODUCT Tabellen
+
+--Creates PRODUCT table
 CREATE TABLE PRODUCT (
-	ProductId INT PRIMARY KEY IDENTITY(1,1),
-	ProductName NVARCHAR (50), 
-	FOREIGN KEY (CategoryId) REFERENCES CATEGORY(CategoryId) 
+	ProductId INT IDENTITY PRIMARY KEY,
+	ProductName NVARCHAR (50) NOT NULL, 
+	CategoryId INT NOT NULL,
+	CONSTRAINT FK_Product_Category FOREIGN KEY (CategoryId) 
+		REFERENCES CATEGORY(CategoryId) ON UPDATE CASCADE ON DELETE CASCADE
 );
+GO
+
+--Creates Quote table
+CREATE TABLE QUOTE (
+	QuoteId INT IDENTITY PRIMARY KEY, 
+	HourlyRate FLOAT NULL, 
+	DiscountPercentage DECIMAL(5,2) DEFAULT 0 NOT NULL, 
+	[Sum] FLOAT DEFAULT 0 NOT NULL,
+	CONSTRAINT CK_Quote_HourlyRate_Positive CHECK (HourlyRate >= 0),
+	CONSTRAINT CK_Quote_DiscountPercentage_Range CHECK (DiscountPercentage BETWEEN 0 AND 50),
+	CONSTRAINT CK_Quote_Sum_Positive CHECK ([Sum] >= 0)
+);
+GO
+
+--Creates QuoteProduct table 
+ CREATE TABLE QUOTE_PRODUCT(
+	QuoteId INT,
+	ProductId INT,
+	QuoteProductTimeEstimate FLOAT NULL,
+	QuoteProductPrice FLOAT DEFAULT 0 NOT NULL,
+	CONSTRAINT PK_QuoteProduct PRIMARY KEY (QuoteId, ProductId),
+	CONSTRAINT FK_QuoteProduct_Product FOREIGN KEY (ProductId) REFERENCES PRODUCT(ProductId),
+	CONSTRAINT FK_QuoteProduct_Quote FOREIGN KEY (QuoteId) REFERENCES QUOTE(QuoteId)
+ );
 GO

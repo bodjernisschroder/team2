@@ -8,56 +8,19 @@ using Publico_Kommunikation_Project.Models;
 
 namespace Publico_Kommunikation_Project.ViewModels
 {
-    public class ClassTemplateViewModel : BaseViewModel
+    public class HourlyRateQuoteViewModel : QuoteViewModel
     {
-        public ClassTemplate Model { get; private set; }
+        public override double HourlyRate { get; set; }
 
-        public ClassTemplateViewModel(ClassTemplate classTemplate)
-        {
-            Model = classTemplate;
-        }
+        public override double Sum { get; set; }
 
-        public int ClassTemplateId
+        public void Switch()
         {
-            get { return Model.ClassTemplateId; }
-            set 
-            { 
-                Model.ClassTemplateId = value;
-                OnPropertyChanged(nameof(ClassTemplateId));
-            }
+            throw new NotImplementedException();
         }
+        public HourlyRateQuoteViewModel(Quote quote) : base(quote)
+        {
 
-        public string Description
-        {
-            get { return Model.Description; }
-            set
-            {
-                Model.Description = value;
-                OnPropertyChanged(nameof(Description));
-            }
         }
-
-        public int RelatedId
-        {
-            get { return Model.RelatedId; }
-            set
-            {
-                Model.RelatedId = value;
-                OnPropertyChanged(nameof(RelatedId));
-            }
-        }
-
-        private bool _isSelected;
-        public bool IsSelected
-        {
-            get => _isSelected;
-            set
-            {
-                _isSelected = value;
-                OnPropertyChanged(nameof(IsSelected));
-            }
-        }
-        
-       
     }
 }
