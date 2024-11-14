@@ -1,7 +1,7 @@
 ﻿using Publico_Kommunikation_Project.Models;
 using System.Data;
 using System.Configuration;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace Publico_Kommunikation_Project.DataAccess
 {

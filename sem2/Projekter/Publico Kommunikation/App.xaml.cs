@@ -3,29 +3,54 @@ using System.Windows;
 using Publico_Kommunikation_Project.DataAccess;
 using Publico_Kommunikation_Project.ViewModels;
 using Publico_Kommunikation_Project.Views;
+using Microsoft.Extensions.DependencyInjection;
+using Publico_Kommunikation_Project.Utilities;
 
 namespace Publico_Kommunikation_Project
 {
     public partial class App : Application
     {
+        private readonly IServiceProvider _serviceProvider;
+
+        public App()
+        {
+            var services = new ServiceCollection();
+
+            //Register singletons
+            services.AddSingleton<INavigator, Navigator>();
+            services.AddSingleton<ViewModelFactory>();
+
+            //Register transients
+            services.AddTransient<MainViewModel>();
+            services.AddTransient<HourlyRateQuoteViewModel>();
+            services.AddTransient<ProductsViewModel>();
+            services.AddTransient<ProductViewModel>();
+            services.AddTransient<QuoteViewModel>();
+            services.AddTransient<SumQuoteViewModel>();
+
+            _serviceProvider = services.BuildServiceProvider();
+        }
+
         // Override the OnStartup method, executed when the application starts
         protected override void OnStartup(StartupEventArgs e)
         {
-            base.OnStartup(e);
-
             // Load the configuration file and get the connection string
             var configuration = LoadConfiguration();
             string connectionString = configuration.GetConnectionString("DefaultConnection");
 
-            // Initialize repositories with the retrieved connection string
-            var classTemplateRepository = new ClassTemplateRepository(connectionString);
+            // Create all repos with connectionString as parameter
+            var categoryRepository = new CategoryRepository(connectionString);
+            var productRepository = new ProductRepository(connectionString);
+            var quoteRepository = new QuoteRepository(connectionString);
+            var quoteProductRepository = new QuoteProductRepository(connectionString);
 
-            // Pass repositories to ViewModels
-            var mainViewModel = new MainViewModel(classTemplateRepository);
-
-            // Set the DataContext or use mainViewModel as needed
-            var mainWindow = new MainWindow { DataContext = mainViewModel };
-            // mainWindow.Show();
+            // Resolve MainViewModel through DI and set as DataContext for MainWindow
+            var mainWindow = new MainWindow
+            {
+                DataContext = _serviceProvider.GetRequiredService<MainViewModel>()
+            };
+            mainWindow.Show();
+            base.OnStartup(e);
         }
 
         // Method to load the configuration settings from appsettings.json
