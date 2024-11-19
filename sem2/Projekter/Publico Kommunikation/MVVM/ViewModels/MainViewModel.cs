@@ -1,7 +1,7 @@
 using Publico_Kommunikation_Project.Core;
 using Publico_Kommunikation_Project.Services;
 
-namespace Publico_Kommunikation_Project.ViewModels
+namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
     public class MainViewModel : ViewModel
     {

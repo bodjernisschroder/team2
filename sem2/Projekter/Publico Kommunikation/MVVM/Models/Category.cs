@@ -1,4 +1,4 @@
-﻿namespace Publico_Kommunikation_Project.Models
+﻿namespace Publico_Kommunikation_Project.MVVM.Models
 {
     public class Category
     {

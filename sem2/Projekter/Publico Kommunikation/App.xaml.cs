@@ -1,9 +1,9 @@
 ﻿using System.Windows;
-using Publico_Kommunikation_Project.ViewModels;
-using Publico_Kommunikation_Project.Views;
+using Publico_Kommunikation_Project.MVVM.Views;
 using Microsoft.Extensions.DependencyInjection;
 using Publico_Kommunikation_Project.Core;
 using Publico_Kommunikation_Project.Services;
+using Publico_Kommunikation_Project.MVVM.ViewModels;
 
 namespace Publico_Kommunikation_Project
 {
@@ -40,8 +40,8 @@ namespace Publico_Kommunikation_Project
         // Override the OnStartup method, executed when the application starts
         protected override void OnStartup(StartupEventArgs e)
         {
-            DatabaseService dbService = new DatabaseService();
-            dbService.CreateRepositories();
+            //DatabaseService dbService = new DatabaseService();
+            //dbService.CreateRepositories();
 
             var mainWindow = _serviceProvider.GetRequiredService<MainWindow>();
             mainWindow.Show();

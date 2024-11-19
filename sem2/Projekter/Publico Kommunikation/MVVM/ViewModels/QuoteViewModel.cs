@@ -1,10 +1,10 @@
 ﻿using Publico_Kommunikation_Project.Core;
 using Publico_Kommunikation_Project.DataAccess;
-using Publico_Kommunikation_Project.Models;
+using Publico_Kommunikation_Project.MVVM.Models;
 using Publico_Kommunikation_Project.Services;
 using System.Collections.ObjectModel;
 
-namespace Publico_Kommunikation_Project.ViewModels
+namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
     public class QuoteViewModel : ViewModel
     {
@@ -16,7 +16,7 @@ namespace Publico_Kommunikation_Project.ViewModels
             get { return _model.QuoteId; }
             set
             {
-               _model.QuoteId = value;
+                _model.QuoteId = value;
                 OnPropertyChanged(nameof(QuoteId));
             }
         }
@@ -61,16 +61,14 @@ namespace Publico_Kommunikation_Project.ViewModels
             set
             {
                 _navigation = value;
-                OnPropertyChanged(nameof(Navigation));
+                OnPropertyChanged();
             }
         }
 
         public RelayCommand NavigateToProductsViewCommand { get; set; }
         public ObservableCollection<ProductViewModel> SelectedProducts;
-        private QuoteProductRepository _quoteProductRepository;
+        //private QuoteProductRepository _quoteProductRepository;
         public ObservableCollection<QuoteProduct> QuoteProducts;
-        private Quote quote;
-
         public RelayCommand GetByIdClassTemplateCommand { get; }
         public RelayCommand AddProductsCommand { get; }
         public RelayCommand DeleteQuoteProductCommand { get; }
@@ -78,12 +76,7 @@ namespace Publico_Kommunikation_Project.ViewModels
         public QuoteViewModel(INavigationService navigation)
         {
             Navigation = navigation;
-            NavigateToProductsViewCommand = new RelayCommand( execute: o => { Navigation.NavigateTo<ProductsViewModel>(); }, canExecute: o => true);
-        }
-
-        public QuoteViewModel(Quote quote)
-        {
-            this.quote = quote;
+            NavigateToProductsViewCommand = new RelayCommand(execute: o => { Navigation.NavigateTo<ProductsViewModel>(); }, canExecute: o => true);
         }
 
         public void Initialize(Quote quote)

@@ -1,5 +1,5 @@
-﻿using Publico_Kommunikation_Project.Models;
-using Publico_Kommunikation_Project.ViewModels;
+﻿using Publico_Kommunikation_Project.MVVM.Models;
+using Publico_Kommunikation_Project.MVVM.ViewModels;
 
 namespace Publico_Kommunikation_Project.Utilities
 {

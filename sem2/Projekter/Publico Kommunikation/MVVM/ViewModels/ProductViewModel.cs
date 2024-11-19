@@ -1,7 +1,7 @@
 ﻿using Publico_Kommunikation_Project.Core;
-using Publico_Kommunikation_Project.Models;
+using Publico_Kommunikation_Project.MVVM.Models;
 
-namespace Publico_Kommunikation_Project.ViewModels
+namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
     public class ProductViewModel : ViewModel
     {
@@ -10,8 +10,8 @@ namespace Publico_Kommunikation_Project.ViewModels
         public int ProductId
         {
             get { return Model.ProductId; }
-            set 
-            { 
+            set
+            {
                 Model.ProductId = value;
                 OnPropertyChanged(nameof(ProductId));
             }

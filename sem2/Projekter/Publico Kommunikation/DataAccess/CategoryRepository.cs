@@ -1,7 +1,7 @@
-﻿using Publico_Kommunikation_Project.Models;
-using System.Data;
+﻿using System.Data;
 using System.Configuration;
 using Microsoft.Data.SqlClient;
+using Publico_Kommunikation_Project.MVVM.Models;
 
 namespace Publico_Kommunikation_Project.DataAccess
 {
@@ -51,7 +51,7 @@ namespace Publico_Kommunikation_Project.DataAccess
         }
 
         // Method to retrieve a specific record by its Id
-        public Category GetById(int id) 
+        public Category GetById(int id)
         {
             Category category = null;
             using (sqlCon = new SqlConnection(SqlconString))

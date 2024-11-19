@@ -1,6 +1,7 @@
-﻿using Publico_Kommunikation_Project.Models;
+﻿using Publico_Kommunikation_Project.MVVM.Models;
+using Publico_Kommunikation_Project.Services;
 
-namespace Publico_Kommunikation_Project.ViewModels
+namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
     public class HourlyRateQuoteViewModel : QuoteViewModel
     {
@@ -12,7 +13,7 @@ namespace Publico_Kommunikation_Project.ViewModels
         {
             throw new NotImplementedException();
         }
-        public HourlyRateQuoteViewModel(Quote quote) : base(quote)
+        public HourlyRateQuoteViewModel(INavigationService navigation) : base(navigation)
         {
 
         }
