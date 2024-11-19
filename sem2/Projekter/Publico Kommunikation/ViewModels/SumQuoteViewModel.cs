@@ -13,9 +13,9 @@ namespace Publico_Kommunikation_Project.ViewModels
             throw new NotImplementedException();
         }
 
-        public SumQuoteViewModel(Quote quote) : base(quote)
+        public SumQuoteViewModel() : base()
         {
 
         }
     }
-} 
+ }

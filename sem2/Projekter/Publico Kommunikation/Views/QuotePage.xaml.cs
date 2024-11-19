@@ -2,8 +2,8 @@
 
 namespace Publico_Kommunikation_Project.Views
 {
-    /// <summary>
     /// Interaction logic for QuotePage.xaml
+    /// <summary>
     /// </summary>
     public partial class QuotePage : Page
     {

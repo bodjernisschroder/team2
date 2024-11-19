@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Publico_Kommunikation_Project"
              xmlns:view="clr-namespace:Publico_Kommunikation_Project.Views"
              xmlns:viewModel="clr-namespace:Publico_Kommunikation_Project.ViewModels">
-    <Application.Resources>
+<Application.Resources>
         <DataTemplate DataType="{x:Type viewModel:QuoteViewModel}">
             <view:QuotePage/>
         </DataTemplate>

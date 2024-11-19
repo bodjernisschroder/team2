@@ -69,6 +69,8 @@ namespace Publico_Kommunikation_Project.ViewModels
         public ObservableCollection<ProductViewModel> SelectedProducts;
         private QuoteProductRepository _quoteProductRepository;
         public ObservableCollection<QuoteProduct> QuoteProducts;
+        private Quote quote;
+
         public RelayCommand GetByIdClassTemplateCommand { get; }
         public RelayCommand AddProductsCommand { get; }
         public RelayCommand DeleteQuoteProductCommand { get; }
@@ -77,6 +79,11 @@ namespace Publico_Kommunikation_Project.ViewModels
         {
             Navigation = navigation;
             NavigateToProductsViewCommand = new RelayCommand( execute: o => { Navigation.NavigateTo<ProductsViewModel>(); }, canExecute: o => true);
+        }
+
+        public QuoteViewModel(Quote quote)
+        {
+            this.quote = quote;
         }
 
         public void Initialize(Quote quote)
