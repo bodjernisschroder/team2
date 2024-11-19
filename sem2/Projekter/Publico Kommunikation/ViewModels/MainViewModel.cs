@@ -16,14 +16,14 @@ namespace Publico_Kommunikation_Project.ViewModels
             }
         }
 
-        public RelayCommand<ViewModel> NavigateToQuoteViewCommand { get; set; }
-        public RelayCommand<ViewModel> NavigateToProductsViewCommand { get; set; }
+        public RelayCommand NavigateToQuoteViewCommand { get; set; }
+        public RelayCommand NavigateToProductsViewCommand { get; set; }
 
         public MainViewModel(INavigationService navigation)
         {
             Navigation = navigation;
-            NavigateToQuoteViewCommand = new RelayCommand<ViewModel>(execute: o => { Navigation.NavigateTo<QuoteViewModel>(); }, canExecute: o => true);
-            NavigateToProductsViewCommand = new RelayCommand<ViewModel>(execute: o => { Navigation.NavigateTo<ProductsViewModel>(); }, canExecute: o => true);
+            NavigateToQuoteViewCommand = new RelayCommand(execute: o => { Navigation.NavigateTo<QuoteViewModel>(); }, canExecute: o => true);
+            NavigateToProductsViewCommand = new RelayCommand(execute: o => { Navigation.NavigateTo<ProductsViewModel>(); }, canExecute: o => true);
         }
     }
 }

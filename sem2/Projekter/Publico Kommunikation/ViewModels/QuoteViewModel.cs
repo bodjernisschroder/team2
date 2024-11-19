@@ -65,18 +65,18 @@ namespace Publico_Kommunikation_Project.ViewModels
             }
         }
 
-        public RelayCommand<ViewModel> NavigateToProductsViewCommand { get; set; }
+        public RelayCommand NavigateToProductsViewCommand { get; set; }
         public ObservableCollection<ProductViewModel> SelectedProducts;
         private QuoteProductRepository _quoteProductRepository;
         public ObservableCollection<QuoteProduct> QuoteProducts;
-        public RelayCommand<int> GetByIdClassTemplateCommand { get; }
-        public RelayCommand<ProductViewModel> AddProductsCommand { get; }
-        public RelayCommand<QuoteProduct> DeleteQuoteProductCommand { get; }
+        public RelayCommand GetByIdClassTemplateCommand { get; }
+        public RelayCommand AddProductsCommand { get; }
+        public RelayCommand DeleteQuoteProductCommand { get; }
 
         public QuoteViewModel(INavigationService navigation)
         {
             Navigation = navigation;
-            NavigateToProductsViewCommand = new RelayCommand<ViewModel>( execute: o => { Navigation.NavigateTo<ProductsViewModel>(); }, canExecute: o => true);
+            NavigateToProductsViewCommand = new RelayCommand( execute: o => { Navigation.NavigateTo<ProductsViewModel>(); }, canExecute: o => true);
         }
 
         public void Initialize(Quote quote)
