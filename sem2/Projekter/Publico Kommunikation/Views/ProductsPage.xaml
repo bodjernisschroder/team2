@@ -9,5 +9,18 @@
       Title="ProductsPage">
     <Grid>
 
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="ProductsPage"  
+                       Foreground="White"
+                       FontSize="25"/>
+
+            <Button Content="QuotePages"
+                    Height="25"
+                    Command="{Binding NavigateToQuoteViewCommand}"/>
+                    
+        </StackPanel>
+        
+
     </Grid>
 </Page>

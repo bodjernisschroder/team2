@@ -1,90 +1,29 @@
-using Publico_Kommunikation_Project.DataAccess;
-using Publico_Kommunikation_Project.Models;
-using System.Collections.ObjectModel;
-using Publico_Kommunikation_Project.Utilities;
+using Publico_Kommunikation_Project.Core;
+using Publico_Kommunikation_Project.Services;
 
 namespace Publico_Kommunikation_Project.ViewModels
 {
-    public class MainViewModel : BaseViewModel
+    public class MainViewModel : ViewModel
     {
-        private ClassTemplateRepository _classTemplateRepository;
-        public ObservableCollection<ClassTemplateViewModel> ClassTemplateViewModels;
-        public RelayCommand<int> GetByIdClassTemplateCommand { get; }
-        public RelayCommand<ClassTemplateViewModel> AddClassTemplateCommand { get; }
-        public RelayCommand<ClassTemplateViewModel> UpdateClassTemplateCommand { get; }
-        public RelayCommand<ClassTemplateViewModel> DeleteClassTemplateCommand { get; }
-
-        public MainViewModel(ClassTemplateRepository classTemplateRepository)
+        private INavigationService _navigation;
+        public INavigationService Navigation
         {
-            // Initialize collections
-            _classTemplateRepository = classTemplateRepository;
-            ClassTemplateViewModels = new ObservableCollection<ClassTemplateViewModel>();
-
-            // Initialize RelayCommands
-            GetByIdClassTemplateCommand = new RelayCommand<int>(GetByIdClassTemplate);
-            AddClassTemplateCommand = new RelayCommand<ClassTemplateViewModel>(AddClassTemplate);
-            UpdateClassTemplateCommand = new RelayCommand<ClassTemplateViewModel>(AddClassTemplate);
-            DeleteClassTemplateCommand = new RelayCommand<ClassTemplateViewModel>(DeleteClassTemplate);
-
-            // Populate ObservableCollection with values from repository
-            foreach (ClassTemplate classTemplate in classTemplateRepository.GetAll())
+            get => _navigation;
+            set
             {
-                ClassTemplateViewModel classTemplateViewModel = new ClassTemplateViewModel(classTemplate);
-                ClassTemplateViewModels.Add(classTemplateViewModel);
+                _navigation = value;
+                OnPropertyChanged();
             }
         }
 
-        // Retrieves ClassTemplate by ID and adds to collection
-        public void GetByIdClassTemplate(int classTemplateViewModelId)
+        public RelayCommand<ViewModel> NavigateToQuoteViewCommand { get; set; }
+        public RelayCommand<ViewModel> NavigateToProductsViewCommand { get; set; }
+
+        public MainViewModel(INavigationService navigation)
         {
-            if (classTemplateViewModelId > 0)
-            {
-                // GetById ClassTemplate and store in temporary classTemplate variable
-                var classTemplate = _classTemplateRepository.GetById(classTemplateViewModelId);
-                
-                // Adds the found classTemplate to ClassTemplateViewModel collection
-                if (classTemplate != null)
-                {
-                    var classTemplateViewModel = new ClassTemplateViewModel(classTemplate);
-
-                    // Ensure ClassTemplateViewModel does not already exist in the collection
-                    if (!ClassTemplateViewModels.Any(vm => vm.Model.ClassTemplateId == classTemplateViewModel.Model.ClassTemplateId))
-                        ClassTemplateViewModels.Add(classTemplateViewModel);
-                }
-            }
-        }
-
-
-        // Adds ClassTemplate to collections
-        public void AddClassTemplate(ClassTemplateViewModel classTemplateViewModel)
-        {
-            if (classTemplateViewModel != null)
-            {
-                // ClassTemplateViewModel is added to ClassTemplateViewModels
-                ClassTemplateViewModels.Add(classTemplateViewModel);
-
-                // ClassTemplate is added to classTemplateRepository
-                _classTemplateRepository.Add(classTemplateViewModel.Model);
-            }
-        }
-
-        // Updates Repository
-        public void UpdateClassTemplate(ClassTemplateViewModel classTemplateViewModel)
-        {
-            _classTemplateRepository.Update(classTemplateViewModel.Model);
-        }
-
-        // Deletes ClassTemplate from collections
-        public void DeleteClassTemplate(ClassTemplateViewModel classTemplateViewModel)
-        {
-            if (classTemplateViewModel != null)
-            {
-                // ClassTemplateViewModel is removed from ClassTemplateViewModels
-                ClassTemplateViewModels.Remove(classTemplateViewModel);
-
-                // ClassTemplate is deleted from classTemplateRepository
-                _classTemplateRepository.Delete(classTemplateViewModel.Model.ClassTemplateId);
-            }
+            Navigation = navigation;
+            NavigateToQuoteViewCommand = new RelayCommand<ViewModel>(execute: o => { Navigation.NavigateTo<QuoteViewModel>(); }, canExecute: o => true);
+            NavigateToProductsViewCommand = new RelayCommand<ViewModel>(execute: o => { Navigation.NavigateTo<ProductsViewModel>(); }, canExecute: o => true);
         }
     }
 }

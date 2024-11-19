@@ -1,21 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Publico_Kommunikation_Project.Core;
 using Publico_Kommunikation_Project.Models;
 
 namespace Publico_Kommunikation_Project.ViewModels
 {
-    public class ProductViewModel : BaseViewModel
+    public class ProductViewModel : ViewModel
     {
         public Product Model { get; private set; }
-
-        public ProductViewModel(Product product)
-        {
-            Model = product;
-        }
 
         public int ProductId
         {
@@ -57,7 +47,10 @@ namespace Publico_Kommunikation_Project.ViewModels
                 OnPropertyChanged(nameof(IsSelected));
             }
         }
-        
-       
+
+        public ProductViewModel(Product product)
+        {
+            Model = product;
+        }
     }
 }

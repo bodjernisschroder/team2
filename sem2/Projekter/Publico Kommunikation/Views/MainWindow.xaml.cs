@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Template.View
+namespace Publico_Kommunikation_Project.Views
 {
     public partial class MainWindow : Window
     {

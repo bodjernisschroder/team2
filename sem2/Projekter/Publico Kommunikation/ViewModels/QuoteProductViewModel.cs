@@ -1,13 +1,9 @@
-﻿using Publico_Kommunikation_Project.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Publico_Kommunikation_Project.Core;
+using Publico_Kommunikation_Project.Models;
 
 namespace Publico_Kommunikation_Project.ViewModels
 {
-    public class QuoteProductViewModel : BaseViewModel
+    public class QuoteProductViewModel : ViewModel
     {
 
         public QuoteProduct Model;

@@ -1,16 +1,12 @@
-﻿using Publico_Kommunikation_Project.DataAccess;
+﻿using Publico_Kommunikation_Project.Core;
+using Publico_Kommunikation_Project.DataAccess;
 using Publico_Kommunikation_Project.Models;
-using Publico_Kommunikation_Project.Utilities;
-using System;
-using System.Collections.Generic;
+using Publico_Kommunikation_Project.Services;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Publico_Kommunikation_Project.ViewModels
 {
-    public class QuoteViewModel : BaseViewModel
+    public class QuoteViewModel : ViewModel
     {
 
         private Quote _model;
@@ -24,6 +20,7 @@ namespace Publico_Kommunikation_Project.ViewModels
                 OnPropertyChanged(nameof(QuoteId));
             }
         }
+
         public virtual double HourlyRate
         {
             get { return _model.HourlyRate; }
@@ -57,12 +54,18 @@ namespace Publico_Kommunikation_Project.ViewModels
             }
         }
 
-
-        public QuoteViewModel(Quote quote)
+        private INavigationService _navigation;
+        public INavigationService Navigation
         {
-            _model = quote;
+            get => _navigation;
+            set
+            {
+                _navigation = value;
+                OnPropertyChanged(nameof(Navigation));
+            }
         }
 
+        public RelayCommand<ViewModel> NavigateToProductsViewCommand { get; set; }
         public ObservableCollection<ProductViewModel> SelectedProducts;
         private QuoteProductRepository _quoteProductRepository;
         public ObservableCollection<QuoteProduct> QuoteProducts;
@@ -70,7 +73,17 @@ namespace Publico_Kommunikation_Project.ViewModels
         public RelayCommand<ProductViewModel> AddProductsCommand { get; }
         public RelayCommand<QuoteProduct> DeleteQuoteProductCommand { get; }
 
+        public QuoteViewModel(INavigationService navigation)
+        {
+            Navigation = navigation;
+            NavigateToProductsViewCommand = new RelayCommand<ViewModel>( execute: o => { Navigation.NavigateTo<ProductsViewModel>(); }, canExecute: o => true);
+        }
 
+        public void Initialize(Quote quote)
+        {
+            if (quote == null) throw new ArgumentNullException(nameof(quote));
+            _model = quote;
+        }
 
         //Enten at have en GetAll eller en GetById 
         public void GetAllQuoteProducts(int quoteId)
@@ -80,7 +93,6 @@ namespace Publico_Kommunikation_Project.ViewModels
             //Indsæt dem, som har den quoteId - som parameter
             //- indsættes i den liste, som hedder QuoteProducts
         }
-
 
         // Adds ClassTemplate to collections
         // Går igennem listen med SelectedProducts og opretter og tilføjer dem til QuoteProducts

@@ -8,48 +8,27 @@
         mc:Ignorable="d"
         Title="Publico Kommunikation" MinHeight="500" Width="1000" Height="550"
         ResizeMode="NoResize">
-        <!-- xmlns:i="clr-namespace:Microsoft.VisualBasic;assembly=Microsoft.VisualBasic"  -->
-        <!-- xmlns:i2="http://schemas.microsoft.com/netfx/2009/xaml/presentation" -->
-    <!-- <Window.Resources> -->
-        <!-- Style to apply UpdateSourceTrigger=PropertyChanged to all DataGridTextColumns -->
-        <!-- <Style TargetType="DataGridTextColumn"> -->
-            <!-- <Setter Property="Binding.UpdateSourceTrigger" Value="PropertyChanged" /> -->
-        <!-- </Style> -->
-    <!-- </Window.Resources> -->
-    <!-- <Window.DataContext>
-           <local:MainViewModel/>
-        </Window.DataContext> -->
-    <DataGrid x:Name="ClassTemplateDataGrid"
-          ItemsSource="{Binding ClassTemplateViewModels}"
-          SelectedItem ="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}"
-          AutoGenerateColumns="False"
-          Grid.Row="0"
-          Width="auto"
-          Height="200"
-          Margin="25"
-          CanUserResizeRows="False"
-          CanUserResizeColumns="False"
-          HeadersVisibility="Column">
 
-        <!-- Trigger update in Repository when cell edit is ending -->
-        <i:Interaction.Triggers>
-            <i:EventTrigger EventName="CellEditEnding">
-                <i:InvokeCommandAction Command="{Binding UpdateClassTemplateCommand}" CommandParameter="{Binding}" />
-            </i:EventTrigger>
-        </i:Interaction.Triggers>
-        
-        <DataGrid.Columns>
-            <DataGridTextColumn Header="ClassTemplateId" Binding="{Binding ClassTemplateId}" IsReadOnly="True"/>
-            <DataGridTextColumn Header="Description" Binding="{Binding Description}" IsReadOnly="True"/>
-            <DataGridTextColumn Header="RelatedId" Binding="{Binding RelatedId}" IsReadOnly="True"/>
-            <DataGridTemplateColumn Header="Actions" Width="0.3*">
-                <DataGridTemplateColumn.CellTemplate>
-                    <DataTemplate>
-                        <Button Content="Slet"
-                    Command="{Binding RemoveClassTemplateCommand}" CommandParameter="{Binding}" Margin="2"/>
-                    </DataTemplate>
-                </DataGridTemplateColumn.CellTemplate>
-            </DataGridTemplateColumn>
-        </DataGrid.Columns>
-    </DataGrid>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Button Content="Products"
+                    Height="25"
+                    Command="{Binding NavigateToProductsViewCommand}"/>
+            
+            <Button Content="Quotes"
+                    Height="25"
+                    Command="{Binding NavigateToQuoteViewCommand}"/>
+            
+        </StackPanel>
+
+        <ContentControl Grid.Column="1" Content="{Binding Navigation.CurrentView}">
+            
+        </ContentControl>
+    </Grid>
+
+    
 </Window>
