@@ -3,11 +3,11 @@
 namespace Publico_Kommunikation_Project.MVVM.Views
 {
     /// <summary>
-    /// Interaction logic for ProductsPage.xaml
+    /// Interaction logic for ProductsView.xaml
     /// </summary>
-    public partial class ProductsPage : Page
+    public partial class ProductsView : UserControl
     {
-        public ProductsPage()
+        public ProductsView()
         {
             InitializeComponent();
         }

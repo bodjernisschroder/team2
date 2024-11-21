@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="Publico_Kommunikation_Project.MVVM.Views.ProductsView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+
+        <TabControl Margin="528,0,8,65">
+
+            <TabItem Header="Strategi">
+
+                <Grid Background="#FFE5E5E5">
+                    <ListBox x:Name="StrategiListBox"
+                             Margin="0,0,0,0"
+                             SelectionMode="Multiple"
+                             ItemsSource="{Binding Products}"
+                             DisplayMemberPath="Name">
+                        <ListBoxItem>Hej</ListBoxItem>
+                        <ListBoxItem>Med</ListBoxItem>
+                        <ListBoxItem>Dig</ListBoxItem>
+                        <ListBoxItem>Banan</ListBoxItem>
+                        <ListBoxItem>Fisk</ListBoxItem>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Indhold">
+                <Grid Background="#FFE5E5E5">
+                    <ListBox x:Name="IndholdListBox"
+                             Margin="0,0,0,0"
+                             SelectionMode="Multiple"
+                             ItemsSource="{Binding Products}"
+                             DisplayMemberPath="Name">
+                        <ListBoxItem>Hej</ListBoxItem>
+                        <ListBoxItem>Med</ListBoxItem>
+                        <ListBoxItem>Dig</ListBoxItem>
+                        <ListBoxItem>Banan</ListBoxItem>
+                        <ListBoxItem>Fisk</ListBoxItem>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Digital Marketing">
+                <Grid Background="#FFE5E5E5">
+                    <ListBox x:Name="DigitalMarketingListBox"
+                             Margin="0,0,0,0" SelectionMode="Multiple"
+                             ItemsSource="{Binding Products}"
+                             DisplayMemberPath="Name">
+                        <ListBoxItem>Hej</ListBoxItem>
+                        <ListBoxItem>Med</ListBoxItem>
+                        <ListBoxItem>Dig</ListBoxItem>
+                        <ListBoxItem>Banan</ListBoxItem>
+                        <ListBoxItem>Fisk</ListBoxItem>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Film">
+                <Grid Background="#FFE5E5E5">
+                    <ListBox x:Name="FilmListBox"
+                             Margin="0,0,0,0"
+                             SelectionMode="Multiple"
+                             ItemsSource="{Binding Products}"
+                             DisplayMemberPath="Name">
+                        <ListBoxItem>Hej</ListBoxItem>
+                        <ListBoxItem>Med</ListBoxItem>
+                        <ListBoxItem>Dig</ListBoxItem>
+                        <ListBoxItem>Banan</ListBoxItem>
+                        <ListBoxItem>Fisk</ListBoxItem>
+                    </ListBox>
+                 </Grid>
+            </TabItem>
+        </TabControl>
+        
+        <Button Content="Tilføj ydelser til tilbud"
+                HorizontalAlignment="Right"
+                Margin="531,450,0,0"
+                VerticalAlignment="Top"
+                Width="159"
+                Command="{Binding AddProductsCommand}"/>
+
+    </Grid>
+</UserControl>

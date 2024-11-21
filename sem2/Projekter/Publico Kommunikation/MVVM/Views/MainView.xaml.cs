@@ -2,9 +2,9 @@
 
 namespace Publico_Kommunikation_Project.MVVM.Views
 {
-    public partial class MainWindow : Window
+    public partial class MainView : Window
     {
-        public MainWindow()
+        public MainView()
         {
             InitializeComponent();
         }

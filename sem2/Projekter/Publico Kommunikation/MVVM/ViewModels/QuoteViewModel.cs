@@ -66,11 +66,10 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         }
 
         public RelayCommand NavigateToProductsViewCommand { get; set; }
-        public ObservableCollection<ProductViewModel> SelectedProducts;
-        //private QuoteProductRepository _quoteProductRepository;
+        // public ObservableCollection<ProductViewModel> SelectedProduct {get ; set; } // Får besked fra ProductsViewModel Add-knap
+        private QuoteProductRepository _quoteProductRepository;
         public ObservableCollection<QuoteProduct> QuoteProducts;
         public RelayCommand GetByIdClassTemplateCommand { get; }
-        public RelayCommand AddProductsCommand { get; }
         public RelayCommand DeleteQuoteProductCommand { get; }
 
         public QuoteViewModel(INavigationService navigation)
@@ -98,21 +97,22 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         // Går igennem listen med SelectedProducts og opretter og tilføjer dem til QuoteProducts
         public void AddQuoteProduct(QuoteProduct quoteProduct)
         {
-
+            _quoteProductRepository.Add(quoteProduct);
+            QuoteProducts.Add(quoteProduct);
         }
 
         // Updates Repository
         //Update QuoteProduct 
         public void UpdateQuoteProduct(QuoteProduct quoteProduct)
         {
-
+            _quoteProductRepository.Update(quoteProduct);
         }
 
         // Deletes ClassTemplate from collections
         // Deletes QuoteProduct
         public void DeleteQuoteProduct(QuoteProduct quoteProduct)
         {
-
+            
         }
     }
 }

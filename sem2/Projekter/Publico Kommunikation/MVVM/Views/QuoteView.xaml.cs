@@ -2,12 +2,12 @@
 
 namespace Publico_Kommunikation_Project.MVVM.Views
 {
-    /// Interaction logic for QuotePage.xaml
     /// <summary>
+    /// Interaction logic for QutoeView.xaml
     /// </summary>
-    public partial class QuotePage : Page
+    public partial class QuoteView : UserControl
     {
-        public QuotePage()
+        public QuoteView()
         {
             InitializeComponent();
         }

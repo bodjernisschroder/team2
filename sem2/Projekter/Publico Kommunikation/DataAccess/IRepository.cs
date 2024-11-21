@@ -4,7 +4,6 @@
     {
         //Generic interface implementing CRUD
         IEnumerable<T> GetAll();
-        
         void Add(T entity);
         void Update(T entity);
 

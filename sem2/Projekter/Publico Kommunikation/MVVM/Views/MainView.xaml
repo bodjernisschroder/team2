@@ -1,10 +1,10 @@
-﻿<Window x:Class="Publico_Kommunikation_Project.MVVM.Views.MainWindow"
+﻿<Window x:Class="Publico_Kommunikation_Project.MVVM.Views.MainView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Publico_Kommunikation_Project.MVVM.ViewModels"
-        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors" d:DataContext="{d:DesignInstance Type=local:MainViewModel}"
         mc:Ignorable="d"
         Title="Publico Kommunikation" MinHeight="500" Width="1000" Height="550"
         ResizeMode="NoResize">
@@ -13,20 +13,21 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
-            <Button Content="Products"
+            <Button Content="Opret nyt tilbud"
                     Height="25"
-                    Command="{Binding NavigateToProductsViewCommand}"/>
-            
-            <Button Content="Quotes"
-                    Height="25"
-                    Command="{Binding NavigateToQuoteViewCommand}"/>
-            
+                    Command="{Binding ShowQuoteAndProductsCommand}"/>
+
         </StackPanel>
 
-        <ContentControl Grid.Column="1" Content="{Binding Navigation.CurrentView}">
+        <ContentControl Grid.Column="1" Content="{Binding QuoteView}">
             
+        </ContentControl>
+
+        <ContentControl Grid.Column="2" Content="{Binding ProductsView}">
+
         </ContentControl>
     </Grid>
 

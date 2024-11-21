@@ -6,7 +6,7 @@ using Publico_Kommunikation_Project.MVVM.Models;
 namespace Publico_Kommunikation_Project.DataAccess
 {
     // Repository class implementing the IRepository interface
-    public class CategoryRepository : IRepository<Category>
+    public class CategoryRepository : ISimpleKeyRepository<Category>
     {
         private readonly string _connectionString; // Connection string for the SQL database
 
@@ -51,7 +51,7 @@ namespace Publico_Kommunikation_Project.DataAccess
         }
 
         // Method to retrieve a specific record by its Id
-        public Category GetById(int id)
+        public Category GetByKey(int key)
         {
             Category category = null;
             using (sqlCon = new SqlConnection(SqlconString))
@@ -59,7 +59,7 @@ namespace Publico_Kommunikation_Project.DataAccess
                 sqlCon.Open();
                 SqlCommand sql_cmnd = new SqlCommand("uspCreateCategory", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
-                sql_cmnd.Parameters.AddWithValue("@CategoryId", SqlDbType.Int).Value = id;
+                sql_cmnd.Parameters.AddWithValue("@CategoryId", SqlDbType.Int).Value = key;
 
                 using (SqlDataReader reader = sql_cmnd.ExecuteReader())
                 {
@@ -105,14 +105,14 @@ namespace Publico_Kommunikation_Project.DataAccess
         }
 
         // Method to delete a record from the database by its Id
-        public void Delete(int id)
+        public void Delete(int key)
         {
             using (sqlCon = new SqlConnection(SqlconString))
             {
                 sqlCon.Open();
                 SqlCommand sql_cmnd = new SqlCommand("uspDeleteCategory", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
-                sql_cmnd.Parameters.AddWithValue("@CategoryId", SqlDbType.Int).Value = id;
+                sql_cmnd.Parameters.AddWithValue("@CategoryId", SqlDbType.Int).Value = key;
                 sql_cmnd.ExecuteNonQuery();
             }
         }

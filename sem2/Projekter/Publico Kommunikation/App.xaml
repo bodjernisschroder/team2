@@ -6,10 +6,10 @@
              xmlns:viewModel="clr-namespace:Publico_Kommunikation_Project.MVVM.ViewModels">
 <Application.Resources>
         <DataTemplate DataType="{x:Type viewModel:QuoteViewModel}">
-            <view:QuotePage />
+            <view:QuoteView />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModel:ProductsViewModel}">
-            <view:ProductsPage />
+            <view:ProductsView />
         </DataTemplate>
         
     </Application.Resources>

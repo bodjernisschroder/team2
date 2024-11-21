@@ -8,7 +8,7 @@ namespace Publico_Kommunikation_Project.DataAccess
 {
     public interface ICompositeKeyRepository<T> : IRepository<T> where T : class
     {
-        T GetByCompositeKey(int key1, int key2);
+        T GetByKey(int key1, int key2);
         void Delete(int key1, int key2);
     }
 }

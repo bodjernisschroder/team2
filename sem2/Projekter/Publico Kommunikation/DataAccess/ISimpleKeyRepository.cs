@@ -8,7 +8,7 @@ namespace Publico_Kommunikation_Project.DataAccess
 {
     public interface ISimpleKeyRepository<T> : IRepository<T> where T : class
     {
-        T GetById(int id);
-        void Delete(int id);
+        T GetByKey(int key);
+        void Delete(int key);
     }
 }

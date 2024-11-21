@@ -6,7 +6,7 @@ using Publico_Kommunikation_Project.MVVM.Models;
 namespace Publico_Kommunikation_Project.DataAccess
 {
     // Repository class implementing the IRepository interface
-    public class QuoteProductRepository : IRepository<QuoteProduct>
+    public class QuoteProductRepository : ICompositeKeyRepository<QuoteProduct>
     {
         private readonly string _connectionString; // Connection string for the SQL database
 
@@ -50,7 +50,7 @@ namespace Publico_Kommunikation_Project.DataAccess
         }
 
         // Method to retrieve a specific record by its Id
-        public QuoteProduct GetById(int id)
+        public QuoteProduct GetByKey(int key1, int key2)
         {
             QuoteProduct quoteProduct = null;
             using (sqlCon = new SqlConnection(SqlconString))
@@ -58,8 +58,8 @@ namespace Publico_Kommunikation_Project.DataAccess
                 sqlCon.Open();
                 SqlCommand sql_cmnd = new SqlCommand("uspCreateQuoteProduct", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
-                sql_cmnd.Parameters.AddWithValue("@QuoteProductId", SqlDbType.Int).Value = id;
-
+                sql_cmnd.Parameters.AddWithValue("@QuoteId", SqlDbType.Int).Value = key1;
+                sql_cmnd.Parameters.AddWithValue("@ProductId", SqlDbType.Int).Value = key2;
                 using (SqlDataReader reader = sql_cmnd.ExecuteReader())
                 {
                     if (reader.Read())
@@ -86,6 +86,8 @@ namespace Publico_Kommunikation_Project.DataAccess
                 sqlCon.Open();
                 SqlCommand sql_cmnd = new SqlCommand("uspCreateQuoteProduct", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
+                sql_cmnd.Parameters.AddWithValue("@QuoteId", SqlDbType.Int).Value = quoteProduct.QuoteId;
+                sql_cmnd.Parameters.AddWithValue("@ProductId", SqlDbType.Int).Value = quoteProduct.ProductId;
                 sql_cmnd.Parameters.AddWithValue("@QuoteProductTimeEstimate", SqlDbType.Float).Value = quoteProduct.QuoteProductTimeEstimate;
                 sql_cmnd.Parameters.AddWithValue("@QuoteProductPrice", SqlDbType.Float).Value = quoteProduct.QuoteProductPrice;
                 sql_cmnd.ExecuteNonQuery();
@@ -101,6 +103,7 @@ namespace Publico_Kommunikation_Project.DataAccess
                 SqlCommand sql_cmnd = new SqlCommand("uspUpdateQuoteProduct", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
                 sql_cmnd.Parameters.AddWithValue("@QuoteId", SqlDbType.Int).Value = quoteProduct.QuoteId;
+                sql_cmnd.Parameters.AddWithValue("@ProductId", SqlDbType.Int).Value = quoteProduct.ProductId;
                 sql_cmnd.Parameters.AddWithValue("@QuoteProductTimeEstimate", SqlDbType.Float).Value = quoteProduct.QuoteProductTimeEstimate;
                 sql_cmnd.Parameters.AddWithValue("@QuoteProductPrice", SqlDbType.Float).Value = quoteProduct.QuoteProductPrice;
                 sql_cmnd.ExecuteNonQuery();
@@ -108,14 +111,15 @@ namespace Publico_Kommunikation_Project.DataAccess
         }
 
         // Method to delete a record from the database by its Id
-        public void Delete(int id)
+        public void Delete(int key1, int key2)
         {
             using (sqlCon = new SqlConnection(SqlconString))
             {
                 sqlCon.Open();
                 SqlCommand sql_cmnd = new SqlCommand("uspDeleteQuoteProduct", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
-                sql_cmnd.Parameters.AddWithValue("@QuoteId", SqlDbType.Int).Value = id;
+                sql_cmnd.Parameters.AddWithValue("@QuoteId", SqlDbType.Int).Value = key1;
+                sql_cmnd.Parameters.AddWithValue("@ProductId", SqlDbType.Int).Value = key2;
                 sql_cmnd.ExecuteNonQuery();
             }
         }

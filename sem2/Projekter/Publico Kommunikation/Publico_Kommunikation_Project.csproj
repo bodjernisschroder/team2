@@ -9,8 +9,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="MVVM\Views\ProductsPage.xaml.cs" />
+    <Compile Remove="MVVM\Views\QuotePage.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Appsettings" />
     <None Remove="Queries\tables_Senere.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="MVVM\Views\ProductsPage.xaml" />
+    <Page Remove="MVVM\Views\QuotePage.xaml" />
   </ItemGroup>
 
   <ItemGroup>
