@@ -17,15 +17,15 @@ namespace Publico_Kommunikation_Project.DataAccess
         }
 
         // Stored procedure
-        SqlConnection sqlCon = null;
+        // SqlConnection sqlCon = null;
 
-        String SqlconString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        // String SqlconString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         // Method to retrieve all records from the database
         public IEnumerable<Category> GetAll()
         {
             var category = new List<Category>();
-            using (sqlCon = new SqlConnection(SqlconString))
+            using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
                 SqlCommand sql_cmnd = new SqlCommand("uspGetAllCategory", sqlCon);
@@ -54,7 +54,7 @@ namespace Publico_Kommunikation_Project.DataAccess
         public Category GetByKey(int key)
         {
             Category category = null;
-            using (sqlCon = new SqlConnection(SqlconString))
+            using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
                 SqlCommand sql_cmnd = new SqlCommand("uspCreateCategory", sqlCon);
@@ -80,7 +80,7 @@ namespace Publico_Kommunikation_Project.DataAccess
         // Method to add a new record to the database
         public void Add(Category category)
         {
-            using (sqlCon = new SqlConnection(SqlconString))
+            using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
                 SqlCommand sql_cmnd = new SqlCommand("uspCreateCategory", sqlCon);
@@ -93,7 +93,7 @@ namespace Publico_Kommunikation_Project.DataAccess
         // Method to update an existing record in the database
         public void Update(Category category)
         {
-            using (sqlCon = new SqlConnection(SqlconString))
+            using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
                 SqlCommand sql_cmnd = new SqlCommand("uspUpdateCategory", sqlCon);
@@ -107,7 +107,7 @@ namespace Publico_Kommunikation_Project.DataAccess
         // Method to delete a record from the database by its Id
         public void Delete(int key)
         {
-            using (sqlCon = new SqlConnection(SqlconString))
+            using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
                 SqlCommand sql_cmnd = new SqlCommand("uspDeleteCategory", sqlCon);

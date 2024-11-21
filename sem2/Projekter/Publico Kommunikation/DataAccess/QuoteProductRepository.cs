@@ -17,15 +17,15 @@ namespace Publico_Kommunikation_Project.DataAccess
         }
 
         // Stored procedure
-        SqlConnection sqlCon = null;
+        //SqlConnection sqlCon = null;
 
-        String SqlconString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        //String SqlconString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         // Method to retrieve all records from the database
         public IEnumerable<QuoteProduct> GetAll()
         {
             var quoteProduct = new List<QuoteProduct>();
-            using (sqlCon = new SqlConnection(SqlconString))
+            using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
                 SqlCommand sql_cmnd = new SqlCommand("uspGetAllQuoteProduct", sqlCon);
@@ -53,7 +53,7 @@ namespace Publico_Kommunikation_Project.DataAccess
         public QuoteProduct GetByKey(int key1, int key2)
         {
             QuoteProduct quoteProduct = null;
-            using (sqlCon = new SqlConnection(SqlconString))
+            using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
                 SqlCommand sql_cmnd = new SqlCommand("uspCreateQuoteProduct", sqlCon);
@@ -81,7 +81,7 @@ namespace Publico_Kommunikation_Project.DataAccess
         // Method to add a new record to the database
         public void Add(QuoteProduct quoteProduct)
         {
-            using (sqlCon = new SqlConnection(SqlconString))
+            using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
                 SqlCommand sql_cmnd = new SqlCommand("uspCreateQuoteProduct", sqlCon);
@@ -97,7 +97,7 @@ namespace Publico_Kommunikation_Project.DataAccess
         // Method to update an existing record in the database
         public void Update(QuoteProduct quoteProduct)
         {
-            using (sqlCon = new SqlConnection(SqlconString))
+            using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
                 SqlCommand sql_cmnd = new SqlCommand("uspUpdateQuoteProduct", sqlCon);
@@ -113,7 +113,7 @@ namespace Publico_Kommunikation_Project.DataAccess
         // Method to delete a record from the database by its Id
         public void Delete(int key1, int key2)
         {
-            using (sqlCon = new SqlConnection(SqlconString))
+            using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
                 SqlCommand sql_cmnd = new SqlCommand("uspDeleteQuoteProduct", sqlCon);
