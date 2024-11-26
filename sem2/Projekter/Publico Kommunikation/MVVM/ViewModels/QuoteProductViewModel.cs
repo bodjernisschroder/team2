@@ -1,4 +1,5 @@
 ﻿using Publico_Kommunikation_Project.Core;
+using Publico_Kommunikation_Project.DataAccess;
 using Publico_Kommunikation_Project.MVVM.Models;
 
 namespace Publico_Kommunikation_Project.MVVM.ViewModels
@@ -7,6 +8,8 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
     {
 
         public QuoteProduct Model;
+        private string _quoteProductName;
+        private QuoteProductRepository _quoteProductRepository;
 
         public QuoteProductViewModel(QuoteProduct quoteProduct)
         {
@@ -33,6 +36,19 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             }
         }
 
+
+        //Anna kigger på denne 
+        public string QuoteProductName
+        {
+            get { return _quoteProductName; }
+            set 
+            { 
+                _quoteProductName = value;
+                OnPropertyChanged(QuoteProductName);
+            }
+        }
+
+
         public double QuoteProductTimeEstimate
         {
             get { return Model.QuoteProductTimeEstimate; }
@@ -46,12 +62,16 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         public double QuoteProductPrice
         {
             get { return Model.QuoteProductPrice; }
-
             set
             {
                 Model.QuoteProductPrice = value;
                 OnPropertyChanged(nameof(QuoteProductPrice));
             }
+        }
+
+        public void UpdateQuoteProduct(QuoteProduct quoteProduct)
+        {
+            _quoteProductRepository.Update(quoteProduct);
         }
     }
 }

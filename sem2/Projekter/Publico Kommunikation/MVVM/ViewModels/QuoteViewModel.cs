@@ -68,20 +68,41 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         public RelayCommand NavigateToProductsViewCommand { get; set; }
         // public ObservableCollection<ProductViewModel> SelectedProduct {get ; set; } // Får besked fra ProductsViewModel Add-knap
         private QuoteProductRepository _quoteProductRepository;
-        public ObservableCollection<QuoteProduct> QuoteProducts;
-        public RelayCommand GetByIdClassTemplateCommand { get; }
+        private QuoteRepository _quoteRepository;
+        public ObservableCollection<QuoteProductViewModel> QuoteProducts;
         public RelayCommand DeleteQuoteProductCommand { get; }
+        public RelayCommand SaveQuoteAndQuoteProductsCommand { get; }
 
         public QuoteViewModel(INavigationService navigation)
         {
             Navigation = navigation;
             NavigateToProductsViewCommand = new RelayCommand(execute: o => { Navigation.NavigateTo<ProductsViewModel>(); }, canExecute: o => true);
+
+            SaveQuoteAndQuoteProductsCommand = new RelayCommand(execute: o => { SaveQuoteAndQuoteProducts(); }, canExecute: o => true);
+
+            DeleteQuoteProductCommand = new RelayCommand(execute: o => { DeleteQuoteProduct(o); }, canExecute: o => true);
+
+            QuoteProducts = new ObservableCollection<QuoteProductViewModel>();
+
         }
 
         public void Initialize(Quote quote)
         {
             if (quote == null) throw new ArgumentNullException(nameof(quote));
             _model = quote;
+
+            var quoteProduct = new QuoteProduct { ProductId = 1, QuoteId = 1, QuoteProductPrice = 100.00, QuoteProductTimeEstimate = 1};
+
+            var quoteProduct1 = new QuoteProduct { ProductId = 2, QuoteId = 1};
+
+            var quoteProductViewModel = new QuoteProductViewModel(quoteProduct);
+
+            var quoteProductViewModel1 = new QuoteProductViewModel(quoteProduct1);
+
+            QuoteProducts.Add(quoteProductViewModel);
+
+            QuoteProducts.Add(quoteProductViewModel1);
+
         }
 
         //Enten at have en GetAll eller en GetById 
@@ -95,24 +116,34 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         // Adds ClassTemplate to collections
         // Går igennem listen med SelectedProducts og opretter og tilføjer dem til QuoteProducts
-        public void AddQuoteProduct(QuoteProduct quoteProduct)
+        public void AddQuoteProduct(QuoteProductViewModel quoteProductViewModel)
         {
-            _quoteProductRepository.Add(quoteProduct);
-            QuoteProducts.Add(quoteProduct);
+            _quoteProductRepository.Add(quoteProductViewModel.Model);
+            QuoteProducts.Add(quoteProductViewModel);
         }
 
-        // Updates Repository
-        //Update QuoteProduct 
-        public void UpdateQuoteProduct(QuoteProduct quoteProduct)
-        {
-            _quoteProductRepository.Update(quoteProduct);
-        }
 
-        // Deletes ClassTemplate from collections
         // Deletes QuoteProduct
-        public void DeleteQuoteProduct(QuoteProduct quoteProduct)
+        public void DeleteQuoteProduct(object o)
         {
-            
+            if (o is QuoteProductViewModel quoteProductViewModel)
+            {
+                _quoteProductRepository.Delete(quoteProductViewModel.QuoteId, quoteProductViewModel.ProductId);
+                QuoteProducts.Remove(quoteProductViewModel);
+            }
+        }
+
+        //Updates Repository
+        //Update Quote
+        public void SaveQuoteAndQuoteProducts()
+        {
+            //Error handling her
+            foreach (QuoteProductViewModel quoteProductViewModel in QuoteProducts)
+            {
+                _quoteProductRepository.Update(quoteProductViewModel.Model);
+            }
+
+            _quoteRepository.Update(_model);
         }
     }
 }

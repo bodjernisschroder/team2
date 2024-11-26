@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:Publico_Kommunikation_Project.MVVM.ViewModels"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors" d:DataContext="{d:DesignInstance Type=local:MainViewModel}"
         mc:Ignorable="d"
-        Title="Publico Kommunikation" MinHeight="500" Width="1000" Height="550"
+        Title="Publico Kommunikation" Width="1000" Height="550"
         ResizeMode="NoResize">
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
             <Button Content="Opret nyt tilbud"

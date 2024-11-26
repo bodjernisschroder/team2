@@ -38,8 +38,8 @@ namespace Publico_Kommunikation_Project.DataAccess
                         // Populate the object from the SQL data
                         quoteProduct.Add(new QuoteProduct
                         {
-                            QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("QuoteId")),
-                            ProductId = reader.IsDBNull(reader.GetOrdinal("ProductId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("ProductId")),
+                            QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("QuoteId")),
+                            ProductId = reader.IsDBNull(reader.GetOrdinal("ProductId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("ProductId")),
                             QuoteProductTimeEstimate = reader.IsDBNull(reader.GetOrdinal("QuoteProductTimeEstimate")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("QuoteProductTimeEstimate")),
                             QuoteProductPrice = reader.IsDBNull(reader.GetOrdinal("QuoteProductPrice")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("QuoteProductPrice"))
                         });
@@ -56,7 +56,7 @@ namespace Publico_Kommunikation_Project.DataAccess
             using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspCreateQuoteProduct", sqlCon);
+                SqlCommand sql_cmnd = new SqlCommand("uspGetByKeyQuoteProduct", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
                 sql_cmnd.Parameters.AddWithValue("@QuoteId", SqlDbType.Int).Value = key1;
                 sql_cmnd.Parameters.AddWithValue("@ProductId", SqlDbType.Int).Value = key2;
@@ -67,8 +67,8 @@ namespace Publico_Kommunikation_Project.DataAccess
                         // Populate the object from the SQL data
                         quoteProduct = new QuoteProduct
                         {
-                            QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("QuoteId")),
-                            ProductId = reader.IsDBNull(reader.GetOrdinal("ProductId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("ProductId")),
+                            QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("QuoteId")),
+                            ProductId = reader.IsDBNull(reader.GetOrdinal("ProductId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("ProductId")),
                             QuoteProductTimeEstimate = reader.IsDBNull(reader.GetOrdinal("QuoteProductTimeEstimate")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("QuoteProductTimeEstimate")),
                             QuoteProductPrice = reader.IsDBNull(reader.GetOrdinal("QuoteProductPrice")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("QuoteProductPrice"))
                         };
@@ -107,6 +107,7 @@ namespace Publico_Kommunikation_Project.DataAccess
                 sql_cmnd.Parameters.AddWithValue("@QuoteProductTimeEstimate", SqlDbType.Float).Value = quoteProduct.QuoteProductTimeEstimate;
                 sql_cmnd.Parameters.AddWithValue("@QuoteProductPrice", SqlDbType.Float).Value = quoteProduct.QuoteProductPrice;
                 sql_cmnd.ExecuteNonQuery();
+                
             }
         }
 

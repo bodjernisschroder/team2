@@ -38,7 +38,7 @@ namespace Publico_Kommunikation_Project.DataAccess
                         // Populate the object from the SQL data
                         quote.Add(new Quote
                         {
-                            QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("QuoteId")),
+                            QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("QuoteId")),
                             HourlyRate = reader.IsDBNull(reader.GetOrdinal("HourlyRate")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("HourlyRate")),
                             DiscountPercentage = reader.IsDBNull(reader.GetOrdinal("DiscountPercentage")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("DiscountPercentage")),
                             Sum = reader.IsDBNull(reader.GetOrdinal("Sum")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("Sum"))
@@ -56,7 +56,7 @@ namespace Publico_Kommunikation_Project.DataAccess
             using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspCreateQuote", sqlCon);
+                SqlCommand sql_cmnd = new SqlCommand("uspGetByKeyQuote", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
                 sql_cmnd.Parameters.AddWithValue("@QuoteId", SqlDbType.Int).Value = key;
 
@@ -67,8 +67,8 @@ namespace Publico_Kommunikation_Project.DataAccess
                         // Populate the object from the SQL data
                         quote = new Quote
                         {
-                            QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("QuoteId")),
-                            HourlyRate = reader.IsDBNull(reader.GetOrdinal("HourlyRate")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("HourlyRate")),
+                            QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("QuoteId")),
+                            HourlyRate = reader.IsDBNull(reader.GetOrdinal("HourlyRate")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("HourlyRate")),
                             DiscountPercentage = reader.IsDBNull(reader.GetOrdinal("DiscountPercentage")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("DiscountPercentage")),
                             Sum = reader.IsDBNull(reader.GetOrdinal("Sum")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("Sum"))
                         };

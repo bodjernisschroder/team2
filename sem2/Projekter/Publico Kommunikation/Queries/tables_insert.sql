@@ -1,17 +1,8 @@
-﻿--Insert values 
-
-INSERT INTO CLASSTEMPLATE (ClassTemplateId, RelatedId, Description)
-VALUES
-(1, 101, 'First class template'),
-(2, 102, 'Second class template'),
-(3, 103, 'Third class template');
-GO
-
---Insert values for CATEGORY table 
-INSERT INTO CATEGORY (CategoryId, CategoryName) VALUES ('Strategi');--1
-INSERT INTO CATEGORY (CategoryId, CategoryName) VALUES ('Indhold');--2
-INSERT INTO CATEGORY (CategoryId, CategoryName) VALUES ('Digital Marketing');--3
-INSERT INTO CATEGORY (CategoryId, CategoryName) VALUES ('Film');--4
+﻿--Insert values for CATEGORY table 
+INSERT INTO CATEGORY (CategoryName) VALUES ('Strategi');--1
+INSERT INTO CATEGORY (CategoryName) VALUES ('Indhold');--2
+INSERT INTO CATEGORY (CategoryName) VALUES ('Digital Marketing');--3
+INSERT INTO CATEGORY (CategoryName) VALUES ('Film');--4
 GO
 
 --Insert values for PRODUCT table - Strategi

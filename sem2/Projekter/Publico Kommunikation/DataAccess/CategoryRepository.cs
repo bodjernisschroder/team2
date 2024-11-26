@@ -38,7 +38,7 @@ namespace Publico_Kommunikation_Project.DataAccess
                         // Populate the object from the SQL data
                         category.Add(new Category
                         {
-                            CategoryId = reader.IsDBNull(reader.GetOrdinal("CategoryId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("CategoryId")),
+                            CategoryId = reader.IsDBNull(reader.GetOrdinal("CategoryId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("CategoryId")),
 
                             // Directly cast "Description" to string, no need for DBNull check if it's guaranteed to be non-null
                             CategoryName = reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? string.Empty : reader.GetString(reader.GetOrdinal("CategoryName")),
@@ -57,7 +57,7 @@ namespace Publico_Kommunikation_Project.DataAccess
             using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspCreateCategory", sqlCon);
+                SqlCommand sql_cmnd = new SqlCommand("uspGetByKeyCategory", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
                 sql_cmnd.Parameters.AddWithValue("@CategoryId", SqlDbType.Int).Value = key;
 
@@ -68,7 +68,7 @@ namespace Publico_Kommunikation_Project.DataAccess
                         // Populate the object from the SQL data
                         category = new Category
                         {
-                            CategoryId = reader.IsDBNull(reader.GetOrdinal("CategoryId")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("CategoryId")),
+                            CategoryId = reader.IsDBNull(reader.GetOrdinal("CategoryId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("CategoryId")),
                             CategoryName = reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? string.Empty : reader.GetString(reader.GetOrdinal("CategoryName")),
                         };
                     }
