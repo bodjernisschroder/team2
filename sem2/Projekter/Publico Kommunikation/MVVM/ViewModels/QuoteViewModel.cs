@@ -69,21 +69,19 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         // public ObservableCollection<ProductViewModel> SelectedProduct {get ; set; } // Får besked fra ProductsViewModel Add-knap
         private QuoteProductRepository _quoteProductRepository;
         private QuoteRepository _quoteRepository;
-        public ObservableCollection<QuoteProductViewModel> QuoteProducts;
-        public RelayCommand DeleteQuoteProductCommand { get; }
-        public RelayCommand SaveQuoteAndQuoteProductsCommand { get; }
+        public ObservableCollection<QuoteProductViewModel> QuoteProducts { get; set; }
+        public RelayCommand DeleteQuoteProductCommand { get; set; }
+        public RelayCommand SaveQuoteAndQuoteProductsCommand { get; set; }
 
-        public QuoteViewModel(INavigationService navigation)
+        public QuoteViewModel(INavigationService navigation, QuoteRepository quoteRepository, QuoteProductRepository quoteProductRepository)
         {
             Navigation = navigation;
             NavigateToProductsViewCommand = new RelayCommand(execute: o => { Navigation.NavigateTo<ProductsViewModel>(); }, canExecute: o => true);
-
+            _quoteRepository = quoteRepository;
+            _quoteProductRepository = quoteProductRepository;
             SaveQuoteAndQuoteProductsCommand = new RelayCommand(execute: o => { SaveQuoteAndQuoteProducts(); }, canExecute: o => true);
-
             DeleteQuoteProductCommand = new RelayCommand(execute: o => { DeleteQuoteProduct(o); }, canExecute: o => true);
-
             QuoteProducts = new ObservableCollection<QuoteProductViewModel>();
-
         }
 
         public void Initialize(Quote quote)
@@ -91,21 +89,18 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             if (quote == null) throw new ArgumentNullException(nameof(quote));
             _model = quote;
 
+            // Midlertidige QuoteProducts - manuel indsættelse
             var quoteProduct = new QuoteProduct { ProductId = 1, QuoteId = 1, QuoteProductPrice = 100.00, QuoteProductTimeEstimate = 1};
-
             var quoteProduct1 = new QuoteProduct { ProductId = 2, QuoteId = 1};
-
             var quoteProductViewModel = new QuoteProductViewModel(quoteProduct);
-
             var quoteProductViewModel1 = new QuoteProductViewModel(quoteProduct1);
-
+            _quoteProductRepository.Add(quoteProductViewModel.Model);
+            _quoteProductRepository.Add(quoteProductViewModel1.Model);
             QuoteProducts.Add(quoteProductViewModel);
-
             QuoteProducts.Add(quoteProductViewModel1);
-
         }
 
-        //Enten at have en GetAll eller en GetById 
+        //Enten at have en GetAll eller en GetById
         public void GetAllQuoteProducts(int quoteId)
         {
             throw new NotImplementedException();

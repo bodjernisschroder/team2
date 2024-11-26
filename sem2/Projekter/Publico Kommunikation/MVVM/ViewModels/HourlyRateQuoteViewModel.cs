@@ -1,4 +1,5 @@
-﻿using Publico_Kommunikation_Project.MVVM.Models;
+﻿using Publico_Kommunikation_Project.DataAccess;
+using Publico_Kommunikation_Project.MVVM.Models;
 using Publico_Kommunikation_Project.Services;
 
 namespace Publico_Kommunikation_Project.MVVM.ViewModels
@@ -13,7 +14,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         {
             throw new NotImplementedException();
         }
-        public HourlyRateQuoteViewModel(INavigationService navigation) : base(navigation)
+        public HourlyRateQuoteViewModel(INavigationService navigation, QuoteRepository quoteRepository, QuoteProductRepository quoteProductRepository) : base(navigation, quoteRepository, quoteProductRepository)
         {
 
         }

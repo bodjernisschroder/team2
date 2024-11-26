@@ -1,4 +1,5 @@
-﻿using Publico_Kommunikation_Project.MVVM.Models;
+﻿using Publico_Kommunikation_Project.DataAccess;
+using Publico_Kommunikation_Project.MVVM.Models;
 using Publico_Kommunikation_Project.Services;
 
 namespace Publico_Kommunikation_Project.MVVM.ViewModels
@@ -14,9 +15,8 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             throw new NotImplementedException();
         }
 
-        public SumQuoteViewModel(INavigationService navigation) : base(navigation)
+        public SumQuoteViewModel(INavigationService navigation, QuoteRepository quoteRepository, QuoteProductRepository quoteProductRepository) : base(navigation, quoteRepository, quoteProductRepository)
         {
-
         }
     }
 }
