@@ -89,15 +89,15 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             if (quote == null) throw new ArgumentNullException(nameof(quote));
             _model = quote;
 
-            // Midlertidige QuoteProducts - manuel indsættelse
-            var quoteProduct = new QuoteProduct { ProductId = 1, QuoteId = 1, QuoteProductPrice = 100.00, QuoteProductTimeEstimate = 1};
-            var quoteProduct1 = new QuoteProduct { ProductId = 2, QuoteId = 1};
-            var quoteProductViewModel = new QuoteProductViewModel(quoteProduct);
-            var quoteProductViewModel1 = new QuoteProductViewModel(quoteProduct1);
-            _quoteProductRepository.Add(quoteProductViewModel.Model);
-            _quoteProductRepository.Add(quoteProductViewModel1.Model);
-            QuoteProducts.Add(quoteProductViewModel);
-            QuoteProducts.Add(quoteProductViewModel1);
+            //// Midlertidige QuoteProducts - manuel indsættelse
+            //var quoteProduct = new QuoteProduct { ProductId = 1, QuoteId = 1, QuoteProductPrice = 100.00, QuoteProductTimeEstimate = 1};
+            //var quoteProduct1 = new QuoteProduct { ProductId = 2, QuoteId = 1};
+            //var quoteProductViewModel = new QuoteProductViewModel(quoteProduct);
+            //var quoteProductViewModel1 = new QuoteProductViewModel(quoteProduct1);
+            //_quoteProductRepository.Add(quoteProductViewModel.Model);
+            //_quoteProductRepository.Add(quoteProductViewModel1.Model);
+            //QuoteProducts.Add(quoteProductViewModel);
+            //QuoteProducts.Add(quoteProductViewModel1);
         }
 
         //Enten at have en GetAll eller en GetById

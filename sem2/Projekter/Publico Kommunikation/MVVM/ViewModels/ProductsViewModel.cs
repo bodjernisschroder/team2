@@ -19,7 +19,10 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         public ObservableCollection<Category> Categories { get; set; }
         public ObservableCollection<ProductViewModel> Products { get; set; }
-
+        public ObservableCollection<ProductViewModel> CategoryStrategi { get; set; }
+        public ObservableCollection<ProductViewModel> CategoryIndhold { get; set; }
+        public ObservableCollection<ProductViewModel> CategoryDigitalMarketing { get; set; }
+        public ObservableCollection<ProductViewModel> CategoryFilm { get; set; }
         public RelayCommand AddProductsCommand { get; set; }
         public RelayCommand SetCategoryCommand { get; set; }
 
@@ -36,24 +39,23 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             Categories = new ObservableCollection<Category>(categories);
 
             // Populate Products
-            //var products = _productrepository.getall(); 
-            //foreach (category category in categories)
-            //{
-
-            //}
             var products = _productRepository.GetAll();
             Products = new ObservableCollection<ProductViewModel>();
+
+            CategoryStrategi = new ObservableCollection<ProductViewModel>();
+            CategoryIndhold = new ObservableCollection<ProductViewModel>();
+            CategoryDigitalMarketing = new ObservableCollection<ProductViewModel>();
+            CategoryFilm = new ObservableCollection<ProductViewModel>();
 
             foreach (Product p in products)
             {
                 var productViewModel = new ProductViewModel(p);
-                Products.Add(productViewModel);
+                if (productViewModel.CategoryId == 1) CategoryStrategi.Add(productViewModel);
+                else if (productViewModel.CategoryId == 2) CategoryIndhold.Add(productViewModel);
+                else if (productViewModel.CategoryId == 3) CategoryDigitalMarketing.Add(productViewModel);
+                else CategoryFilm.Add(productViewModel);
             }
-            // SelectCategory(1);
-
-            //SetCategoryCommand = new RelayCommand(execute: o => { SetCategory(o); }, canExecute: o => true);
             AddProductsCommand = new RelayCommand(execute: o => { AddProducts(); }, canExecute: o => true);
-
         }
 
         public void AddProducts()
@@ -69,27 +71,5 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
                 }
             }
         }
-
-        //public void SetCategory(object o)
-        //{
-
-
-        //    if (o is Category category)
-        //    {
-       
-        //        Products = new ObservableCollection<ProductViewModel>();
-
-        //        foreach (Product p in products)
-        //        {
-        //            if (p.CategoryId == category.CategoryId)
-        //            {
-        //                var productViewModel = new ProductViewModel(p);
-        //                Products.Add(productViewModel);
-        //            }
-        //        }
-        //    }
-
-           
-        //}
     }
 }

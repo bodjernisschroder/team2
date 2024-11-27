@@ -17,7 +17,7 @@
                     <ListBox x:Name="StrategiListBox"
                              Margin="0,0,0,0"
                              SelectionMode="Multiple"
-                             ItemsSource="{Binding Products}"
+                             ItemsSource="{Binding CategoryStrategi}"
                              SelectedItem="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=Window}}"
                              DisplayMemberPath="ProductName">
                     </ListBox>
@@ -28,7 +28,7 @@
                     <ListBox x:Name="IndholdListBox"
                              Margin="0,0,0,0"
                              SelectionMode="Multiple"
-                             ItemsSource="{Binding Products}"
+                             ItemsSource="{Binding CategoryIndhold}"
                              SelectedItem="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=Window}}"
                              DisplayMemberPath="ProductName">
                     </ListBox>
@@ -39,7 +39,7 @@
                     <ListBox x:Name="DigitalMarketingListBox"
                              Margin="0,0,0,0" 
                              SelectionMode="Multiple"
-                             ItemsSource="{Binding Products}"
+                             ItemsSource="{Binding CategoryDigitalMarketing}"
                              SelectedItem="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=Window}}"
                              DisplayMemberPath="ProductName">
                     </ListBox>
@@ -50,7 +50,7 @@
                     <ListBox x:Name="FilmListBox"
                              Margin="0,0,0,0"
                              SelectionMode="Multiple"
-                             ItemsSource="{Binding Products}"
+                             ItemsSource="{Binding CategoryFilm}"
                              SelectedItem="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=Window}}"
                              DisplayMemberPath="ProductName">
                     </ListBox>
