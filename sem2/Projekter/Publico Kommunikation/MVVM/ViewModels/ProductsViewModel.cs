@@ -62,12 +62,12 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         public void AddProducts()
         {
-
-            foreach (ProductViewModel p in Products)
+            foreach (ProductViewModel p in CategoryStrategi)
             {
                 if (p.IsSelected)
                 {
-                    var quoteProduct = new QuoteProduct { QuoteId = _quoteViewModel.QuoteId, ProductId = p.ProductId };
+                    var quoteProduct = new QuoteProduct { QuoteId = _quoteViewModel.QuoteId, ProductId = p.ProductId};
+
                     var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
                     _quoteViewModel.AddQuoteProduct(quoteProductViewModel);
                 }
