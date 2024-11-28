@@ -16,6 +16,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         // contain objects for themselves.
         private CategoryRepository _categoryRepository;
         private ProductRepository _productRepository;
+        private QuoteProductRepository _quoteProductRepository;
 
         public ObservableCollection<Category> Categories { get; set; }
         public ObservableCollection<ProductViewModel> Products { get; set; }
@@ -26,10 +27,11 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         public RelayCommand AddProductsCommand { get; set; }
         public RelayCommand SetCategoryCommand { get; set; }
 
-        public ProductsViewModel(CategoryRepository categoryRepository, ProductRepository productRepository, QuoteViewModel quoteViewModel)
+        public ProductsViewModel(CategoryRepository categoryRepository, ProductRepository productRepository, QuoteProductRepository quoteProductRepository, QuoteViewModel quoteViewModel)
         {
             _categoryRepository = categoryRepository;
             _productRepository = productRepository;
+            _quoteProductRepository = quoteProductRepository;
 
             if (quoteViewModel == null) throw new ArgumentNullException(nameof(quoteViewModel));
             _quoteViewModel = quoteViewModel;
@@ -66,7 +68,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
                 if (p.IsSelected)
                 {
                     var quoteProduct = new QuoteProduct { QuoteId = _quoteViewModel.QuoteId, ProductId = p.ProductId };
-                    var quoteProductViewModel = new QuoteProductViewModel(quoteProduct);
+                    var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
                     _quoteViewModel.AddQuoteProduct(quoteProductViewModel);
                 }
             }

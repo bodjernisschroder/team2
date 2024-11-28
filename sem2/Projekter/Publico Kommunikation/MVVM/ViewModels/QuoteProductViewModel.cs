@@ -8,12 +8,17 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
     {
 
         public QuoteProduct Model;
-        private string _quoteProductName;
+        private string _productName;
+        private ProductRepository _productRepository;
         private QuoteProductRepository _quoteProductRepository;
 
-        public QuoteProductViewModel(QuoteProduct quoteProduct)
+
+        public QuoteProductViewModel(QuoteProduct quoteProduct, ProductRepository productRepository, QuoteProductRepository quoteProductRepository)
         {
             Model = quoteProduct;
+            _productRepository = productRepository;
+            _quoteProductRepository = quoteProductRepository;
+            GetProductName();
         }
 
         public int QuoteId
@@ -33,18 +38,17 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             {
                 Model.ProductId = value;
                 OnPropertyChanged(nameof(ProductId));
+                GetProductName();
             }
         }
 
-
-        //Anna kigger på denne 
-        public string QuoteProductName
+        public string ProductName
         {
-            get { return _quoteProductName; }
+            get { return _productName; }
             set 
             { 
-                _quoteProductName = value;
-                OnPropertyChanged(QuoteProductName);
+                _productName = value;
+                OnPropertyChanged(nameof(ProductName));
             }
         }
 
@@ -72,6 +76,12 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         public void UpdateQuoteProduct(QuoteProduct quoteProduct)
         {
             _quoteProductRepository.Update(quoteProduct);
+        }
+
+        public void GetProductName()
+        {
+            var product = _productRepository.GetByKey(ProductId);
+            ProductName = product.ProductName;
         }
     }
 }
