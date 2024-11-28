@@ -40,7 +40,7 @@ namespace Publico_Kommunikation_Project.DataAccess
                         {
                             QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("QuoteId")),
                             HourlyRate = reader.IsDBNull(reader.GetOrdinal("HourlyRate")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("HourlyRate")),
-                            DiscountPercentage = reader.IsDBNull(reader.GetOrdinal("DiscountPercentage")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("DiscountPercentage")),
+                            DiscountPercentage = reader.IsDBNull(reader.GetOrdinal("DiscountPercentage")) ? 0.0m : reader.GetDecimal(reader.GetOrdinal("DiscountPercentage")),
                             Sum = reader.IsDBNull(reader.GetOrdinal("Sum")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("Sum"))
                         });
                     }
@@ -68,8 +68,8 @@ namespace Publico_Kommunikation_Project.DataAccess
                         quote = new Quote
                         {
                             QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("QuoteId")),
-                            HourlyRate = reader.IsDBNull(reader.GetOrdinal("HourlyRate")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("HourlyRate")),
-                            DiscountPercentage = reader.IsDBNull(reader.GetOrdinal("DiscountPercentage")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("DiscountPercentage")),
+                            HourlyRate = reader.IsDBNull(reader.GetOrdinal("HourlyRate")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("HourlyRate")),
+                            DiscountPercentage = reader.IsDBNull(reader.GetOrdinal("DiscountPercentage")) ? 0.0m : reader.GetDecimal(reader.GetOrdinal("DiscountPercentage")),
                             Sum = reader.IsDBNull(reader.GetOrdinal("Sum")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("Sum"))
                         };
                     }
@@ -89,9 +89,45 @@ namespace Publico_Kommunikation_Project.DataAccess
                 sql_cmnd.Parameters.AddWithValue("@HourlyRate", SqlDbType.Int).Value = quote.HourlyRate;
                 sql_cmnd.Parameters.AddWithValue("@DiscountPercentage", SqlDbType.Float).Value = quote.DiscountPercentage;
                 sql_cmnd.Parameters.AddWithValue("@Sum", SqlDbType.Float).Value = quote.Sum;
+                var quoteIdParam = new SqlParameter { ParameterName = "@QuoteId", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Output };
+                sql_cmnd.Parameters.Add(quoteIdParam);
+                // sql_cmnd.Parameters.AddWithValue("@quoteId", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Output).Value = quote.QuoteId;
                 sql_cmnd.ExecuteNonQuery();
+                quote.QuoteId = Convert.ToInt32(quoteIdParam.Value);
             }
         }
+
+        // public void Add(Quote quote)
+        // {
+        //     using (var sqlCon = new SqlConnection(_connectionString))
+        //     {
+        //         sqlCon.Open();
+        //         using (var sql_cmnd = new SqlCommand("uspCreateQuote", sqlCon))
+        //         {
+        //             sql_cmnd.CommandType = CommandType.StoredProcedure;
+
+        //             sql_cmnd.Parameters.AddWithValue("@HourlyRate", quote.HourlyRate);
+        //             sql_cmnd.Parameters.AddWithValue("@DiscountPercentage", quote.DiscountPercentage);
+        //             sql_cmnd.Parameters.AddWithValue("@Sum", quote.Sum);
+
+        //             // Capture the returned ID
+        //             var newIdParam = new SqlParameter
+        //             {
+        //                 ParameterName = "@NewID",
+        //                 SqlDbType = SqlDbType.Int,
+        //                 Direction = ParameterDirection.Output
+        //             };
+        //             sql_cmnd.Parameters.Add(newIdParam);
+
+        //             sql_cmnd.ExecuteNonQuery();
+
+        //             // Set the ID in the Quote object
+        //             quote.ID = Convert.ToInt32(newIdParam.Value);
+        //         }
+        //     }
+        // }
+
+        
 
         // Method to update an existing record in the database
         public void Update(Quote quote)

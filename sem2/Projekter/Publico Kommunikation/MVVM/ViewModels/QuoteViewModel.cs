@@ -33,7 +33,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         }
 
 
-        public double DiscountPercentage
+        public decimal DiscountPercentage
         {
             get { return _model.DiscountPercentage; }
             set
@@ -88,20 +88,24 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         public void Initialize(Quote quote)
         {
+
             if (quote == null) throw new ArgumentNullException(nameof(quote));
             _model = quote;
-
-            //// Midlertidige QuoteProducts - manuel indsættelse
-            var quoteProduct = new QuoteProduct { ProductId = 1, QuoteId = 1, QuoteProductPrice = 100.00, QuoteProductTimeEstimate = 1 };
-            var quoteProduct1 = new QuoteProduct { ProductId = 2, QuoteId = 1 };
-            var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
-            var quoteProductViewModel1 = new QuoteProductViewModel(quoteProduct1, _productRepository, _quoteProductRepository);
-            _quoteProductRepository.Delete(quoteProductViewModel.QuoteId, quoteProductViewModel.ProductId);
-            _quoteProductRepository.Delete(quoteProductViewModel1.QuoteId, quoteProductViewModel1.ProductId);
-            _quoteProductRepository.Add(quoteProductViewModel.Model);
-            _quoteProductRepository.Add(quoteProductViewModel1.Model);
-            QuoteProducts.Add(quoteProductViewModel);
-            QuoteProducts.Add(quoteProductViewModel1);
+            Trace.WriteLine("QuoteViewModel: " + _model.QuoteId);
+            _model = _quoteRepository.GetByKey(_model.QuoteId);
+            Trace.WriteLine("QuoteViewModel2: " + _model.QuoteId);
+            //Trace.WriteLine(_model.QuoteId); 
+            ////// Midlertidige QuoteProducts - manuel indsættelse
+            //var quoteProduct = new QuoteProduct { ProductId = 1, QuoteId = 1, QuoteProductPrice = 100.00, QuoteProductTimeEstimate = 1 };
+            //var quoteProduct1 = new QuoteProduct { ProductId = 2, QuoteId = 1 };
+            //var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
+            //var quoteProductViewModel1 = new QuoteProductViewModel(quoteProduct1, _productRepository, _quoteProductRepository);
+            //_quoteProductRepository.Delete(quoteProductViewModel.QuoteId, quoteProductViewModel.ProductId);
+            //_quoteProductRepository.Delete(quoteProductViewModel1.QuoteId, quoteProductViewModel1.ProductId);
+            //_quoteProductRepository.Add(quoteProductViewModel.Model);
+            //_quoteProductRepository.Add(quoteProductViewModel1.Model);
+            //QuoteProducts.Add(quoteProductViewModel);
+            //QuoteProducts.Add(quoteProductViewModel1);
         }
 
         //Enten at have en GetAll eller en GetById

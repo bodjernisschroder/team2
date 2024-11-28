@@ -66,10 +66,54 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             {
                 if (p.IsSelected)
                 {
+                    //Trace.WriteLine(_quoteViewModel.QuoteId);
                     var quoteProduct = new QuoteProduct { QuoteId = _quoteViewModel.QuoteId, ProductId = p.ProductId};
+                    var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
+                    _quoteViewModel.AddQuoteProduct(quoteProductViewModel);
+
+                    p.IsSelected = false;
+                }
+            }
+
+            foreach (ProductViewModel p in CategoryIndhold)
+            {
+                if (p.IsSelected)
+                {
+                    //Trace.WriteLine(_quoteViewModel.QuoteId);
+                    var quoteProduct = new QuoteProduct { QuoteId = _quoteViewModel.QuoteId, ProductId = p.ProductId };
 
                     var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
                     _quoteViewModel.AddQuoteProduct(quoteProductViewModel);
+
+                    p.IsSelected = false;
+                }
+            }
+
+            foreach (ProductViewModel p in CategoryDigitalMarketing)
+            {
+                if (p.IsSelected)
+                {
+                    //Trace.WriteLine(_quoteViewModel.QuoteId);
+                    var quoteProduct = new QuoteProduct { QuoteId = _quoteViewModel.QuoteId, ProductId = p.ProductId };
+
+                    var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
+                    _quoteViewModel.AddQuoteProduct(quoteProductViewModel);
+
+                    p.IsSelected = false;
+                }
+            }
+
+            foreach (ProductViewModel p in CategoryFilm)
+            {
+                if (p.IsSelected)
+                {
+                    //Trace.WriteLine(_quoteViewModel.QuoteId);
+                    var quoteProduct = new QuoteProduct { QuoteId = _quoteViewModel.QuoteId, ProductId = p.ProductId };
+
+                    var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
+                    _quoteViewModel.AddQuoteProduct(quoteProductViewModel);
+
+                    p.IsSelected = false;
                 }
             }
         }

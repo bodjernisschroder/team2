@@ -32,9 +32,13 @@
                     <ListBox x:Name="IndholdListBox"
                              Margin="0,0,0,0"
                              SelectionMode="Multiple"
-                             ItemsSource="{Binding CategoryIndhold}"
-                             SelectedItem="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                             ItemsSource="{Binding CategoryIndhold}"    
                              DisplayMemberPath="ProductName">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                            </Style>
+                        </ListBox.ItemContainerStyle>
                     </ListBox>
                 </Grid>
             </TabItem>
@@ -44,8 +48,12 @@
                              Margin="0,0,0,0" 
                              SelectionMode="Multiple"
                              ItemsSource="{Binding CategoryDigitalMarketing}"
-                             SelectedItem="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=UserControl}}"
                              DisplayMemberPath="ProductName">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                            </Style>
+                        </ListBox.ItemContainerStyle>
                     </ListBox>
                 </Grid>
             </TabItem>
@@ -55,8 +63,12 @@
                              Margin="0,0,0,0"
                              SelectionMode="Multiple"
                              ItemsSource="{Binding CategoryFilm}"
-                             SelectedItem="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=UserControl}}"
                              DisplayMemberPath="ProductName">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                            </Style>
+                        </ListBox.ItemContainerStyle>
                     </ListBox>
                 </Grid>
             </TabItem>

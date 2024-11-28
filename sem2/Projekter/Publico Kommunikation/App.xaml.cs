@@ -63,7 +63,7 @@ namespace Publico_Kommunikation_Project
             services.AddTransient<HourlyRateQuoteViewModel>();
             services.AddTransient<ProductsViewModel>();
             services.AddTransient<ProductViewModel>();
-            services.AddTransient<QuoteViewModel>();
+            services.AddScoped<QuoteViewModel>(); // Singleton
             services.AddTransient<SumQuoteViewModel>();
 
             services.AddSingleton<Func<Type, ViewModel>>(serviceProvider => viewModelType => (ViewModel)serviceProvider.GetRequiredService(viewModelType));

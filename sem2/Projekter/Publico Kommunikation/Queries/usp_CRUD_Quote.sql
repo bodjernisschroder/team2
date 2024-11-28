@@ -17,14 +17,16 @@ END
 GO
 
 -- CREATE
-CREATE PROCEDURE uspCreateQuote
+CREATE OR ALTER PROCEDURE uspCreateQuote
     @HourlyRate FLOAT NULL,
     @DiscountPercentage DECIMAL(5,2),
-    @Sum FLOAT
+    @Sum FLOAT,
+    @QuoteId INT OUTPUT
 AS
 BEGIN
     INSERT INTO QUOTE (HourlyRate, DiscountPercentage, [Sum])
     VALUES (@HourlyRate, @DiscountPercentage, @Sum)
+    SET @QuoteId = SCOPE_IDENTITY();
 END
 GO
 

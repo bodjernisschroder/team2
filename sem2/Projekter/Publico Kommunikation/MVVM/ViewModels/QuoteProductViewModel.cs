@@ -12,10 +12,10 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         private ProductRepository _productRepository;
         private QuoteProductRepository _quoteProductRepository;
 
-
         public QuoteProductViewModel(QuoteProduct quoteProduct, ProductRepository productRepository, QuoteProductRepository quoteProductRepository)
         {
             Model = quoteProduct;
+            Trace.WriteLine(Model.QuoteId);
             _productRepository = productRepository;
             _quoteProductRepository = quoteProductRepository;
             GetProductName();

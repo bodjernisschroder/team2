@@ -8,19 +8,19 @@
       mc:Ignorable="d" 
       d:DesignHeight="550" d:DesignWidth="500">
     <Grid>
-        <StackPanel VerticalAlignment="Center">
+        <StackPanel VerticalAlignment="Top">
             <DataGrid x:Name="QuoteDataGrid"
                   ItemsSource="{Binding QuoteProducts}"
                   AutoGenerateColumns="False"
                   Grid.Row="0"
                   Width="auto"
-                  Height="200"
+                  Height="400"
                   CanUserResizeRows="False"
                   CanUserResizeColumns="False"
                   HeadersVisibility="Column">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Ydelse" Binding="{Binding ProductName}" IsReadOnly="True" Width="0.5*"/>
-                    <DataGridTextColumn Header="Tidsestimat" Binding="{Binding QuoteProductTimeEstimate}" IsReadOnly="True" Width="0.2*"/>
+                    <DataGridTextColumn Header="Tidsestimat" Binding="{Binding QuoteProductTimeEstimate}" Width="0.2*"/>
                     <DataGridTextColumn Header="Pris" Binding="{Binding QuoteProductPrice}" IsReadOnly="True" Width="0.2*"/>
                     <DataGridTemplateColumn Header="Actions" Width="0.1*">
                         <DataGridTemplateColumn.CellTemplate>
@@ -47,9 +47,24 @@
         </StackPanel>
         <Button Content="Gem" 
                 HorizontalAlignment="Center" 
-                Margin="0,409,0,0"
-                VerticalAlignment="Top"
+                Margin="0,0,0,20"
+                VerticalAlignment="Bottom"
                 Height="34" Width="111"
                 Command="{Binding DataContext.SaveQuoteAndQuoteProductsCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+        
+        <Label  x:Name="lblHourlyRate" HorizontalAlignment="Left" Margin="20,0,0,80" VerticalAlignment="Bottom" Width="104">
+            <TextBlock>
+                <Run Text="Timepris: " />
+                <Run Text="{Binding HourlyRate}" />
+            </TextBlock>
+        </Label>
+
+        <Label  x:Name="lblTotalPrice" HorizontalAlignment="Left" Margin="20,0,0,40" VerticalAlignment="Bottom" Width="104">
+            <TextBlock>
+                <Run Text="Totalpris: " />
+                <Run Text="{Binding Sum}" />
+            </TextBlock>
+        </Label>
+
     </Grid>
 </UserControl>

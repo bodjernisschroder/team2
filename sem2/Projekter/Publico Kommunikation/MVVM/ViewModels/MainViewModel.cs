@@ -41,12 +41,12 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             var quote = new Quote();
             _quoteRepository.Add(quote);
             QuoteView = _navigation.NavigateTo<QuoteViewModel>();
+            (QuoteView as QuoteViewModel).Initialize(quote);
             ProductsView = _navigation.NavigateTo<ProductsViewModel>();
 
             OnPropertyChanged(nameof(QuoteView));
             OnPropertyChanged(nameof(ProductsView));
 
-            (QuoteView as QuoteViewModel).Initialize(quote);
 
         }
     }

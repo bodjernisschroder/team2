@@ -91,6 +91,7 @@ namespace Publico_Kommunikation_Project.DataAccess
                 sql_cmnd.Parameters.AddWithValue("@QuoteProductTimeEstimate", SqlDbType.Float).Value = quoteProduct.QuoteProductTimeEstimate;
                 sql_cmnd.Parameters.AddWithValue("@QuoteProductPrice", SqlDbType.Float).Value = quoteProduct.QuoteProductPrice;
                 sql_cmnd.ExecuteNonQuery();
+
             }
         }
 
