@@ -60,6 +60,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             {
                 Model.QuoteProductTimeEstimate = value;
                 OnPropertyChanged(nameof(QuoteProductTimeEstimate));
+                UpdateQuoteProduct();
             }
         }
 
@@ -73,9 +74,9 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             }
         }
 
-        public void UpdateQuoteProduct(QuoteProduct quoteProduct)
+        public void UpdateQuoteProduct()
         {
-            _quoteProductRepository.Update(quoteProduct);
+            _quoteProductRepository.Update(Model);
         }
 
         public void GetProductName()

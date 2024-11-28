@@ -23,17 +23,20 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         private QuoteRepository _quoteRepository;
         public RelayCommand ShowQuoteAndProductsCommand { get; }
+        // private QuoteViewModel _quoteViewModel;
 
         //public RelayCommand NavigateToQuoteViewCommand { get; set; }
         //public RelayCommand NavigateToProductsViewCommand { get; set; }
 
-        public MainViewModel(INavigationService navigation, QuoteRepository quoteRepository)
+        public MainViewModel(INavigationService navigation, QuoteRepository quoteRepository, QuoteViewModel quoteViewModel)
         {
             _navigation = navigation;
             //NavigateToQuoteViewCommand = new RelayCommand(execute: o => { Navigation.NavigateTo<QuoteViewModel>(); }, canExecute: o => true);
             //NavigateToProductsViewCommand = new RelayCommand(execute: o => { Navigation.NavigateTo<ProductsViewModel>(); }, canExecute: o => true);
             ShowQuoteAndProductsCommand = new RelayCommand(execute: o => { ShowQuoteAndProducts(); }, canExecute: o => true);
             _quoteRepository = quoteRepository;
+            // _quoteViewModel = quoteViewModel;
+            quoteViewModel.OnSwitchRequested += Switch;
         }
         
         private void ShowQuoteAndProducts()
@@ -46,8 +49,33 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
             OnPropertyChanged(nameof(QuoteView));
             OnPropertyChanged(nameof(ProductsView));
-
-
         }
+
+        public void Switch()
+        {
+            // QuoteView = quoteViewModel;
+            if (QuoteView.GetType() == typeof(SumQuoteViewModel))
+            {
+                Trace.WriteLine("Switching to HourlyRateQuoteView");
+                QuoteView = _navigation.NavigateTo<HourlyRateQuoteViewModel>();
+            }
+            else if (QuoteView.GetType() == typeof(HourlyRateQuoteViewModel))
+            {
+                Trace.WriteLine("Switching to SumQuoteView");
+                QuoteView = _navigation.NavigateTo<SumQuoteViewModel>();
+            }
+            // var viewModelType = typeof(quoteViewModel);
+            // QuoteView = _navigation.NavigateTo<quoteViewModel>();
+        }
+
+        // public void SwitchToHourlyRate()
+        // {
+        //     QuoteView = _navigation.NavigateTo<HourlyRateQuoteViewModel>();
+        // }
+
+        // public void SwitchToSum()
+        // {
+        //     QuoteView = _navigation.NavigateTo<SumQuoteViewModel>();
+        // }
     }
 }

@@ -8,8 +8,17 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
     public class QuoteViewModel : ViewModel
     {
+        public event Action OnSwitchRequested;
+        // protected void RaiseSwitchRequested()
+        // {
+        //     OnSwitchRequested?.Invoke();
+        // }
 
-        private Quote _model;
+        protected bool _isActive;
+        protected Quote _model;
+        protected MainViewModel _mainViewModel;
+        // protected SumQuoteViewModel _sumQuoteViewModel;
+        // protected HourlyRateQuoteViewModel _hourlyRateQuoteViewModel;
 
         public int QuoteId
         {
@@ -23,15 +32,9 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         public virtual double HourlyRate
         {
-            get { return _model.HourlyRate; }
-
-            set
-            {
-                _model.HourlyRate = value;
-                OnPropertyChanged(nameof(HourlyRate));
-            }
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
         }
-
 
         public decimal DiscountPercentage
         {
@@ -45,16 +48,11 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         public virtual double Sum
         {
-            get { return _model.Sum; }
-
-            set
-            {
-                _model.Sum = value;
-                OnPropertyChanged(nameof(Sum));
-            }
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
         }
 
-        private INavigationService _navigation;
+        protected INavigationService _navigation;
         public INavigationService Navigation
         {
             get => _navigation;
@@ -65,6 +63,24 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             }
         }
 
+        public virtual bool IsActive
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+
+        // private string _currentViewModel;
+
+        // public string CurrentViewModel
+        // {
+        //     get { return _currentViewModel; }
+        //     set
+        //     {
+        //         _currentViewModel = value;
+        //         OnPropertyChanged(nameof(CurrentViewModel));
+        //     }
+        // }
+
         public RelayCommand NavigateToProductsViewCommand { get; set; }
         // public ObservableCollection<ProductViewModel> SelectedProduct {get ; set; } // Får besked fra ProductsViewModel Add-knap
         private QuoteProductRepository _quoteProductRepository;
@@ -73,6 +89,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         public ObservableCollection<QuoteProductViewModel> QuoteProducts { get; set; }
         public RelayCommand DeleteQuoteProductCommand { get; set; }
         public RelayCommand SaveQuoteAndQuoteProductsCommand { get; set; }
+        public RelayCommand SwitchCommand { get; set; }
 
         public QuoteViewModel(INavigationService navigation, QuoteRepository quoteRepository, QuoteProductRepository quoteProductRepository, ProductRepository productRepository)
         {
@@ -81,19 +98,21 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             _quoteRepository = quoteRepository;
             _quoteProductRepository = quoteProductRepository;
             _productRepository = productRepository;
-            SaveQuoteAndQuoteProductsCommand = new RelayCommand(execute: o => { SaveQuoteAndQuoteProducts(); }, canExecute: o => true);
+            //SaveQuoteAndQuoteProductsCommand = new RelayCommand(execute: o => { SaveQuoteAndQuoteProducts(); }, canExecute: o => true);
             DeleteQuoteProductCommand = new RelayCommand(execute: o => { DeleteQuoteProduct(o); }, canExecute: o => true);
             QuoteProducts = new ObservableCollection<QuoteProductViewModel>();
+            // _sumQuoteViewModel = sumQuoteViewModel;
+            // _hourlyRateQuoteViewModel = hourlyRateQuoteViewModel;
+            SwitchCommand = new RelayCommand(execute: o => { Switch(); }, canExecute: o => true);
         }
-
+                    
         public void Initialize(Quote quote)
         {
-
             if (quote == null) throw new ArgumentNullException(nameof(quote));
             _model = quote;
-            Trace.WriteLine("QuoteViewModel: " + _model.QuoteId);
+            // Trace.WriteLine("QuoteViewModel: " + _model.QuoteId);
             _model = _quoteRepository.GetByKey(_model.QuoteId);
-            Trace.WriteLine("QuoteViewModel2: " + _model.QuoteId);
+            // Trace.WriteLine("QuoteViewModel2: " + _model.QuoteId);
             //Trace.WriteLine(_model.QuoteId); 
             ////// Midlertidige QuoteProducts - manuel indsættelse
             //var quoteProduct = new QuoteProduct { ProductId = 1, QuoteId = 1, QuoteProductPrice = 100.00, QuoteProductTimeEstimate = 1 };
@@ -138,15 +157,26 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         //Updates Repository
         //Update Quote
-        public void SaveQuoteAndQuoteProducts()
-        {
-            //Error handling her
-            foreach (QuoteProductViewModel quoteProductViewModel in QuoteProducts)
-            {
-                _quoteProductRepository.Update(quoteProductViewModel.Model);
-            }
+        // public void SaveQuoteAndQuoteProducts()
+        // {
+        //     //Error handling her
+        //     foreach (QuoteProductViewModel quoteProductViewModel in QuoteProducts)
+        //     {
+        //         _quoteProductRepository.Update(quoteProductViewModel.Model);
+        //     }
 
+        //     _quoteRepository.Update(_model);
+        // }
+
+        public void UpdateQuote()
+        {
             _quoteRepository.Update(_model);
+        }
+
+        public void Switch()
+        {
+            Trace.WriteLine("Switch Invoke");
+            OnSwitchRequested?.Invoke();
         }
     }
 }

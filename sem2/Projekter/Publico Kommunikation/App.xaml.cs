@@ -59,12 +59,12 @@ namespace Publico_Kommunikation_Project
 
         private void RegisterViewModels(IServiceCollection services)
         {
-            services.AddTransient<MainViewModel>();
-            services.AddTransient<HourlyRateQuoteViewModel>();
+            services.AddScoped<MainViewModel>();
+            services.AddScoped<HourlyRateQuoteViewModel>();
             services.AddTransient<ProductsViewModel>();
             services.AddTransient<ProductViewModel>();
             services.AddScoped<QuoteViewModel>(); // Singleton
-            services.AddTransient<SumQuoteViewModel>();
+            services.AddScoped<SumQuoteViewModel>();
 
             services.AddSingleton<Func<Type, ViewModel>>(serviceProvider => viewModelType => (ViewModel)serviceProvider.GetRequiredService(viewModelType));
         }

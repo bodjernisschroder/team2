@@ -7,6 +7,68 @@
       d:DataContext="{d:DesignInstance Type=local:QuoteViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="550" d:DesignWidth="500">
+
+    <!--<UserControl.Resources>
+        <Style TargetType="CheckBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        <StackPanel Orientation="Horizontal">
+                            <Grid >
+                                <Border Width="45" Height="20" Background="LightGray" CornerRadius="10" Margin="5,0"></Border>
+                                <Border x:Name="button" Height="25" Width="25" CornerRadius="12.5" HorizontalAlignment="Left"  ></Border>
+                            </Grid>
+                            <ContentPresenter x:Name="content" Margin="10,0,0,0" Content="{TemplateBinding Content}" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <ControlTemplate.Resources>
+                            <Storyboard x:Key="right">
+                                <ThicknessAnimation Storyboard.TargetProperty="Margin" Storyboard.TargetName="button" Duration="0:0:0.4" From="0,0,0,0" To="28,0,0,0" >
+                                    <ThicknessAnimation.EasingFunction>
+                                        <CircleEase EasingMode="EaseOut"/>
+                                    </ThicknessAnimation.EasingFunction>
+                                </ThicknessAnimation>
+                            </Storyboard>
+                            <Storyboard x:Key="left">
+                                <ThicknessAnimation Storyboard.TargetProperty="Margin" Storyboard.TargetName="button" Duration="0:0:0.4" From="28,0,0,0" To="0,0,0,0" >
+                                    <ThicknessAnimation.EasingFunction>
+                                        <CircleEase EasingMode="EaseOut"/>
+                                    </ThicknessAnimation.EasingFunction>
+                                </ThicknessAnimation>
+                            </Storyboard>
+                        </ControlTemplate.Resources>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="true">
+                                <Trigger.ExitActions>
+                                    <RemoveStoryboard BeginStoryboardName="leftt"></RemoveStoryboard>
+                                    <BeginStoryboard Storyboard="{StaticResource right}" x:Name="rightt" ></BeginStoryboard>
+                                </Trigger.ExitActions>
+                                <Setter TargetName="button" Property="Background" Value="#282828"></Setter>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="false">
+                                <Trigger.ExitActions>
+                                    <RemoveStoryboard BeginStoryboardName="rightt"></RemoveStoryboard>
+                                    <BeginStoryboard Storyboard="{StaticResource left}" x:Name="leftt" ></BeginStoryboard>
+                                </Trigger.ExitActions>
+                                <Setter TargetName="button" Property="Background" Value="#282828"></Setter>
+                                --><!--20BF55--><!--
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal">
+            <Label></Label>
+            <CheckBox  
+                HorizontalAlignment="Center" 
+                Margin="0,0,0,20" VerticalAlignment="Bottom" 
+                FontSize="26" 
+                Foreground="#282828"
+                IsChecked="{Binding IsActive, Mode=TwoWay}"></CheckBox>
+            
+        </StackPanel>-->
     <Grid>
         <StackPanel VerticalAlignment="Top">
             <DataGrid x:Name="QuoteDataGrid"
@@ -45,12 +107,12 @@
                     Command="{Binding NavigateToProductsViewCommand}"/>-->
 
         </StackPanel>
-        <Button Content="Gem" 
+        <!--<Button Content="Gem" 
                 HorizontalAlignment="Center" 
                 Margin="0,0,0,20"
                 VerticalAlignment="Bottom"
                 Height="34" Width="111"
-                Command="{Binding DataContext.SaveQuoteAndQuoteProductsCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+                Command="{Binding DataContext.SaveQuoteAndQuoteProductsCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"/>-->
         
         <Label  x:Name="lblHourlyRate" HorizontalAlignment="Left" Margin="20,0,0,80" VerticalAlignment="Bottom" Width="104">
             <TextBlock>
@@ -65,6 +127,19 @@
                 <Run Text="{Binding Sum}" />
             </TextBlock>
         </Label>
+        <!-- <Label  x:Name="lblCurrentViewModel" HorizontalAlignment="Left" Margin="50,0,0,10" VerticalAlignment="Bottom" Width="300">
+            <TextBlock>
+                <Run Text="ViewModel: " />
+                <Run Text="{Binding CurrentViewModel, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+            </TextBlock>
+        </Label> -->
+
+        <Button Content="Skift" 
+                Height="20" 
+                Width="100"
+                VerticalAlignment="Bottom"
+                Command="{Binding SwitchCommand}"
+                Margin="0,0,0,10"/>
 
     </Grid>
 </UserControl>

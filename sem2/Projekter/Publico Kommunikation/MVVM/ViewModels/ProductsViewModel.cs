@@ -41,8 +41,8 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             Categories = new ObservableCollection<Category>(categories);
 
             // Populate Products
-            var products = _productRepository.GetAll();
-            Products = new ObservableCollection<ProductViewModel>();
+            //var products = _productRepository.GetAll();
+            //Products = new ObservableCollection<ProductViewModel>();
 
             var products = _productRepository.GetAll();
             //Products = new ObservableCollection<ProductViewModel>();
@@ -77,9 +77,9 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         public void AddProducts()
         {
-            foreach (Category category in CategoryProducts.Values)
+            foreach (int category in CategoryProducts.Keys)
             {
-                foreach (ProductViewModel p in category)
+                foreach (ProductViewModel p in CategoryProducts[category])
                 {
                     if (p.IsSelected)
                     {
