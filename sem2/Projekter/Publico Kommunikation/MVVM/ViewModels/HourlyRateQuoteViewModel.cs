@@ -14,7 +14,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         {
             throw new NotImplementedException();
         }
-        public HourlyRateQuoteViewModel(INavigationService navigation, QuoteRepository quoteRepository, QuoteProductRepository quoteProductRepository) : base(navigation, quoteRepository, quoteProductRepository)
+        public HourlyRateQuoteViewModel(INavigationService navigation, QuoteRepository quoteRepository, QuoteProductRepository quoteProductRepository, ProductRepository productRepository) : base(navigation, quoteRepository, quoteProductRepository, productRepository)
         {
 
         }

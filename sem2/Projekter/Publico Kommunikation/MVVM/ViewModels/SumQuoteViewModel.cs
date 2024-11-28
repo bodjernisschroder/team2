@@ -15,7 +15,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             throw new NotImplementedException();
         }
 
-        public SumQuoteViewModel(INavigationService navigation, QuoteRepository quoteRepository, QuoteProductRepository quoteProductRepository) : base(navigation, quoteRepository, quoteProductRepository)
+        public SumQuoteViewModel(INavigationService navigation, QuoteRepository quoteRepository, QuoteProductRepository quoteProductRepository, ProductRepository productRepository) : base(navigation, quoteRepository, quoteProductRepository, productRepository)
         {
         }
     }
