@@ -17,13 +17,13 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         private CategoryRepository _categoryRepository;
         private ProductRepository _productRepository;
         private QuoteProductRepository _quoteProductRepository;
-
         public ObservableCollection<Category> Categories { get; set; }
-        public ObservableCollection<ProductViewModel> Products { get; set; }
-        public ObservableCollection<ProductViewModel> CategoryStrategi { get; set; }
-        public ObservableCollection<ProductViewModel> CategoryIndhold { get; set; }
-        public ObservableCollection<ProductViewModel> CategoryDigitalMarketing { get; set; }
-        public ObservableCollection<ProductViewModel> CategoryFilm { get; set; }
+        // public ObservableCollection<ProductViewModel> Products { get; set; }
+        public Dictionary<int, ObservableCollection<ProductViewModel>> CategoryProducts { get; set; }
+        // public ObservableCollection<ProductViewModel> CategoryStrategi { get; set; }
+        // public ObservableCollection<ProductViewModel> CategoryIndhold { get; set; }
+        // public ObservableCollection<ProductViewModel> CategoryDigitalMarketing { get; set; }
+        // public ObservableCollection<ProductViewModel> CategoryFilm { get; set; }
         public RelayCommand AddProductsCommand { get; set; }
         public RelayCommand SetCategoryCommand { get; set; }
 
@@ -44,78 +44,107 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             var products = _productRepository.GetAll();
             Products = new ObservableCollection<ProductViewModel>();
 
-            CategoryStrategi = new ObservableCollection<ProductViewModel>();
-            CategoryIndhold = new ObservableCollection<ProductViewModel>();
-            CategoryDigitalMarketing = new ObservableCollection<ProductViewModel>();
-            CategoryFilm = new ObservableCollection<ProductViewModel>();
+            var products = _productRepository.GetAll();
+            //Products = new ObservableCollection<ProductViewModel>();
+
+            CategoryProducts = new Dictionary<int, ObservableCollection<ProductViewModel>>();
 
             foreach (Product p in products)
             {
                 var productViewModel = new ProductViewModel(p);
-                if (productViewModel.CategoryId == 1) CategoryStrategi.Add(productViewModel);
-                else if (productViewModel.CategoryId == 2) CategoryIndhold.Add(productViewModel);
-                else if (productViewModel.CategoryId == 3) CategoryDigitalMarketing.Add(productViewModel);
-                else CategoryFilm.Add(productViewModel);
+                if (!CategoryProducts.ContainsKey(productViewModel.CategoryId))
+                {
+                    CategoryProducts[productViewModel.CategoryId] = new ObservableCollection<ProductViewModel>();
+                }
+                CategoryProducts[productViewModel.CategoryId].Add(productViewModel);
             }
+
+            // CategoryStrategi = new ObservableCollection<ProductViewModel>();
+            // CategoryIndhold = new ObservableCollection<ProductViewModel>();
+            // CategoryDigitalMarketing = new ObservableCollection<ProductViewModel>();
+            // CategoryFilm = new ObservableCollection<ProductViewModel>();
+
+            // foreach (Product p in products)
+            // {
+            //     var productViewModel = new ProductViewModel(p);
+            //     if (productViewModel.CategoryId == 1) CategoryStrategi.Add(productViewModel);
+            //     else if (productViewModel.CategoryId == 2) CategoryIndhold.Add(productViewModel);
+            //     else if (productViewModel.CategoryId == 3) CategoryDigitalMarketing.Add(productViewModel);
+            //     else CategoryFilm.Add(productViewModel);
+            // }
             AddProductsCommand = new RelayCommand(execute: o => { AddProducts(); }, canExecute: o => true);
         }
 
         public void AddProducts()
         {
-            foreach (ProductViewModel p in CategoryStrategi)
+            foreach (Category category in CategoryProducts.Values)
             {
-                if (p.IsSelected)
+                foreach (ProductViewModel p in category)
                 {
-                    //Trace.WriteLine(_quoteViewModel.QuoteId);
-                    var quoteProduct = new QuoteProduct { QuoteId = _quoteViewModel.QuoteId, ProductId = p.ProductId};
-                    var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
-                    _quoteViewModel.AddQuoteProduct(quoteProductViewModel);
-
-                    p.IsSelected = false;
+                    if (p.IsSelected)
+                    {
+                        var quoteProduct = new QuoteProduct { QuoteId = _quoteViewModel.QuoteId, ProductId = p.ProductId};
+                        var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
+                        _quoteViewModel.AddQuoteProduct(quoteProductViewModel);
+                        p.IsSelected = false;
+                    }
                 }
             }
 
-            foreach (ProductViewModel p in CategoryIndhold)
-            {
-                if (p.IsSelected)
-                {
-                    //Trace.WriteLine(_quoteViewModel.QuoteId);
-                    var quoteProduct = new QuoteProduct { QuoteId = _quoteViewModel.QuoteId, ProductId = p.ProductId };
+            // foreach (ProductViewModel p in CategoryStrategi)
+            // {
+            //     if (p.IsSelected)
+            //     {
+            //         //Trace.WriteLine(_quoteViewModel.QuoteId);
+            //         var quoteProduct = new QuoteProduct { QuoteId = _quoteViewModel.QuoteId, ProductId = p.ProductId};
+            //         var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
+            //         _quoteViewModel.AddQuoteProduct(quoteProductViewModel);
 
-                    var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
-                    _quoteViewModel.AddQuoteProduct(quoteProductViewModel);
+            //         p.IsSelected = false;
+            //     }
+            // }
 
-                    p.IsSelected = false;
-                }
-            }
+            // foreach (ProductViewModel p in CategoryIndhold)
+            // {
+            //     if (p.IsSelected)
+            //     {
+            //         //Trace.WriteLine(_quoteViewModel.QuoteId);
+            //         var quoteProduct = new QuoteProduct { QuoteId = _quoteViewModel.QuoteId, ProductId = p.ProductId };
 
-            foreach (ProductViewModel p in CategoryDigitalMarketing)
-            {
-                if (p.IsSelected)
-                {
-                    //Trace.WriteLine(_quoteViewModel.QuoteId);
-                    var quoteProduct = new QuoteProduct { QuoteId = _quoteViewModel.QuoteId, ProductId = p.ProductId };
+            //         var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
+            //         _quoteViewModel.AddQuoteProduct(quoteProductViewModel);
 
-                    var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
-                    _quoteViewModel.AddQuoteProduct(quoteProductViewModel);
+            //         p.IsSelected = false;
+            //     }
+            // }
 
-                    p.IsSelected = false;
-                }
-            }
+            // foreach (ProductViewModel p in CategoryDigitalMarketing)
+            // {
+            //     if (p.IsSelected)
+            //     {
+            //         //Trace.WriteLine(_quoteViewModel.QuoteId);
+            //         var quoteProduct = new QuoteProduct { QuoteId = _quoteViewModel.QuoteId, ProductId = p.ProductId };
 
-            foreach (ProductViewModel p in CategoryFilm)
-            {
-                if (p.IsSelected)
-                {
-                    //Trace.WriteLine(_quoteViewModel.QuoteId);
-                    var quoteProduct = new QuoteProduct { QuoteId = _quoteViewModel.QuoteId, ProductId = p.ProductId };
+            //         var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
+            //         _quoteViewModel.AddQuoteProduct(quoteProductViewModel);
 
-                    var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
-                    _quoteViewModel.AddQuoteProduct(quoteProductViewModel);
+            //         p.IsSelected = false;
+            //     }
+            // }
 
-                    p.IsSelected = false;
-                }
-            }
+            // foreach (ProductViewModel p in CategoryFilm)
+            // {
+            //     if (p.IsSelected)
+            //     {
+            //         //Trace.WriteLine(_quoteViewModel.QuoteId);
+            //         var quoteProduct = new QuoteProduct { QuoteId = _quoteViewModel.QuoteId, ProductId = p.ProductId };
+
+            //         var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
+            //         _quoteViewModel.AddQuoteProduct(quoteProductViewModel);
+
+            //         p.IsSelected = false;
+            //     }
+            // }
         }
     }
 }

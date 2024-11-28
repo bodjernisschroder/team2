@@ -7,8 +7,31 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="300">
     <Grid>
+        <TabControl Margin="0,0,0,65" ItemsSource="{Binding CategoryProducts}">
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Key}" />
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <Grid Background="#FFE5E5E5">
+                        <ListBox Margin="0,0,0,0"
+                                 SelectionMode="Multiple"
+                                 ItemsSource="{Binding Value}"
+                                 DisplayMemberPath="ProductName">
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                        </ListBox>
+                    </Grid>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
 
-        <TabControl Margin="0,0,0,65">
+        <!-- <TabControl Margin="0,0,0,65">
 
 
             <TabItem Header="Strategi">
@@ -72,7 +95,7 @@
                     </ListBox>
                 </Grid>
             </TabItem>
-        </TabControl>
+        </TabControl> -->
 
         <Button Content="Tilføj ydelser til tilbud" 
                 HorizontalAlignment="Center"
