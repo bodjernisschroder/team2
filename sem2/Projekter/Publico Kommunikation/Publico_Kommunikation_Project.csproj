@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DataAccess\Repositories\**" />
+    <EmbeddedResource Remove="DataAccess\Repositories\**" />
+    <None Remove="DataAccess\Repositories\**" />
+    <Page Remove="DataAccess\Repositories\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="MVVM\Views\ProductsPage.xaml.cs" />
     <Compile Remove="MVVM\Views\QuotePage.xaml.cs" />
   </ItemGroup>
@@ -37,7 +44,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DataAccess\Repositories\" />
 	<Folder Include="MVVM\ViewModels\" />
   </ItemGroup>
 	
