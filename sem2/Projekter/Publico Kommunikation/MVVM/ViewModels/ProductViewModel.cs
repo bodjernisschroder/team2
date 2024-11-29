@@ -3,6 +3,11 @@ using Publico_Kommunikation_Project.MVVM.Models;
 
 namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
+    /// <summary>
+    /// A ViewModel class for representing and managing <see cref="Product"/> entities.
+    /// Inherits from <see cref="ViewModel"/> and provides functionality for exposing and updating
+    /// <see cref="Product"/> properties and maintaining <see cref="Product"/> selection state.
+    /// </summary>
     public class ProductViewModel : ViewModel
     {
         private bool _isSelected;

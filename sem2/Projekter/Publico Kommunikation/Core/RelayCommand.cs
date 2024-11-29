@@ -1,5 +1,4 @@
-﻿using Publico_Kommunikation_Project.Core;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
 namespace Publico_Kommunikation_Project.Core
 {
@@ -7,12 +6,6 @@ namespace Publico_Kommunikation_Project.Core
     {
         private readonly Predicate<object> _canExecute;
         private readonly Action<object> _execute;
-        //private Action showQuoteAndProducts;
-
-        //public RelayCommand(Action showQuoteAndProducts)
-        //{
-        //    this.showQuoteAndProducts = showQuoteAndProducts;
-        //}
 
         public RelayCommand(Action<object> execute, Predicate<object> canExecute)
         {

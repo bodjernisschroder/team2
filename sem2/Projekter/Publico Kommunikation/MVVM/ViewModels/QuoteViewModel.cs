@@ -6,6 +6,11 @@ using Publico_Kommunikation_Project.MVVM.Models;
 
 namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
+    /// <summary>
+    /// A ViewModel class for managing <see cref="Quote"/> entities.
+    /// Inherits from <see cref="ViewModel"/> and provides functionality for managing
+    /// <see cref="Quote"/> properties and associated <see cref="QuoteProduct"/> entities.
+    /// </summary>
     public class QuoteViewModel : ViewModel
     {
         private readonly QuoteRepository _quoteRepository;

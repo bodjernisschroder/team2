@@ -5,7 +5,9 @@ using Publico_Kommunikation_Project.MVVM.Models;
 namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
     /// <summary>
-    /// 
+    /// A ViewModel class for managing <see cref="Quote"/> entities.
+    /// Inherits from <see cref="QuoteViewModel"/> and extends its functionality
+    /// with logic specific to hourly rate-based pricing calculations.
     /// </summary>
     public class HourlyRateQuoteViewModel : QuoteViewModel
     {

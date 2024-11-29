@@ -5,6 +5,12 @@ using Publico_Kommunikation_Project.MVVM.Models;
 
 namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
+    /// <summary>
+    /// A ViewModel class for managing <see cref="Category"/> entities and their
+    /// associated <see cref="ProductViewModel"/> instances.
+    /// Inherits from <see cref="ViewModel"/> and provides functionality for organizing
+    /// products into categories and assigning products to quotes.
+    /// </summary>
     public class ProductsViewModel : ViewModel
     {
         private readonly CategoryRepository _categoryRepository;

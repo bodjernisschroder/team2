@@ -1,12 +1,11 @@
 ﻿using System.Windows;
-using Publico_Kommunikation_Project.MVVM.Views;
-using Publico_Kommunikation_Project.MVVM.Models;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Publico_Kommunikation_Project.Core;
 using Publico_Kommunikation_Project.Services;
+using Publico_Kommunikation_Project.MVVM.Views;
 using Publico_Kommunikation_Project.MVVM.ViewModels;
 using Publico_Kommunikation_Project.DataAccess;
-using Microsoft.Extensions.Configuration;
 
 namespace Publico_Kommunikation_Project
 {

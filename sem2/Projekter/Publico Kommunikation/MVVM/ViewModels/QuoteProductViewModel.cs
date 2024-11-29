@@ -4,6 +4,12 @@ using Publico_Kommunikation_Project.MVVM.Models;
 
 namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
+    /// <summary>
+    /// A ViewModel class for representing and managing <see cref="QuoteProduct"/> entities.
+    /// Inherits from <see cref="ViewModel"/> and provides functionality for exposing and updating
+    /// <see cref="QuoteProduct"/> properties, and retrieving related <see cref="Product"/> details
+    /// from the <see cref="ProductRepository"/>.
+    /// </summary>
     public class QuoteProductViewModel : ViewModel
     {
         private ProductRepository _productRepository;

@@ -5,6 +5,11 @@ using Publico_Kommunikation_Project.MVVM.Models;
 
 namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
+    /// <summary>
+    /// A ViewModel class responsible for managing currently displayed views
+    /// within the MainView. Inherits from <see cref="ViewModel"/> and provides functionality
+    /// for initializing and switching between views.
+    /// </summary>
     public class MainViewModel : ViewModel
     {
         private readonly INavigationService _navigation;
