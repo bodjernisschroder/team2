@@ -5,23 +5,28 @@ using Publico_Kommunikation_Project.MVVM.Models;
 
 namespace Publico_Kommunikation_Project.DataAccess
 {
-    // Repository class implementing the IRepository interface
+    /// <summary>
+    /// A repository class for managing <see cref="Product"/> entities.
+    /// Implements the <see cref="ISimpleKeyRepository{T}"/> interface.
+    /// </summary>
     public class ProductRepository : ISimpleKeyRepository<Product>
     {
         private readonly string _connectionString; // Connection string for the SQL database
 
-        // Constructor to initialize the repository with a connection string
+        /// <summary>
+        /// Initializes a new instance of <see cref="ProductRepository"/> with the specified <paramref name="connectionString"/>.
+        /// </summary>
+        /// <param name="connectionString">The connection string used to establish a connection to the database.</param>
         public ProductRepository(string connectionString)
         {
             _connectionString = connectionString;
         }
 
-        // Stored procedure
-        // SqlConnection sqlCon = null;
-
-        // String SqlconString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
-        // Method to retrieve all records from the database
+        /// <summary>
+        /// Retrieves all <see cref="Product"/> entities from the database by executing the
+        /// stored procedure <c>uspGetAllProduct</c>.
+        /// </summary>
+        /// <returns>A collection of <see cref="Product"/>entities.</returns>
         public IEnumerable<Product> GetAll()
         {
             var product = new List<Product>();
@@ -52,7 +57,12 @@ namespace Publico_Kommunikation_Project.DataAccess
             return product;
         }
 
-        // Method to retrieve a specific record by its Id
+        /// <summary>
+        /// Retrieves a specific entity of <see cref="Product"/> by its <see cref="Product.ProductId"/>
+        /// by executing the stored procedure <c>uspGetByKeyProduct</c>.
+        /// </summary>
+        /// <param name="key">The <see cref="Product.ProductId"/> of <see cref="Product"/> to retrieve.</param>
+        /// <returns>The <see cref="Product"/> entity that matches the specified <paramref name="key"/>.</returns>
         public Product GetByKey(int key)
         {
             Product product = null;
@@ -80,7 +90,11 @@ namespace Publico_Kommunikation_Project.DataAccess
             return product;
         }
 
-        // Method to add a new record to the database
+        /// <summary>
+        /// Adds a new <see cref="Product"/> entity to the database by executing
+        /// the stored procedure <c>uspCreateProduct</c>.
+        /// </summary>
+        /// <param name="product">The <see cref="Product"/> to add.</param>
         public void Add(Product product)
         {
             using (var sqlCon = new SqlConnection(_connectionString))
@@ -94,7 +108,11 @@ namespace Publico_Kommunikation_Project.DataAccess
             }
         }
 
-        // Method to update an existing record in the database
+        /// <summary>
+        /// Updates an existing <see cref="Product"/> entity in the database by executing
+        /// the stored procedure <c>uspUpdateProduct</c>.
+        /// </summary>
+        /// <param name="product">The <see cref="Product"/> to update.</param>
         public void Update(Product product)
         {
             using (var sqlCon = new SqlConnection(_connectionString))
@@ -109,7 +127,11 @@ namespace Publico_Kommunikation_Project.DataAccess
             }
         }
 
-        // Method to delete a record from the database by its Id
+        /// <summary>
+        /// Deletes a <see cref="product"/> entity from the database by executing
+        /// the stored procedure <c>uspDeleteProduct</c>.
+        /// </summary>
+        /// <param name="key">The <see cref="Product.ProductId"/> of <see cref="Product"/> to delete.</param>
         public void Delete(int key)
         {
             using (var sqlCon = new SqlConnection(_connectionString))
@@ -121,7 +143,5 @@ namespace Publico_Kommunikation_Project.DataAccess
                 sql_cmnd.ExecuteNonQuery();
             }
         }
-
-        // Tilføj metode om at hente View med en specifik CategoryId
     }
 }

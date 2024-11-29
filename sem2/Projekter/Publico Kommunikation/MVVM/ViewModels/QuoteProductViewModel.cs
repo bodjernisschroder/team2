@@ -66,6 +66,15 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of <see cref="QuoteProductViewModel"/>,
+        /// associates it with the specified <paramref name="quoteProduct"/>, and calls <see cref="GetProductName"/>.
+        /// </summary>
+        /// <param name="quoteProduct"></param>
+        /// <param name="productRepository"></param>
+        /// <param name="quoteProductRepository"></param>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="quoteProduct"/>, <paramref name="productRepository"/>, or
+        /// <paramref name="quoteProductRepository"/> is <c>null</c></exception>
         public QuoteProductViewModel(QuoteProduct quoteProduct, ProductRepository productRepository, QuoteProductRepository quoteProductRepository)
         {
             _productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
@@ -76,14 +85,23 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             GetProductName();
         }
 
+        /// <summary>
+        /// Updates the current <see cref="Model"/> in the <see cref="QuoteProductRepository"/>.
+        /// </summary>
         public void UpdateQuoteProduct()
         {
             _quoteProductRepository.Update(Model);
         }
 
+        /// <summary>
+        /// Retrieves the <see cref="Product"/> associated with <see cref="ProductId"/> from the
+        /// <see cref="ProductRepository"/>, and assigns its <see cref="Product.ProductName"/> to <see cref="ProductName"/>.
+        /// </summary>
+        /// <exception cref="KeyNotFoundException">Thrown when no <see cref="ProductId"/> matches a <see cref="Product.ProductId"/></exception>
         private void GetProductName()
         {
-            var product = _productRepository.GetByKey(ProductId);
+            var product = _productRepository.GetByKey(ProductId) ??
+                throw new KeyNotFoundException($"No ProductId matching '{ProductId}' of QuoteProduct found in {nameof(_productRepository)}.");
             ProductName = product.ProductName;
         }
     }

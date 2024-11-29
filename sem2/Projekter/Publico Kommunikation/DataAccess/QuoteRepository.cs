@@ -5,23 +5,28 @@ using Publico_Kommunikation_Project.MVVM.Models;
 
 namespace Publico_Kommunikation_Project.DataAccess
 {
-    // Repository class implementing the IRepository interface
+    /// <summary>
+    /// A repository class for managing <see cref="Quote"/> entities.
+    /// Implements the <see cref="ISimpleKeyRepository{T}"/> interface.
+    /// </summary>
     public class QuoteRepository : ISimpleKeyRepository<Quote>
     {
         private readonly string _connectionString; // Connection string for the SQL database
 
-        // Constructor to initialize the repository with a connection string
+        /// <summary>
+        /// Initializes a new instance of <see cref="QuoteRepository"/> with the specified <paramref name="connectionString"/>.
+        /// </summary>
+        /// <param name="connectionString">The connection string used to establish a connection to the database.</param>
         public QuoteRepository(string connectionString)
         {
             _connectionString = connectionString;
         }
 
-        // Stored procedure
-        // SqlConnection sqlCon = null;
-
-        // String SqlconString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
-        // Method to retrieve all records from the database
+        /// <summary>
+        /// Retrieves all <see cref="Quote"/> entities from the database by executing the
+        /// stored procedure <c>uspGetAllQuote</c>.
+        /// </summary>
+        /// <returns>A collection of <see cref="Quote"/>entities.</returns>
         public IEnumerable<Quote> GetAll()
         {
             var quote = new List<Quote>();
@@ -49,7 +54,12 @@ namespace Publico_Kommunikation_Project.DataAccess
             return quote;
         }
 
-        // Method to retrieve a specific record by its Id
+        /// <summary>
+        /// Retrieves a specific entity of <see cref="Quote"/> by its <see cref="Quote.QuoteId"/>
+        /// by executing the stored procedure <c>uspGetByKeyQuote</c>.
+        /// </summary>
+        /// <param name="key">The <see cref="Quote.QuoteId"/> of <see cref="Quote"/> to retrieve.</param>
+        /// <returns>The <see cref="Quote"/> entity that matches the specified <paramref name="key"/>.</returns>
         public Quote GetByKey(int key)
         {
             Quote quote = null;
@@ -78,7 +88,11 @@ namespace Publico_Kommunikation_Project.DataAccess
             return quote;
         }
 
-        // Method to add a new record to the database
+        /// <summary>
+        /// Adds a new <see cref="Quote"/> entity to the database by executing
+        /// the stored procedure <c>uspCreateQuote</c>.
+        /// </summary>
+        /// <param name="quote">The <see cref="Quote"/> to add.</param>
         public void Add(Quote quote)
         {
             using (var sqlCon = new SqlConnection(_connectionString))
@@ -97,39 +111,11 @@ namespace Publico_Kommunikation_Project.DataAccess
             }
         }
 
-        // public void Add(Quote quote)
-        // {
-        //     using (var sqlCon = new SqlConnection(_connectionString))
-        //     {
-        //         sqlCon.Open();
-        //         using (var sql_cmnd = new SqlCommand("uspCreateQuote", sqlCon))
-        //         {
-        //             sql_cmnd.CommandType = CommandType.StoredProcedure;
-
-        //             sql_cmnd.Parameters.AddWithValue("@HourlyRate", quote.HourlyRate);
-        //             sql_cmnd.Parameters.AddWithValue("@DiscountPercentage", quote.DiscountPercentage);
-        //             sql_cmnd.Parameters.AddWithValue("@Sum", quote.Sum);
-
-        //             // Capture the returned ID
-        //             var newIdParam = new SqlParameter
-        //             {
-        //                 ParameterName = "@NewID",
-        //                 SqlDbType = SqlDbType.Int,
-        //                 Direction = ParameterDirection.Output
-        //             };
-        //             sql_cmnd.Parameters.Add(newIdParam);
-
-        //             sql_cmnd.ExecuteNonQuery();
-
-        //             // Set the ID in the Quote object
-        //             quote.ID = Convert.ToInt32(newIdParam.Value);
-        //         }
-        //     }
-        // }
-
-        
-
-        // Method to update an existing record in the database
+        /// <summary>
+        /// Updates an existing <see cref="Quote"/> entity in the database by executing
+        /// the stored procedure <c>uspUpdateQuote</c>.
+        /// </summary>
+        /// <param name="quote">The <see cref="Quote"/> to update.</param>
         public void Update(Quote quote)
         {
             using (var sqlCon = new SqlConnection(_connectionString))
@@ -145,7 +131,11 @@ namespace Publico_Kommunikation_Project.DataAccess
             }
         }
 
-        // Method to delete a record from the database by its Id
+        /// <summary>
+        /// Deletes a <see cref="Quote"/> entity from the database by executing
+        /// the stored procedure <c>uspDeleteQuote</c>.
+        /// </summary>
+        /// <param name="key">The <see cref="Quote.QuoteId"/> of <see cref="Quote"/> to delete.</param>
         public void Delete(int key)
         {
             using (var sqlCon = new SqlConnection(_connectionString))

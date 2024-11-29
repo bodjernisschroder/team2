@@ -48,6 +48,11 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of <see cref="ProductViewModel"/>, associating it with the specified <paramref name="product"/>.
+        /// </summary>
+        /// <param name="product">The <see cref="Product"/> to associate with the <see cref="ProductViewModel"/>.</param>
+        /// <exception cref="ArgumentNullException">Thrown when the <paramref name="product"/> is <c>null</c>.</exception>
         public ProductViewModel(Product product)
         {
             Model = product ?? throw new ArgumentNullException(nameof(product));

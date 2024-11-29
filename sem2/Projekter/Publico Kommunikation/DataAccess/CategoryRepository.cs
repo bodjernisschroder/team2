@@ -5,23 +5,28 @@ using Publico_Kommunikation_Project.MVVM.Models;
 
 namespace Publico_Kommunikation_Project.DataAccess
 {
-    // Repository class implementing the IRepository interface
+    /// <summary>
+    /// A repository class for managing <see cref="Category"/> entities.
+    /// Implements the <see cref="ISimpleKeyRepository{T}"/> interface.
+    /// </summary>
     public class CategoryRepository : ISimpleKeyRepository<Category>
     {
         private readonly string _connectionString; // Connection string for the SQL database
 
-        // Constructor to initialize the repository with a connection string
+        /// <summary>
+        /// Initializes a new instance of <see cref="CategoryRepository"/> with the specified <paramref name="connectionString"/>.
+        /// </summary>
+        /// <param name="connectionString">The connection string used to establish a connection to the database.</param>
         public CategoryRepository(string connectionString)
         {
             _connectionString = connectionString;
         }
 
-        // Stored procedure
-        // SqlConnection sqlCon = null;
-
-        // String SqlconString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
-        // Method to retrieve all records from the database
+        /// <summary>
+        /// Retrieves all <see cref="Category"/> entities from the database by executing the
+        /// stored procedure <c>uspGetAllCategory</c>.
+        /// </summary>
+        /// <returns>A collection of <see cref="Category"/>entities.</returns>
         public IEnumerable<Category> GetAll()
         {
             var category = new List<Category>();
@@ -50,7 +55,12 @@ namespace Publico_Kommunikation_Project.DataAccess
             return category;
         }
 
-        // Method to retrieve a specific record by its Id
+        /// <summary>
+        /// Retrieves a specific entity of <see cref="Category"/> by its <see cref="Category.CategoryId"/>
+        /// by executing the stored procedure <c>uspGetByKeyCategory</c>.
+        /// </summary>
+        /// <param name="key">The <see cref="Category.CategoryId"/> of <see cref="Category"/> to retrieve.</param>
+        /// <returns>The <see cref="Category"/> entity that matches the specified <paramref name="key"/>.</returns>
         public Category GetByKey(int key)
         {
             Category category = null;
@@ -77,7 +87,11 @@ namespace Publico_Kommunikation_Project.DataAccess
             return category;
         }
 
-        // Method to add a new record to the database
+        /// <summary>
+        /// Adds a new <see cref="Category"/> entity to the database by executing
+        /// the stored procedure <c>uspCreateCategory</c>.
+        /// </summary>
+        /// <param name="category">The <see cref="Category"/> to add.</param>
         public void Add(Category category)
         {
             using (var sqlCon = new SqlConnection(_connectionString))
@@ -90,7 +104,11 @@ namespace Publico_Kommunikation_Project.DataAccess
             }
         }
 
-        // Method to update an existing record in the database
+        /// <summary>
+        /// Updates an existing <see cref="Category"/> entity in the database by executing
+        /// the stored procedure <c>uspUpdateCategory</c>.
+        /// </summary>
+        /// <param name="category">The <see cref="Category"/> to update.</param>
         public void Update(Category category)
         {
             using (var sqlCon = new SqlConnection(_connectionString))
@@ -104,7 +122,11 @@ namespace Publico_Kommunikation_Project.DataAccess
             }
         }
 
-        // Method to delete a record from the database by its Id
+        /// <summary>
+        /// Deletes a <see cref="Category"/> entity from the database by executing
+        /// the stored procedure <c>uspDeleteCategory</c>.
+        /// </summary>
+        /// <param name="key">The <see cref="Category.CategoryId"/> of <see cref="Category"/> to delete.</param>
         public void Delete(int key)
         {
             using (var sqlCon = new SqlConnection(_connectionString))

@@ -5,23 +5,28 @@ using Publico_Kommunikation_Project.MVVM.Models;
 
 namespace Publico_Kommunikation_Project.DataAccess
 {
-    // Repository class implementing the IRepository interface
+    /// <summary>
+    /// A repository class for managing <see cref="QuoteProduct"/> entities.
+    /// Implements the <see cref="ICompositeKeyRepository{T}"/> interface.
+    /// </summary>
     public class QuoteProductRepository : ICompositeKeyRepository<QuoteProduct>
     {
         private readonly string _connectionString; // Connection string for the SQL database
 
-        // Constructor to initialize the repository with a connection string
+        /// <summary>
+        /// Initializes a new instance of <see cref="QuoteProductRepository"/> with the specified <paramref name="connectionString"/>.
+        /// </summary>
+        /// <param name="connectionString">The connection string used to establish a connection to the database.</param>
         public QuoteProductRepository(string connectionString)
         {
             _connectionString = connectionString;
         }
 
-        // Stored procedure
-        //SqlConnection sqlCon = null;
-
-        //String SqlconString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
-        // Method to retrieve all records from the database
+        /// <summary>
+        /// Retrieves all <see cref="QuoteProduct"/> entities from the database by executing the
+        /// stored procedure <c>uspGetAllQuoteProduct</c>.
+        /// </summary>
+        /// <returns>A collection of <see cref="QuoteProduct"/>entities.</returns>
         public IEnumerable<QuoteProduct> GetAll()
         {
             var quoteProduct = new List<QuoteProduct>();
@@ -49,7 +54,13 @@ namespace Publico_Kommunikation_Project.DataAccess
             return quoteProduct;
         }
 
-        // Method to retrieve a specific record by its Id
+        /// <summary>
+        /// Retrieves a specific entity of <see cref="QuoteProduct"/> by its <see cref="QuoteProduct.QuoteId"/>
+        /// by executing the stored procedure <c>uspGetByKeyQuoteProduct</c>.
+        /// </summary>
+        /// <param name="key1">The <see cref="Quote.QuoteId"/> of <see cref="QuoteProduct"/> to retrieve.</param>
+        /// <param name="key2">The <see cref="Product.ProductId"/> of <see cref="QuoteProduct"/> to retrieve.</param>
+        /// <returns>The <see cref="QuoteProduct"/> entity that matches the specified <paramref name="key1"/> and <paramref name="key2"/>.</returns>
         public QuoteProduct GetByCompositeKey(int key1, int key2)
         {
             QuoteProduct quoteProduct = null;
@@ -78,14 +89,19 @@ namespace Publico_Kommunikation_Project.DataAccess
             return quoteProduct;
         }
 
-        //// Method to retrieve a list of records by QuoteId
-        public List<QuoteProduct> GetByFirstKey(int key1)
+        /// <summary>
+        /// Retrieves all <see cref="QuoteProduct"/> entities from the database that are associated with
+        /// the specified <see cref="Quote.QuoteId"/> by executing the stored procedure <c>uspGetByKeyOneQuoteProduct</c>.
+        /// </summary>
+        /// <param name="key1">The <see cref="Quote.QuoteId"/> of <see cref="QuoteProduct"/> entities to retrieve.</param>
+        /// <returns>A collection of <see cref="QuoteProduct"/>entities.</returns>
+        public IEnumerable<QuoteProduct> GetByKeyOne(int key1)
         {
-            List<QuoteProduct> quoteProducts = new List<QuoteProduct>();
+            var quoteProduct = new List<QuoteProduct>();
             using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspGetBySingleKeyQuoteProduct", sqlCon);
+                SqlCommand sql_cmnd = new SqlCommand("uspGetByKeyOneQuoteProduct", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
                 sql_cmnd.Parameters.AddWithValue("@QuoteId", SqlDbType.Int).Value = key1;
                 using (SqlDataReader reader = sql_cmnd.ExecuteReader())
@@ -93,27 +109,32 @@ namespace Publico_Kommunikation_Project.DataAccess
                     while (reader.Read())
                     {
                         // Populate the object from the SQL data
-                        QuoteProduct quoteProduct = new QuoteProduct
+                        quoteProduct.Add(new QuoteProduct
                         {
                             QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("QuoteId")),
                             ProductId = reader.IsDBNull(reader.GetOrdinal("ProductId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("ProductId")),
                             QuoteProductTimeEstimate = reader.IsDBNull(reader.GetOrdinal("QuoteProductTimeEstimate")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("QuoteProductTimeEstimate")),
                             QuoteProductPrice = reader.IsDBNull(reader.GetOrdinal("QuoteProductPrice")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("QuoteProductPrice"))
-                        };
-                        quoteProducts.Add(quoteProduct);
+                        });
                     }
                 }
             }
-            return quoteProducts;
+            return quoteProduct;
         }
 
-        public List<QuoteProduct> GetBySecondKey(int key2)
+        /// <summary>
+        /// Retrieves all <see cref="QuoteProduct"/> entities from the database that are associated with
+        /// the specified <see cref="Product.ProductId"/> by executing the stored procedure <c>uspGetByKeyTwoQuoteProduct</c>.
+        /// </summary>
+        /// <param name="key2">The <see cref="Product.ProductId"/> of <see cref="QuoteProduct"/> entities to retrieve.</param>
+        /// <returns>A collection of <see cref="QuoteProduct"/>entities.</returns>
+        public IEnumerable<QuoteProduct> GetByKeyTwo(int key2)
         {
-            List<QuoteProduct> quoteProducts = new List<QuoteProduct>();
+            var quoteProduct = new List<QuoteProduct>();
             using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspGetBySecondKeyQuoteProduct", sqlCon);
+                SqlCommand sql_cmnd = new SqlCommand("uspGetByKeyTwoQuoteProduct", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
                 sql_cmnd.Parameters.AddWithValue("@ProductId", SqlDbType.Int).Value = key2;
                 using (SqlDataReader reader = sql_cmnd.ExecuteReader())
@@ -121,21 +142,24 @@ namespace Publico_Kommunikation_Project.DataAccess
                     while (reader.Read())
                     {
                         // Populate the object from the SQL data
-                        QuoteProduct quoteProduct = new QuoteProduct
+                        quoteProduct.Add(new QuoteProduct
                         {
                             QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("QuoteId")),
                             ProductId = reader.IsDBNull(reader.GetOrdinal("ProductId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("ProductId")),
                             QuoteProductTimeEstimate = reader.IsDBNull(reader.GetOrdinal("QuoteProductTimeEstimate")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("QuoteProductTimeEstimate")),
                             QuoteProductPrice = reader.IsDBNull(reader.GetOrdinal("QuoteProductPrice")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("QuoteProductPrice"))
-                        };
-                        quoteProducts.Add(quoteProduct);
+                        });
                     }
                 }
             }
-            return quoteProducts;
+            return quoteProduct;
         }
 
-        // Method to add a new record to the database
+        /// <summary>
+        /// Adds a new <see cref="QuoteProduct"/> entity to the database by executing
+        /// the stored procedure <c>uspCreateQuoteProduct</c>.
+        /// </summary>
+        /// <param name="quoteProduct">The <see cref="QuoteProduct"/> to add.</param>
         public void Add(QuoteProduct quoteProduct)
         {
             using (var sqlCon = new SqlConnection(_connectionString))
@@ -151,7 +175,11 @@ namespace Publico_Kommunikation_Project.DataAccess
             }
         }
 
-        // Method to update an existing record in the database
+        /// <summary>
+        /// Updates an existing <see cref="QuoteProduct"/> entity in the database by executing
+        /// the stored procedure <c>uspUpdateQuoteProduct</c>.
+        /// </summary>
+        /// <param name="quoteProduct">The <see cref="QuoteProduct"/> to update.</param>
         public void Update(QuoteProduct quoteProduct)
         {
             using (var sqlCon = new SqlConnection(_connectionString))
@@ -168,7 +196,12 @@ namespace Publico_Kommunikation_Project.DataAccess
             }
         }
 
-        // Method to delete a record from the database by its Id
+        /// <summary>
+        /// Deletes a <see cref="QuoteProduct"/> entity from the database by executing
+        /// the stored procedure <c>uspDeleteQuoteProduct</c>.
+        /// </summary>
+        /// <param name="key1">The <see cref="Quote.QuoteId"/> of <see cref="QuoteProduct"/> to delete.</param>
+        /// <param name="key2">The <see cref="Product.ProductId"/> of <see cref="QuoteProduct"/> to delete.</param>
         public void Delete(int key1, int key2)
         {
             using (var sqlCon = new SqlConnection(_connectionString))

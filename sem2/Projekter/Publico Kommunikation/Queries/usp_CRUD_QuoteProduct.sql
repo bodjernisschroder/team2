@@ -17,8 +17,8 @@ BEGIN
 END
 GO
 
--- GET BY FIRST ID
-CREATE PROCEDURE uspGetByFirstKeyQuoteProduct
+-- GET BY ID ONE
+CREATE OR ALTER PROCEDURE uspGetByKeyOneQuoteProduct
     @QuoteId INT
 AS
 BEGIN
@@ -27,8 +27,8 @@ BEGIN
 END
 GO
 
--- GET BY SECOND ID
-CREATE PROCEDURE uspGetBySecondKeyQuoteProduct
+-- GET BY ID TWO
+CREATE OR ALTER PROCEDURE uspGetByKeyTwoQuoteProduct
     @ProductId INT
 AS
 BEGIN

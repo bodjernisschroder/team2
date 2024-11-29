@@ -17,6 +17,14 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         public RelayCommand AddProductsToQuoteCommand { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of <see cref="ProductsViewModel"/>.
+        /// Assigns the specified repositories, calls the <see cref="InitializeCategoryProducts"/>
+        /// method, and configures the <see cref="AddProductsToQuoteCommand"/> command.
+        /// </summary>
+        /// <param name="categoryRepository">The repository for managing <see cref="Category"/> instances.</param>
+        /// <param name="productRepository">The repository for managing <see cref="Product"/> instances.</param>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="categoryRepository"/> or <paramref name="productRepository"/> is <c>null</c>.</exception>
         public ProductsViewModel(CategoryRepository categoryRepository, ProductRepository productRepository)
         {
             // Initialize repositories
@@ -30,11 +38,20 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             AddProductsToQuoteCommand = new RelayCommand(execute: o => { AddProductsToQuote(); }, canExecute: o => true);
         }
 
+        /// <summary>
+        /// Assigns the specified <paramref name="quoteViewModel"/> to the <see cref="_quoteViewModel"/> field.
+        /// </summary>
+        /// <param name="quoteViewModel">The <see cref="QuoteViewModel"/> instance to assign to <see cref="_quoteViewModel"/>.</param>
         public void InitializeQuoteViewModel(QuoteViewModel quoteViewModel)
         {
             _quoteViewModel = quoteViewModel;
         }
 
+        /// <summary>
+        /// Initializes and populates the <see cref="CategoryProducts"/> collection with all categories
+        /// and products from their respective repositories.
+        /// </summary>
+        /// <exception cref="KeyNotFoundException">Thrown when no <see cref="Category.CategoryId"/> matches a <see cref="Product.CategoryId"/>.</exception>
         private void InitializeCategoryProducts()
         {
             // GetAll categories and products
@@ -50,26 +67,30 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
                 var productViewModel = new ProductViewModel(product);
 
                 // Finds category with CategoryId matching product.CategoryId. If not found, throws new KeyNotFoundException.
-                var category = categories.FirstOrDefault(c => c.CategoryId == product.CategoryId) ?? throw new KeyNotFoundException($"CategoryId '{product.CategoryId}' of Product '{product.ProductId}' not found in Category table.");
+                var category = categories.FirstOrDefault(c => c.CategoryId == product.CategoryId) ??
+                    throw new KeyNotFoundException($"No CategoryId matching '{product.CategoryId}' of Product '{product.ProductId}' found in {categories}.");
 
                 // If Category key does not exist, creates new ObservableCollection<ProductViewModel> at Category key
-                if (!CategoryProducts.ContainsKey(category)) CategoryProducts[category] = new ObservableCollection<ProductViewModel>();
+                if (!CategoryProducts.ContainsKey(category)) { CategoryProducts[category] = new ObservableCollection<ProductViewModel>(); }
                 
                 // Add to CategoryProducts
                 CategoryProducts[category].Add(productViewModel);
             }
         }
 
+        /// <summary>
+        /// Iterates through the <see cref="CategoryProducts"/> collection. For each selected
+        /// <see cref="ProductViewModel"/>, calls <see cref="QuoteViewModel.AddQuoteProduct(Product)"/>
+        /// with its associated <see cref="Product"/>, and resets the selection state of the <see cref="ProductViewModel"/>.
+        /// </summary>
         public void AddProductsToQuote()
         {
-            // Iterates through CategoryProduct Keys (Category) and Values (ObservableCollection<ProductViewModel>)
             foreach (Category category in CategoryProducts.Keys)
             {
                 foreach (ProductViewModel product in CategoryProducts[category])
                 {
                     if (product.IsSelected)
                     {
-                        // Adds Product to QuoteProduct in QuoteViewModel and sets product.IsSelected to false
                         _quoteViewModel.AddQuoteProduct(product.Model);
                         product.IsSelected = false;
                     }
