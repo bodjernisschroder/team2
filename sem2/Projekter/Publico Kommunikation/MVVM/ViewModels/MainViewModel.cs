@@ -1,81 +1,72 @@
 using Publico_Kommunikation_Project.Core;
-using Publico_Kommunikation_Project.DataAccess;
 using Publico_Kommunikation_Project.Services;
+using Publico_Kommunikation_Project.DataAccess;
 using Publico_Kommunikation_Project.MVVM.Models;
 
 namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
     public class MainViewModel : ViewModel
     {
-        private INavigationService _navigation;
-        //public INavigationService Navigation
-        //{
-        //    get => _navigation;
-        //    set
-        //    {
-        //        _navigation = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
+        private readonly INavigationService _navigation;
+        private readonly QuoteRepository _quoteRepository;
+        private ViewModel _quoteView;
+        private ViewModel _productsView;
 
-        public ViewModel QuoteView { get; private set; }
-        public ViewModel ProductsView { get; private set; }
-
-        private QuoteRepository _quoteRepository;
-        public RelayCommand ShowQuoteAndProductsCommand { get; }
-        // private QuoteViewModel _quoteViewModel;
-
-        //public RelayCommand NavigateToQuoteViewCommand { get; set; }
-        //public RelayCommand NavigateToProductsViewCommand { get; set; }
-
-        public MainViewModel(INavigationService navigation, QuoteRepository quoteRepository, QuoteViewModel quoteViewModel)
+        public ViewModel QuoteView
         {
-            _navigation = navigation;
-            //NavigateToQuoteViewCommand = new RelayCommand(execute: o => { Navigation.NavigateTo<QuoteViewModel>(); }, canExecute: o => true);
-            //NavigateToProductsViewCommand = new RelayCommand(execute: o => { Navigation.NavigateTo<ProductsViewModel>(); }, canExecute: o => true);
-            ShowQuoteAndProductsCommand = new RelayCommand(execute: o => { ShowQuoteAndProducts(); }, canExecute: o => true);
-            _quoteRepository = quoteRepository;
-            // _quoteViewModel = quoteViewModel;
-            quoteViewModel.OnSwitchRequested += Switch;
+            get => _quoteView;
+            private set
+            {
+                if (_quoteView != value)
+                {
+                    _quoteView = value;
+                    OnPropertyChanged(nameof(QuoteView));
+                }
+            }
         }
-        
+
+        public ViewModel ProductsView
+        {
+            get => _productsView;
+            set
+            {
+                if (_productsView != value)
+                {
+                    _productsView = value;
+                    OnPropertyChanged(nameof(ProductsView));
+                }
+            }
+        }
+        public RelayCommand ShowQuoteAndProductsCommand { get; }
+
+        public MainViewModel(INavigationService navigation, QuoteRepository quoteRepository)
+        {
+            _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));
+            _quoteRepository = quoteRepository ?? throw new ArgumentNullException(nameof(quoteRepository));
+
+            ShowQuoteAndProductsCommand = new RelayCommand(execute: o => { ShowQuoteAndProducts(); }, canExecute: o => true);
+        }
+
         private void ShowQuoteAndProducts()
         {
             var quote = new Quote();
             _quoteRepository.Add(quote);
-            QuoteView = _navigation.NavigateTo<QuoteViewModel>();
-            (QuoteView as QuoteViewModel).Initialize(quote);
-            ProductsView = _navigation.NavigateTo<ProductsViewModel>();
+            QuoteView = _navigation.NavigateTo<SumQuoteViewModel>(vm => { vm.InitializeQuote(quote); });
+            (QuoteView as QuoteViewModel).OnSwitchRequested += Switch;
 
-            OnPropertyChanged(nameof(QuoteView));
-            OnPropertyChanged(nameof(ProductsView));
+            ProductsView = _navigation.NavigateTo<ProductsViewModel>(vm => { vm.InitializeQuoteViewModel(QuoteView as QuoteViewModel); });
         }
 
-        public void Switch()
+        public void Switch(Quote quote)
         {
-            // QuoteView = quoteViewModel;
-            if (QuoteView.GetType() == typeof(SumQuoteViewModel))
-            {
-                Trace.WriteLine("Switching to HourlyRateQuoteView");
-                QuoteView = _navigation.NavigateTo<HourlyRateQuoteViewModel>();
-            }
-            else if (QuoteView.GetType() == typeof(HourlyRateQuoteViewModel))
-            {
-                Trace.WriteLine("Switching to SumQuoteView");
-                QuoteView = _navigation.NavigateTo<SumQuoteViewModel>();
-            }
-            // var viewModelType = typeof(quoteViewModel);
-            // QuoteView = _navigation.NavigateTo<quoteViewModel>();
+            (QuoteView as QuoteViewModel).OnSwitchRequested -= Switch;
+
+            QuoteView = QuoteView.GetType() == typeof(SumQuoteViewModel)
+                ? _navigation.NavigateTo<HourlyRateQuoteViewModel>(vm => { vm.InitializeQuote(quote); })
+                : _navigation.NavigateTo<SumQuoteViewModel>(vm => { vm.InitializeQuote(quote); });
+            (QuoteView as QuoteViewModel).OnSwitchRequested += Switch;
+
+            ProductsView = _navigation.NavigateTo<ProductsViewModel>(vm => { vm.InitializeQuoteViewModel(QuoteView as QuoteViewModel); });
         }
-
-        // public void SwitchToHourlyRate()
-        // {
-        //     QuoteView = _navigation.NavigateTo<HourlyRateQuoteViewModel>();
-        // }
-
-        // public void SwitchToSum()
-        // {
-        //     QuoteView = _navigation.NavigateTo<SumQuoteViewModel>();
-        // }
     }
 }

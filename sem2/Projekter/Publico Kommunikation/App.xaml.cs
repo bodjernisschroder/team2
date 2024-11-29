@@ -44,11 +44,8 @@ namespace Publico_Kommunikation_Project
         private void RegisterServices(IServiceCollection services)
         {
             services.AddSingleton<INavigationService, NavigationService>();
-            // services.AddSingleton<DatabaseService>();
         }
 
-        // Register repositories - undersøg AddScoped betydning
-        // (burde være det, der skal bruges, men vi skal kunne forklare hvorfor)
         private void RegisterRepositories(IServiceCollection services)
         {
             services.AddScoped<CategoryRepository>();
@@ -60,18 +57,18 @@ namespace Publico_Kommunikation_Project
         private void RegisterViewModels(IServiceCollection services)
         {
             services.AddScoped<MainViewModel>();
-            services.AddScoped<HourlyRateQuoteViewModel>();
-            services.AddTransient<ProductsViewModel>();
-            services.AddTransient<ProductViewModel>();
-            services.AddScoped<QuoteViewModel>(); // Singleton
-            services.AddScoped<SumQuoteViewModel>();
+            services.AddTransient<HourlyRateQuoteViewModel>();
+            services.AddScoped<ProductsViewModel>();
+            services.AddScoped<ProductViewModel>();
+            services.AddTransient<QuoteViewModel>();
+            services.AddTransient<SumQuoteViewModel>();
 
             services.AddSingleton<Func<Type, ViewModel>>(serviceProvider => viewModelType => (ViewModel)serviceProvider.GetRequiredService(viewModelType));
         }
 
         private void RegisterViews(IServiceCollection services)
         {
-            services.AddSingleton<MainView>(provider => new MainView
+            services.AddSingleton(provider => new MainView
             {
                 DataContext = provider.GetRequiredService<MainViewModel>()
             });

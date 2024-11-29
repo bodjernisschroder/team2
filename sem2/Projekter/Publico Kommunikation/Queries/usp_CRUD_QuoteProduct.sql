@@ -7,13 +7,33 @@ END
 GO
 
 -- GET BY ID
-CREATE PROCEDURE uspGetByKeyQuoteProduct
+CREATE OR ALTER PROCEDURE uspGetByCompositeKeyQuoteProduct
     @QuoteId INT, 
 	@ProductId INT
 AS
 BEGIN
     SELECT * FROM QUOTE_PRODUCT
     WHERE QuoteId = @QuoteId AND ProductId = @ProductId
+END
+GO
+
+-- GET BY FIRST ID
+CREATE PROCEDURE uspGetByFirstKeyQuoteProduct
+    @QuoteId INT
+AS
+BEGIN
+    SELECT * FROM QUOTE_PRODUCT
+    WHERE QuoteId = @QuoteId
+END
+GO
+
+-- GET BY SECOND ID
+CREATE PROCEDURE uspGetBySecondKeyQuoteProduct
+    @ProductId INT
+AS
+BEGIN
+    SELECT * FROM QUOTE_PRODUCT
+    WHERE ProductId = @ProductId
 END
 GO
 

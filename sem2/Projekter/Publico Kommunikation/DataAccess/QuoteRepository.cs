@@ -89,11 +89,11 @@ namespace Publico_Kommunikation_Project.DataAccess
                 sql_cmnd.Parameters.AddWithValue("@HourlyRate", SqlDbType.Int).Value = quote.HourlyRate;
                 sql_cmnd.Parameters.AddWithValue("@DiscountPercentage", SqlDbType.Float).Value = quote.DiscountPercentage;
                 sql_cmnd.Parameters.AddWithValue("@Sum", SqlDbType.Float).Value = quote.Sum;
-                var quoteIdParam = new SqlParameter { ParameterName = "@QuoteId", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Output };
-                sql_cmnd.Parameters.Add(quoteIdParam);
+                var quoteId = new SqlParameter { ParameterName = "@QuoteId", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Output };
+                sql_cmnd.Parameters.Add(quoteId);
                 // sql_cmnd.Parameters.AddWithValue("@quoteId", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Output).Value = quote.QuoteId;
                 sql_cmnd.ExecuteNonQuery();
-                quote.QuoteId = Convert.ToInt32(quoteIdParam.Value);
+                quote.QuoteId = Convert.ToInt32(quoteId.Value);
             }
         }
 

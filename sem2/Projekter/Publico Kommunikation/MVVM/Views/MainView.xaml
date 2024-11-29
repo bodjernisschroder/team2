@@ -19,16 +19,8 @@
             <Button Content="Opret nyt tilbud"
                     Height="25"
                     Command="{Binding ShowQuoteAndProductsCommand}"/>
-
         </StackPanel>
-
-        <ContentControl Grid.Column="1" Content="{Binding QuoteView}">
-            
-        </ContentControl>
-
-        <ContentControl Grid.Column="2" Content="{Binding ProductsView}">
-
-        </ContentControl>
+        <ContentControl Grid.Column="1" Content="{Binding QuoteView}"/>
+        <ContentControl Grid.Column="2" Content="{Binding ProductsView}"/>
     </Grid>
-
 </Window>

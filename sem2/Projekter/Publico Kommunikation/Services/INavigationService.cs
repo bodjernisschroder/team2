@@ -10,7 +10,6 @@ namespace Publico_Kommunikation_Project.Services
         // en Quote til QuoteViewModel f.eks.
 
         //void NavigateTo<TViewModel>() where TViewModel : ViewModel;
-
-        ViewModel NavigateTo<TViewModel>() where TViewModel : ViewModel;
+        ViewModel NavigateTo<TViewModel>(Action<TViewModel> initializer = null) where TViewModel : ViewModel;
     }
 }

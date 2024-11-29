@@ -6,24 +6,16 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
     public class QuoteProductViewModel : ViewModel
     {
-
-        public QuoteProduct Model;
-        private string _productName;
         private ProductRepository _productRepository;
         private QuoteProductRepository _quoteProductRepository;
 
-        public QuoteProductViewModel(QuoteProduct quoteProduct, ProductRepository productRepository, QuoteProductRepository quoteProductRepository)
-        {
-            Model = quoteProduct;
-            Trace.WriteLine(Model.QuoteId);
-            _productRepository = productRepository;
-            _quoteProductRepository = quoteProductRepository;
-            GetProductName();
-        }
+        private string _productName;
+
+        public QuoteProduct Model { get; private set; }
 
         public int QuoteId
         {
-            get { return Model.QuoteId; }
+            get => Model.QuoteId;
             set
             {
                 Model.QuoteId = value;
@@ -33,7 +25,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         public int ProductId
         {
-            get { return Model.ProductId; }
+            get => Model.ProductId;
             set
             {
                 Model.ProductId = value;
@@ -44,8 +36,8 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         public string ProductName
         {
-            get { return _productName; }
-            set 
+            get => _productName;
+            private set 
             { 
                 _productName = value;
                 OnPropertyChanged(nameof(ProductName));
@@ -55,7 +47,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         public double QuoteProductTimeEstimate
         {
-            get { return Model.QuoteProductTimeEstimate; }
+            get => Model.QuoteProductTimeEstimate;
             set
             {
                 Model.QuoteProductTimeEstimate = value;
@@ -66,7 +58,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         public double QuoteProductPrice
         {
-            get { return Model.QuoteProductPrice; }
+            get => Model.QuoteProductPrice;
             set
             {
                 Model.QuoteProductPrice = value;
@@ -74,12 +66,22 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             }
         }
 
+        public QuoteProductViewModel(QuoteProduct quoteProduct, ProductRepository productRepository, QuoteProductRepository quoteProductRepository)
+        {
+            _productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
+            _quoteProductRepository = quoteProductRepository ?? throw new ArgumentNullException(nameof(quoteProductRepository));
+
+            Model = quoteProduct ?? throw new ArgumentNullException(nameof(quoteProduct));
+
+            GetProductName();
+        }
+
         public void UpdateQuoteProduct()
         {
             _quoteProductRepository.Update(Model);
         }
 
-        public void GetProductName()
+        private void GetProductName()
         {
             var product = _productRepository.GetByKey(ProductId);
             ProductName = product.ProductName;

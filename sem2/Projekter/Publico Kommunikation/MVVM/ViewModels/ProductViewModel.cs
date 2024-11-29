@@ -5,12 +5,13 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
     public class ProductViewModel : ViewModel
     {
+        private bool _isSelected;
         public Product Model { get; private set; }
 
         public int ProductId
         {
-            get { return Model.ProductId; }
-            set
+            get => Model.ProductId;
+            private set
             {
                 Model.ProductId = value;
                 OnPropertyChanged(nameof(ProductId));
@@ -19,8 +20,8 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         public string ProductName
         {
-            get { return Model.ProductName; }
-            set
+            get => Model.ProductName;
+            private set
             {
                 Model.ProductName = value;
                 OnPropertyChanged(nameof(ProductName));
@@ -29,15 +30,14 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         public int CategoryId
         {
-            get { return Model.CategoryId; }
-            set
+            get => Model.CategoryId;
+            private set
             {
                 Model.CategoryId = value;
                 OnPropertyChanged(nameof(CategoryId));
             }
         }
 
-        private bool _isSelected;
         public bool IsSelected
         {
             get => _isSelected;
@@ -50,7 +50,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         public ProductViewModel(Product product)
         {
-            Model = product;
+            Model = product ?? throw new ArgumentNullException(nameof(product));
         }
     }
 }

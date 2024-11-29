@@ -1,150 +1,80 @@
-﻿using Publico_Kommunikation_Project.Core;
+﻿using System.Collections.ObjectModel;
+using Publico_Kommunikation_Project.Core;
 using Publico_Kommunikation_Project.DataAccess;
-using System.Collections.ObjectModel;
 using Publico_Kommunikation_Project.MVVM.Models;
-using Publico_Kommunikation_Project.MVVM.ViewModels;
-using System.Windows.Controls;
-using System.Reflection.Metadata;
 
 namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
     public class ProductsViewModel : ViewModel
     {
+        private readonly CategoryRepository _categoryRepository;
+        private readonly ProductRepository _productRepository;
+
         private QuoteViewModel _quoteViewModel;
 
-        // Repository objects serve as a data access object, but do not need to
-        // contain objects for themselves.
-        private CategoryRepository _categoryRepository;
-        private ProductRepository _productRepository;
-        private QuoteProductRepository _quoteProductRepository;
-        public ObservableCollection<Category> Categories { get; set; }
-        // public ObservableCollection<ProductViewModel> Products { get; set; }
-        public Dictionary<int, ObservableCollection<ProductViewModel>> CategoryProducts { get; set; }
-        // public ObservableCollection<ProductViewModel> CategoryStrategi { get; set; }
-        // public ObservableCollection<ProductViewModel> CategoryIndhold { get; set; }
-        // public ObservableCollection<ProductViewModel> CategoryDigitalMarketing { get; set; }
-        // public ObservableCollection<ProductViewModel> CategoryFilm { get; set; }
-        public RelayCommand AddProductsCommand { get; set; }
-        public RelayCommand SetCategoryCommand { get; set; }
+        public int SelectedIndex { get; set; }
+        public Dictionary<Category, ObservableCollection<ProductViewModel>> CategoryProducts { get; set; }
 
-        public ProductsViewModel(CategoryRepository categoryRepository, ProductRepository productRepository, QuoteProductRepository quoteProductRepository, QuoteViewModel quoteViewModel)
+        public RelayCommand AddProductsToQuoteCommand { get; set; }
+
+        public ProductsViewModel(CategoryRepository categoryRepository, ProductRepository productRepository)
         {
-            _categoryRepository = categoryRepository;
-            _productRepository = productRepository;
-            _quoteProductRepository = quoteProductRepository;
+            // Initialize repositories
+            _categoryRepository = categoryRepository ?? throw new ArgumentNullException(nameof(categoryRepository));
+            _productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
+            
+            // Initialize CategoryProducts
+            InitializeCategoryProducts();
 
-            if (quoteViewModel == null) throw new ArgumentNullException(nameof(quoteViewModel));
-            _quoteViewModel = quoteViewModel;
-
-            // Populate Categories
-            var categories = _categoryRepository.GetAll();
-            Categories = new ObservableCollection<Category>(categories);
-
-            // Populate Products
-            //var products = _productRepository.GetAll();
-            //Products = new ObservableCollection<ProductViewModel>();
-
-            var products = _productRepository.GetAll();
-            //Products = new ObservableCollection<ProductViewModel>();
-
-            CategoryProducts = new Dictionary<int, ObservableCollection<ProductViewModel>>();
-
-            foreach (Product p in products)
-            {
-                var productViewModel = new ProductViewModel(p);
-                if (!CategoryProducts.ContainsKey(productViewModel.CategoryId))
-                {
-                    CategoryProducts[productViewModel.CategoryId] = new ObservableCollection<ProductViewModel>();
-                }
-                CategoryProducts[productViewModel.CategoryId].Add(productViewModel);
-            }
-
-            // CategoryStrategi = new ObservableCollection<ProductViewModel>();
-            // CategoryIndhold = new ObservableCollection<ProductViewModel>();
-            // CategoryDigitalMarketing = new ObservableCollection<ProductViewModel>();
-            // CategoryFilm = new ObservableCollection<ProductViewModel>();
-
-            // foreach (Product p in products)
-            // {
-            //     var productViewModel = new ProductViewModel(p);
-            //     if (productViewModel.CategoryId == 1) CategoryStrategi.Add(productViewModel);
-            //     else if (productViewModel.CategoryId == 2) CategoryIndhold.Add(productViewModel);
-            //     else if (productViewModel.CategoryId == 3) CategoryDigitalMarketing.Add(productViewModel);
-            //     else CategoryFilm.Add(productViewModel);
-            // }
-            AddProductsCommand = new RelayCommand(execute: o => { AddProducts(); }, canExecute: o => true);
+            // Initialize AddProductsToQuoteCommand
+            AddProductsToQuoteCommand = new RelayCommand(execute: o => { AddProductsToQuote(); }, canExecute: o => true);
         }
 
-        public void AddProducts()
+        public void InitializeQuoteViewModel(QuoteViewModel quoteViewModel)
         {
-            foreach (int category in CategoryProducts.Keys)
+            _quoteViewModel = quoteViewModel;
+        }
+
+        private void InitializeCategoryProducts()
+        {
+            // GetAll categories and products
+            var categories = _categoryRepository.GetAll();
+            var products = _productRepository.GetAll();
+
+            // Populate CategoryProducts
+            CategoryProducts = new Dictionary<Category, ObservableCollection<ProductViewModel>>();
+
+            foreach (Product product in products)
             {
-                foreach (ProductViewModel p in CategoryProducts[category])
+                // Creates instance of ProductViewModel
+                var productViewModel = new ProductViewModel(product);
+
+                // Finds category with CategoryId matching product.CategoryId. If not found, throws new KeyNotFoundException.
+                var category = categories.FirstOrDefault(c => c.CategoryId == product.CategoryId) ?? throw new KeyNotFoundException($"CategoryId '{product.CategoryId}' of Product '{product.ProductId}' not found in Category table.");
+
+                // If Category key does not exist, creates new ObservableCollection<ProductViewModel> at Category key
+                if (!CategoryProducts.ContainsKey(category)) CategoryProducts[category] = new ObservableCollection<ProductViewModel>();
+                
+                // Add to CategoryProducts
+                CategoryProducts[category].Add(productViewModel);
+            }
+        }
+
+        public void AddProductsToQuote()
+        {
+            // Iterates through CategoryProduct Keys (Category) and Values (ObservableCollection<ProductViewModel>)
+            foreach (Category category in CategoryProducts.Keys)
+            {
+                foreach (ProductViewModel product in CategoryProducts[category])
                 {
-                    if (p.IsSelected)
+                    if (product.IsSelected)
                     {
-                        var quoteProduct = new QuoteProduct { QuoteId = _quoteViewModel.QuoteId, ProductId = p.ProductId};
-                        var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
-                        _quoteViewModel.AddQuoteProduct(quoteProductViewModel);
-                        p.IsSelected = false;
+                        // Adds Product to QuoteProduct in QuoteViewModel and sets product.IsSelected to false
+                        _quoteViewModel.AddQuoteProduct(product.Model);
+                        product.IsSelected = false;
                     }
                 }
             }
-
-            // foreach (ProductViewModel p in CategoryStrategi)
-            // {
-            //     if (p.IsSelected)
-            //     {
-            //         //Trace.WriteLine(_quoteViewModel.QuoteId);
-            //         var quoteProduct = new QuoteProduct { QuoteId = _quoteViewModel.QuoteId, ProductId = p.ProductId};
-            //         var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
-            //         _quoteViewModel.AddQuoteProduct(quoteProductViewModel);
-
-            //         p.IsSelected = false;
-            //     }
-            // }
-
-            // foreach (ProductViewModel p in CategoryIndhold)
-            // {
-            //     if (p.IsSelected)
-            //     {
-            //         //Trace.WriteLine(_quoteViewModel.QuoteId);
-            //         var quoteProduct = new QuoteProduct { QuoteId = _quoteViewModel.QuoteId, ProductId = p.ProductId };
-
-            //         var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
-            //         _quoteViewModel.AddQuoteProduct(quoteProductViewModel);
-
-            //         p.IsSelected = false;
-            //     }
-            // }
-
-            // foreach (ProductViewModel p in CategoryDigitalMarketing)
-            // {
-            //     if (p.IsSelected)
-            //     {
-            //         //Trace.WriteLine(_quoteViewModel.QuoteId);
-            //         var quoteProduct = new QuoteProduct { QuoteId = _quoteViewModel.QuoteId, ProductId = p.ProductId };
-
-            //         var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
-            //         _quoteViewModel.AddQuoteProduct(quoteProductViewModel);
-
-            //         p.IsSelected = false;
-            //     }
-            // }
-
-            // foreach (ProductViewModel p in CategoryFilm)
-            // {
-            //     if (p.IsSelected)
-            //     {
-            //         //Trace.WriteLine(_quoteViewModel.QuoteId);
-            //         var quoteProduct = new QuoteProduct { QuoteId = _quoteViewModel.QuoteId, ProductId = p.ProductId };
-
-            //         var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
-            //         _quoteViewModel.AddQuoteProduct(quoteProductViewModel);
-
-            //         p.IsSelected = false;
-            //     }
-            // }
         }
     }
 }

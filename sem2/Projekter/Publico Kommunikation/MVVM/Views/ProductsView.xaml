@@ -7,15 +7,15 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="300">
     <Grid>
-        <TabControl Margin="0,0,0,65" ItemsSource="{Binding CategoryProducts}">
+        <TabControl Margin="0,0,0,65" ItemsSource="{Binding CategoryProducts}" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
             <TabControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Key}" />
+                    <TextBlock Text="{Binding Key.CategoryName}" />
                 </DataTemplate>
             </TabControl.ItemTemplate>
             <TabControl.ContentTemplate>
                 <DataTemplate>
-                    <Grid Background="#FFE5E5E5">
+                    <Grid Background="#FFFFFF">
                         <ListBox Margin="0,0,0,0"
                                  SelectionMode="Multiple"
                                  ItemsSource="{Binding Value}"
@@ -30,79 +30,11 @@
                 </DataTemplate>
             </TabControl.ContentTemplate>
         </TabControl>
-
-        <!-- <TabControl Margin="0,0,0,65">
-
-
-            <TabItem Header="Strategi">
-
-                <Grid Background="#FFE5E5E5">
-                    <ListBox x:Name="StrategiListBox"
-                             Margin="0,0,0,0"
-                             SelectionMode="Multiple"
-                             ItemsSource="{Binding CategoryStrategi}"
-                             DisplayMemberPath="ProductName">
-                        <ListBox.ItemContainerStyle>
-                            <Style TargetType="ListBoxItem">
-                                <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
-                            </Style>
-                        </ListBox.ItemContainerStyle>
-                    </ListBox>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Indhold">
-                <Grid Background="#FFE5E5E5">
-                    <ListBox x:Name="IndholdListBox"
-                             Margin="0,0,0,0"
-                             SelectionMode="Multiple"
-                             ItemsSource="{Binding CategoryIndhold}"    
-                             DisplayMemberPath="ProductName">
-                        <ListBox.ItemContainerStyle>
-                            <Style TargetType="ListBoxItem">
-                                <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
-                            </Style>
-                        </ListBox.ItemContainerStyle>
-                    </ListBox>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Digital Marketing">
-                <Grid Background="#FFE5E5E5">
-                    <ListBox x:Name="DigitalMarketingListBox"
-                             Margin="0,0,0,0" 
-                             SelectionMode="Multiple"
-                             ItemsSource="{Binding CategoryDigitalMarketing}"
-                             DisplayMemberPath="ProductName">
-                        <ListBox.ItemContainerStyle>
-                            <Style TargetType="ListBoxItem">
-                                <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
-                            </Style>
-                        </ListBox.ItemContainerStyle>
-                    </ListBox>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Film">
-                <Grid Background="#FFE5E5E5">
-                    <ListBox x:Name="FilmListBox"
-                             Margin="0,0,0,0"
-                             SelectionMode="Multiple"
-                             ItemsSource="{Binding CategoryFilm}"
-                             DisplayMemberPath="ProductName">
-                        <ListBox.ItemContainerStyle>
-                            <Style TargetType="ListBoxItem">
-                                <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
-                            </Style>
-                        </ListBox.ItemContainerStyle>
-                    </ListBox>
-                </Grid>
-            </TabItem>
-        </TabControl> -->
-
         <Button Content="Tilføj ydelser til tilbud" 
                 HorizontalAlignment="Center"
                 Margin="0,400,0,0"
                 VerticalAlignment="Bottom"
                 Width="160"
-                Command="{Binding AddProductsCommand}"/>
-
+                Command="{Binding AddProductsToQuoteCommand}"/>
     </Grid>
 </UserControl>

@@ -1,182 +1,120 @@
-﻿using Publico_Kommunikation_Project.Core;
+﻿using System.Collections.ObjectModel;
+using Publico_Kommunikation_Project.Core;
+using Publico_Kommunikation_Project.Services;
 using Publico_Kommunikation_Project.DataAccess;
 using Publico_Kommunikation_Project.MVVM.Models;
-using Publico_Kommunikation_Project.Services;
-using System.Collections.ObjectModel;
 
 namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
     public class QuoteViewModel : ViewModel
     {
-        public event Action OnSwitchRequested;
-        // protected void RaiseSwitchRequested()
-        // {
-        //     OnSwitchRequested?.Invoke();
-        // }
+        private readonly QuoteRepository _quoteRepository;
+        private readonly ProductRepository _productRepository;
+        private readonly QuoteProductRepository _quoteProductRepository;
+        private string _switchText;
 
-        protected bool _isActive;
-        protected Quote _model;
-        protected MainViewModel _mainViewModel;
-        // protected SumQuoteViewModel _sumQuoteViewModel;
-        // protected HourlyRateQuoteViewModel _hourlyRateQuoteViewModel;
+        protected Quote Model { get; private set; }
 
         public int QuoteId
         {
-            get { return _model.QuoteId; }
+            get { return Model.QuoteId; }
             set
             {
-                _model.QuoteId = value;
+                Model.QuoteId = value;
                 OnPropertyChanged(nameof(QuoteId));
             }
         }
 
-        public virtual double HourlyRate
-        {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
-        }
+        public virtual double HourlyRate { get; set; }
 
         public decimal DiscountPercentage
         {
-            get { return _model.DiscountPercentage; }
+            get { return Model.DiscountPercentage; }
             set
             {
-                _model.DiscountPercentage = value;
+                Model.DiscountPercentage = value;
                 OnPropertyChanged(nameof(DiscountPercentage));
             }
         }
 
-        public virtual double Sum
-        {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
-        }
+        public virtual double Sum {  get; set; }
 
-        protected INavigationService _navigation;
-        public INavigationService Navigation
+        public string SwitchText
         {
-            get => _navigation;
+            get => _switchText;
             set
             {
-                _navigation = value;
-                OnPropertyChanged();
+                if (_switchText  == value) return;
+                _switchText = value;
+                OnPropertyChanged(nameof(SwitchText));
             }
         }
-
-        public virtual bool IsActive
-        {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
-        }
-
-        // private string _currentViewModel;
-
-        // public string CurrentViewModel
-        // {
-        //     get { return _currentViewModel; }
-        //     set
-        //     {
-        //         _currentViewModel = value;
-        //         OnPropertyChanged(nameof(CurrentViewModel));
-        //     }
-        // }
-
-        public RelayCommand NavigateToProductsViewCommand { get; set; }
-        // public ObservableCollection<ProductViewModel> SelectedProduct {get ; set; } // Får besked fra ProductsViewModel Add-knap
-        private QuoteProductRepository _quoteProductRepository;
-        private ProductRepository _productRepository;
-        private QuoteRepository _quoteRepository;
-        public ObservableCollection<QuoteProductViewModel> QuoteProducts { get; set; }
-        public RelayCommand DeleteQuoteProductCommand { get; set; }
-        public RelayCommand SaveQuoteAndQuoteProductsCommand { get; set; }
+        public Action<Quote> OnSwitchRequested;
         public RelayCommand SwitchCommand { get; set; }
+        public RelayCommand DeleteQuoteProductCommand { get; set; }
+        public ObservableCollection<QuoteProductViewModel> QuoteProducts { get; set; }
 
         public QuoteViewModel(INavigationService navigation, QuoteRepository quoteRepository, QuoteProductRepository quoteProductRepository, ProductRepository productRepository)
         {
-            Navigation = navigation;
-            NavigateToProductsViewCommand = new RelayCommand(execute: o => { Navigation.NavigateTo<ProductsViewModel>(); }, canExecute: o => true);
-            _quoteRepository = quoteRepository;
-            _quoteProductRepository = quoteProductRepository;
-            _productRepository = productRepository;
-            //SaveQuoteAndQuoteProductsCommand = new RelayCommand(execute: o => { SaveQuoteAndQuoteProducts(); }, canExecute: o => true);
-            DeleteQuoteProductCommand = new RelayCommand(execute: o => { DeleteQuoteProduct(o); }, canExecute: o => true);
+            // Initialize Repositories
+            _quoteRepository = quoteRepository ?? throw new ArgumentNullException(nameof(quoteRepository));
+            _productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
+            _quoteProductRepository = quoteProductRepository ?? throw new ArgumentNullException(nameof(quoteProductRepository));
+
+            // Initialize QuoteProducts
             QuoteProducts = new ObservableCollection<QuoteProductViewModel>();
-            // _sumQuoteViewModel = sumQuoteViewModel;
-            // _hourlyRateQuoteViewModel = hourlyRateQuoteViewModel;
+
+            // Initialize Commands
+            DeleteQuoteProductCommand = new RelayCommand(execute: o => { DeleteQuoteProduct(o); }, canExecute: o => true);
             SwitchCommand = new RelayCommand(execute: o => { Switch(); }, canExecute: o => true);
         }
                     
-        public void Initialize(Quote quote)
+        public virtual void InitializeQuote(Quote quote)
         {
-            if (quote == null) throw new ArgumentNullException(nameof(quote));
-            _model = quote;
-            // Trace.WriteLine("QuoteViewModel: " + _model.QuoteId);
-            _model = _quoteRepository.GetByKey(_model.QuoteId);
-            // Trace.WriteLine("QuoteViewModel2: " + _model.QuoteId);
-            //Trace.WriteLine(_model.QuoteId); 
-            ////// Midlertidige QuoteProducts - manuel indsættelse
-            //var quoteProduct = new QuoteProduct { ProductId = 1, QuoteId = 1, QuoteProductPrice = 100.00, QuoteProductTimeEstimate = 1 };
-            //var quoteProduct1 = new QuoteProduct { ProductId = 2, QuoteId = 1 };
-            //var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
-            //var quoteProductViewModel1 = new QuoteProductViewModel(quoteProduct1, _productRepository, _quoteProductRepository);
-            //_quoteProductRepository.Delete(quoteProductViewModel.QuoteId, quoteProductViewModel.ProductId);
-            //_quoteProductRepository.Delete(quoteProductViewModel1.QuoteId, quoteProductViewModel1.ProductId);
-            //_quoteProductRepository.Add(quoteProductViewModel.Model);
-            //_quoteProductRepository.Add(quoteProductViewModel1.Model);
-            //QuoteProducts.Add(quoteProductViewModel);
-            //QuoteProducts.Add(quoteProductViewModel1);
+            Model = quote;
+            GetAllQuoteProducts();
         }
 
-        //Enten at have en GetAll eller en GetById
-        public void GetAllQuoteProducts(int quoteId)
+        public void GetAllQuoteProducts()
         {
-            throw new NotImplementedException();
-            //Alle dem, som passer med QuoteProducts
-            //Indsæt dem, som har den quoteId - som parameter
-            //- indsættes i den liste, som hedder QuoteProducts
-        }
-
-        // Adds ClassTemplate to collections
-        // Går igennem listen med SelectedProducts og opretter og tilføjer dem til QuoteProducts
-        public void AddQuoteProduct(QuoteProductViewModel quoteProductViewModel)
-        {
-            _quoteProductRepository.Add(quoteProductViewModel.Model);
-            QuoteProducts.Add(quoteProductViewModel);
-        }
-
-
-        // Deletes QuoteProduct
-        public void DeleteQuoteProduct(object o)
-        {
-            if (o is QuoteProductViewModel quoteProductViewModel)
+            QuoteProducts.Clear();
+            foreach (QuoteProduct quoteProduct in _quoteProductRepository.GetByFirstKey(QuoteId))
             {
-                _quoteProductRepository.Delete(quoteProductViewModel.QuoteId, quoteProductViewModel.ProductId);
-                QuoteProducts.Remove(quoteProductViewModel);
+                var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
+                QuoteProducts.Add(quoteProductViewModel);
             }
         }
 
-        //Updates Repository
-        //Update Quote
-        // public void SaveQuoteAndQuoteProducts()
-        // {
-        //     //Error handling her
-        //     foreach (QuoteProductViewModel quoteProductViewModel in QuoteProducts)
-        //     {
-        //         _quoteProductRepository.Update(quoteProductViewModel.Model);
-        //     }
-
-        //     _quoteRepository.Update(_model);
-        // }
-
         public void UpdateQuote()
         {
-            _quoteRepository.Update(_model);
+            _quoteRepository.Update(Model);
         }
 
         public void Switch()
         {
-            Trace.WriteLine("Switch Invoke");
-            OnSwitchRequested?.Invoke();
+            OnSwitchRequested?.Invoke(Model);
+        }
+
+        public void AddQuoteProduct(Product product)
+        {
+            if (product == null) throw new ArgumentNullException(nameof(product));
+
+            // Create QuoteProduct and QuoteProductViewModel
+            var quoteProduct = new QuoteProduct { QuoteId = QuoteId, ProductId = product.ProductId };
+            var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
+            
+            // Add QuoteProduct to Repository and QuoteProductViewModel to QuoteProducts
+            _quoteProductRepository.Add(quoteProduct);
+            QuoteProducts.Add(quoteProductViewModel);
+        }
+
+
+        public void DeleteQuoteProduct(object o)
+        {
+            if (!(o is QuoteProductViewModel quoteProductViewModel)) return;
+
+            _quoteProductRepository.Delete(quoteProductViewModel.QuoteId, quoteProductViewModel.ProductId);
+            QuoteProducts.Remove(quoteProductViewModel);
         }
     }
 }
