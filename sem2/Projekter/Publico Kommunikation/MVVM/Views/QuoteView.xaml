@@ -52,7 +52,7 @@
         </StackPanel>
         <Label
             x:Name="lblHourlyRate"
-            Width="104"
+            Width="115"
             Margin="20,0,0,80"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom">
@@ -73,8 +73,8 @@
 
         <Label
             x:Name="lblTotalPrice"
-            Width="104"
-            Margin="20,0,0,40"
+               Width="115"
+               Margin="20,0,0,40"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom">
             <StackPanel Orientation="Horizontal">
@@ -114,7 +114,7 @@
         </Label>
 
         <Label
-            x:Name="lblNoDiscountPrice"
+            x:Name="lblDiscountPrice"
             Width="178"
             Margin="172,0,0,54"
             HorizontalAlignment="Left"

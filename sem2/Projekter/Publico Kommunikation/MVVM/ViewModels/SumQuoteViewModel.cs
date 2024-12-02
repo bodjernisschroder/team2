@@ -77,12 +77,12 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             var totalEstimatedTime = QuoteProducts.Sum(qp => qp.QuoteProductTimeEstimate);
             if (totalEstimatedTime > 0)
             {
-                Model.HourlyRate = Sum / totalEstimatedTime;
+                Model.HourlyRate = Math.Round(Sum / totalEstimatedTime, 2);
             }
             else { Model.HourlyRate = 0; }
             OnPropertyChanged(nameof(HourlyRate));
 
-            DiscountedSum = Sum - (Sum * ((double)DiscountPercentage / 100));
+            DiscountedSum = Math.Round(Sum - (Sum * ((double)DiscountPercentage / 100)), 2);
         }
     }
 }
