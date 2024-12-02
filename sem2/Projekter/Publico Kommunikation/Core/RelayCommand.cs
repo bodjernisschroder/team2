@@ -9,7 +9,7 @@ namespace Publico_Kommunikation_Project.Core
     public class RelayCommand : ICommand
     {
         private readonly Action<object> _execute;
-        private readonly Predicate<object> _canExecute;
+        private readonly Predicate<object>? _canExecute;
 
         /// <summary>
         /// Initializes a new instance of <see cref="RelayCommand"/> with the
@@ -17,7 +17,7 @@ namespace Publico_Kommunikation_Project.Core
         /// </summary>
         /// <param name="execute">The action to be executed.</param>
         /// <param name="canExecute">The predicate that determines whether the command can execute.</param>
-        public RelayCommand(Action<object> execute, Predicate<object> canExecute)
+        public RelayCommand(Action<object> execute, Predicate<object>? canExecute = null)
         {
             _execute = execute;
             _canExecute = canExecute;
@@ -27,7 +27,7 @@ namespace Publico_Kommunikation_Project.Core
         /// An event that automatically tracks changes in a command's executability
         /// using <see cref="CommandManager.RequerySuggested"/>.
         /// </summary>
-        public event EventHandler CanExecuteChanged
+        public event EventHandler? CanExecuteChanged
         {
             add => CommandManager.RequerySuggested += value;
             remove => CommandManager.RequerySuggested -= value;
@@ -41,7 +41,7 @@ namespace Publico_Kommunikation_Project.Core
         /// <returns><c>true</c> if the command can execute, otherwise <c>false</c>.</returns>
         public bool CanExecute(object? parameter)
         {
-            return _canExecute(parameter);
+            return _canExecute == null || _canExecute(parameter);
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
-﻿using Publico_Kommunikation_Project.Core;
+﻿using System.Windows.Input;
+using Publico_Kommunikation_Project.Core;
 using Publico_Kommunikation_Project.DataAccess;
 using Publico_Kommunikation_Project.MVVM.Models;
 
@@ -15,9 +16,11 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         private ProductRepository _productRepository;
         private QuoteProductRepository _quoteProductRepository;
 
-        private string _productName;
+        public Action? OnTimeEstimateChanged { get; set; } 
 
+        private string _productName;
         public QuoteProduct Model { get; private set; }
+
 
         public int QuoteId
         {
@@ -58,6 +61,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             {
                 Model.QuoteProductTimeEstimate = value;
                 OnPropertyChanged(nameof(QuoteProductTimeEstimate));
+                OnTimeEstimateChanged?.Invoke();
                 UpdateQuoteProduct();
             }
         }
@@ -87,6 +91,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             _quoteProductRepository = quoteProductRepository ?? throw new ArgumentNullException(nameof(quoteProductRepository));
 
             Model = quoteProduct ?? throw new ArgumentNullException(nameof(quoteProduct));
+
 
             GetProductName();
         }

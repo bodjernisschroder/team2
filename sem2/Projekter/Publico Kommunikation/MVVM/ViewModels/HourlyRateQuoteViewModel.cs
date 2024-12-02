@@ -1,6 +1,10 @@
 ﻿using Publico_Kommunikation_Project.Services;
 using Publico_Kommunikation_Project.DataAccess;
 using Publico_Kommunikation_Project.MVVM.Models;
+using System.ComponentModel;
+using System.Collections.ObjectModel;
+using Publico_Kommunikation_Project.Core;
+using System.Collections;
 
 namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
@@ -11,6 +15,8 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
     /// </summary>
     public class HourlyRateQuoteViewModel : QuoteViewModel
     {
+        public RelayCommand UpdateTotalPriceCommand { get; }
+
         public override double HourlyRate
         {
             get => Model.HourlyRate;
@@ -18,6 +24,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             {
                 Model.HourlyRate = value;
                 OnPropertyChanged(nameof(HourlyRate));
+                CalcPrice();
                 UpdateQuote();
             }
         }
@@ -29,6 +36,17 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             {
                 Model.Sum = value;
                 OnPropertyChanged(nameof(Sum));
+                UpdateQuote();
+            }
+        }
+
+        public override double DiscountedSum
+        {
+            get => _discountedSum;
+            set
+            {
+                _discountedSum = value;
+                OnPropertyChanged(nameof(DiscountedSum));
                 UpdateQuote();
             }
         }
@@ -55,10 +73,22 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         public override void InitializeQuote(Quote quote)
         {
             base.InitializeQuote(quote);
+            CalcPrice();
+        }
 
-            // Disse sættes kun for at kunne se forskel på, hvilken model er synlig. Slet, når Sum og HourlyRate properties er sat korrekt op.
-            HourlyRate = 500.0;
-            Sum = 5000.0;
+        
+
+        public override void CalcPrice()
+        {
+            var totalEstimatedTime = QuoteProducts.Sum(qp => qp.QuoteProductTimeEstimate);
+            if (totalEstimatedTime > 0)
+            {
+                Model.Sum = (totalEstimatedTime * HourlyRate);
+            }
+            else { Sum = 0; }
+            OnPropertyChanged(nameof(Sum));
+
+            DiscountedSum = Sum - (Sum * ((double)DiscountPercentage / 100));
         }
     }
 }

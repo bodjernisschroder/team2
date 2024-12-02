@@ -6,6 +6,7 @@ using Publico_Kommunikation_Project.Services;
 using Publico_Kommunikation_Project.MVVM.Views;
 using Publico_Kommunikation_Project.MVVM.ViewModels;
 using Publico_Kommunikation_Project.DataAccess;
+using System.Collections.ObjectModel;
 
 namespace Publico_Kommunikation_Project
 {
