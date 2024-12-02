@@ -3,6 +3,8 @@ using Publico_Kommunikation_Project.Core;
 using Publico_Kommunikation_Project.Services;
 using Publico_Kommunikation_Project.DataAccess;
 using Publico_Kommunikation_Project.MVVM.Models;
+using System.ComponentModel;
+using System.Collections;
 
 namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
@@ -17,6 +19,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         private readonly ProductRepository _productRepository;
         private readonly QuoteProductRepository _quoteProductRepository;
         private string _switchText;
+        protected double _discountedSum = 0;
 
         protected Quote Model { get; private set; }
 
@@ -39,10 +42,12 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             {
                 Model.DiscountPercentage = value;
                 OnPropertyChanged(nameof(DiscountPercentage));
+                CalcPrice();
             }
         }
 
         public virtual double Sum {  get; set; }
+        public virtual double DiscountedSum { get; set; }
 
         public string SwitchText
         {
@@ -54,6 +59,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
                 OnPropertyChanged(nameof(SwitchText));
             }
         }
+
         public event Action<Quote> OnSwitchRequested;
         public RelayCommand SwitchCommand { get; set; }
         public RelayCommand DeleteQuoteProductCommand { get; set; }
@@ -82,6 +88,13 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             // Configure Commands
             DeleteQuoteProductCommand = new RelayCommand(execute: o => { DeleteQuoteProduct(o); }, canExecute: o => true);
             SwitchCommand = new RelayCommand(execute: o => { Switch(); }, canExecute: o => true);
+
+            
+            QuoteProducts.CollectionChanged += (sender, e) =>
+            {
+                HandleCollectionChanged(e.NewItems, CalcPrice);
+                HandleCollectionChanged(e.OldItems, null);
+            };
         }
 
         /// <summary>
@@ -163,6 +176,24 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
             _quoteProductRepository.Delete(quoteProductViewModel.QuoteId, quoteProductViewModel.ProductId);
             QuoteProducts.Remove(quoteProductViewModel);
+            CalcPrice();
         }
+
+        
+        private void HandleCollectionChanged(IEnumerable? items, Action? action)
+        {
+            if (items == null) return;
+
+            foreach (var item in items.OfType<QuoteProductViewModel>())
+            {
+                item.OnTimeEstimateChanged = action;
+            }
+        }
+
+        public virtual void CalcPrice()
+        {
+        }
+
+
     }
 }

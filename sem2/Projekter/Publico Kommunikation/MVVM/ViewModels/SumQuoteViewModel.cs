@@ -31,6 +31,18 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             {
                 Model.Sum = value;
                 OnPropertyChanged(nameof(Sum));
+                CalcPrice();
+                UpdateQuote();
+            }
+        }
+
+        public override double DiscountedSum
+        {
+            get => _discountedSum;
+            set
+            {
+                _discountedSum = value;
+                OnPropertyChanged(nameof(DiscountedSum));
                 UpdateQuote();
             }
         }
@@ -57,10 +69,20 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         public override void InitializeQuote(Quote quote)
         {
             base.InitializeQuote(quote);
+            CalcPrice();
+        }
 
-            // Disse sættes kun for at kunne se forskel på, hvilken model er synlig. Slet, når Sum og HourlyRate properties er sat korrekt op.
-            HourlyRate = 400.0;
-            Sum = 4000.0;
+        public override void CalcPrice()
+        {
+            var totalEstimatedTime = QuoteProducts.Sum(qp => qp.QuoteProductTimeEstimate);
+            if (totalEstimatedTime > 0)
+            {
+                Model.HourlyRate = Sum / totalEstimatedTime;
+            }
+            else { Model.HourlyRate = 0; }
+            OnPropertyChanged(nameof(HourlyRate));
+
+            DiscountedSum = Sum - (Sum * ((double)DiscountPercentage / 100));
         }
     }
 }
