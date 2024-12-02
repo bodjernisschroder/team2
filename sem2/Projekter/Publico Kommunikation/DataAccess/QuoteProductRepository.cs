@@ -55,12 +55,12 @@ namespace Publico_Kommunikation_Project.DataAccess
         }
 
         /// <summary>
-        /// Retrieves a specific entity of <see cref="QuoteProduct"/> by its <see cref="QuoteProduct.QuoteId"/>
+        /// Retrieves a specific entity of <see cref="QuoteProduct"/> by its composite key
         /// by executing the stored procedure <c>uspGetByKeyQuoteProduct</c>.
         /// </summary>
         /// <param name="key1">The <see cref="Quote.QuoteId"/> of <see cref="QuoteProduct"/> to retrieve.</param>
         /// <param name="key2">The <see cref="Product.ProductId"/> of <see cref="QuoteProduct"/> to retrieve.</param>
-        /// <returns>The <see cref="QuoteProduct"/> entity that matches the specified <paramref name="key1"/> and <paramref name="key2"/>.</returns>
+        /// <returns>The <see cref="QuoteProduct"/> entity that matches the specified composite key.</returns>
         public QuoteProduct GetByCompositeKey(int key1, int key2)
         {
             QuoteProduct quoteProduct = null;

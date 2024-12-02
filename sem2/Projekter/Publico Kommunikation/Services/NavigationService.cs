@@ -2,10 +2,19 @@
 
 namespace Publico_Kommunikation_Project.Services
 {
+    /// <summary>
+    /// An implementation of the <see cref="INavigationService"/> interface.
+    /// </summary>
     public class NavigationService : ObservableObject, INavigationService
     {
         private readonly Func<Type, ViewModel> _viewModelFactory;
 
+        /// <summary>
+        /// Initializes a new instance of <see cref="NavigationService"/> with
+        /// the specified <paramref name="viewModelFactory"/>.
+        /// </summary>
+        /// <param name="viewModelFactory">A function that takes a <see cref="Type"/> and returns an
+        /// instance of <see cref="ViewModel"/>, used for invoking ViewModel instances.</param>
         public NavigationService(Func<Type, ViewModel> viewModelFactory)
         {
             _viewModelFactory = viewModelFactory;
