@@ -24,9 +24,14 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             {
                 Model.HourlyRate = value;
                 OnPropertyChanged(nameof(HourlyRate));
-                CalcPrice();
+                UpdatePrice();
                 UpdateQuote();
             }
+        }
+
+        public override bool HourlyRateIsReadOnly
+        {
+            get => false;
         }
 
         public override double Sum
@@ -36,20 +41,14 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             {
                 Model.Sum = value;
                 OnPropertyChanged(nameof(Sum));
-                UpdateQuote();
             }
         }
 
-        public override double DiscountedSum
+        public override bool SumIsReadOnly
         {
-            get => _discountedSum;
-            set
-            {
-                _discountedSum = value;
-                OnPropertyChanged(nameof(DiscountedSum));
-                UpdateQuote();
-            }
+            get => true;
         }
+
 
         /// <summary>
         /// Initializes a new instance of <see cref="HourlyRateQuoteViewModel"/>
@@ -73,20 +72,15 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         public override void InitializeQuote(Quote quote)
         {
             base.InitializeQuote(quote);
-            CalcPrice();
         }
 
-        public override void CalcPrice()
+        public override void UpdatePrice()
         {
             var totalEstimatedTime = QuoteProducts.Sum(qp => qp.QuoteProductTimeEstimate);
-            if (totalEstimatedTime > 0)
-            {
-                Model.Sum = Math.Round(totalEstimatedTime * HourlyRate, 2);
-            }
-            else { Sum = 0; }
+            Model.Sum = totalEstimatedTime > 0 ? Math.Round(totalEstimatedTime * HourlyRate, 2) : 0;
+            QuoteProducts.ToList().ForEach(qp => qp.UpdateQuoteProductPrice(HourlyRate));
             OnPropertyChanged(nameof(Sum));
-
-            DiscountedSum = Math.Round(Sum - (Sum * ((double)DiscountPercentage / 100)), 2);
+            OnPropertyChanged(nameof(DiscountedSum));
         }
     }
 }

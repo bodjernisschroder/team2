@@ -16,7 +16,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         private ProductRepository _productRepository;
         private QuoteProductRepository _quoteProductRepository;
 
-        public Action? OnTimeEstimateChanged { get; set; } 
+        public Action? OnTimeEstimateChanged { get; set; }
 
         private string _productName;
         public QuoteProduct Model { get; private set; }
@@ -46,13 +46,12 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         public string ProductName
         {
             get => _productName;
-            private set 
-            { 
+            private set
+            {
                 _productName = value;
                 OnPropertyChanged(nameof(ProductName));
             }
         }
-
 
         public double QuoteProductTimeEstimate
         {
@@ -92,7 +91,6 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
             Model = quoteProduct ?? throw new ArgumentNullException(nameof(quoteProduct));
 
-
             GetProductName();
         }
 
@@ -102,6 +100,11 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         public void UpdateQuoteProduct()
         {
             _quoteProductRepository.Update(Model);
+        }
+
+        public void UpdateQuoteProductPrice(double hourlyRate)
+        {
+            QuoteProductPrice = Math.Round(QuoteProductTimeEstimate * hourlyRate, 2);
         }
 
         /// <summary>
