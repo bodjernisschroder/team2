@@ -42,10 +42,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
-  <ItemGroup>
-	<Folder Include="MVVM\ViewModels\" />
-  </ItemGroup>
 	
 	
 	

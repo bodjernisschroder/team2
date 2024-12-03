@@ -44,7 +44,7 @@ namespace Publico_Kommunikation_Project.DataAccess
                         quote.Add(new Quote
                         {
                             QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("QuoteId")),
-                            HourlyRate = reader.IsDBNull(reader.GetOrdinal("HourlyRate")) ? 0 : (int)reader.GetInt64(reader.GetOrdinal("HourlyRate")),
+                            HourlyRate = reader.IsDBNull(reader.GetOrdinal("HourlyRate")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("HourlyRate")),
                             DiscountPercentage = reader.IsDBNull(reader.GetOrdinal("DiscountPercentage")) ? 0.0m : reader.GetDecimal(reader.GetOrdinal("DiscountPercentage")),
                             Sum = reader.IsDBNull(reader.GetOrdinal("Sum")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("Sum"))
                         });
