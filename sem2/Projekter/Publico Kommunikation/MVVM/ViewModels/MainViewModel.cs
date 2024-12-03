@@ -16,6 +16,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         private readonly QuoteRepository _quoteRepository;
         private ViewModel _quoteView;
         private ViewModel _productsView;
+        private ViewModel _quotesView;
 
         public ViewModel QuoteView
         {
@@ -42,7 +43,21 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
                 }
             }
         }
+
+        public ViewModel QuotesView
+        {
+            get => _quotesView;
+            set
+            {
+                if (_quotesView != value)
+                {
+                    _quotesView = value;
+                    OnPropertyChanged(nameof(QuotesView));
+                }
+            }
+        }
         public RelayCommand ShowQuoteAndProductsCommand { get; }
+        public RelayCommand ShowQuoteOverviewCommand { get; }
 
         /// <summary>
         /// Initializes a new instance of <see cref="MainViewModel"/>.
@@ -58,6 +73,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             _quoteRepository = quoteRepository ?? throw new ArgumentNullException(nameof(quoteRepository));
 
             ShowQuoteAndProductsCommand = new RelayCommand(execute: o => { ShowQuoteAndProducts(); }, canExecute: o => true);
+            ShowQuoteOverviewCommand = new RelayCommand(execute: o => { ShowQuoteOverview(); }, canExecute: o => true);
         }
 
         /// <summary>
@@ -77,6 +93,17 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
             // Navigates to and initializes ProductsViewModel with the instance of quote.
             ProductsView = _navigation.NavigateTo<ProductsViewModel>(vm => { vm.InitializeQuoteViewModel(QuoteView as QuoteViewModel); });
+        }
+
+        private void ShowQuoteOverview()
+        {
+
+            var quote = new Quote();
+            _quoteRepository.Add(quote);
+
+            QuotesView = _navigation.NavigateTo<QuotesViewModel>(vm => { vm.InitializeQuotes(); });
+            //(QuotesView as QuoteViewModel).OnSwitchRequested += Switch;
+
         }
 
         /// <summary>
