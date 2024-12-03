@@ -44,6 +44,9 @@ namespace Publico_Kommunikation_Project.DataAccess
                         quote.Add(new Quote
                         {
                             QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("QuoteId")),
+                            QuoteName = reader.IsDBNull(reader.GetOrdinal("QuoteName")) ? string.Empty : reader.GetString(reader.GetOrdinal("QuoteName")),
+                            Tags = reader.IsDBNull(reader.GetOrdinal("Tags")) ? string.Empty : reader.GetString(reader.GetOrdinal("Tags")),
+                            FilePath = reader.IsDBNull(reader.GetOrdinal("FilePath")) ? string.Empty : reader.GetString(reader.GetOrdinal("FilePath")),
                             HourlyRate = reader.IsDBNull(reader.GetOrdinal("HourlyRate")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("HourlyRate")),
                             DiscountPercentage = reader.IsDBNull(reader.GetOrdinal("DiscountPercentage")) ? 0.0m : reader.GetDecimal(reader.GetOrdinal("DiscountPercentage")),
                             Sum = reader.IsDBNull(reader.GetOrdinal("Sum")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("Sum"))
@@ -78,6 +81,9 @@ namespace Publico_Kommunikation_Project.DataAccess
                         quote = new Quote
                         {
                             QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("QuoteId")),
+                            QuoteName = reader.IsDBNull(reader.GetOrdinal("QuoteName")) ? string.Empty : reader.GetString(reader.GetOrdinal("QuoteName")),
+                            Tags = reader.IsDBNull(reader.GetOrdinal("Tags")) ? string.Empty : reader.GetString(reader.GetOrdinal("Tags")),
+                            FilePath = reader.IsDBNull(reader.GetOrdinal("FilePath")) ? string.Empty : reader.GetString(reader.GetOrdinal("FilePath")),
                             HourlyRate = reader.IsDBNull(reader.GetOrdinal("HourlyRate")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("HourlyRate")),
                             DiscountPercentage = reader.IsDBNull(reader.GetOrdinal("DiscountPercentage")) ? 0.0m : reader.GetDecimal(reader.GetOrdinal("DiscountPercentage")),
                             Sum = reader.IsDBNull(reader.GetOrdinal("Sum")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("Sum"))
@@ -100,12 +106,14 @@ namespace Publico_Kommunikation_Project.DataAccess
                 sqlCon.Open();
                 SqlCommand sql_cmnd = new SqlCommand("uspCreateQuote", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
+                sql_cmnd.Parameters.AddWithValue("@QuoteName", SqlDbType.NVarChar).Value = quote.QuoteName;
+                sql_cmnd.Parameters.AddWithValue("@Tags", SqlDbType.NVarChar).Value = quote.Tags;
+                sql_cmnd.Parameters.AddWithValue("@FilePath", SqlDbType.NVarChar).Value = quote.FilePath;
                 sql_cmnd.Parameters.AddWithValue("@HourlyRate", SqlDbType.Int).Value = quote.HourlyRate;
                 sql_cmnd.Parameters.AddWithValue("@DiscountPercentage", SqlDbType.Float).Value = quote.DiscountPercentage;
                 sql_cmnd.Parameters.AddWithValue("@Sum", SqlDbType.Float).Value = quote.Sum;
                 var quoteId = new SqlParameter { ParameterName = "@QuoteId", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Output };
                 sql_cmnd.Parameters.Add(quoteId);
-                // sql_cmnd.Parameters.AddWithValue("@quoteId", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Output).Value = quote.QuoteId;
                 sql_cmnd.ExecuteNonQuery();
                 quote.QuoteId = Convert.ToInt32(quoteId.Value);
             }
@@ -124,6 +132,9 @@ namespace Publico_Kommunikation_Project.DataAccess
                 SqlCommand sql_cmnd = new SqlCommand("uspUpdateQuote", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
                 sql_cmnd.Parameters.AddWithValue("@QuoteId", SqlDbType.Int).Value = quote.QuoteId;
+                sql_cmnd.Parameters.AddWithValue("@QuoteName", SqlDbType.NVarChar).Value = quote.QuoteName;
+                sql_cmnd.Parameters.AddWithValue("@Tags", SqlDbType.NVarChar).Value = quote.Tags;
+                sql_cmnd.Parameters.AddWithValue("@FilePath", SqlDbType.NVarChar).Value = quote.FilePath;
                 sql_cmnd.Parameters.AddWithValue("@HourlyRate", SqlDbType.Int).Value = quote.HourlyRate;
                 sql_cmnd.Parameters.AddWithValue("@DiscountPercentage", SqlDbType.Float).Value = quote.DiscountPercentage;
                 sql_cmnd.Parameters.AddWithValue("@Sum", SqlDbType.Float).Value = quote.Sum;

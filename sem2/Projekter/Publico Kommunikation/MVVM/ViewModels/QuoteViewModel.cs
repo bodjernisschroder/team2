@@ -19,7 +19,6 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         private readonly ProductRepository _productRepository;
         private readonly QuoteProductRepository _quoteProductRepository;
         private string _switchText;
-        protected double _discountedSum = 0;
 
         protected Quote Model { get; private set; }
 
@@ -33,7 +32,41 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             }
         }
 
+        public string QuoteName
+        {
+            get { return Model.QuoteName; }
+            set
+            {
+                Model.QuoteName = value;
+                OnPropertyChanged(nameof(QuoteName));
+                UpdateQuote();
+            }
+        }
+
+        public string Tags
+        {
+            get { return Model.Tags; }
+            set
+            {
+                Model.Tags = value;
+                OnPropertyChanged(nameof(Tags));
+                UpdateQuote();
+            }
+        }
+
+        public string FilePath
+        {
+            get { return Model.FilePath; }
+            set
+            {
+                Model.FilePath = value;
+                OnPropertyChanged(nameof(FilePath));
+                UpdateQuote();
+            }
+        }
+
         public virtual double HourlyRate { get; set; }
+        public virtual bool HourlyRateIsReadOnly { get; set; }
 
         public decimal DiscountPercentage
         {
@@ -42,12 +75,18 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             {
                 Model.DiscountPercentage = value;
                 OnPropertyChanged(nameof(DiscountPercentage));
-                CalcPrice();
+                OnPropertyChanged(nameof(DiscountedSum));
+                UpdateQuote();
             }
         }
 
-        public virtual double Sum {  get; set; }
-        public virtual double DiscountedSum { get; set; }
+        public virtual double Sum { get; set; }
+        public virtual bool SumIsReadOnly { get; set; }
+
+        public double DiscountedSum
+        {
+            get => Math.Round(Sum - (Sum * ((double)DiscountPercentage / 100)), 2);
+        }
 
         public string SwitchText
         {
@@ -88,12 +127,6 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             // Configure Commands
             DeleteQuoteProductCommand = new RelayCommand(execute: o => { DeleteQuoteProduct(o); }, canExecute: o => true);
             SwitchCommand = new RelayCommand(execute: o => { Switch(); }, canExecute: o => true);
-
-            //QuoteProducts.CollectionChanged += (sender, e) =>
-            //{
-            //    HandleCollectionChanged(e.NewItems, CalcPrice);
-            //    HandleCollectionChanged(e.OldItems, null);
-            //};
         }
 
         /// <summary>
@@ -105,6 +138,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         {
             Model = quote;
             GetAllQuoteProducts();
+            UpdatePrice();
         }
 
         /// <summary>
@@ -118,6 +152,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             {
                 var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
                 QuoteProducts.Add(quoteProductViewModel);
+                quoteProductViewModel.OnTimeEstimateChanged += UpdatePrice;
             }
         }
 
@@ -157,6 +192,9 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             // Add QuoteProduct to Repository and QuoteProductViewModel to QuoteProducts
             _quoteProductRepository.Add(quoteProduct);
             QuoteProducts.Add(quoteProductViewModel);
+
+            // Subscribe quoteProductViewModel to OnTimeEstimateChanged
+            quoteProductViewModel.OnTimeEstimateChanged += UpdatePrice;
         }
 
         /// <summary>
@@ -173,26 +211,16 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
                     $"Expected an instance of '{nameof(QuoteProductViewModel)}' but got an instance of '{o?.GetType().Name ?? "null"}'.",
                     nameof(o));
 
+            // Unsubscribe quoteProductViewModel from OnTimeEstimateChanged
+            quoteProductViewModel.OnTimeEstimateChanged -= UpdatePrice;
+
+            // Delete quoteProduct and quoteProductViewModel
             _quoteProductRepository.Delete(quoteProductViewModel.QuoteId, quoteProductViewModel.ProductId);
             QuoteProducts.Remove(quoteProductViewModel);
-            CalcPrice();
+
+            UpdatePrice();
         }
 
-        
-        //private void HandleCollectionChanged(IEnumerable? quoteProducts, Action? action)
-        //{
-        //    if (quoteProducts == null) return;
-
-        //    foreach (var quoteProducts in quoteProducts.OfType<QuoteProductViewModel>())
-        //    {
-        //        quoteProducts.OnTimeEstimateChanged = action;
-        //    }
-        //}
-
-        public virtual void CalcPrice()
-        {
-        }
-
-
+        public virtual void UpdatePrice() {}
     }
 }

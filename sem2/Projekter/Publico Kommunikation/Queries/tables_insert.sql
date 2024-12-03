@@ -44,6 +44,7 @@ INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Retainer på strategi', 1
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Strategisk rebranding', 1);
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Strategiworkshop', 1);
 INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Tone of voice', 1);
+INSERT INTO PRODUCT (ProductName, CategoryId) VALUES ('Konceptudvikling', 1);
 GO
 
 --Insert values for PRODUCT table - Indhold

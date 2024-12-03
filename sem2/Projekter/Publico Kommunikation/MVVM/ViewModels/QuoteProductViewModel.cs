@@ -53,7 +53,6 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             }
         }
 
-
         public double QuoteProductTimeEstimate
         {
             get => Model.QuoteProductTimeEstimate;
@@ -92,7 +91,6 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
             Model = quoteProduct ?? throw new ArgumentNullException(nameof(quoteProduct));
 
-
             GetProductName();
         }
 
@@ -102,6 +100,11 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         public void UpdateQuoteProduct()
         {
             _quoteProductRepository.Update(Model);
+        }
+
+        public void UpdateQuoteProductPrice(double hourlyRate)
+        {
+            QuoteProductPrice = Math.Round(QuoteProductTimeEstimate * hourlyRate, 2);
         }
 
         /// <summary>

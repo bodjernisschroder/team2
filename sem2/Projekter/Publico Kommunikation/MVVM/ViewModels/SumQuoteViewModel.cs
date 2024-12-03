@@ -19,8 +19,12 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             {
                 Model.HourlyRate = value;
                 OnPropertyChanged(nameof(HourlyRate));
-                UpdateQuote();
             }
+        }
+
+        public override bool HourlyRateIsReadOnly
+        {
+            get => true;
         }
 
         public override double Sum
@@ -31,20 +35,14 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             {
                 Model.Sum = value;
                 OnPropertyChanged(nameof(Sum));
-                CalcPrice();
+                UpdatePrice();
                 UpdateQuote();
             }
         }
 
-        public override double DiscountedSum
+        public override bool SumIsReadOnly
         {
-            get => _discountedSum;
-            set
-            {
-                _discountedSum = value;
-                OnPropertyChanged(nameof(DiscountedSum));
-                UpdateQuote();
-            }
+            get => false;
         }
 
         /// <summary>
@@ -69,20 +67,15 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         public override void InitializeQuote(Quote quote)
         {
             base.InitializeQuote(quote);
-            CalcPrice();
         }
 
-        public override void CalcPrice()
+        public override void UpdatePrice()
         {
             var totalEstimatedTime = QuoteProducts.Sum(qp => qp.QuoteProductTimeEstimate);
-            if (totalEstimatedTime > 0)
-            {
-                Model.HourlyRate = Math.Round(Sum / totalEstimatedTime, 2);
-            }
-            else { Model.HourlyRate = 0; }
+            Model.HourlyRate = totalEstimatedTime > 0 ? Math.Round(Sum / totalEstimatedTime, 2) : 0;
+            QuoteProducts.ToList().ForEach(qp => qp.UpdateQuoteProductPrice(HourlyRate));
             OnPropertyChanged(nameof(HourlyRate));
-
-            DiscountedSum = Math.Round(Sum - (Sum * ((double)DiscountPercentage / 100)), 2);
+            OnPropertyChanged(nameof(DiscountedSum));
         }
     }
 }

@@ -64,7 +64,7 @@
                     VerticalAlignment="Center"
                     Background="GhostWhite"
                     BorderThickness="1"
-                    IsReadOnly="False"
+                    IsReadOnly="{Binding HourlyRateIsReadOnly}"
                     KeyDown="TextBox_KeyDown"
                     Text="{Binding HourlyRate, UpdateSourceTrigger=PropertyChanged}"
                     TextAlignment="Center" />
@@ -72,7 +72,7 @@
         </Label>
 
         <Label
-            x:Name="lblTotalPrice"
+            x:Name="lblSum"
                Width="115"
                Margin="20,0,0,40"
             HorizontalAlignment="Left"
@@ -85,7 +85,7 @@
                     VerticalAlignment="Center"
                     Background="GhostWhite"
                     BorderThickness="1"
-                    IsReadOnly="False"
+                    IsReadOnly="{Binding SumIsReadOnly}"
                     KeyDown="TextBox_KeyDown"
                     Text="{Binding Sum, UpdateSourceTrigger=PropertyChanged}"
                     TextAlignment="Center" />
@@ -93,7 +93,7 @@
         </Label>
 
         <Label
-            x:Name="lblDiscount"
+            x:Name="lblDiscountPercentage"
             Width="200"
             Margin="172,0,0,80"
             HorizontalAlignment="Left"
@@ -114,13 +114,13 @@
         </Label>
 
         <Label
-            x:Name="lblDiscountPrice"
+            x:Name="lblDiscountedSum"
             Width="178"
             Margin="172,0,0,54"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom">
             <TextBlock><Run Text="Pris efter rabat: " />
-                <Run Text="{Binding DiscountedSum}" />
+                <Run Text="{Binding DiscountedSum, Mode=OneWay}" />
             </TextBlock>
         </Label>
 

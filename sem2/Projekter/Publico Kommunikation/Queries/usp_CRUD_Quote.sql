@@ -18,21 +18,27 @@ GO
 
 -- CREATE
 CREATE OR ALTER PROCEDURE uspCreateQuote
-    @HourlyRate FLOAT NULL,
+    @QuoteName NVARCHAR(200),
+    @Tags NVARCHAR (200),
+    @FilePath NVARCHAR(200),
+    @HourlyRate FLOAT,
     @DiscountPercentage DECIMAL(5,2),
     @Sum FLOAT,
     @QuoteId INT OUTPUT
 AS
 BEGIN
-    INSERT INTO QUOTE (HourlyRate, DiscountPercentage, [Sum])
-    VALUES (@HourlyRate, @DiscountPercentage, @Sum)
+    INSERT INTO QUOTE ([QuoteName], Tags, FilePath ,HourlyRate, DiscountPercentage, [Sum])
+    VALUES (@QuoteName, @Tags, @FilePath, @HourlyRate, @DiscountPercentage, @Sum)
     SET @QuoteId = SCOPE_IDENTITY();
 END
 GO
 
 -- UPDATE
-CREATE PROCEDURE uspUpdateQuote
+CREATE OR ALTER PROCEDURE uspUpdateQuote
     @QuoteId INT,
+    @QuoteName NVARCHAR(50),
+    @Tags NVARCHAR(200),
+    @Filepath NVARCHAR(200),
     @HourlyRate FLOAT,
     @DiscountPercentage DECIMAL(5,2), 
     @Sum FLOAT
@@ -40,6 +46,9 @@ AS
 BEGIN
     UPDATE QUOTE
     SET 
+        [QuoteName] = @QuoteName,
+        Tags = @Tags,
+        Filepath = @Filepath,
         HourlyRate = @HourlyRate, 
         DiscountPercentage = @DiscountPercentage,
         [Sum] = @Sum
