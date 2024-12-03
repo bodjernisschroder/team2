@@ -2,6 +2,7 @@ using Publico_Kommunikation_Project.Core;
 using Publico_Kommunikation_Project.Services;
 using Publico_Kommunikation_Project.DataAccess;
 using Publico_Kommunikation_Project.MVVM.Models;
+using System.Windows.Controls;
 
 namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
@@ -56,7 +57,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
                 }
             }
         }
-        public RelayCommand ShowQuoteAndProductsCommand { get; }
+        // public RelayCommand ShowQuoteAndProductsCommand { get; }
         public RelayCommand ShowQuoteOverviewCommand { get; }
 
         /// <summary>
@@ -72,7 +73,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));
             _quoteRepository = quoteRepository ?? throw new ArgumentNullException(nameof(quoteRepository));
 
-            ShowQuoteAndProductsCommand = new RelayCommand(execute: o => { ShowQuoteAndProducts(); }, canExecute: o => true);
+            // ShowQuoteAndProductsCommand = new RelayCommand(execute: o => { ShowQuoteAndProducts(); }, canExecute: o => true);
             ShowQuoteOverviewCommand = new RelayCommand(execute: o => { ShowQuoteOverview(); }, canExecute: o => true);
         }
 
@@ -80,30 +81,32 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         /// Initializes and navigates to <see cref="QuoteView"/> and <see cref="ProductsView"/>.
         /// Subscribes the <see cref="QuoteView"/> to the <see cref="QuoteViewModel.OnSwitchRequested"/> event.
         /// </summary>
-        private void ShowQuoteAndProducts()
+        private void ShowQuoteAndProducts(Quote quote)
         {
-            // Dette skal laves om senere - så den får en quote fra en anden klasse, højst sandsynligt,
-            // da det kan være QuoteView enten skal vises med en ny eller eksisterende Quote.
-            var quote = new Quote();
-            _quoteRepository.Add(quote);
+            ResetViews();
 
             // Navigates to and initializes SumQuoteViewModel with the instance of quote.
             QuoteView = _navigation.NavigateTo<SumQuoteViewModel>(vm => { vm.InitializeQuote(quote); });
-            (QuoteView as QuoteViewModel).OnSwitchRequested += Switch;
+            (QuoteView as QuoteViewModel).OnSwitchRequested += SwitchQuoteViewModel;
 
             // Navigates to and initializes ProductsViewModel with the instance of quote.
             ProductsView = _navigation.NavigateTo<ProductsViewModel>(vm => { vm.InitializeQuoteViewModel(QuoteView as QuoteViewModel); });
         }
 
+        //Burak
         private void ShowQuoteOverview()
         {
-
-            var quote = new Quote();
-            _quoteRepository.Add(quote);
-
+            ResetViews();
             QuotesView = _navigation.NavigateTo<QuotesViewModel>(vm => { vm.InitializeQuotes(); });
-            //(QuotesView as QuoteViewModel).OnSwitchRequested += Switch;
+            (QuotesView as QuotesViewModel).OnSwitchRequested += ShowQuoteAndProducts;
+        }
 
+        private void ResetViews()
+        {
+            QuoteView = null;
+            ProductsView = null;
+            QuotesView = null;
+            // (QuotesView as QuotesViewModel).OnSwitchRequested -= ShowQuoteAndProducts;
         }
 
         /// <summary>
@@ -113,14 +116,14 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         /// event after switching. Reinitializes <see cref="ProductsView"/> with the updated <see cref="QuoteView"/>.
         /// </summary>
         /// <param name="quote">The <see cref="Quote"/> used to initialize the new <see cref="QuoteViewModel"/>.</param>
-        public void Switch(Quote quote)
+        public void SwitchQuoteViewModel(Quote quote)
         {
-            (QuoteView as QuoteViewModel).OnSwitchRequested -= Switch;
+            (QuoteView as QuoteViewModel).OnSwitchRequested -= SwitchQuoteViewModel;
 
             QuoteView = QuoteView.GetType() == typeof(SumQuoteViewModel)
                 ? _navigation.NavigateTo<HourlyRateQuoteViewModel>(vm => { vm.InitializeQuote(quote); })
                 : _navigation.NavigateTo<SumQuoteViewModel>(vm => { vm.InitializeQuote(quote); });
-            (QuoteView as QuoteViewModel).OnSwitchRequested += Switch;
+            (QuoteView as QuoteViewModel).OnSwitchRequested += SwitchQuoteViewModel;
 
             ProductsView = _navigation.NavigateTo<ProductsViewModel>(vm => { vm.InitializeQuoteViewModel(QuoteView as QuoteViewModel); });
         }

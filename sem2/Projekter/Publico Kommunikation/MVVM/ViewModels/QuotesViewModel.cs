@@ -18,14 +18,16 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         protected Quote Model { get; private set; }
 
         public ObservableCollection<Quote> Quotes { get; set; }
-
-        //public RelayCommand LoadQuoteCommand { get; }
+        public RelayCommand CreateQuoteCommand { get; }
+        public RelayCommand LoadQuoteCommand { get; }
+        public event Action<Quote> OnSwitchRequested;
 
         public QuotesViewModel(QuoteRepository quoteRepository)
         {
             _quoteRepository = quoteRepository ?? throw new ArgumentNullException(nameof(quoteRepository));
             Quotes = new ObservableCollection<Quote>();
-            //LoadQuoteCommand = new RelayCommand(execute: o => { DeleteQuoteProduct(o); }, canExecute: o => true);
+            CreateQuoteCommand = new RelayCommand(execute: o => { CreateQuote(); }, canExecute: o => true);
+            LoadQuoteCommand = new RelayCommand(execute: o => { LoadQuote(o); }, canExecute: o => true);
 
             InitializeQuotes();
         }
@@ -33,14 +35,30 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         public void InitializeQuotes()
         {
             var quotes = _quoteRepository.GetAll();
-
-            Quotes = new ObservableCollection<Quote>();
-
             foreach (Quote quote in quotes)
             {
-
+                
                 Quotes.Add(quote);
             }
+        }
+
+        public void CreateQuote()
+        {
+            var quote = new Quote();
+            _quoteRepository.Add(quote);
+            OnSwitchRequested?.Invoke(quote);
+        }
+
+        public void LoadQuote(object o)
+        {
+            if (o is not Quote quote)
+            {
+                throw new ArgumentException(
+                    $"Expected an instance of '{nameof(Quote)}' but got an instance of '{o?.GetType().Name ?? "null"}'.",
+                    nameof(o));
+            }
+
+            OnSwitchRequested?.Invoke(quote);
         }
 
     }

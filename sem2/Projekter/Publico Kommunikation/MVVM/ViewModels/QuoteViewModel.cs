@@ -89,12 +89,11 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             DeleteQuoteProductCommand = new RelayCommand(execute: o => { DeleteQuoteProduct(o); }, canExecute: o => true);
             SwitchCommand = new RelayCommand(execute: o => { Switch(); }, canExecute: o => true);
 
-            
-            QuoteProducts.CollectionChanged += (sender, e) =>
-            {
-                HandleCollectionChanged(e.NewItems, CalcPrice);
-                HandleCollectionChanged(e.OldItems, null);
-            };
+            //QuoteProducts.CollectionChanged += (sender, e) =>
+            //{
+            //    HandleCollectionChanged(e.NewItems, CalcPrice);
+            //    HandleCollectionChanged(e.OldItems, null);
+            //};
         }
 
         /// <summary>
@@ -180,15 +179,15 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         }
 
         
-        private void HandleCollectionChanged(IEnumerable? items, Action? action)
-        {
-            if (items == null) return;
+        //private void HandleCollectionChanged(IEnumerable? quoteProducts, Action? action)
+        //{
+        //    if (quoteProducts == null) return;
 
-            foreach (var item in items.OfType<QuoteProductViewModel>())
-            {
-                item.OnTimeEstimateChanged = action;
-            }
-        }
+        //    foreach (var quoteProducts in quoteProducts.OfType<QuoteProductViewModel>())
+        //    {
+        //        quoteProducts.OnTimeEstimateChanged = action;
+        //    }
+        //}
 
         public virtual void CalcPrice()
         {

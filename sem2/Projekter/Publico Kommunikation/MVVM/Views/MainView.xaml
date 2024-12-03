@@ -20,10 +20,7 @@
             <ColumnDefinition Width="300" />
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
-            <Button Content="Opret nyt tilbud"
-                    Height="25"
-                    Command="{Binding ShowQuoteAndProductsCommand}"/>
-            <Button Content="Indlæs tilbud"
+            <Button Content="Tilbudshåndtering"
                     Height="25"
                     Command="{Binding ShowQuoteOverviewCommand}"/>
         </StackPanel>

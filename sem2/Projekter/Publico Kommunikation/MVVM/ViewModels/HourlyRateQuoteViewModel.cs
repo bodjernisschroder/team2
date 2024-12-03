@@ -76,8 +76,6 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             CalcPrice();
         }
 
-        
-
         public override void CalcPrice()
         {
             var totalEstimatedTime = QuoteProducts.Sum(qp => qp.QuoteProductTimeEstimate);
