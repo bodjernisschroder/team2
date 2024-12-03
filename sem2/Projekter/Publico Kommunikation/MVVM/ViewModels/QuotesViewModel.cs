@@ -1,4 +1,4 @@
-﻿using Publico_Kommunikation_Project.Core;
+using Publico_Kommunikation_Project.Core;
 using Publico_Kommunikation_Project.DataAccess;
 using Publico_Kommunikation_Project.MVVM.Models;
 using System;
@@ -33,7 +33,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         public void InitializeQuotes()
         {
             var quotes = _quoteRepository.GetAll();
-            
+
             Quotes = new ObservableCollection<Quote>();
 
             foreach (Quote quote in quotes)

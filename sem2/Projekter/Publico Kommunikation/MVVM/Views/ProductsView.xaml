@@ -1,13 +1,19 @@
-﻿<UserControl x:Class="Publico_Kommunikation_Project.MVVM.Views.ProductsView"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:Publico_Kommunikation_Project.MVVM.ViewModels" d:DataContext="{d:DesignInstance Type=local:ProductsViewModel}"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="300">
+﻿<UserControl
+    x:Class="Publico_Kommunikation_Project.MVVM.Views.ProductsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Publico_Kommunikation_Project.MVVM.ViewModels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DataContext="{d:DesignInstance Type=local:ProductsViewModel}"
+    d:DesignHeight="450"
+    d:DesignWidth="300"
+    mc:Ignorable="d">
     <Grid>
-        <TabControl Margin="0,0,0,65" ItemsSource="{Binding CategoryProducts}" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
+        <TabControl
+            Margin="0,0,0,65"
+            ItemsSource="{Binding CategoryProducts}"
+            SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
             <TabControl.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Key.CategoryName}" />
@@ -16,10 +22,11 @@
             <TabControl.ContentTemplate>
                 <DataTemplate>
                     <Grid Background="#FFFFFF">
-                        <ListBox Margin="0,0,0,0"
-                                 SelectionMode="Multiple"
-                                 ItemsSource="{Binding Value}"
-                                 DisplayMemberPath="ProductName">
+                        <ListBox
+                            Margin="0,0,0,0"
+                            DisplayMemberPath="ProductName"
+                            ItemsSource="{Binding Value}"
+                            SelectionMode="Multiple">
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="ListBoxItem">
                                     <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
@@ -30,11 +37,12 @@
                 </DataTemplate>
             </TabControl.ContentTemplate>
         </TabControl>
-        <Button Content="Tilføj ydelser til tilbud" 
-                HorizontalAlignment="Center"
-                Margin="0,400,0,0"
-                VerticalAlignment="Bottom"
-                Width="160"
-                Command="{Binding AddProductsToQuoteCommand}"/>
+        <Button
+            Width="160"
+            Margin="0,400,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Command="{Binding AddProductsToQuoteCommand}"
+            Content="Tilføj ydelser til tilbud" />
     </Grid>
 </UserControl>
