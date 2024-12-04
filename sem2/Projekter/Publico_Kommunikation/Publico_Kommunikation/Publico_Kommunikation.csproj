@@ -9,23 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="MVVM\Views\ProductsPage.xaml.cs" />
-    <Compile Remove="MVVM\Views\QuotePage.xaml.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Appsettings" />
-    <None Remove="MVVM\ViewModels\NewFile1.txt" />
-    <None Remove="MVVM\Views\NewFile1.txt" />
-    <None Remove="Queries\tables_Senere.sql" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Remove="MVVM\Views\ProductsPage.xaml" />
-    <Page Remove="MVVM\Views\QuotePage.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
@@ -38,7 +21,5 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-	
-	
 	
 </Project>
