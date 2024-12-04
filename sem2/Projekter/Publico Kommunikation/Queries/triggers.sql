@@ -4,7 +4,7 @@ CREATE TABLE QuoteAudit
 
 	[QuoteId] int,
 	[HourlyRate] float null,
-	[DiscountPercentage] decimal(5,2),
+	[DiscountPercentage] int,
 	[Sum] float,
 
 	Operation NVarChar(10),

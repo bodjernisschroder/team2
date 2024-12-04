@@ -29,7 +29,7 @@ namespace Publico_Kommunikation_Project.DataAccess
         /// <returns>A collection of <see cref="Category"/>entities.</returns>
         public IEnumerable<Category> GetAll()
         {
-            var category = new List<Category>();
+            var categories = new List<Category>();
             using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
@@ -41,7 +41,7 @@ namespace Publico_Kommunikation_Project.DataAccess
                     while (reader.Read())
                     {
                         // Populate the object from the SQL data
-                        category.Add(new Category
+                        categories.Add(new Category
                         {
                             CategoryId = reader.IsDBNull(reader.GetOrdinal("CategoryId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("CategoryId")),
 
@@ -52,7 +52,7 @@ namespace Publico_Kommunikation_Project.DataAccess
                     }
                 }
             }
-            return category;
+            return categories;
         }
 
         /// <summary>

@@ -23,7 +23,7 @@ CREATE TABLE QUOTE (
 	Tags NVARCHAR (200) NULL,
 	Filepath NVARCHAR (200) NULL,
 	HourlyRate FLOAT NULL, 
-	DiscountPercentage DECIMAL(5,2) DEFAULT 0 NOT NULL, 
+	DiscountPercentage INT DEFAULT 0 NOT NULL, 
 	[Sum] FLOAT DEFAULT 0 NOT NULL,
 	CONSTRAINT CK_Quote_HourlyRate_Positive CHECK (HourlyRate >= 0),
 	CONSTRAINT CK_Quote_DiscountPercentage_Range CHECK (DiscountPercentage BETWEEN 0 AND 50),
@@ -38,7 +38,7 @@ GO
 	QuoteProductTimeEstimate FLOAT NULL,
 	QuoteProductPrice FLOAT DEFAULT 0 NOT NULL,
 	CONSTRAINT PK_QuoteProduct PRIMARY KEY (QuoteId, ProductId),
-	CONSTRAINT FK_QuoteProduct_Product FOREIGN KEY (ProductId) REFERENCES PRODUCT(ProductId),
-	CONSTRAINT FK_QuoteProduct_Quote FOREIGN KEY (QuoteId) REFERENCES QUOTE(QuoteId)
+	CONSTRAINT FK_QuoteProduct_Product FOREIGN KEY (ProductId) REFERENCES PRODUCT(ProductId) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT FK_QuoteProduct_Quote FOREIGN KEY (QuoteId) REFERENCES QUOTE(QuoteId) ON UPDATE CASCADE ON DELETE CASCADE
  );
 GO
