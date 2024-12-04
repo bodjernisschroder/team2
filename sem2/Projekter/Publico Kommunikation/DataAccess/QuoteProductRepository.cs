@@ -29,7 +29,7 @@ namespace Publico_Kommunikation_Project.DataAccess
         /// <returns>A collection of <see cref="QuoteProduct"/>entities.</returns>
         public IEnumerable<QuoteProduct> GetAll()
         {
-            var quoteProduct = new List<QuoteProduct>();
+            var quoteProducts = new List<QuoteProduct>();
             using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
@@ -41,7 +41,7 @@ namespace Publico_Kommunikation_Project.DataAccess
                     while (reader.Read())
                     {
                         // Populate the object from the SQL data
-                        quoteProduct.Add(new QuoteProduct
+                        quoteProducts.Add(new QuoteProduct
                         {
                             QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("QuoteId")),
                             ProductId = reader.IsDBNull(reader.GetOrdinal("ProductId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("ProductId")),
@@ -51,7 +51,7 @@ namespace Publico_Kommunikation_Project.DataAccess
                     }
                 }
             }
-            return quoteProduct;
+            return quoteProducts;
         }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace Publico_Kommunikation_Project.DataAccess
         /// <returns>A collection of <see cref="QuoteProduct"/>entities.</returns>
         public IEnumerable<QuoteProduct> GetByKeyOne(int key1)
         {
-            var quoteProduct = new List<QuoteProduct>();
+            var quoteProducts = new List<QuoteProduct>();
             using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
@@ -109,7 +109,7 @@ namespace Publico_Kommunikation_Project.DataAccess
                     while (reader.Read())
                     {
                         // Populate the object from the SQL data
-                        quoteProduct.Add(new QuoteProduct
+                        quoteProducts.Add(new QuoteProduct
                         {
                             QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("QuoteId")),
                             ProductId = reader.IsDBNull(reader.GetOrdinal("ProductId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("ProductId")),
@@ -119,7 +119,7 @@ namespace Publico_Kommunikation_Project.DataAccess
                     }
                 }
             }
-            return quoteProduct;
+            return quoteProducts;
         }
 
         /// <summary>
@@ -130,7 +130,7 @@ namespace Publico_Kommunikation_Project.DataAccess
         /// <returns>A collection of <see cref="QuoteProduct"/>entities.</returns>
         public IEnumerable<QuoteProduct> GetByKeyTwo(int key2)
         {
-            var quoteProduct = new List<QuoteProduct>();
+            var quoteProducts = new List<QuoteProduct>();
             using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
@@ -142,7 +142,7 @@ namespace Publico_Kommunikation_Project.DataAccess
                     while (reader.Read())
                     {
                         // Populate the object from the SQL data
-                        quoteProduct.Add(new QuoteProduct
+                        quoteProducts.Add(new QuoteProduct
                         {
                             QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("QuoteId")),
                             ProductId = reader.IsDBNull(reader.GetOrdinal("ProductId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("ProductId")),
@@ -152,7 +152,7 @@ namespace Publico_Kommunikation_Project.DataAccess
                     }
                 }
             }
-            return quoteProduct;
+            return quoteProducts;
         }
 
         /// <summary>

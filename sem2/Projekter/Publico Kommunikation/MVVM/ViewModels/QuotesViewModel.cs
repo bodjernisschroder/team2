@@ -40,8 +40,6 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         {
             _quoteRepository = quoteRepository ?? throw new ArgumentNullException(nameof(quoteRepository));
 
-            Quotes = new ObservableCollection<Quote>();
-
             CreateQuoteCommand = new RelayCommand(execute: o => { CreateQuote(); }, canExecute: o => true);
             LoadQuoteCommand = new RelayCommand(execute: o => { LoadQuote(o); }, canExecute: o => true);
             ClearSearchCommand = new RelayCommand(execute: o => { ClearSearch(); }, canExecute: o => true);
@@ -51,6 +49,8 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         public void InitializeQuotes()
         {
+            if (Quotes != null) Quotes.Clear();
+            else Quotes = new ObservableCollection<Quote>();
             var quotes = _quoteRepository.GetAll();
             foreach (Quote quote in quotes)
             {
@@ -68,12 +68,9 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         public void LoadQuote(object o)
         {
             if (o is not Quote quote)
-            {
                 throw new ArgumentException(
                     $"Expected an instance of '{nameof(Quote)}' but got an instance of '{o?.GetType().Name ?? "null"}'.",
                     nameof(o));
-            }
-
             OnSwitchRequested?.Invoke(quote);
         }
 
@@ -85,14 +82,13 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
                 return;
             }
             Quotes.Clear();
-            var quotes = _quoteRepository.GetQuotesBySearchQuery(SearchQuery);
+            var quotes = _quoteRepository.GetBySearchQueryQuote(SearchQuery);
             quotes.ToList().ForEach(Quotes.Add);
         }
 
         public void ClearSearch()
         {
             SearchQuery = "";
-            Quotes.Clear();
             InitializeQuotes();
         }
     }

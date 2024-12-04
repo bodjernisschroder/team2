@@ -29,7 +29,7 @@ namespace Publico_Kommunikation_Project.DataAccess
         /// <returns>A collection of <see cref="Product"/>entities.</returns>
         public IEnumerable<Product> GetAll()
         {
-            var product = new List<Product>();
+            var products = new List<Product>();
             using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
@@ -41,7 +41,7 @@ namespace Publico_Kommunikation_Project.DataAccess
                     while (reader.Read())
                     {
                         // Populate the object from the SQL data
-                        product.Add(new Product
+                        products.Add(new Product
                         {
                             ProductId = reader.IsDBNull(reader.GetOrdinal("ProductId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("ProductId")),
 
@@ -54,7 +54,7 @@ namespace Publico_Kommunikation_Project.DataAccess
                     }
                 }
             }
-            return product;
+            return products;
         }
 
         /// <summary>

@@ -22,7 +22,7 @@ CREATE OR ALTER PROCEDURE uspCreateQuote
     @Tags NVARCHAR (200) = NULL,
     @FilePath NVARCHAR(200) = NULL,
     @HourlyRate FLOAT,
-    @DiscountPercentage DECIMAL(5,2),
+    @DiscountPercentage INT,
     @Sum FLOAT,
     @QuoteId INT OUTPUT
 AS
@@ -44,7 +44,7 @@ CREATE OR ALTER PROCEDURE uspUpdateQuote
     @Tags NVARCHAR(200),
     @Filepath NVARCHAR(200),
     @HourlyRate FLOAT,
-    @DiscountPercentage DECIMAL(5,2), 
+    @DiscountPercentage INT, 
     @Sum FLOAT
 AS
 BEGIN
@@ -71,7 +71,7 @@ END
 GO
 
 -- GET QUOTES BY SEARCH QUERY
-CREATE OR ALTER PROCEDURE uspGetQuotesBySearchQuery
+CREATE OR ALTER PROCEDURE uspGetBySearchQueryQuote
     @SearchQuery NVarChar(200)
 AS
 BEGIN

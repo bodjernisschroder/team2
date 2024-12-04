@@ -68,7 +68,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         public virtual double HourlyRate { get; set; }
         public virtual bool HourlyRateIsReadOnly { get; set; }
 
-        public decimal DiscountPercentage
+        public int DiscountPercentage
         {
             get { return Model.DiscountPercentage; }
             set
@@ -85,7 +85,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         public double DiscountedSum
         {
-            get => Math.Round(Sum - (Sum * ((double)DiscountPercentage / 100)), 2);
+            get => Math.Round(Sum - (Sum * (DiscountPercentage / 100)), 2);
         }
 
         public string SwitchText
