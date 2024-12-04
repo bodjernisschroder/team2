@@ -9,17 +9,37 @@
         Height="450" Width="500">
 
     <Grid Background="#FFFFFF">
+        <Label
+                x:Name="lblSearchQuery"
+               Width="250"
+               Margin="20,10,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Søg: " />
+                <TextBox
+                    ToolTip="Søg efter et navn eller tag"
+                    Width="200"
+                    Height="20"
+                    VerticalAlignment="Center"
+                    BorderThickness="1"
+                    Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}"
+                    TextAlignment="Left"/>
+            </StackPanel>
+        </Label>
+        <Button
+            Width="20"
+            Height="20"
+            Margin="260,15,0,0"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Command="{Binding ClearSearchCommand}"
+            Content="&#x2715;"/>
         <ListBox x:Name="QuoteListBox"
-              Margin="20,20,20,50" 
+              Margin="20,50,20,50" 
               SelectionMode="Single"
-              
               ItemsSource="{Binding Quotes}"
-              DisplayMemberPath="QuoteName">
-            <!--<ListBox.ItemContainerStyle>
-                <Style TargetType="ListBoxItem">
-                    <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
-                </Style>
-            </ListBox.ItemContainerStyle>-->
+              DisplayMemberPath="QuoteName" Grid.ColumnSpan="2">
         </ListBox>
         <Button Content="Indlæs tilbud"
                     HorizontalAlignment="Center"
@@ -28,13 +48,13 @@
                     Margin="0,0,0,10"
                     Width="100"
                     Command="{Binding LoadQuoteCommand}"
-                    CommandParameter="{Binding SelectedItem, ElementName=QuoteListBox}"/>
+                    CommandParameter="{Binding SelectedItem, ElementName=QuoteListBox}" Grid.Column="1"/>
         <Button Content="Nyt tilbud"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"
                     Height="25"
                     Margin="0,0,20,10"
                     Width="100"
-                    Command="{Binding CreateQuoteCommand}"/>
+                    Command="{Binding CreateQuoteCommand}" Grid.Column="1"/>
     </Grid>
 </UserControl>

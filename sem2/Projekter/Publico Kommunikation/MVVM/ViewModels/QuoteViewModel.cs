@@ -43,7 +43,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             }
         }
 
-        public string Tags
+        public string? Tags
         {
             get { return Model.Tags; }
             set
@@ -54,7 +54,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             }
         }
 
-        public string FilePath
+        public string? FilePath
         {
             get { return Model.FilePath; }
             set
@@ -127,6 +127,9 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             // Configure Commands
             DeleteQuoteProductCommand = new RelayCommand(execute: o => { DeleteQuoteProduct(o); }, canExecute: o => true);
             SwitchCommand = new RelayCommand(execute: o => { Switch(); }, canExecute: o => true);
+
+            // Display default QuoteName in View
+            OnPropertyChanged(nameof(QuoteName));
         }
 
         /// <summary>

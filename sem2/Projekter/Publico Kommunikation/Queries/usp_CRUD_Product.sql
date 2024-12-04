@@ -1,5 +1,5 @@
 -- GET ALL
-CREATE PROCEDURE uspGetAllProduct
+CREATE OR ALTER PROCEDURE uspGetAllProduct
 AS
 BEGIN
     SELECT * FROM PRODUCT
@@ -7,7 +7,7 @@ END
 GO
 
 -- GET BY ID
-CREATE PROCEDURE uspGetByKeyProduct
+CREATE OR ALTER PROCEDURE uspGetByKeyProduct
     @ProductId INT
 AS
 BEGIN
@@ -17,7 +17,7 @@ END
 GO
 
 -- CREATE
-CREATE PROCEDURE uspCreateProduct
+CREATE OR ALTER PROCEDURE uspCreateProduct
     @ProductName NVARCHAR(50),
     @CategoryId INT
 AS
@@ -28,7 +28,7 @@ END
 GO
 
 -- UPDATE
-CREATE PROCEDURE uspUpdateProduct
+CREATE OR ALTER PROCEDURE uspUpdateProduct
     @ProductId INT,
     @ProductName NVarChar(50),
     @CategoryId INT
@@ -43,7 +43,7 @@ END
 GO
 
 -- DELETE
-CREATE PROCEDURE uspDeleteProduct
+CREATE OR ALTER PROCEDURE uspDeleteProduct
     @ProductId INT
 AS
 BEGIN

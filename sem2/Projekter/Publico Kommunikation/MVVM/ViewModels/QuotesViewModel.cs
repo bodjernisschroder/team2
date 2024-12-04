@@ -13,21 +13,38 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
     public class QuotesViewModel : ViewModel
     {
         private readonly QuoteRepository _quoteRepository;
-        private readonly QuoteViewModel _quoteViewModel;
+        private string _searchQuery;
 
-        protected Quote Model { get; private set; }
-
+        public string SearchQuery
+        {
+            get => _searchQuery;
+            set
+            {
+                if (_searchQuery != value)
+                {
+                    _searchQuery = value;
+                    OnPropertyChanged(nameof(SearchQuery));
+                    PerformSearch();
+                }
+            }
+        }
         public ObservableCollection<Quote> Quotes { get; set; }
+
         public RelayCommand CreateQuoteCommand { get; }
         public RelayCommand LoadQuoteCommand { get; }
+        public RelayCommand ClearSearchCommand { get; }
+
         public event Action<Quote> OnSwitchRequested;
 
         public QuotesViewModel(QuoteRepository quoteRepository)
         {
             _quoteRepository = quoteRepository ?? throw new ArgumentNullException(nameof(quoteRepository));
+
             Quotes = new ObservableCollection<Quote>();
+
             CreateQuoteCommand = new RelayCommand(execute: o => { CreateQuote(); }, canExecute: o => true);
             LoadQuoteCommand = new RelayCommand(execute: o => { LoadQuote(o); }, canExecute: o => true);
+            ClearSearchCommand = new RelayCommand(execute: o => { ClearSearch(); }, canExecute: o => true);
 
             InitializeQuotes();
         }
@@ -37,7 +54,6 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             var quotes = _quoteRepository.GetAll();
             foreach (Quote quote in quotes)
             {
-                
                 Quotes.Add(quote);
             }
         }
@@ -61,5 +77,23 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             OnSwitchRequested?.Invoke(quote);
         }
 
+        public void PerformSearch()
+        {
+            if (SearchQuery == "")
+            {
+                ClearSearch();
+                return;
+            }
+            Quotes.Clear();
+            var quotes = _quoteRepository.GetQuotesBySearchQuery(SearchQuery);
+            quotes.ToList().ForEach(Quotes.Add);
+        }
+
+        public void ClearSearch()
+        {
+            SearchQuery = "";
+            Quotes.Clear();
+            InitializeQuotes();
+        }
     }
 }

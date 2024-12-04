@@ -1,5 +1,5 @@
 -- GET ALL
-CREATE PROCEDURE uspGetAllQuote
+CREATE OR ALTER PROCEDURE uspGetAllQuote
 AS
 BEGIN
     SELECT * FROM QUOTE
@@ -7,7 +7,7 @@ END
 GO
 
 -- GET BY ID
-CREATE PROCEDURE uspGetByKeyQuote
+CREATE OR ALTER PROCEDURE uspGetByKeyQuote
     @QuoteId INT
 AS
 BEGIN
@@ -18,9 +18,9 @@ GO
 
 -- CREATE
 CREATE OR ALTER PROCEDURE uspCreateQuote
-    @QuoteName NVARCHAR(200),
-    @Tags NVARCHAR (200),
-    @FilePath NVARCHAR(200),
+    @QuoteName NVARCHAR(50) = 'Tilbud' OUTPUT,
+    @Tags NVARCHAR (200) = NULL,
+    @FilePath NVARCHAR(200) = NULL,
     @HourlyRate FLOAT,
     @DiscountPercentage DECIMAL(5,2),
     @Sum FLOAT,
@@ -30,6 +30,10 @@ BEGIN
     INSERT INTO QUOTE ([QuoteName], Tags, FilePath ,HourlyRate, DiscountPercentage, [Sum])
     VALUES (@QuoteName, @Tags, @FilePath, @HourlyRate, @DiscountPercentage, @Sum)
     SET @QuoteId = SCOPE_IDENTITY();
+    SET @QuoteName = CONCAT(@QuoteName, ' ', @QuoteId)
+    UPDATE QUOTE
+    SET [QuoteName] = @QuoteName
+    WHERE [QuoteId] = @QuoteId;
 END
 GO
 
@@ -57,11 +61,22 @@ END
 GO
 
 -- DELETE
-CREATE PROCEDURE uspDeleteQuote
+CREATE OR ALTER PROCEDURE uspDeleteQuote
     @QuoteId INT
 AS
 BEGIN
     DELETE FROM QUOTE
     WHERE QuoteId = @QuoteId
+END
+GO
+
+-- GET QUOTES BY SEARCH QUERY
+CREATE OR ALTER PROCEDURE uspGetQuotesBySearchQuery
+    @SearchQuery NVarChar(200)
+AS
+BEGIN
+    SELECT * FROM QUOTE
+    WHERE  [QuoteName] LIKE '%' + @SearchQuery + '%' OR
+    Tags LIKE '%' + @SearchQuery + '%'
 END
 GO

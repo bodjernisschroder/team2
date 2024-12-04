@@ -1,5 +1,5 @@
 -- GET ALL
-CREATE PROCEDURE uspGetAllQuoteProduct
+CREATE OR ALTER PROCEDURE uspGetAllQuoteProduct
 AS
 BEGIN
     SELECT * FROM QUOTE_PRODUCT
@@ -38,7 +38,7 @@ END
 GO
 
 -- CREATE
-CREATE PROCEDURE uspCreateQuoteProduct
+CREATE OR ALTER PROCEDURE uspCreateQuoteProduct
     @QuoteId INT, 
     @ProductId INT,
     @QuoteProductTimeEstimate FLOAT,
@@ -51,7 +51,7 @@ END
 GO
 
 -- UPDATE
-CREATE PROCEDURE uspUpdateQuoteProduct
+CREATE OR ALTER PROCEDURE uspUpdateQuoteProduct
     @QuoteId INT,
     @ProductId INT,
     @QuoteProductTimeEstimate FLOAT,
@@ -69,7 +69,7 @@ END
 GO
 
 -- DELETE
-CREATE PROCEDURE uspDeleteQuoteProduct
+CREATE OR ALTER PROCEDURE uspDeleteQuoteProduct
     @QuoteId INT, 
     @ProductId INT
 AS

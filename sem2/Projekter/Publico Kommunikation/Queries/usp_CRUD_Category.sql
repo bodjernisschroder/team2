@@ -1,5 +1,5 @@
 -- GET ALL
-CREATE PROCEDURE uspGetAllCategory
+CREATE OR ALTER PROCEDURE uspGetAllCategory
 AS
 BEGIN
     SELECT * FROM CATEGORY
@@ -7,7 +7,7 @@ END
 GO
 
 -- GET BY ID
-CREATE PROCEDURE uspGetByKeyCategory
+CREATE OR ALTER PROCEDURE uspGetByKeyCategory
     @CategoryId INT
 AS
 BEGIN
@@ -17,7 +17,7 @@ END
 GO
 
 -- CREATE
-CREATE PROCEDURE uspCreateCategory
+CREATE OR ALTER PROCEDURE uspCreateCategory
     @CategoryName NVARCHAR(50)
 AS
 BEGIN
@@ -27,7 +27,7 @@ END
 GO
 
 -- UPDATE
-CREATE PROCEDURE uspUpdateCategory
+CREATE OR ALTER PROCEDURE uspUpdateCategory
     @CategoryId INT,
     @CategoryName NVarChar(50)
 AS
@@ -40,7 +40,7 @@ END
 GO
 
 -- DELETE
-CREATE PROCEDURE uspDeleteCategory
+CREATE OR ALTER PROCEDURE uspDeleteCategory
     @CategoryId INT
 AS
 BEGIN

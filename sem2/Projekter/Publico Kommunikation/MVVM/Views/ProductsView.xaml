@@ -11,7 +11,7 @@
     mc:Ignorable="d">
     <Grid>
         <TabControl
-            Margin="0,0,0,65"
+            Margin="0,40,0,65"
             ItemsSource="{Binding CategoryProducts}"
             SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
             <TabControl.ItemTemplate>

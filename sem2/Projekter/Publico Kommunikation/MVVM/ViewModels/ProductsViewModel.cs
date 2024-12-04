@@ -18,7 +18,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         private QuoteViewModel _quoteViewModel;
 
-        public int SelectedIndex { get; set; }
+        public int SelectedIndex { get; set; } // Når den ændrer sig, clear alle IsSelected - Set => kør metode
         public Dictionary<Category, ObservableCollection<ProductViewModel>> CategoryProducts { get; set; }
 
         public RelayCommand AddProductsToQuoteCommand { get; set; }

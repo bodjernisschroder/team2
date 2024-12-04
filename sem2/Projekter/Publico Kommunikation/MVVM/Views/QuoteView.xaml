@@ -10,12 +10,165 @@
     d:DesignWidth="500"
     mc:Ignorable="d">
     <Grid>
+        <Label
+            x:Name="lblQuoteName"
+               Width="180"
+               Margin="10,5,0,40"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">    
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Tilbudsnavn: " />
+                <TextBox
+                    Width="100"
+                    Height="20"
+                    VerticalAlignment="Center"
+                    Background="GhostWhite"
+                    BorderThickness="1"
+                    KeyDown="TextBox_KeyDown"
+                    Text="{Binding QuoteName, UpdateSourceTrigger=PropertyChanged}"
+                    TextAlignment="Left" />
+            </StackPanel>
+        </Label>
+        <Label
+            x:Name="lblTags"
+               Width="180"
+               Margin="180,5,0,40"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Tags: " />
+                <TextBox
+                    Width="100"
+                    Height="20"
+                    VerticalAlignment="Center"
+                    Background="GhostWhite"
+                    BorderThickness="1"
+                    KeyDown="TextBox_KeyDown"
+                    Text="{Binding Tags, UpdateSourceTrigger=PropertyChanged}"
+                    TextAlignment="Left" />
+            </StackPanel>
+        </Label>
+        <Label
+            x:Name="lblFilePath"
+               Width="180"
+               Margin="320,5,0,40"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Filsti: " />
+                <TextBox
+                    Width="100"
+                    Height="20"
+                    VerticalAlignment="Center"
+                    Background="GhostWhite"
+                    BorderThickness="1"
+                    KeyDown="TextBox_KeyDown"
+                    Text="{Binding FilePath, UpdateSourceTrigger=PropertyChanged}"
+                    TextAlignment="Left" />
+            </StackPanel>
+        </Label>
+        <Label
+            x:Name="lblSum"
+               Width="115"
+               Margin="10,30,0,40"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Totalpris: " />
+                <TextBox
+                    Width="50"
+                    Height="20"
+                    VerticalAlignment="Center"
+                    BorderThickness="1"
+                    IsReadOnly="{Binding SumIsReadOnly}"
+                    KeyDown="TextBox_KeyDown"
+                    Text="{Binding Sum, UpdateSourceTrigger=PropertyChanged}"
+                    TextAlignment="Center">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Background" Value="GhostWhite" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding SumIsReadOnly}" Value="True">
+                                    <Setter Property="Background" Value="Gray" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding SumIsReadOnly}" Value="False">
+                                    <Setter Property="Background" Value="GhostWhite" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            </StackPanel>
+        </Label>
+        <Label
+            x:Name="lblHourlyRate"
+            Width="115"
+            Margin="120,30,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Timepris: " />
+                <TextBox
+                    Width="50"
+                    Height="20"
+                    VerticalAlignment="Center"
+                    BorderThickness="1"
+                    IsReadOnly="{Binding HourlyRateIsReadOnly}"
+                    KeyDown="TextBox_KeyDown"
+                    Text="{Binding HourlyRate, UpdateSourceTrigger=PropertyChanged}" 
+                    TextAlignment="Center">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Background" Value="GhostWhite" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding HourlyRateIsReadOnly}" Value="True">
+                                    <Setter Property="Background" Value="Gray" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding HourlyRateIsReadOnly}" Value="False">
+                                    <Setter Property="Background" Value="GhostWhite" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            </StackPanel>
+        </Label>
+        <Label
+            x:Name="lblDiscountPercentage"
+            Width="120"
+            Margin="0,30,150,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Rabat: " />
+                <TextBox
+                    Width="50"
+                    Height="20"
+                    VerticalAlignment="Center"
+                    Background="GhostWhite"
+                    BorderThickness="1"
+                    KeyDown="TextBox_KeyDown"
+                    Text="{Binding DiscountPercentage, UpdateSourceTrigger=PropertyChanged}"
+                    TextAlignment="Center" />
+                <TextBlock Text="%" />
+            </StackPanel>
+        </Label>
+        <Button
+            Width="150"
+            Height="20"
+            Margin="0,35,0,0"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right"
+            Command="{Binding SwitchCommand}"
+            Content="{Binding SwitchText}" />
+
         <StackPanel VerticalAlignment="Top">
             <DataGrid
                 x:Name="QuoteDataGrid"
                 Grid.Row="0"
                 Width="auto"
                 Height="400"
+                Margin="0,60,0,0"
                 AutoGenerateColumns="False"
                 CanUserResizeColumns="False"
                 CanUserResizeRows="False"
@@ -51,85 +204,63 @@
             </DataGrid>
         </StackPanel>
         <Label
-            x:Name="lblHourlyRate"
+            x:Name="lblHourlyRateDisplay"
             Width="115"
-            Margin="20,0,0,80"
+            Margin="20,0,0,60"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Timepris: " />
-                <TextBox
+                <TextBlock
                     Width="50"
                     Height="20"
                     VerticalAlignment="Center"
-                    Background="GhostWhite"
-                    BorderThickness="1"
-                    IsReadOnly="{Binding HourlyRateIsReadOnly}"
-                    KeyDown="TextBox_KeyDown"
                     Text="{Binding HourlyRate, UpdateSourceTrigger=PropertyChanged}"
                     TextAlignment="Center" />
             </StackPanel>
         </Label>
 
         <Label
-            x:Name="lblSum"
+            x:Name="lblSumDisplay"
                Width="115"
                Margin="20,0,0,40"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Totalpris: " />
-                <TextBox
+                <TextBlock
                     Width="50"
                     Height="20"
                     VerticalAlignment="Center"
-                    Background="GhostWhite"
-                    BorderThickness="1"
-                    IsReadOnly="{Binding SumIsReadOnly}"
-                    KeyDown="TextBox_KeyDown"
                     Text="{Binding Sum, UpdateSourceTrigger=PropertyChanged}"
                     TextAlignment="Center" />
             </StackPanel>
         </Label>
-
         <Label
-            x:Name="lblDiscountPercentage"
-            Width="200"
-            Margin="172,0,0,80"
+            x:Name="lblDiscountPercentageDisplay"         Width="120"
+            Margin="20,0,0,20"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Rabat: " />
-                <TextBox
+            <TextBlock
                     Width="50"
                     Height="20"
                     VerticalAlignment="Center"
-                    Background="GhostWhite"
-                    BorderThickness="1"
-                    KeyDown="TextBox_KeyDown"
                     Text="{Binding DiscountPercentage, UpdateSourceTrigger=PropertyChanged}"
                     TextAlignment="Center" />
                 <TextBlock Text="%" />
             </StackPanel>
         </Label>
-
         <Label
             x:Name="lblDiscountedSum"
             Width="178"
-            Margin="172,0,0,54"
+            Margin="20,0,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom">
             <TextBlock><Run Text="Pris efter rabat: " />
                 <Run Text="{Binding DiscountedSum, Mode=OneWay}" />
             </TextBlock>
         </Label>
-
-        <Button
-            Width="200"
-            Height="40"
-            Margin="0,0,0,10"
-            VerticalAlignment="Bottom"
-            Command="{Binding SwitchCommand}"
-            Content="{Binding SwitchText}" />
     </Grid>
 </UserControl>

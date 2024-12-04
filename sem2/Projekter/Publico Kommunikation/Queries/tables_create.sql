@@ -19,7 +19,7 @@ GO
 --Creates Quote table
 CREATE TABLE QUOTE (
 	QuoteId INT IDENTITY PRIMARY KEY,
-	[QuoteName] NVARCHAR (50) DEFAULT "Tilbud" NOT NULL,
+	[QuoteName] NVARCHAR (50) DEFAULT 'Tilbud' NOT NULL,
 	Tags NVARCHAR (200) NULL,
 	Filepath NVARCHAR (200) NULL,
 	HourlyRate FLOAT NULL, 
