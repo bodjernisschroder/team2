@@ -13,12 +13,25 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
     /// </summary>
     public class ProductsViewModel : ViewModel
     {
+        private int _selectedIndex;
         private readonly CategoryRepository _categoryRepository;
         private readonly ProductRepository _productRepository;
 
         private QuoteViewModel _quoteViewModel;
 
-        public int SelectedIndex { get; set; } // Når den ændrer sig, clear alle IsSelected - Set => kør metode
+        public int SelectedIndex
+        {
+            get => _selectedIndex;
+            set
+            {
+                if (_selectedIndex != value)
+                {
+                    _selectedIndex = value;
+                    OnPropertyChanged(nameof(SelectedIndex));
+                    ClearSelection();
+                }
+            }
+        }
         public Dictionary<Category, ObservableCollection<ProductViewModel>> CategoryProducts { get; set; }
 
         public RelayCommand AddProductsToQuoteCommand { get; set; }
@@ -100,6 +113,17 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
                         _quoteViewModel.AddQuoteProduct(product.Model);
                         product.IsSelected = false;
                     }
+                }
+            }
+        }
+
+        public void ClearSelection()
+        {
+            foreach (ObservableCollection<ProductViewModel> products in CategoryProducts.Values)
+            {
+                foreach (ProductViewModel product in products)
+                {                    
+                        product.IsSelected = false;   
                 }
             }
         }

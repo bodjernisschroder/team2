@@ -24,7 +24,6 @@
                     VerticalAlignment="Center"
                     Background="GhostWhite"
                     BorderThickness="1"
-                    KeyDown="TextBox_KeyDown"
                     Text="{Binding QuoteName, UpdateSourceTrigger=PropertyChanged}"
                     TextAlignment="Left" />
             </StackPanel>
@@ -43,7 +42,6 @@
                     VerticalAlignment="Center"
                     Background="GhostWhite"
                     BorderThickness="1"
-                    KeyDown="TextBox_KeyDown"
                     Text="{Binding Tags, UpdateSourceTrigger=PropertyChanged}"
                     TextAlignment="Left" />
             </StackPanel>
@@ -62,7 +60,6 @@
                     VerticalAlignment="Center"
                     Background="GhostWhite"
                     BorderThickness="1"
-                    KeyDown="TextBox_KeyDown"
                     Text="{Binding FilePath, UpdateSourceTrigger=PropertyChanged}"
                     TextAlignment="Left" />
             </StackPanel>
@@ -81,7 +78,6 @@
                     VerticalAlignment="Center"
                     BorderThickness="1"
                     IsReadOnly="{Binding SumIsReadOnly}"
-                    KeyDown="TextBox_KeyDown"
                     Text="{Binding Sum, UpdateSourceTrigger=PropertyChanged}"
                     TextAlignment="Center">
                     <TextBox.Style>
@@ -114,7 +110,6 @@
                     VerticalAlignment="Center"
                     BorderThickness="1"
                     IsReadOnly="{Binding HourlyRateIsReadOnly}"
-                    KeyDown="TextBox_KeyDown"
                     Text="{Binding HourlyRate, UpdateSourceTrigger=PropertyChanged}" 
                     TextAlignment="Center">
                     <TextBox.Style>
@@ -147,7 +142,6 @@
                     VerticalAlignment="Center"
                     Background="GhostWhite"
                     BorderThickness="1"
-                    KeyDown="TextBox_KeyDown"
                     Text="{Binding DiscountPercentage, UpdateSourceTrigger=PropertyChanged}"
                     TextAlignment="Center" />
                 <TextBlock Text="%" />
@@ -237,7 +231,8 @@
             </StackPanel>
         </Label>
         <Label
-            x:Name="lblDiscountPercentageDisplay"         Width="120"
+            x:Name="lblDiscountPercentageDisplay"
+         Width="120"
             Margin="20,0,0,20"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom">
