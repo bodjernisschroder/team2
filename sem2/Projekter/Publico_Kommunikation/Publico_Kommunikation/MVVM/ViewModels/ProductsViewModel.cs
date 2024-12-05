@@ -119,9 +119,9 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         public void ClearSelection()
         {
-            foreach (ObservableCollection<ProductViewModel> products in CategoryProducts.Values)
+            foreach (var products in CategoryProducts.Values)
             {
-                foreach (ProductViewModel product in products)
+                foreach (var product in products)
                 {                    
                         product.IsSelected = false;   
                 }
