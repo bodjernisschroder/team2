@@ -5,6 +5,7 @@ using Publico_Kommunikation_Project.DataAccess;
 using Publico_Kommunikation_Project.MVVM.Models;
 using System.ComponentModel;
 using System.Collections;
+using Publico_Kommunikation_Project.MVVM.Views;
 
 namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
@@ -175,6 +176,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         {
             OnSwitchRequested?.Invoke(Model);
         }
+
 
         /// <summary>
         /// Creates a new <see cref="QuoteProduct"/> and its corresponding <see cref="QuoteProductViewModel"/>,

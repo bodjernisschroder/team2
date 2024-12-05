@@ -59,7 +59,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         }
 
         public void CreateQuote()
-        {
+        {   
             var quote = new Quote();
             _quoteRepository.Add(quote);
             OnSwitchRequested?.Invoke(quote);

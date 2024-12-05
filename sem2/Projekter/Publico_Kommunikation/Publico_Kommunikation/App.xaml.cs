@@ -132,7 +132,15 @@ namespace Publico_Kommunikation_Project
         protected override void OnStartup(StartupEventArgs e)
         {
             var mainWindow = _serviceProvider.GetRequiredService<MainView>();
+            var mainViewModel = _serviceProvider.GetRequiredService<MainViewModel>();
+
             mainWindow.Show();
+
+            if (mainViewModel.ShowQuoteOverviewCommand.CanExecute(null))
+            {
+                mainViewModel.ShowQuoteOverviewCommand.Execute(null);
+            }
+
             base.OnStartup(e);
         }
     }

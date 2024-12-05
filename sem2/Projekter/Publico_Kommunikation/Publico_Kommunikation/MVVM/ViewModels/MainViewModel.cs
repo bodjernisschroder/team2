@@ -73,7 +73,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));
             _quoteRepository = quoteRepository ?? throw new ArgumentNullException(nameof(quoteRepository));
 
-            // ShowQuoteAndProductsCommand = new RelayCommand(execute: o => { ShowQuoteAndProducts(); }, canExecute: o => true);
+            //ShowQuoteAndProductsCommand = new RelayCommand(execute: o => { ShowQuoteAndProducts(); }, canExecute: o => true);
             ShowQuoteOverviewCommand = new RelayCommand(execute: o => { ShowQuoteOverview(); }, canExecute: o => true);
         }
 

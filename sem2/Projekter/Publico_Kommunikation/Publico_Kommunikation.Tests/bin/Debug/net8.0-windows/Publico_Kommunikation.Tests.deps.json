@@ -858,10 +858,7 @@
           "System.Drawing.Common": "9.0.0"
         },
         "runtime": {
-          "Publico_Kommunikation.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Publico_Kommunikation.dll": {}
         }
       },
       "Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions/14.0.0.0": {

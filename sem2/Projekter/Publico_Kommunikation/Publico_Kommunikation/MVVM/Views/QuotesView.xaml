@@ -8,53 +8,149 @@
         mc:Ignorable="d"
         Height="450" Width="500">
 
+    <UserControl.Resources>
+        <!-- Styles for all buttons under quotes view list -->
+
+        <!-- Rounded Button Style -->
+        <Style TargetType="Button" x:Key="CustomRoundedButtonStyle">
+            <!-- Default Properties -->
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Foreground" Value="#282828" />
+            <Setter Property="BorderBrush" Value="#282828" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Width" Value="175" />
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            x:Name="Border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="10"
+                            Padding="10, 8">
+                            <Grid>
+                                <ContentPresenter
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center" />
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <!-- Hover Effect -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#282828" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="TextBox" x:Key="NoHoverTextBoxStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <!-- Default Appearance -->
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Foreground" Value="#282828" />
+            <Setter Property="BorderBrush" Value="#282828" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+    </UserControl.Resources>
+
     <Grid Background="#FFFFFF">
         <Label
-                x:Name="lblSearchQuery"
-               Width="250"
-               Margin="20,10,0,0"
+                x:Name="lblSearchQuery" 
+                Width="255"
+                Margin="-5,10,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Søg: " />
-                <TextBox
+                <TextBlock Text="Søg: " 
+                           FontSize="16"/>
+                <TextBox 
+                    Style="{StaticResource NoHoverTextBoxStyle}"
                     ToolTip="Søg efter et navn eller tag"
-                    Width="200"
-                    Height="20"
-                    VerticalAlignment="Center"
+                    Width="210"
+                    Height="26"
                     BorderThickness="1"
                     Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}"
-                    TextAlignment="Left"/>
+                    TextAlignment="Left" BorderBrush="#FF282828" SelectionBrush="#FF282828"/>
             </StackPanel>
         </Label>
         <Button
-            Width="20"
-            Height="20"
-            Margin="260,15,0,0"
+            Width="26"
+            Height="24"
+            Margin="218,16,0,0"
             VerticalAlignment="Top"
             HorizontalAlignment="Left"
             Command="{Binding ClearSearchCommand}"
-            Content="&#x2715;"/>
+            Content="&#x2715;" Foreground="#FF282828" RenderTransformOrigin="0.515,0.602">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="Gray" Opacity="0"/>
+            </Button.Background>
+        </Button>
         <ListBox x:Name="QuoteListBox"
-              Margin="20,50,20,50" 
+                 
+              Margin="0,50,0,50" 
               SelectionMode="Single"
               ItemsSource="{Binding Quotes}"
-              DisplayMemberPath="QuoteName" Grid.ColumnSpan="2">
+              DisplayMemberPath="QuoteName" Grid.ColumnSpan="2" BorderBrush="#FF282828" Background="White">
+
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <Border
+                            Name="Border"
+                            Background="White"
+                            BorderBrush="#282828"
+                            BorderThickness="0.5">
+                                    <ContentPresenter
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Margin="5" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="Border" Property="Background" Value="#282828" />
+                                        <Setter TargetName="Border" Property="BorderBrush" Value="#282828" />
+                                        <Setter Property="Foreground" Value="White" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
         </ListBox>
         <Button Content="Indlæs tilbud"
-                    HorizontalAlignment="Center"
+                    Style="{StaticResource CustomRoundedButtonStyle}"    
+                    HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
-                    Height="25"
-                    Margin="0,0,0,10"
-                    Width="100"
                     Command="{Binding LoadQuoteCommand}"
                     CommandParameter="{Binding SelectedItem, ElementName=QuoteListBox}" Grid.Column="1"/>
+
         <Button Content="Nyt tilbud"
+                    Style="{StaticResource CustomRoundedButtonStyle}"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"
-                    Height="25"
-                    Margin="0,0,20,10"
-                    Width="100"
                     Command="{Binding CreateQuoteCommand}" Grid.Column="1"/>
     </Grid>
 </UserControl>

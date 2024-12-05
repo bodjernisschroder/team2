@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DataContext="{d:DesignInstance Type=local:QuoteViewModel}"
     d:DesignHeight="550"
-    d:DesignWidth="500"
+    d:DesignWidth="700"
     mc:Ignorable="d">
     <Grid>
         <Label
@@ -162,7 +162,7 @@
             Command="{Binding SwitchCommand}"
             Content="{Binding SwitchText}" />
 
-        <StackPanel VerticalAlignment="Top">
+        <StackPanel VerticalAlignment="Top" Margin="0,0,155,0">
             <DataGrid
                 x:Name="QuoteDataGrid"
                 Grid.Row="0"
@@ -262,5 +262,7 @@
                 <Run Text="{Binding DiscountedSum, Mode=OneWay}" />
             </TextBlock>
         </Label>
+
+
     </Grid>
 </UserControl>
