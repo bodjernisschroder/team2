@@ -1,0 +1,681 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\queries\\usp_crud_quote.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:queries\\usp_crud_quote.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\dataaccess\\quoterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:dataaccess\\quoterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\mvvm\\views\\quoteview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:mvvm\\views\\quoteview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\mvvm\\views\\quotesview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:mvvm\\views\\quotesview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\mvvm\\viewmodels\\sumquoteviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:mvvm\\viewmodels\\sumquoteviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\mvvm\\viewmodels\\hourlyratequoteviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:mvvm\\viewmodels\\hourlyratequoteviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\mvvm\\viewmodels\\quoteviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:mvvm\\viewmodels\\quoteviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\mvvm\\viewmodels\\quotesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:mvvm\\viewmodels\\quotesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\mvvm\\viewmodels\\quoteproductviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:mvvm\\viewmodels\\quoteproductviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\dataaccess\\quoteproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:dataaccess\\quoteproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\mvvm\\models\\quote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:mvvm\\models\\quote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\dataaccess\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:dataaccess\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\queries\\triggers.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:queries\\triggers.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\queries\\tables_insert.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:queries\\tables_insert.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\queries\\tables_create.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:queries\\tables_create.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\queries\\usp_crud_product.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:queries\\usp_crud_product.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\queries\\usp_crud_category.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:queries\\usp_crud_category.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\mvvm\\viewmodels\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:mvvm\\viewmodels\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\mvvm\\viewmodels\\productsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:mvvm\\viewmodels\\productsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\mvvm\\views\\mainview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:mvvm\\views\\mainview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\mvvm\\views\\productsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:mvvm\\views\\productsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\mvvm\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:mvvm\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\mvvm\\views\\quotesview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:mvvm\\views\\quotesview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\services\\navigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:services\\navigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\services\\inavigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:services\\inavigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\mvvm\\models\\quoteproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:mvvm\\models\\quoteproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\queries\\usp_crud_quoteproduct.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:queries\\usp_crud_quoteproduct.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\mvvm\\views\\quoteview.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:mvvm\\views\\quoteview.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\dataaccess\\isimplekeyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:dataaccess\\isimplekeyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\dataaccess\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:dataaccess\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\mvvm\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:mvvm\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\mvvm\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:mvvm\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\mvvm\\views\\productsview.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:mvvm\\views\\productsview.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\mvvm\\views\\mainview.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:mvvm\\views\\mainview.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\burak\\AppData\\Local\\SourceServer\\0004409594e5437401a819e683220afcd101282b5d39186df2a79d7c8231ef93\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\ExecutionContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Views\\TestButton.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MVVM\\Views\\TestButton.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Views\\TestButton.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MVVM\\Views\\TestButton.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\Queries\\usp_CRUD.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Queries\\usp_CRUD.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|c:\\users\\burak\\source\\repos\\team2\\sem2\\projekter\\publico kommunikation\\queries\\usp_crud_quote.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{41646646-35A9-4FEE-82A2-EAE3CF020A5C}|Publico_Kommunikation_Project.csproj|solutionrelative:queries\\usp_crud_quote.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 272,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "QuotesViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\ViewModels\\QuotesViewModel.cs",
+              "RelativeDocumentMoniker": "MVVM\\ViewModels\\QuotesViewModel.cs",
+              "ToolTip": "MVVM/ViewModels/QuotesViewModel.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAA5wB0AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "OverriddenGroupName": "MVVM\\ViewModels",
+              "OverriddenToolTip": "MVVM/ViewModels/QuotesViewModel.cs",
+              "WhenOpened": "2024-12-01T14:11:35.954Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "QuotesView.xaml",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Views\\QuotesView.xaml",
+              "RelativeDocumentMoniker": "MVVM\\Views\\QuotesView.xaml",
+              "ToolTip": "MVVM/Views/QuotesView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "OverriddenGroupName": "MVVM\\Views",
+              "OverriddenToolTip": "MVVM/Views/QuotesView.xaml",
+              "WhenOpened": "2024-12-03T12:11:59.343Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "QuoteView.xaml",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Views\\QuoteView.xaml",
+              "RelativeDocumentMoniker": "MVVM\\Views\\QuoteView.xaml",
+              "ToolTip": "MVVM/Views/QuoteView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "OverriddenGroupName": "MVVM\\Views",
+              "OverriddenToolTip": "MVVM/Views/QuoteView.xaml",
+              "WhenOpened": "2024-11-26T10:24:23.335Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "QuoteRepository.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\DataAccess\\QuoteRepository.cs",
+              "RelativeDocumentMoniker": "DataAccess\\QuoteRepository.cs",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\DataAccess\\QuoteRepository.cs",
+              "RelativeToolTip": "DataAccess\\QuoteRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHwAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "OverriddenGroupName": "DataAccess",
+              "WhenOpened": "2024-11-26T08:47:08.86Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "usp_CRUD_Quote.sql ",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\Queries\\usp_CRUD_Quote.sql",
+              "RelativeDocumentMoniker": "Queries\\usp_CRUD_Quote.sql",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\Queries\\usp_CRUD_Quote.sql*",
+              "RelativeToolTip": "Queries\\usp_CRUD_Quote.sql*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-11-26T10:11:19.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "QuoteProductRepository.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\DataAccess\\QuoteProductRepository.cs",
+              "RelativeDocumentMoniker": "DataAccess\\QuoteProductRepository.cs",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\DataAccess\\QuoteProductRepository.cs",
+              "RelativeToolTip": "DataAccess\\QuoteProductRepository.cs",
+              "ViewState": "AQIAAJ4AAAAAAAAAAAAnwKcAAABJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T14:40:02.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "QuoteViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\ViewModels\\QuoteViewModel.cs",
+              "RelativeDocumentMoniker": "MVVM\\ViewModels\\QuoteViewModel.cs",
+              "ToolTip": "MVVM/ViewModels/QuoteViewModel.cs",
+              "ViewState": "AQIAAE0AAAAAAAAAAADwv2MAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "OverriddenGroupName": "MVVM\\ViewModels",
+              "OverriddenToolTip": "MVVM/ViewModels/QuoteViewModel.cs",
+              "WhenOpened": "2024-11-26T13:23:21.111Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "QuoteProductViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\ViewModels\\QuoteProductViewModel.cs",
+              "RelativeDocumentMoniker": "MVVM\\ViewModels\\QuoteProductViewModel.cs",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\ViewModels\\QuoteProductViewModel.cs",
+              "RelativeToolTip": "MVVM\\ViewModels\\QuoteProductViewModel.cs",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAYwDMAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "OverriddenGroupName": "MVVM\\ViewModels",
+              "WhenOpened": "2024-11-26T12:19:05.512Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SumQuoteViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\ViewModels\\SumQuoteViewModel.cs",
+              "RelativeDocumentMoniker": "MVVM\\ViewModels\\SumQuoteViewModel.cs",
+              "ToolTip": "MVVM/ViewModels/SumQuoteViewModel.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAgwE4AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "OverriddenGroupName": "MVVM\\ViewModels",
+              "OverriddenToolTip": "MVVM/ViewModels/SumQuoteViewModel.cs",
+              "WhenOpened": "2024-11-28T09:14:59.117Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "triggers.sql",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\Queries\\triggers.sql",
+              "RelativeDocumentMoniker": "Queries\\triggers.sql",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\Queries\\triggers.sql",
+              "RelativeToolTip": "Queries\\triggers.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-11-28T15:50:59.485Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HourlyRateQuoteViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\ViewModels\\HourlyRateQuoteViewModel.cs",
+              "RelativeDocumentMoniker": "MVVM\\ViewModels\\HourlyRateQuoteViewModel.cs",
+              "ToolTip": "MVVM/ViewModels/HourlyRateQuoteViewModel.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAADwv1IAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "OverriddenGroupName": "MVVM\\ViewModels",
+              "OverriddenToolTip": "MVVM/ViewModels/HourlyRateQuoteViewModel.cs",
+              "WhenOpened": "2024-11-26T09:43:47.22Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "tables_insert.sql",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\Queries\\tables_insert.sql",
+              "RelativeDocumentMoniker": "Queries\\tables_insert.sql",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\Queries\\tables_insert.sql",
+              "RelativeToolTip": "Queries\\tables_insert.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-11-28T09:08:32.469Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Quote.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Models\\Quote.cs",
+              "RelativeDocumentMoniker": "MVVM\\Models\\Quote.cs",
+              "ToolTip": "MVVM/Models/Quote.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "OverriddenGroupName": "MVVM\\Models",
+              "OverriddenToolTip": "MVVM/Models/Quote.cs",
+              "WhenOpened": "2024-11-27T19:45:16.492Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\DataAccess\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "DataAccess\\ProductRepository.cs",
+              "ToolTip": "DataAccess/ProductRepository.cs",
+              "ViewState": "AQIAAGkAAAAAAAAAAAAywB0AAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "OverriddenGroupName": "DataAccess",
+              "OverriddenToolTip": "DataAccess/ProductRepository.cs",
+              "WhenOpened": "2024-11-24T17:39:33.446Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "tables_create.sql",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\Queries\\tables_create.sql",
+              "RelativeDocumentMoniker": "Queries\\tables_create.sql",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\Queries\\tables_create.sql",
+              "RelativeToolTip": "Queries\\tables_create.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-11-28T10:01:05.389Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "MainView.xaml",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Views\\MainView.xaml",
+              "RelativeDocumentMoniker": "MVVM\\Views\\MainView.xaml",
+              "ToolTip": "MVVM/Views/MainView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "OverriddenGroupName": "MVVM\\Views",
+              "OverriddenToolTip": "MVVM/Views/MainView.xaml",
+              "WhenOpened": "2024-11-26T09:57:04.16Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ProductsView.xaml",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Views\\ProductsView.xaml",
+              "RelativeDocumentMoniker": "MVVM\\Views\\ProductsView.xaml",
+              "ToolTip": "MVVM/Views/ProductsView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "OverriddenGroupName": "MVVM\\Views",
+              "OverriddenToolTip": "MVVM/Views/ProductsView.xaml",
+              "WhenOpened": "2024-11-26T09:57:26.467Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "usp_CRUD_Product.sql",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\Queries\\usp_CRUD_Product.sql",
+              "RelativeDocumentMoniker": "Queries\\usp_CRUD_Product.sql",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\Queries\\usp_CRUD_Product.sql",
+              "RelativeToolTip": "Queries\\usp_CRUD_Product.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-11-26T10:09:15.293Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ProductViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\ViewModels\\ProductViewModel.cs",
+              "RelativeDocumentMoniker": "MVVM\\ViewModels\\ProductViewModel.cs",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\ViewModels\\ProductViewModel.cs",
+              "RelativeToolTip": "MVVM\\ViewModels\\ProductViewModel.cs",
+              "ViewState": "AQIAACYAAAAAAAAAAAAUwA0AAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T09:57:43.778Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "usp_CRUD_Category.sql",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\Queries\\usp_CRUD_Category.sql",
+              "RelativeDocumentMoniker": "Queries\\usp_CRUD_Category.sql",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\Queries\\usp_CRUD_Category.sql",
+              "RelativeToolTip": "Queries\\usp_CRUD_Category.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-11-26T10:08:57.264Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ProductsViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\ViewModels\\ProductsViewModel.cs",
+              "RelativeDocumentMoniker": "MVVM\\ViewModels\\ProductsViewModel.cs",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\ViewModels\\ProductsViewModel.cs",
+              "RelativeToolTip": "MVVM\\ViewModels\\ProductsViewModel.cs",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAAAEEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T17:33:21.753Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\App.xaml.cs",
+              "RelativeDocumentMoniker": "App.xaml.cs",
+              "ToolTip": "App.xaml.cs",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAADEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "OverriddenGroupName": "",
+              "OverriddenToolTip": "App.xaml.cs",
+              "WhenOpened": "2024-11-26T15:12:24.898Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\ViewModels\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "MVVM\\ViewModels\\MainViewModel.cs",
+              "ToolTip": "MVVM/ViewModels/MainViewModel.cs",
+              "ViewState": "AQIAAGEAAAAAAAAAAAAYwHoAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "OverriddenGroupName": "MVVM\\ViewModels",
+              "OverriddenToolTip": "MVVM/ViewModels/MainViewModel.cs",
+              "WhenOpened": "2024-11-26T09:43:48.863Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-01T14:42:47.59Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-26T10:17:39.245Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "QuotesView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Views\\QuotesView.xaml.cs",
+              "RelativeDocumentMoniker": "MVVM\\Views\\QuotesView.xaml.cs",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Views\\QuotesView.xaml.cs",
+              "RelativeToolTip": "MVVM\\Views\\QuotesView.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-03T12:16:03.017Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "INavigationService.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\Services\\INavigationService.cs",
+              "RelativeDocumentMoniker": "Services\\INavigationService.cs",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\Services\\INavigationService.cs",
+              "RelativeToolTip": "Services\\INavigationService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T12:24:14.099Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "QuoteProduct.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Models\\QuoteProduct.cs",
+              "RelativeDocumentMoniker": "MVVM\\Models\\QuoteProduct.cs",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Models\\QuoteProduct.cs",
+              "RelativeToolTip": "MVVM\\Models\\QuoteProduct.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T13:46:04.283Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "NavigationService.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\Services\\NavigationService.cs",
+              "RelativeDocumentMoniker": "Services\\NavigationService.cs",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\Services\\NavigationService.cs",
+              "RelativeToolTip": "Services\\NavigationService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T15:21:11.88Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "usp_CRUD_QuoteProduct.sql",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\Queries\\usp_CRUD_QuoteProduct.sql",
+              "RelativeDocumentMoniker": "Queries\\usp_CRUD_QuoteProduct.sql",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\Queries\\usp_CRUD_QuoteProduct.sql",
+              "RelativeToolTip": "Queries\\usp_CRUD_QuoteProduct.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-11-28T10:09:14.152Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "QuoteView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Views\\QuoteView.xaml.cs",
+              "RelativeDocumentMoniker": "MVVM\\Views\\QuoteView.xaml.cs",
+              "ToolTip": "MVVM/Views/QuoteView.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "OverriddenGroupName": "MVVM\\Views",
+              "OverriddenToolTip": "MVVM/Views/QuoteView.xaml.cs",
+              "WhenOpened": "2024-11-27T19:35:50.642Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "ISimpleKeyRepository.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\DataAccess\\ISimpleKeyRepository.cs",
+              "RelativeDocumentMoniker": "DataAccess\\ISimpleKeyRepository.cs",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\DataAccess\\ISimpleKeyRepository.cs",
+              "RelativeToolTip": "DataAccess\\ISimpleKeyRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T09:40:39.335Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "CategoryRepository.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\DataAccess\\CategoryRepository.cs",
+              "RelativeDocumentMoniker": "DataAccess\\CategoryRepository.cs",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\DataAccess\\CategoryRepository.cs",
+              "RelativeToolTip": "DataAccess\\CategoryRepository.cs",
+              "ViewState": "AQIAAF4AAAAAAAAAAAAqwG4AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T08:54:50.8Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "TestButton.xaml",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Views\\TestButton.xaml",
+              "RelativeDocumentMoniker": "MVVM\\Views\\TestButton.xaml",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Views\\TestButton.xaml",
+              "RelativeToolTip": "MVVM\\Views\\TestButton.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-28T12:35:23.179Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "TestButton.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Views\\TestButton.xaml.cs",
+              "RelativeDocumentMoniker": "MVVM\\Views\\TestButton.xaml.cs",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Views\\TestButton.xaml.cs",
+              "RelativeToolTip": "MVVM\\Views\\TestButton.xaml.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAgwBoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T12:39:06.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "MVVM\\Models\\Category.cs",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Models\\Category.cs",
+              "RelativeToolTip": "MVVM\\Models\\Category.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T19:45:18.017Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "MVVM\\Models\\Product.cs",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Models\\Product.cs",
+              "RelativeToolTip": "MVVM\\Models\\Product.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T12:00:01.265Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "usp_CRUD.sql",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\Queries\\usp_CRUD.sql",
+              "RelativeDocumentMoniker": "Queries\\usp_CRUD.sql",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\Queries\\usp_CRUD.sql",
+              "RelativeToolTip": "Queries\\usp_CRUD.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-11-26T13:03:14.831Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "ProductsView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Views\\ProductsView.xaml.cs",
+              "RelativeDocumentMoniker": "MVVM\\Views\\ProductsView.xaml.cs",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Views\\ProductsView.xaml.cs",
+              "RelativeToolTip": "MVVM\\Views\\ProductsView.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T12:08:43.329Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "ExecutionContext.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\AppData\\Local\\SourceServer\\0004409594e5437401a819e683220afcd101282b5d39186df2a79d7c8231ef93\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\ExecutionContext.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\AppData\\Local\\SourceServer\\0004409594e5437401a819e683220afcd101282b5d39186df2a79d7c8231ef93\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\ExecutionContext.cs",
+              "ToolTip": "C:\\Users\\burak\\AppData\\Local\\SourceServer\\0004409594e5437401a819e683220afcd101282b5d39186df2a79d7c8231ef93\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\ExecutionContext.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\AppData\\Local\\SourceServer\\0004409594e5437401a819e683220afcd101282b5d39186df2a79d7c8231ef93\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\ExecutionContext.cs",
+              "ViewState": "AQIAAJ0AAAAAAAAAAAAcwKcAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T10:21:05.388Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "MainView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Views\\MainView.xaml.cs",
+              "RelativeDocumentMoniker": "MVVM\\Views\\MainView.xaml.cs",
+              "ToolTip": "C:\\Users\\burak\\source\\repos\\team2\\sem2\\Projekter\\Publico Kommunikation\\MVVM\\Views\\MainView.xaml.cs",
+              "RelativeToolTip": "MVVM\\Views\\MainView.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T09:57:18.193Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

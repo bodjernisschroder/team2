@@ -1,30 +1,33 @@
-CREATE TABLE QuoteAudit
+CREATE TABLE QUOTE_AUDIT
 (
-	QuoteAuditId int identity PRIMARY KEY,
+	QuoteAuditId INT IDENTITY PRIMARY KEY,
 
-	[QuoteId] int,
-	[HourlyRate] float null,
-	[DiscountPercentage] int,
-	[Sum] float,
+	[QuoteId] INT,
+	[QuoteName] NVARCHAR(50),
+	Tags NVARCHAR(200), 
+	FilePath NVARCHAR(200),
+	[HourlyRate] FLOAT NULL,
+	[DiscountPercentage] INT,
+	[Sum] FLOAT,
 
-	Operation NVarChar(10),
-	CreateDate DateTime default getDate(),
-	UserId NVarChar(30) default system_user
+	Operation NVARCHAR(10),
+	CreateDate DATETIME DEFAULT GETDATE(),
+	UserId NVARCHAR(30) DEFAULT SYSTEM_USER
 );
 
 GO;
 
-CREATE TRIGGER trgQuoteAuditInsert
-ON Quote
-AFTER INSERT
+CREATE OR ALTER TRIGGER trgQuoteAuditInsert
+ON QUOTE
+AFTER INSERT, UPDATE, DELETE
 AS
 BEGIN
 	SET NOCOUNT ON;
 	DECLARE @Operation NVARCHAR(10)
 
-	IF EXISTS (SELECT * FROM Deleted)
+	IF EXISTS (SELECT * FROM DELETED)
 	BEGIN
-		IF EXISTS (SELECT * FROM Inserted)
+		IF EXISTS (SELECT * FROM INSERTED)
 			SET @Operation = 'UPDATE'
 		ELSE
 			SET @Operation = 'DELETE'
@@ -32,16 +35,16 @@ BEGIN
 	ELSE
 		SET @Operation = 'INSERT'
 	
-	IF @Operation = 'INSERT'
+	IF @Operation = 'INSERT' OR @Operation = 'UPDATE'
 	BEGIN
-		INSERT INTO QuoteAudit (QuoteId, HourlyRate, DiscountPercentage, Sum, Operation, CreateDate, UserId)
-		SELECT QuoteId, HourlyRate, DiscountPercentage, Sum, @Operation, getDate(), system_user
-		FROM Inserted;
+		INSERT INTO QUOTE_AUDIT (QuoteId, [QuoteName], Tags, FilePath, HourlyRate, DiscountPercentage, [Sum], Operation, CreateDate, UserId)
+		SELECT QuoteId, [QuoteName], Tags, FilePath, HourlyRate, DiscountPercentage, [Sum], @Operation, GETDATE(), SYSTEM_USER
+		FROM INSERTED;
 	END
-	ELSE
+	ELSE IF @Operation = 'DELETE'
 	BEGIN
-		INSERT INTO QuoteAudit (QuoteId, HourlyRate, DiscountPercentage, Sum, Operation, CreateDate, UserId)
-		SELECT QuoteId, HourlyRate, DiscountPercentage, Sum, @Operation, getDate(), system_user
-		FROM Deleted;
+		INSERT INTO QUOTE_AUDIT (QuoteId, [QuoteName], Tags, FilePath, HourlyRate, DiscountPercentage, [Sum], Operation, CreateDate, UserId)
+		SELECT QuoteId, [QuoteName], Tags, FilePath, HourlyRate, DiscountPercentage, [Sum], @Operation, GETDATE(), SYSTEM_USER
+		FROM DELETED;
 	END
 END
