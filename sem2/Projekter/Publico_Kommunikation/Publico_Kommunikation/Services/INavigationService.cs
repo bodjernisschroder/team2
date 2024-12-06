@@ -1,6 +1,6 @@
-﻿using Publico_Kommunikation_Project.Core;
+﻿using Publico_Kommunikation.Core;
 
-namespace Publico_Kommunikation_Project.Services
+namespace Publico_Kommunikation.Services
 {
     /// <summary>
     /// An interface for navigation between ViewModel instances.

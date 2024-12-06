@@ -1,4 +1,4 @@
-﻿namespace Publico_Kommunikation_Project.DataAccess
+﻿namespace Publico_Kommunikation.DataAccess
 {
     /// <summary>
     /// Generic interface for repositories. Provides CRUD (Create, Read, Update, and Delete) operations.

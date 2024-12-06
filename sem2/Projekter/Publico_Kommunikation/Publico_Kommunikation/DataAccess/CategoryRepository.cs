@@ -1,9 +1,9 @@
 ﻿using System.Data;
 using System.Configuration;
 using Microsoft.Data.SqlClient;
-using Publico_Kommunikation_Project.MVVM.Models;
+using Publico_Kommunikation.MVVM.Models;
 
-namespace Publico_Kommunikation_Project.DataAccess
+namespace Publico_Kommunikation.DataAccess
 {
     /// <summary>
     /// A repository class for managing <see cref="Category"/> entities.

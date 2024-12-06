@@ -1,12 +1,12 @@
 ﻿using System.Collections.ObjectModel;
-using Publico_Kommunikation_Project.Core;
-using Publico_Kommunikation_Project.Services;
-using Publico_Kommunikation_Project.DataAccess;
-using Publico_Kommunikation_Project.MVVM.Models;
+using Publico_Kommunikation.Core;
+using Publico_Kommunikation.Services;
+using Publico_Kommunikation.DataAccess;
+using Publico_Kommunikation.MVVM.Models;
 using System.ComponentModel;
 using System.Collections;
 
-namespace Publico_Kommunikation_Project.MVVM.ViewModels
+namespace Publico_Kommunikation.MVVM.ViewModels
 {
     /// <summary>
     /// A ViewModel class for managing <see cref="Quote"/> entities.
@@ -15,9 +15,9 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
     /// </summary>
     public class QuoteViewModel : ViewModel
     {
-        private readonly QuoteRepository _quoteRepository;
-        private readonly ProductRepository _productRepository;
-        private readonly QuoteProductRepository _quoteProductRepository;
+        private readonly IQuoteRepository _quoteRepository;
+        private readonly ISimpleKeyRepository<Product> _productRepository;
+        private readonly ICompositeKeyRepository<QuoteProduct> _quoteProductRepository;
         private string _switchText;
 
         protected Quote Model { get; private set; }
@@ -85,7 +85,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         public double DiscountedSum
         {
-            get => Math.Round(Sum - (Sum * (DiscountPercentage / 100)), 2);
+            get => Math.Round(Sum - (Sum * ((double)DiscountPercentage / 100)), 2);
         }
 
         public string SwitchText
@@ -114,7 +114,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         /// <param name="productRepository">The repository for managing <see cref="Product"/> instances.</param>
         /// <param name="quoteProductRepository">The repository for managing <see cref="QuoteProduct"/> instances.</param>
         /// <exception cref="ArgumentNullException">Thrown when any of the specified repositories are <c>null</c>.</exception>
-        public QuoteViewModel(QuoteRepository quoteRepository, ProductRepository productRepository, QuoteProductRepository quoteProductRepository)
+        public QuoteViewModel(IQuoteRepository quoteRepository, ISimpleKeyRepository<Product> productRepository, ICompositeKeyRepository<QuoteProduct> quoteProductRepository)
         {
             // Assign Repositories
             _quoteRepository = quoteRepository ?? throw new ArgumentNullException(nameof(quoteRepository));
