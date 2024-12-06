@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace Publico_Kommunikation_Project.Core
+namespace Publico_Kommunikation.Core
 {
     /// <summary>
     /// Serves as a base class for ViewModels. Implements the <see cref="INotifyPropertyChanged"/> interface.

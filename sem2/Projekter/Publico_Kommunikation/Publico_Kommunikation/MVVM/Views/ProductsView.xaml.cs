@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace Publico_Kommunikation_Project.MVVM.Views
+namespace Publico_Kommunikation.MVVM.Views
 {
     /// <summary>
     /// Interaction logic for ProductsView.xaml

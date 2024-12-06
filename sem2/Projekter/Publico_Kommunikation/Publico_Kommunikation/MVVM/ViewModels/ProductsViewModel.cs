@@ -1,9 +1,9 @@
 ﻿using System.Collections.ObjectModel;
-using Publico_Kommunikation_Project.Core;
-using Publico_Kommunikation_Project.DataAccess;
-using Publico_Kommunikation_Project.MVVM.Models;
+using Publico_Kommunikation.Core;
+using Publico_Kommunikation.DataAccess;
+using Publico_Kommunikation.MVVM.Models;
 
-namespace Publico_Kommunikation_Project.MVVM.ViewModels
+namespace Publico_Kommunikation.MVVM.ViewModels
 {
     /// <summary>
     /// A ViewModel class for managing <see cref="Category"/> entities and their
@@ -13,8 +13,8 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
     /// </summary>
     public class ProductsViewModel : ViewModel
     {
-        private readonly CategoryRepository _categoryRepository;
-        private readonly ProductRepository _productRepository;
+        private readonly ISimpleKeyRepository<Category> _categoryRepository;
+        private readonly ISimpleKeyRepository<Product> _productRepository;
 
         private QuoteViewModel _quoteViewModel;
 
@@ -31,7 +31,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         /// <param name="categoryRepository">The repository for managing <see cref="Category"/> instances.</param>
         /// <param name="productRepository">The repository for managing <see cref="Product"/> instances.</param>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="categoryRepository"/> or <paramref name="productRepository"/> is <c>null</c>.</exception>
-        public ProductsViewModel(CategoryRepository categoryRepository, ProductRepository productRepository)
+        public ProductsViewModel(ISimpleKeyRepository<Category> categoryRepository, ISimpleKeyRepository<Product> productRepository)
         {
             // Initialize repositories
             _categoryRepository = categoryRepository ?? throw new ArgumentNullException(nameof(categoryRepository));

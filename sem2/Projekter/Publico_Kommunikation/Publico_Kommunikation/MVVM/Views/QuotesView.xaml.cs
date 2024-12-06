@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Publico_Kommunikation_Project.MVVM.Views
+namespace Publico_Kommunikation.MVVM.Views
 {
     /// <summary>
     /// Interaction logic for QuotesView.xaml
