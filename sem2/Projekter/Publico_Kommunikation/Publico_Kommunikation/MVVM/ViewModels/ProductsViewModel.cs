@@ -1,4 +1,6 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
+using Microsoft.Data.SqlClient;
 using Publico_Kommunikation_Project.Core;
 using Publico_Kommunikation_Project.DataAccess;
 using Publico_Kommunikation_Project.MVVM.Models;
@@ -104,18 +106,32 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         /// </summary>
         public void AddProductsToQuote()
         {
+            var duplicates = new List<string>();
+
             foreach (Category category in CategoryProducts.Keys)
             {
                 foreach (ProductViewModel product in CategoryProducts[category])
                 {
                     if (product.IsSelected)
                     {
-                        _quoteViewModel.AddQuoteProduct(product.Model);
+                        try
+                        {
+                            _quoteViewModel.AddQuoteProduct(product.Model);
+                        }
+                        catch (SqlException e)
+                        {
+                            duplicates.Add(product.ProductName);
+                        }
                         product.IsSelected = false;
                     }
                 }
             }
+            if (duplicates.Any())
+            {
+                MessageBox.Show("Disse valgte ydelser findes allerede i tilbuddet:\n\t" + string.Join("\n\t", duplicates) + "\n\nResterende valgte ydelser er blevet korrekt tilføjet til tilbuddet.", "Ydelser findes allerede", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
+
 
         public void ClearSelection()
         {

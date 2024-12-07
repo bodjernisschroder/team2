@@ -6,6 +6,7 @@ using Publico_Kommunikation_Project.MVVM.Models;
 using System.ComponentModel;
 using System.Collections;
 using System.Windows;
+using Microsoft.Data.SqlClient;
 
 namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
@@ -197,7 +198,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             // Create QuoteProduct and QuoteProductViewModel
             var quoteProduct = new QuoteProduct { QuoteId = QuoteId, ProductId = product.ProductId };
             var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
-            
+
             // Add QuoteProduct to Repository and QuoteProductViewModel to QuoteProducts
             _quoteProductRepository.Add(quoteProduct);
             QuoteProducts.Add(quoteProductViewModel);

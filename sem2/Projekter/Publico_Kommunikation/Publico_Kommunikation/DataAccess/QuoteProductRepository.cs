@@ -2,6 +2,7 @@
 using System.Configuration;
 using Microsoft.Data.SqlClient;
 using Publico_Kommunikation_Project.MVVM.Models;
+using System.Windows;
 
 namespace Publico_Kommunikation_Project.DataAccess
 {
@@ -164,14 +165,14 @@ namespace Publico_Kommunikation_Project.DataAccess
         {
             using (var sqlCon = new SqlConnection(_connectionString))
             {
-                sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspCreateQuoteProduct", sqlCon);
-                sql_cmnd.CommandType = CommandType.StoredProcedure;
-                sql_cmnd.Parameters.AddWithValue("@QuoteId", SqlDbType.Int).Value = quoteProduct.QuoteId;
-                sql_cmnd.Parameters.AddWithValue("@ProductId", SqlDbType.Int).Value = quoteProduct.ProductId;
-                sql_cmnd.Parameters.AddWithValue("@QuoteProductTimeEstimate", SqlDbType.Float).Value = quoteProduct.QuoteProductTimeEstimate;
-                sql_cmnd.Parameters.AddWithValue("@QuoteProductPrice", SqlDbType.Float).Value = quoteProduct.QuoteProductPrice;
-                sql_cmnd.ExecuteNonQuery();
+                    sqlCon.Open();
+                    SqlCommand sql_cmnd = new SqlCommand("uspCreateQuoteProduct", sqlCon);
+                    sql_cmnd.CommandType = CommandType.StoredProcedure;
+                    sql_cmnd.Parameters.AddWithValue("@QuoteId", SqlDbType.Int).Value = quoteProduct.QuoteId;
+                    sql_cmnd.Parameters.AddWithValue("@ProductId", SqlDbType.Int).Value = quoteProduct.ProductId;
+                    sql_cmnd.Parameters.AddWithValue("@QuoteProductTimeEstimate", SqlDbType.Float).Value = quoteProduct.QuoteProductTimeEstimate;
+                    sql_cmnd.Parameters.AddWithValue("@QuoteProductPrice", SqlDbType.Float).Value = quoteProduct.QuoteProductPrice;
+                    sql_cmnd.ExecuteNonQuery();
             }
         }
 

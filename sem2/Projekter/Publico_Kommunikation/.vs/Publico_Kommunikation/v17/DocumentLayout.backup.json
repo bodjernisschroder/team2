@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|e:\\team 2 repo\\sem2\\projekter\\publico_kommunikation\\publico_kommunikation\\mvvm\\viewmodels\\hourlyratequoteviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|solutionrelative:publico_kommunikation\\mvvm\\viewmodels\\hourlyratequoteviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|e:\\team 2 repo\\sem2\\projekter\\publico_kommunikation\\publico_kommunikation\\mvvm\\viewmodels\\sumquoteviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|solutionrelative:publico_kommunikation\\mvvm\\viewmodels\\sumquoteviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|e:\\team 2 repo\\sem2\\projekter\\publico_kommunikation\\publico_kommunikation\\mvvm\\viewmodels\\productsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|solutionrelative:publico_kommunikation\\mvvm\\viewmodels\\productsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|e:\\team 2 repo\\sem2\\projekter\\publico_kommunikation\\publico_kommunikation\\mvvm\\viewmodels\\quoteviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|solutionrelative:publico_kommunikation\\mvvm\\viewmodels\\quoteviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|e:\\team 2 repo\\sem2\\projekter\\publico_kommunikation\\publico_kommunikation\\dataaccess\\quoteproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|solutionrelative:publico_kommunikation\\dataaccess\\quoteproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|e:\\team 2 repo\\sem2\\projekter\\publico_kommunikation\\publico_kommunikation\\mvvm\\viewmodels\\quoteproductviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,6 +27,30 @@
       "RelativeMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|solutionrelative:publico_kommunikation\\queries\\tables_create.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|e:\\team 2 repo\\sem2\\projekter\\publico_kommunikation\\publico_kommunikation\\mvvm\\viewmodels\\hourlyratequoteviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|solutionrelative:publico_kommunikation\\mvvm\\viewmodels\\hourlyratequoteviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|e:\\team 2 repo\\sem2\\projekter\\publico_kommunikation\\publico_kommunikation\\queries\\usp_crud_quoteproduct.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|solutionrelative:publico_kommunikation\\queries\\usp_crud_quoteproduct.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|e:\\team 2 repo\\sem2\\projekter\\publico_kommunikation\\publico_kommunikation\\dataaccess\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|solutionrelative:publico_kommunikation\\dataaccess\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|e:\\team 2 repo\\sem2\\projekter\\publico_kommunikation\\publico_kommunikation\\dataaccess\\icompositekeyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|solutionrelative:publico_kommunikation\\dataaccess\\icompositekeyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|e:\\team 2 repo\\sem2\\projekter\\publico_kommunikation\\publico_kommunikation\\dataaccess\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|solutionrelative:publico_kommunikation\\dataaccess\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|e:\\team 2 repo\\sem2\\projekter\\publico_kommunikation\\publico_kommunikation\\mvvm\\viewmodels\\sumquoteviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|solutionrelative:publico_kommunikation\\mvvm\\viewmodels\\sumquoteviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|e:\\team 2 repo\\sem2\\projekter\\publico_kommunikation\\publico_kommunikation\\queries\\tables_insert.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
       "RelativeMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|solutionrelative:publico_kommunikation\\queries\\tables_insert.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
     },
@@ -37,10 +61,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|e:\\team 2 repo\\sem2\\projekter\\publico_kommunikation\\publico_kommunikation\\mvvm\\views\\quotesview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|solutionrelative:publico_kommunikation\\mvvm\\views\\quotesview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|e:\\team 2 repo\\sem2\\projekter\\publico_kommunikation\\publico_kommunikation\\mvvm\\viewmodels\\productsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|solutionrelative:publico_kommunikation\\mvvm\\viewmodels\\productsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|e:\\team 2 repo\\sem2\\projekter\\publico_kommunikation\\publico_kommunikation\\queries\\triggers.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
@@ -57,10 +77,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|e:\\team 2 repo\\sem2\\projekter\\publico_kommunikation\\publico_kommunikation\\mvvm\\views\\productsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|solutionrelative:publico_kommunikation\\mvvm\\views\\productsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|e:\\team 2 repo\\sem2\\projekter\\publico_kommunikation\\publico_kommunikation\\queries\\usp_crud_quoteproduct.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
-      "RelativeMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|solutionrelative:publico_kommunikation\\queries\\usp_crud_quoteproduct.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|e:\\team 2 repo\\sem2\\projekter\\publico_kommunikation\\publico_kommunikation\\queries\\usp_crud_quote.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
@@ -89,6 +105,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|e:\\team 2 repo\\sem2\\projekter\\publico_kommunikation\\publico_kommunikation\\queries\\tables_create.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
       "RelativeMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|solutionrelative:publico_kommunikation\\queries\\tables_create.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|e:\\team 2 repo\\sem2\\projekter\\publico_kommunikation\\publico_kommunikation\\queries\\usp_crud_quoteproduct.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{77488E12-0FFE-4CEF-B832-F7D35961C4F0}|Publico_Kommunikation\\Publico_Kommunikation.csproj|solutionrelative:publico_kommunikation\\queries\\usp_crud_quoteproduct.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -98,30 +118,31 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "QuoteView.xaml",
-              "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\Views\\QuoteView.xaml",
-              "RelativeDocumentMoniker": "Publico_Kommunikation\\MVVM\\Views\\QuoteView.xaml",
-              "ToolTip": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\Views\\QuoteView.xaml",
-              "RelativeToolTip": "Publico_Kommunikation\\MVVM\\Views\\QuoteView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-05T10:44:23.286Z",
+              "DocumentIndex": 2,
+              "Title": "QuoteProductRepository.cs",
+              "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\DataAccess\\QuoteProductRepository.cs",
+              "RelativeDocumentMoniker": "Publico_Kommunikation\\DataAccess\\QuoteProductRepository.cs",
+              "ToolTip": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\DataAccess\\QuoteProductRepository.cs",
+              "RelativeToolTip": "Publico_Kommunikation\\DataAccess\\QuoteProductRepository.cs",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAcwLAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T19:46:11.137Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "QuoteViewModel.cs",
               "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\ViewModels\\QuoteViewModel.cs",
               "RelativeDocumentMoniker": "Publico_Kommunikation\\MVVM\\ViewModels\\QuoteViewModel.cs",
               "ToolTip": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\ViewModels\\QuoteViewModel.cs",
               "RelativeToolTip": "Publico_Kommunikation\\MVVM\\ViewModels\\QuoteViewModel.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwBoAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMsAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-07T16:05:50.459Z",
               "IsPinned": true,
@@ -129,29 +150,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SumQuoteViewModel.cs",
-              "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\ViewModels\\SumQuoteViewModel.cs",
-              "RelativeDocumentMoniker": "Publico_Kommunikation\\MVVM\\ViewModels\\SumQuoteViewModel.cs",
-              "ToolTip": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\ViewModels\\SumQuoteViewModel.cs*",
-              "RelativeToolTip": "Publico_Kommunikation\\MVVM\\ViewModels\\SumQuoteViewModel.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-07T16:23:39.941Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "HourlyRateQuoteViewModel.cs",
-              "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\ViewModels\\HourlyRateQuoteViewModel.cs",
-              "RelativeDocumentMoniker": "Publico_Kommunikation\\MVVM\\ViewModels\\HourlyRateQuoteViewModel.cs",
-              "ToolTip": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\ViewModels\\HourlyRateQuoteViewModel.cs*",
-              "RelativeToolTip": "Publico_Kommunikation\\MVVM\\ViewModels\\HourlyRateQuoteViewModel.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAABDAAAAAAAAAA==",
+              "Title": "ProductsViewModel.cs",
+              "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\ViewModels\\ProductsViewModel.cs",
+              "RelativeDocumentMoniker": "Publico_Kommunikation\\MVVM\\ViewModels\\ProductsViewModel.cs",
+              "ToolTip": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\ViewModels\\ProductsViewModel.cs*",
+              "RelativeToolTip": "Publico_Kommunikation\\MVVM\\ViewModels\\ProductsViewModel.cs*",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAmwHcAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T11:26:44.211Z",
+              "WhenOpened": "2024-12-05T11:08:47.329Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
@@ -163,7 +170,7 @@
               "RelativeDocumentMoniker": "Publico_Kommunikation\\MVVM\\ViewModels\\QuoteProductViewModel.cs",
               "ToolTip": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\ViewModels\\QuoteProductViewModel.cs",
               "RelativeToolTip": "Publico_Kommunikation\\MVVM\\ViewModels\\QuoteProductViewModel.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAA1wC4AAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAuwBgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-07T16:49:27.968Z",
               "IsPinned": true,
@@ -199,7 +206,84 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
+              "Title": "SumQuoteViewModel.cs",
+              "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\ViewModels\\SumQuoteViewModel.cs",
+              "RelativeDocumentMoniker": "Publico_Kommunikation\\MVVM\\ViewModels\\SumQuoteViewModel.cs",
+              "ToolTip": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\ViewModels\\SumQuoteViewModel.cs",
+              "RelativeToolTip": "Publico_Kommunikation\\MVVM\\ViewModels\\SumQuoteViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T16:23:39.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "HourlyRateQuoteViewModel.cs",
+              "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\ViewModels\\HourlyRateQuoteViewModel.cs",
+              "RelativeDocumentMoniker": "Publico_Kommunikation\\MVVM\\ViewModels\\HourlyRateQuoteViewModel.cs",
+              "ToolTip": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\ViewModels\\HourlyRateQuoteViewModel.cs",
+              "RelativeToolTip": "Publico_Kommunikation\\MVVM\\ViewModels\\HourlyRateQuoteViewModel.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB8AAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T11:26:44.211Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "QuoteView.xaml",
+              "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\Views\\QuoteView.xaml",
+              "RelativeDocumentMoniker": "Publico_Kommunikation\\MVVM\\Views\\QuoteView.xaml",
+              "ToolTip": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\Views\\QuoteView.xaml",
+              "RelativeToolTip": "Publico_Kommunikation\\MVVM\\Views\\QuoteView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-05T10:44:23.286Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\DataAccess\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "Publico_Kommunikation\\DataAccess\\ProductRepository.cs",
+              "ToolTip": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\DataAccess\\ProductRepository.cs",
+              "RelativeToolTip": "Publico_Kommunikation\\DataAccess\\ProductRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T19:57:25.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ICompositeKeyRepository.cs",
+              "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\DataAccess\\ICompositeKeyRepository.cs",
+              "RelativeDocumentMoniker": "Publico_Kommunikation\\DataAccess\\ICompositeKeyRepository.cs",
+              "ToolTip": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\DataAccess\\ICompositeKeyRepository.cs",
+              "RelativeToolTip": "Publico_Kommunikation\\DataAccess\\ICompositeKeyRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T19:57:12.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CategoryRepository.cs",
+              "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\DataAccess\\CategoryRepository.cs",
+              "RelativeDocumentMoniker": "Publico_Kommunikation\\DataAccess\\CategoryRepository.cs",
+              "ToolTip": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\DataAccess\\CategoryRepository.cs",
+              "RelativeToolTip": "Publico_Kommunikation\\DataAccess\\CategoryRepository.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T19:56:30.291Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "QuotesViewModel.cs",
               "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\ViewModels\\QuotesViewModel.cs",
               "RelativeDocumentMoniker": "Publico_Kommunikation\\MVVM\\ViewModels\\QuotesViewModel.cs",
@@ -212,7 +296,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 14,
               "Title": "QuotesView.xaml",
               "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\Views\\QuotesView.xaml",
               "RelativeDocumentMoniker": "Publico_Kommunikation\\MVVM\\Views\\QuotesView.xaml",
@@ -224,7 +308,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 16,
               "Title": "ProductViewModel.cs",
               "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\ViewModels\\ProductViewModel.cs",
               "RelativeDocumentMoniker": "Publico_Kommunikation\\MVVM\\ViewModels\\ProductViewModel.cs",
@@ -236,7 +320,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
               "Title": "MainViewModel.cs",
               "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\ViewModels\\MainViewModel.cs",
               "RelativeDocumentMoniker": "Publico_Kommunikation\\MVVM\\ViewModels\\MainViewModel.cs",
@@ -248,20 +332,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ProductsViewModel.cs",
-              "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\ViewModels\\ProductsViewModel.cs",
-              "RelativeDocumentMoniker": "Publico_Kommunikation\\MVVM\\ViewModels\\ProductsViewModel.cs",
-              "ToolTip": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\ViewModels\\ProductsViewModel.cs",
-              "RelativeToolTip": "Publico_Kommunikation\\MVVM\\ViewModels\\ProductsViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHcAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T11:08:47.329Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 18,
               "Title": "ProductsView.xaml",
               "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\Views\\ProductsView.xaml",
               "RelativeDocumentMoniker": "Publico_Kommunikation\\MVVM\\Views\\ProductsView.xaml",
@@ -272,18 +343,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "usp_CRUD_QuoteProduct.sql",
+              "DocumentIndex": 7,
+              "Title": "usp_CRUD_QuoteProduct.sql ",
               "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\Queries\\usp_CRUD_QuoteProduct.sql",
               "RelativeDocumentMoniker": "Publico_Kommunikation\\Queries\\usp_CRUD_QuoteProduct.sql",
               "ToolTip": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\Queries\\usp_CRUD_QuoteProduct.sql",
               "RelativeToolTip": "Publico_Kommunikation\\Queries\\usp_CRUD_QuoteProduct.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-12-05T10:51:06.616Z"
+              "WhenOpened": "2024-12-05T10:51:06.616Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 19,
               "Title": "usp_CRUD_Quote.sql",
               "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\Queries\\usp_CRUD_Quote.sql",
               "RelativeDocumentMoniker": "Publico_Kommunikation\\Queries\\usp_CRUD_Quote.sql",
@@ -294,7 +366,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 20,
               "Title": "usp_CRUD_Product.sql",
               "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\Queries\\usp_CRUD_Product.sql",
               "RelativeDocumentMoniker": "Publico_Kommunikation\\Queries\\usp_CRUD_Product.sql",
@@ -305,7 +377,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 21,
               "Title": "usp_CRUD_Category.sql",
               "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\Queries\\usp_CRUD_Category.sql",
               "RelativeDocumentMoniker": "Publico_Kommunikation\\Queries\\usp_CRUD_Category.sql",
@@ -316,7 +388,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "tables_insert.sql ",
               "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\Queries\\tables_insert.sql",
               "RelativeDocumentMoniker": "Publico_Kommunikation\\Queries\\tables_insert.sql",
@@ -340,7 +412,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 22,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\App.xaml.cs",
               "RelativeDocumentMoniker": "Publico_Kommunikation\\App.xaml.cs",
@@ -352,7 +424,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 23,
               "Title": "QuoteView.xaml.cs",
               "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\MVVM\\Views\\QuoteView.xaml.cs",
               "RelativeDocumentMoniker": "Publico_Kommunikation\\MVVM\\Views\\QuoteView.xaml.cs",
@@ -364,7 +436,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "triggers.sql",
               "DocumentMoniker": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\Queries\\triggers.sql",
               "RelativeDocumentMoniker": "Publico_Kommunikation\\Queries\\triggers.sql",
