@@ -7,7 +7,7 @@ using Publico_Kommunikation.MVVM.Models;
 using Publico_Kommunikation.Core;
 using Publico_Kommunikation.Services;
 
-namespace Publico_Kommunikation.Tests
+namespace Publico_Kommunikation.Tests.ViewModels
 {
     [TestClass]
     public class ProductsViewModelTests

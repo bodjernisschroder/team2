@@ -6,7 +6,7 @@ using Publico_Kommunikation.DataAccess;
 using Publico_Kommunikation.MVVM.Models;
 using Publico_Kommunikation.Core;
 
-namespace Publico_Kommunikation.Tests
+namespace Publico_Kommunikation.Tests.ViewModels
 {
     [TestClass]
     public class SumQuoteViewModelTests
