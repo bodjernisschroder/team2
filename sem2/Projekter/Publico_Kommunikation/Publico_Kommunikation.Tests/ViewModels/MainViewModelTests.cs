@@ -7,19 +7,19 @@ using Publico_Kommunikation.MVVM.Models;
 using Publico_Kommunikation.Core;
 using Publico_Kommunikation.Services;
 
-namespace Publico_Kommunikation.Tests
+namespace Publico_Kommunikation.Tests.ViewModels
 {
     [TestClass]
     public class MainViewModelTests
     {
-        private Mock<IQuoteRepository> mockQuoteRepository;
         private Mock<INavigationService> mockNavigation;
+        private Mock<IQuoteRepository> mockQuoteRepository;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            mockQuoteRepository = new Mock<IQuoteRepository>();
             mockNavigation = new Mock<INavigationService>();
+            mockQuoteRepository = new Mock<IQuoteRepository>();
         }
 
         [TestMethod]
