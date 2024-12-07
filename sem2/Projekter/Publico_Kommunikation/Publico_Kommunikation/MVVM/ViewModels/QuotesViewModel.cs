@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
@@ -67,11 +68,23 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         public void LoadQuote(object o)
         {
-            if (o is not Quote quote)
-                throw new ArgumentException(
-                    $"Expected an instance of '{nameof(Quote)}' but got an instance of '{o?.GetType().Name ?? "null"}'.",
-                    nameof(o));
-            OnSwitchRequested?.Invoke(quote);
+            try
+            {
+                if (o is not Quote quote)
+                    throw new ArgumentException(
+                        $"Expected an instance of '{nameof(Quote)}' but got an instance of '{o?.GetType().Name ?? "null"}'.",
+                        nameof(o));
+                OnSwitchRequested?.Invoke(quote);
+            }
+            catch (ArgumentException e)
+            {
+                MessageBox.Show("Vælg et tilbud fra listen før indlæsning. Eller vælg 'Nyt Tilbud' for at oprette et nyt tilbud", "Fejl ved indlæsning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Der opstod en fejl. Prøv igen", "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         public void PerformSearch()

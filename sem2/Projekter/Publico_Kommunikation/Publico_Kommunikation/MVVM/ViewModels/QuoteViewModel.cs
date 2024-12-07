@@ -5,6 +5,7 @@ using Publico_Kommunikation_Project.DataAccess;
 using Publico_Kommunikation_Project.MVVM.Models;
 using System.ComponentModel;
 using System.Collections;
+using System.Windows;
 
 namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
@@ -73,6 +74,11 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             get { return Model.DiscountPercentage; }
             set
             {
+                if (value < 0 || value > 50)
+                {
+                    MessageBox.Show("Rabat skal være mellem 0 og 50 %", "ugyldig værdi", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
                 Model.DiscountPercentage = value;
                 OnPropertyChanged(nameof(DiscountPercentage));
                 OnPropertyChanged(nameof(DiscountedSum));

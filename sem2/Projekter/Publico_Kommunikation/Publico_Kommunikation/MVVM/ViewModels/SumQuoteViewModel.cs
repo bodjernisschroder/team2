@@ -1,6 +1,7 @@
 ﻿using Publico_Kommunikation_Project.Services;
 using Publico_Kommunikation_Project.DataAccess;
 using Publico_Kommunikation_Project.MVVM.Models;
+using System.Windows;
 
 namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
@@ -33,6 +34,11 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
             set
             {
+                if (value < 0)
+                {
+                    MessageBox.Show("Totalpris kan ikke være negativ", "Fejl", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
                 Model.Sum = value;
                 OnPropertyChanged(nameof(Sum));
                 UpdatePrice();

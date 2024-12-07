@@ -142,8 +142,9 @@
                     VerticalAlignment="Center"
                     Background="GhostWhite"
                     BorderThickness="1"
+                    ToolTip="Rabat skal være mellem 0 og 50%"
                     Text="{Binding DiscountPercentage, UpdateSourceTrigger=PropertyChanged}"
-                    TextAlignment="Center" />
+                    TextAlignment="Center"/>
                 <TextBlock Text="%" />
             </StackPanel>
         </Label>

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Collections.ObjectModel;
 using Publico_Kommunikation_Project.Core;
 using System.Collections;
+using System.Windows;
 
 namespace Publico_Kommunikation_Project.MVVM.ViewModels
 {
@@ -22,6 +23,11 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
             get => Model.HourlyRate;
             set
             {
+                if (value < 0)
+                {
+                    MessageBox.Show("Timepris kan ikke være negativ", "Fejl", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
                 Model.HourlyRate = value;
                 OnPropertyChanged(nameof(HourlyRate));
                 UpdatePrice();
