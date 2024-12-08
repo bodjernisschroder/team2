@@ -23,10 +23,6 @@
             <Button Content="Tilbudshåndtering"
                     Height="25"
                     Command="{Binding ShowQuoteOverviewCommand}"/>
-            <Button Content="Test Error"
-                    Height="25"
-                    Command="{Binding ShowQuoteOverviewCommand}"
-                    Click="Button_Click" />
         </StackPanel>
         <ContentControl Grid.Column="1" Content="{Binding QuoteView}"/>
         <ContentControl Grid.Column="1" Content="{Binding QuotesView}"/>

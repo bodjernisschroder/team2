@@ -8,10 +8,5 @@ namespace Publico_Kommunikation_Project.MVVM.Views
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            throw new Exception("This is a test exception.");
-        }
     }
 }
