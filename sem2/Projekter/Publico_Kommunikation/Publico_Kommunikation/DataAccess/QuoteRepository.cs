@@ -2,6 +2,7 @@
 using System.Configuration;
 using Microsoft.Data.SqlClient;
 using Publico_Kommunikation.MVVM.Models;
+using System.Windows;
 
 namespace Publico_Kommunikation.DataAccess
 {

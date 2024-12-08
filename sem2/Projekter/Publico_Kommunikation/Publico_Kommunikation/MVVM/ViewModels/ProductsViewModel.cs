@@ -1,4 +1,6 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
+using Microsoft.Data.SqlClient;
 using Publico_Kommunikation.Core;
 using Publico_Kommunikation.DataAccess;
 using Publico_Kommunikation.MVVM.Models;
