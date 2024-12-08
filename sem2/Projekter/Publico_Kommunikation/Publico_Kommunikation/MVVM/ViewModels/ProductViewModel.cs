@@ -1,7 +1,7 @@
-﻿using Publico_Kommunikation_Project.Core;
-using Publico_Kommunikation_Project.MVVM.Models;
+﻿using Publico_Kommunikation.Core;
+using Publico_Kommunikation.MVVM.Models;
 
-namespace Publico_Kommunikation_Project.MVVM.ViewModels
+namespace Publico_Kommunikation.MVVM.ViewModels
 {
     /// <summary>
     /// A ViewModel class for representing and managing <see cref="Product"/> entities.

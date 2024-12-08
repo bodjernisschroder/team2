@@ -1,14 +1,15 @@
 ﻿using System.Windows;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Publico_Kommunikation_Project.Core;
-using Publico_Kommunikation_Project.Services;
-using Publico_Kommunikation_Project.MVVM.Views;
-using Publico_Kommunikation_Project.MVVM.ViewModels;
-using Publico_Kommunikation_Project.DataAccess;
+using Publico_Kommunikation.Core;
+using Publico_Kommunikation.Services;
+using Publico_Kommunikation.MVVM.Views;
+using Publico_Kommunikation.MVVM.ViewModels;
+using Publico_Kommunikation.DataAccess;
 using System.Collections.ObjectModel;
+using Publico_Kommunikation.MVVM.Models;
 
-namespace Publico_Kommunikation_Project
+namespace Publico_Kommunikation
 {
     /// <summary>
     /// Acts as the entry point and core logic of the application.
@@ -56,7 +57,7 @@ namespace Publico_Kommunikation_Project
         /// <param name="configuration">The <see cref="IConfiguration"/> that contains the database connection string.</param>
         private void RegisterDatabase(IServiceCollection services, IConfiguration configuration)
         {
-            string connectionString = configuration.GetConnectionString("BurakConnection");
+            string connectionString = configuration.GetConnectionString("AnnaConnection");
             services.AddSingleton(connectionString);
         }
 
@@ -75,10 +76,10 @@ namespace Publico_Kommunikation_Project
         /// <param name="services">The <see cref="IServiceCollection"/> to configure.</param>
         private void RegisterRepositories(IServiceCollection services)
         {
-            services.AddScoped<CategoryRepository>();
-            services.AddScoped<ProductRepository>();
-            services.AddScoped<QuoteRepository>();
-            services.AddScoped<QuoteProductRepository>();
+            services.AddScoped<ISimpleKeyRepository<Category>, CategoryRepository>();
+            services.AddScoped<ISimpleKeyRepository<Product>, ProductRepository>();
+            services.AddScoped<IQuoteRepository, QuoteRepository>();
+            services.AddScoped<ICompositeKeyRepository<QuoteProduct>, QuoteProductRepository>();
         }
 
         /// <summary>

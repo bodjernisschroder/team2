@@ -1,9 +1,8 @@
-﻿using Publico_Kommunikation_Project.Services;
-using Publico_Kommunikation_Project.DataAccess;
-using Publico_Kommunikation_Project.MVVM.Models;
-using System.Windows;
+﻿using Publico_Kommunikation.Services;
+using Publico_Kommunikation.DataAccess;
+using Publico_Kommunikation.MVVM.Models;
 
-namespace Publico_Kommunikation_Project.MVVM.ViewModels
+namespace Publico_Kommunikation.MVVM.ViewModels
 {
     /// <summary>
     /// A ViewModel class for managing <see cref="Quote"/> entities.
@@ -59,7 +58,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         /// <param name="quoteRepository">The repository for managing <see cref="Quote"/> instances.</param>
         /// <param name="productRepository">The repository for managing <see cref="Product"/> instances.</param>
         /// <param name="quoteProductRepository">The repository for managing <see cref="QuoteProduct"/> instances.</param>
-        public SumQuoteViewModel(QuoteRepository quoteRepository, ProductRepository productRepository, QuoteProductRepository quoteProductRepository) :
+        public SumQuoteViewModel(IQuoteRepository quoteRepository, ISimpleKeyRepository<Product> productRepository, ICompositeKeyRepository<QuoteProduct> quoteProductRepository) :
             base(quoteRepository, productRepository, quoteProductRepository)
         {
             SwitchText = "Konvertér Til Fast Timepris";

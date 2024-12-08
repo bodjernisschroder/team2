@@ -1,16 +1,15 @@
 ﻿using System.Data;
 using System.Configuration;
 using Microsoft.Data.SqlClient;
-using Publico_Kommunikation_Project.MVVM.Models;
-using System.Windows;
+using Publico_Kommunikation.MVVM.Models;
 
-namespace Publico_Kommunikation_Project.DataAccess
+namespace Publico_Kommunikation.DataAccess
 {
     /// <summary>
     /// A repository class for managing <see cref="Quote"/> entities.
-    /// Implements the <see cref="ISimpleKeyRepository{T}"/> interface.
+    /// Implements the <see cref="IQuoteRepository{T}"/> interface.
     /// </summary>
-    public class QuoteRepository : ISimpleKeyRepository<Quote>
+    public class QuoteRepository : IQuoteRepository
     {
         private readonly string _connectionString; // Connection string for the SQL database
 
@@ -174,7 +173,7 @@ namespace Publico_Kommunikation_Project.DataAccess
             }
         }
         
-        public IEnumerable<Quote> GetBySearchQueryQuote(string searchQuery)
+        public IEnumerable<Quote> GetBySearchQuery(string searchQuery)
         {
             var quotes = new List<Quote>();
             using (var sqlCon = new SqlConnection(_connectionString))

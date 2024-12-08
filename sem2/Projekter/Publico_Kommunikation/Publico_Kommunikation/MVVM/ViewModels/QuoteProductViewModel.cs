@@ -1,10 +1,10 @@
 ﻿using System.Windows;
 using System.Windows.Input;
-using Publico_Kommunikation_Project.Core;
-using Publico_Kommunikation_Project.DataAccess;
-using Publico_Kommunikation_Project.MVVM.Models;
+using Publico_Kommunikation.Core;
+using Publico_Kommunikation.DataAccess;
+using Publico_Kommunikation.MVVM.Models;
 
-namespace Publico_Kommunikation_Project.MVVM.ViewModels
+namespace Publico_Kommunikation.MVVM.ViewModels
 {
     /// <summary>
     /// A ViewModel class for representing and managing <see cref="QuoteProduct"/> entities.
@@ -14,8 +14,8 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
     /// </summary>
     public class QuoteProductViewModel : ViewModel
     {
-        private ProductRepository _productRepository;
-        private QuoteProductRepository _quoteProductRepository;
+        private ISimpleKeyRepository<Product> _productRepository;
+        private ICompositeKeyRepository<QuoteProduct> _quoteProductRepository;
 
         public Action? OnTimeEstimateChanged { get; set; } 
 
@@ -90,7 +90,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         /// <param name="quoteProductRepository"></param>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="quoteProduct"/>, <paramref name="productRepository"/>, or
         /// <paramref name="quoteProductRepository"/> is <c>null</c></exception>
-        public QuoteProductViewModel(QuoteProduct quoteProduct, ProductRepository productRepository, QuoteProductRepository quoteProductRepository)
+        public QuoteProductViewModel(QuoteProduct quoteProduct, ISimpleKeyRepository<Product> productRepository, ICompositeKeyRepository<QuoteProduct> quoteProductRepository)
         {
             _productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
             _quoteProductRepository = quoteProductRepository ?? throw new ArgumentNullException(nameof(quoteProductRepository));

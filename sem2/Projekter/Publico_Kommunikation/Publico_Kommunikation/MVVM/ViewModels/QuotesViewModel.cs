@@ -1,6 +1,6 @@
-using Publico_Kommunikation_Project.Core;
-using Publico_Kommunikation_Project.DataAccess;
-using Publico_Kommunikation_Project.MVVM.Models;
+using Publico_Kommunikation.Core;
+using Publico_Kommunikation.DataAccess;
+using Publico_Kommunikation.MVVM.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,11 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Publico_Kommunikation_Project.MVVM.ViewModels
+namespace Publico_Kommunikation.MVVM.ViewModels
 {
     public class QuotesViewModel : ViewModel
     {
-        private readonly QuoteRepository _quoteRepository;
+        private readonly IQuoteRepository _quoteRepository;
         private string _searchQuery;
 
         public string SearchQuery
@@ -37,7 +37,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
 
         public event Action<Quote> OnSwitchRequested;
 
-        public QuotesViewModel(QuoteRepository quoteRepository)
+        public QuotesViewModel(IQuoteRepository quoteRepository)
         {
             _quoteRepository = quoteRepository ?? throw new ArgumentNullException(nameof(quoteRepository));
 
@@ -91,7 +91,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
                 return;
             }
             Quotes.Clear();
-            var quotes = _quoteRepository.GetBySearchQueryQuote(SearchQuery);
+            var quotes = _quoteRepository.GetBySearchQuery(SearchQuery);
             quotes.ToList().ForEach(Quotes.Add);
         }
 

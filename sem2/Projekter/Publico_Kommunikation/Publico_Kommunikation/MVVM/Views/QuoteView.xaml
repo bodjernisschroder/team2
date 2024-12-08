@@ -1,9 +1,9 @@
 ﻿<UserControl
-    x:Class="Publico_Kommunikation_Project.MVVM.Views.QuoteView"
+    x:Class="Publico_Kommunikation.MVVM.Views.QuoteView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:Publico_Kommunikation_Project.MVVM.ViewModels"
+    xmlns:local="clr-namespace:Publico_Kommunikation.MVVM.ViewModels"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DataContext="{d:DesignInstance Type=local:QuoteViewModel}"
     d:DesignHeight="550"
@@ -232,8 +232,7 @@
             </StackPanel>
         </Label>
         <Label
-            x:Name="lblDiscountPercentageDisplay"
-         Width="120"
+            x:Name="lblDiscountPercentageDisplay"         Width="120"
             Margin="20,0,0,20"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom">

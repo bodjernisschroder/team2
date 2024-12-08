@@ -1,36 +1,5 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
-
-/sem2/Projekter/Publico_Kommunikation/Publico_Kommunikation.Tests/obj/Publico_Kommunikation.Tests.csproj.nuget.g.props
-/sem2/Projekter/Publico_Kommunikation/Publico_Kommunikation.Tests/obj/Publico_Kommunikation.Tests.csproj.nuget.dgspec.json
-/sem2/Projekter/Publico_Kommunikation/Publico_Kommunikation.Tests/obj/project.nuget.cache
-/sem2/Projekter/Publico_Kommunikation/Publico_Kommunikation.Tests/obj/project.assets.json
-/sem2/Projekter/Publico_Kommunikation/Publico_Kommunikation.Tests/obj/Debug/net8.0-windows/Publico_Kommunikation.Tests.GeneratedMSBuildEditorConfig.editorconfig
-/sem2/Projekter/Publico_Kommunikation/Publico_Kommunikation.Tests/obj/Debug/net8.0-windows/Publico_Kommunikation.Tests.csproj.AssemblyReference.cache
-/sem2/Projekter/Publico_Kommunikation/Publico_Kommunikation.Tests/obj/Debug/net8.0-windows/Publico_Kommunikation.Tests.assets.cache
-/sem2/Projekter/Publico_Kommunikation/Publico_Kommunikation.Tests/obj/Debug/net8.0-windows/Publico_Kommunikation.Tests.AssemblyInfoInputs.cache
-/sem2/Projekter/Publico_Kommunikation/Publico_Kommunikation.Tests/obj/Debug/net8.0-windows/Publico_Kommunikation.Tests.AssemblyInfo.cs
-/sem2/Projekter/Publico_Kommunikation/Publico_Kommunikation.Tests/bin/Debug/net8.0-windows/CoverletSourceRootsMapping_Publico_Kommunikation.Tests
-/sem2/Projekter/Publico_Kommunikation/.vs/Publico_Kommunikation/v17/.suo
-/sem2/Projekter/Publico_Kommunikation/.vs/Publico_Kommunikation/FileContentIndex/7dd06add-7675-4673-a193-a468c77445d8.vsidx
-/sem2/Projekter/Publico_Kommunikation/.vs/Publico_Kommunikation/FileContentIndex/706865a3-f324-459d-a60c-d1e845510775.vsidx
-/sem2/Projekter/Publico_Kommunikation/.vs/Publico_Kommunikation/FileContentIndex/34243c89-87b0-4f19-a3e2-3f3d63a74a8f.vsidx
-/sem2/Projekter/Publico_Kommunikation/.vs/Publico_Kommunikation/FileContentIndex/0dc2b0d5-8ebe-4043-ae5f-59b115a1e053.vsidx
-/sem2/Projekter/Publico_Kommunikation/.vs/Publico_Kommunikation/FileContentIndex/016def5f-536d-46ed-934a-c77dae2b3c50.vsidx
-/sem2/Projekter/Publico_Kommunikation/.vs/Publico_Kommunikation/DesignTimeBuild/.dtbcache.v2
-/sem2/Projekter/Publico_Kommunikation/.vs/ProjectEvaluation/publico_kommunikation.metadata.v8.bin
-/sem2/Projekter/Publico_Kommunikation/.vs/ProjectEvaluation/publico_kommunikation.metadata.v9.bin
-/sem2/Projekter/Publico_Kommunikation/.vs/ProjectEvaluation/publico_kommunikation.projects.v8.bin
-/sem2/Projekter/Publico_Kommunikation/.vs/ProjectEvaluation/publico_kommunikation.projects.v9.bin
-/sem2/Projekter/Publico_Kommunikation/.vs/ProjectEvaluation/publico_kommunikation.strings.v8.bin
-/sem2/Projekter/Publico_Kommunikation/.vs/ProjectEvaluation/publico_kommunikation.strings.v9.bin
-/.vs/Team 2 Repo/v17/DocumentLayout.json
-/.vs/Team 2 Repo/v17/.wsuo
-/sem2/Projekter/Publico_Kommunikation/.vs/Publico_Kommunikation/FileContentIndex/e8c114e7-8af7-40de-a01b-76e3e516642e.vsidx
-/sem2/Projekter/Publico_Kommunikation/.vs/Publico_Kommunikation/FileContentIndex/e8c5fd59-68bf-4e25-af02-e86ab410b5be.vsidx
-/sem2/Projekter/Publico_Kommunikation/.vs/Publico_Kommunikation/FileContentIndex/45e942e9-7113-4ccc-8ef7-4e871c4a09ce.vsidx
-/sem2/Projekter/Publico_Kommunikation/.vs/Publico_Kommunikation/FileContentIndex/f4e2d3ae-dee0-43ab-adb2-aafa3ff23b8e.vsidx
-/sem2/Projekter/Publico_Kommunikation/.vs/Publico_Kommunikation/FileContentIndex/7c26fe77-5397-4108-a684-f82db7c23dac.vsidx
-/sem2/Projekter/Publico_Kommunikation/.vs/Publico_Kommunikation/FileContentIndex/a9e8b9ce-4b52-4129-96b9-44524f06fa37.vsidx
-/sem2/Projekter/Publico_Kommunikation/.vs/Publico_Kommunikation/FileContentIndex/f5e8bbe2-cf17-4a5e-b7ee-f8364662f2dc.vsidx
+﻿# Ignore Visual Studio temporary files and caches
+.vs/
+*.suo
+*.v2
+*.json

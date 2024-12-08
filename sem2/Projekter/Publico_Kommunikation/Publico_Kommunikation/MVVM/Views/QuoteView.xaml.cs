@@ -1,7 +1,7 @@
 ﻿using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace Publico_Kommunikation_Project.MVVM.Views
+namespace Publico_Kommunikation.MVVM.Views
 {
     /// <summary>
     /// Interaction logic for QutoeView.xaml
