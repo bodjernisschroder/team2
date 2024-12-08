@@ -135,6 +135,34 @@ namespace Publico_Kommunikation
             var mainWindow = _serviceProvider.GetRequiredService<MainView>();
             mainWindow.Show();
             base.OnStartup(e);
+            // Global exception handler for non-UI thread exceptions
+            AppDomain.CurrentDomain.UnhandledException += (sender, args) =>
+            {
+                Exception e = (Exception)args.ExceptionObject;
+                LogError(e);
+                MessageBox.Show("Der skete en uventet fejl. Programmet Lukkes", "Uventet fejl", MessageBoxButton.OK, MessageBoxImage.Error);
+                ShutdownApplication();
+            };
+            // Global exception handler for UI thread exceptions
+            DispatcherUnhandledException += (sender, args) =>
+            {
+                LogError(args.Exception);
+                MessageBox.Show("Der skete en uventet fejl. Prøv igen. \nHvis problemet fortsætter, genstart programmet.", "UI-fejl", MessageBoxButton.OK, MessageBoxImage.Error);
+                args.Handled = true;
+            };
+        }
+        private void LogError(Exception e)
+        {
+            Console.WriteLine($"Error: {e.Message}");
+            Console.WriteLine($"Stack Trace: {e.StackTrace}");
+        }
+
+        private void ShutdownApplication()
+        {
+            if (Application.Current != null)
+                Application.Current.Shutdown();
+            else
+                Environment.Exit(1);
         }
     }
 }

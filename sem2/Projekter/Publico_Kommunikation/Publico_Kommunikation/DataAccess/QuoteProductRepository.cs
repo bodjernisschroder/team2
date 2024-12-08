@@ -63,7 +63,7 @@ namespace Publico_Kommunikation.DataAccess
         /// <returns>The <see cref="QuoteProduct"/> entity that matches the specified composite key.</returns>
         public QuoteProduct GetByCompositeKey(int key1, int key2)
         {
-            QuoteProduct quoteProduct = null;
+            QuoteProduct? quoteProduct = null;
             using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();
@@ -164,14 +164,14 @@ namespace Publico_Kommunikation.DataAccess
         {
             using (var sqlCon = new SqlConnection(_connectionString))
             {
-                sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspCreateQuoteProduct", sqlCon);
-                sql_cmnd.CommandType = CommandType.StoredProcedure;
-                sql_cmnd.Parameters.AddWithValue("@QuoteId", SqlDbType.Int).Value = quoteProduct.QuoteId;
-                sql_cmnd.Parameters.AddWithValue("@ProductId", SqlDbType.Int).Value = quoteProduct.ProductId;
-                sql_cmnd.Parameters.AddWithValue("@QuoteProductTimeEstimate", SqlDbType.Float).Value = quoteProduct.QuoteProductTimeEstimate;
-                sql_cmnd.Parameters.AddWithValue("@QuoteProductPrice", SqlDbType.Float).Value = quoteProduct.QuoteProductPrice;
-                sql_cmnd.ExecuteNonQuery();
+                    sqlCon.Open();
+                    SqlCommand sql_cmnd = new SqlCommand("uspCreateQuoteProduct", sqlCon);
+                    sql_cmnd.CommandType = CommandType.StoredProcedure;
+                    sql_cmnd.Parameters.AddWithValue("@QuoteId", SqlDbType.Int).Value = quoteProduct.QuoteId;
+                    sql_cmnd.Parameters.AddWithValue("@ProductId", SqlDbType.Int).Value = quoteProduct.ProductId;
+                    sql_cmnd.Parameters.AddWithValue("@QuoteProductTimeEstimate", SqlDbType.Float).Value = quoteProduct.QuoteProductTimeEstimate;
+                    sql_cmnd.Parameters.AddWithValue("@QuoteProductPrice", SqlDbType.Float).Value = quoteProduct.QuoteProductPrice;
+                    sql_cmnd.ExecuteNonQuery();
             }
         }
 

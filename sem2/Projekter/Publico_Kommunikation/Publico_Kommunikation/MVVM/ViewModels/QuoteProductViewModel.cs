@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Windows;
+using System.Windows.Input;
 using Publico_Kommunikation.Core;
 using Publico_Kommunikation.DataAccess;
 using Publico_Kommunikation.MVVM.Models;
@@ -58,6 +59,11 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             get => Model.QuoteProductTimeEstimate;
             set
             {
+                if (value < 0.0)
+                {
+                    MessageBox.Show("Tidsestimatet kan ikke være negativt", "Fejl", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
                 Model.QuoteProductTimeEstimate = value;
                 OnPropertyChanged(nameof(QuoteProductTimeEstimate));
                 OnTimeEstimateChanged?.Invoke();
@@ -99,7 +105,7 @@ namespace Publico_Kommunikation.MVVM.ViewModels
         /// </summary>
         public void UpdateQuoteProduct()
         {
-            _quoteProductRepository.Update(Model);
+                _quoteProductRepository.Update(Model);
         }
 
         public void UpdateQuoteProductPrice(double hourlyRate)

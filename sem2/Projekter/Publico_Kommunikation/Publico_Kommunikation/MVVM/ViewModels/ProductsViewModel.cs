@@ -1,4 +1,6 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
+using Microsoft.Data.SqlClient;
 using Publico_Kommunikation.Core;
 using Publico_Kommunikation.DataAccess;
 using Publico_Kommunikation.MVVM.Models;
@@ -13,12 +15,25 @@ namespace Publico_Kommunikation.MVVM.ViewModels
     /// </summary>
     public class ProductsViewModel : ViewModel
     {
+        private int _selectedIndex;
         private readonly ISimpleKeyRepository<Category> _categoryRepository;
         private readonly ISimpleKeyRepository<Product> _productRepository;
 
         private QuoteViewModel _quoteViewModel;
 
-        public int SelectedIndex { get; set; } // Når den ændrer sig, clear alle IsSelected - Set => kør metode
+        public int SelectedIndex
+        {
+            get => _selectedIndex;
+            set
+            {
+                if (_selectedIndex != value)
+                {
+                    _selectedIndex = value;
+                    OnPropertyChanged(nameof(SelectedIndex));
+                    ClearSelection();
+                }
+            }
+        }
         public Dictionary<Category, ObservableCollection<ProductViewModel>> CategoryProducts { get; set; }
 
         public RelayCommand AddProductsToQuoteCommand { get; set; }
@@ -91,15 +106,40 @@ namespace Publico_Kommunikation.MVVM.ViewModels
         /// </summary>
         public void AddProductsToQuote()
         {
+            var duplicates = new List<string>();
+
             foreach (Category category in CategoryProducts.Keys)
             {
                 foreach (ProductViewModel product in CategoryProducts[category])
                 {
                     if (product.IsSelected)
                     {
-                        _quoteViewModel.AddQuoteProduct(product.Model);
+                        try
+                        {
+                            _quoteViewModel.AddQuoteProduct(product.Model);
+                        }
+                        catch (SqlException)
+                        {
+                            duplicates.Add(product.ProductName);
+                        }
                         product.IsSelected = false;
                     }
+                }
+            }
+            if (duplicates.Any())
+            {
+                MessageBox.Show("Disse valgte ydelser findes allerede i tilbuddet:\n\t" + string.Join("\n\t", duplicates) + "\n\nResterende valgte ydelser er blevet korrekt tilføjet til tilbuddet.", "Ydelser findes allerede", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+
+        public void ClearSelection()
+        {
+            foreach (var products in CategoryProducts.Values)
+            {
+                foreach (var product in products)
+                {                    
+                        product.IsSelected = false;   
                 }
             }
         }

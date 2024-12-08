@@ -5,6 +5,8 @@ using Publico_Kommunikation.DataAccess;
 using Publico_Kommunikation.MVVM.Models;
 using System.ComponentModel;
 using System.Collections;
+using System.Windows;
+using Microsoft.Data.SqlClient;
 
 namespace Publico_Kommunikation.MVVM.ViewModels
 {
@@ -73,6 +75,11 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             get { return Model.DiscountPercentage; }
             set
             {
+                if (value < 0 || value > 50)
+                {
+                    MessageBox.Show("Rabat skal være mellem 0 og 50 %", "ugyldig værdi", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
                 Model.DiscountPercentage = value;
                 OnPropertyChanged(nameof(DiscountPercentage));
                 OnPropertyChanged(nameof(DiscountedSum));
@@ -191,7 +198,7 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             // Create QuoteProduct and QuoteProductViewModel
             var quoteProduct = new QuoteProduct { QuoteId = QuoteId, ProductId = product.ProductId };
             var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, _productRepository, _quoteProductRepository);
-            
+
             // Add QuoteProduct to Repository and QuoteProductViewModel to QuoteProducts
             _quoteProductRepository.Add(quoteProduct);
             QuoteProducts.Add(quoteProductViewModel);

@@ -1,4 +1,4 @@
-# Ignore Visual Studio temporary files and caches
+﻿# Ignore Visual Studio temporary files and caches
 .vs/
 *.suo
 *.v2
