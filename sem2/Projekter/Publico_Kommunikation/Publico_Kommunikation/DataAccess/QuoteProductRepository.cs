@@ -64,7 +64,7 @@ namespace Publico_Kommunikation_Project.DataAccess
         /// <returns>The <see cref="QuoteProduct"/> entity that matches the specified composite key.</returns>
         public QuoteProduct GetByCompositeKey(int key1, int key2)
         {
-            QuoteProduct quoteProduct = null;
+            QuoteProduct? quoteProduct = null;
             using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();

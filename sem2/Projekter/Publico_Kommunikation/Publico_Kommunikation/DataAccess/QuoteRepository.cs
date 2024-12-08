@@ -2,6 +2,7 @@
 using System.Configuration;
 using Microsoft.Data.SqlClient;
 using Publico_Kommunikation_Project.MVVM.Models;
+using System.Windows;
 
 namespace Publico_Kommunikation_Project.DataAccess
 {
@@ -30,29 +31,41 @@ namespace Publico_Kommunikation_Project.DataAccess
         public IEnumerable<Quote> GetAll()
         {
             var quotes = new List<Quote>();
-            using (var sqlCon = new SqlConnection(_connectionString))
+            try
             {
-                sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspGetAllQuote", sqlCon);
-                sql_cmnd.CommandType = CommandType.StoredProcedure;
-
-                using (SqlDataReader reader = sql_cmnd.ExecuteReader())
+                using (var sqlCon = new SqlConnection(_connectionString))
                 {
-                    while (reader.Read())
+                    sqlCon.Open();
+                    SqlCommand sql_cmnd = new SqlCommand("uspGetAllQuote", sqlCon);
+                    sql_cmnd.CommandType = CommandType.StoredProcedure;
+
+                    using (SqlDataReader reader = sql_cmnd.ExecuteReader())
                     {
-                        // Populate the object from the SQL data
-                        quotes.Add(new Quote
+                        while (reader.Read())
                         {
-                            QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("QuoteId")),
-                            QuoteName = reader.IsDBNull(reader.GetOrdinal("QuoteName")) ? string.Empty : reader.GetString(reader.GetOrdinal("QuoteName")),
-                            Tags = reader.IsDBNull(reader.GetOrdinal("Tags")) ? string.Empty : reader.GetString(reader.GetOrdinal("Tags")),
-                            FilePath = reader.IsDBNull(reader.GetOrdinal("FilePath")) ? string.Empty : reader.GetString(reader.GetOrdinal("FilePath")),
-                            HourlyRate = reader.IsDBNull(reader.GetOrdinal("HourlyRate")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("HourlyRate")),
-                            DiscountPercentage = reader.IsDBNull(reader.GetOrdinal("DiscountPercentage")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("DiscountPercentage")),
-                            Sum = reader.IsDBNull(reader.GetOrdinal("Sum")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("Sum"))
-                        });
+                            // Populate the object from the SQL data
+                            quotes.Add(new Quote
+                            {
+                                QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("QuoteId")),
+                                QuoteName = reader.IsDBNull(reader.GetOrdinal("QuoteName")) ? string.Empty : reader.GetString(reader.GetOrdinal("QuoteName")),
+                                Tags = reader.IsDBNull(reader.GetOrdinal("Tags")) ? string.Empty : reader.GetString(reader.GetOrdinal("Tags")),
+                                FilePath = reader.IsDBNull(reader.GetOrdinal("FilePath")) ? string.Empty : reader.GetString(reader.GetOrdinal("FilePath")),
+                                HourlyRate = reader.IsDBNull(reader.GetOrdinal("HourlyRate")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("HourlyRate")),
+                                DiscountPercentage = reader.IsDBNull(reader.GetOrdinal("DiscountPercentage")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("DiscountPercentage")),
+                                Sum = reader.IsDBNull(reader.GetOrdinal("Sum")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("Sum"))
+                            });
+                        }
                     }
                 }
+        }
+            catch (Exception)
+            {
+                MessageBox.Show("Kunne ikke oprette forbindelse til databasen. Programmet lukkes.");
+                if (Application.Current != null)
+                    Application.Current.Shutdown();
+                else
+                    Environment.Exit(1);
+
             }
             return quotes;
         }

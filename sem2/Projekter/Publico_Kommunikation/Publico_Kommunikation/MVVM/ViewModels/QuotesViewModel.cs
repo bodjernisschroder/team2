@@ -76,14 +76,10 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
                         nameof(o));
                 OnSwitchRequested?.Invoke(quote);
             }
-            catch (ArgumentException e)
+            catch (ArgumentException)
             {
                 MessageBox.Show("Vælg et tilbud fra listen før indlæsning. Eller vælg 'Nyt Tilbud' for at oprette et nyt tilbud", "Fejl ved indlæsning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Der opstod en fejl. Prøv igen", "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

@@ -105,15 +105,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
         /// </summary>
         public void UpdateQuoteProduct()
         {
-            try 
-            {
                 _quoteProductRepository.Update(Model);
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show($"Der skete en uventet fejl under opdatering af ydelse. Prøv igen.", "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
         }
 
         public void UpdateQuoteProductPrice(double hourlyRate)

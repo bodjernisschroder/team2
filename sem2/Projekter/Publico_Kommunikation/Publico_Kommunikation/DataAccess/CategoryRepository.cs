@@ -30,30 +30,33 @@ namespace Publico_Kommunikation_Project.DataAccess
         public IEnumerable<Category> GetAll()
         {
             var categories = new List<Category>();
-            using (var sqlCon = new SqlConnection(_connectionString))
             {
-                sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspGetAllCategory", sqlCon);
-                sql_cmnd.CommandType = CommandType.StoredProcedure;
-
-                using (SqlDataReader reader = sql_cmnd.ExecuteReader())
+                using (var sqlCon = new SqlConnection(_connectionString))
                 {
-                    while (reader.Read())
+                    sqlCon.Open();
+                    SqlCommand sql_cmnd = new SqlCommand("uspGetAllCategory", sqlCon);
+                    sql_cmnd.CommandType = CommandType.StoredProcedure;
+
+                    using (SqlDataReader reader = sql_cmnd.ExecuteReader())
                     {
-                        // Populate the object from the SQL data
-                        categories.Add(new Category
+                        while (reader.Read())
                         {
-                            CategoryId = reader.IsDBNull(reader.GetOrdinal("CategoryId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("CategoryId")),
+                            // Populate the object from the SQL data
+                            categories.Add(new Category
+                            {
+                                CategoryId = reader.IsDBNull(reader.GetOrdinal("CategoryId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("CategoryId")),
 
-                            // Directly cast "Description" to string, no need for DBNull check if it's guaranteed to be non-null
-                            CategoryName = reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? string.Empty : reader.GetString(reader.GetOrdinal("CategoryName")),
+                                // Directly cast "Description" to string, no need for DBNull check if it's guaranteed to be non-null
+                                CategoryName = reader.IsDBNull(reader.GetOrdinal("CategoryName")) ? string.Empty : reader.GetString(reader.GetOrdinal("CategoryName")),
 
-                        });
+                            });
+                        }
                     }
                 }
             }
             return categories;
         }
+
 
         /// <summary>
         /// Retrieves a specific entity of <see cref="Category"/> by its <see cref="Category.CategoryId"/>
@@ -63,7 +66,7 @@ namespace Publico_Kommunikation_Project.DataAccess
         /// <returns>The <see cref="Category"/> entity that matches the specified <paramref name="key"/>.</returns>
         public Category GetByKey(int key)
         {
-            Category category = null;
+            Category? category = null;
             using (var sqlCon = new SqlConnection(_connectionString))
             {
                 sqlCon.Open();

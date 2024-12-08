@@ -118,7 +118,7 @@ namespace Publico_Kommunikation_Project.MVVM.ViewModels
                         {
                             _quoteViewModel.AddQuoteProduct(product.Model);
                         }
-                        catch (SqlException e)
+                        catch (SqlException)
                         {
                             duplicates.Add(product.ProductName);
                         }
