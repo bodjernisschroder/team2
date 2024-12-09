@@ -258,7 +258,7 @@
                 ItemsSource="{Binding QuoteProducts}">
 
 
-                <DataGrid.Resources>
+        <DataGrid.Resources>
         <!-- Style for DataGridRow -->
         <Style TargetType="DataGridCell">
             <!-- Default row styling -->
@@ -267,22 +267,33 @@
 
             <!-- Trigger to change background for selected rows -->
             <Style.Triggers>
-                <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="Background" Value="#282828" />
-                    <Setter Property="Foreground" Value="White" />
-                    <Setter Property="BorderBrush" Value="#282828" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#282828" />
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter Property="BorderBrush" Value="#282828" />
+                            </Trigger>
+
+ <DataTrigger Binding="{Binding QuoteProductTimeEstimate}" Value="0">
+                                <Setter Property="Background" Value="#FF9B9B" />
+                                 <Setter Property="BorderThickness" Value="0" />
+                                <Setter Property="BorderBrush" Value="Transparent" />
+                            </DataTrigger>
+                        </Style.Triggers>
+
+    <!-- Trigger: Highlight cell border when the value is 0 -->
+   
+
+
+
+        <!--</Style>
 <Style TargetType="DataGridCell">
-            <Style.Triggers>
-                <!-- Trigger: Check if the cell's value is 0 -->
-                <DataTrigger Binding="{Binding}" Value="0">
-                    <Setter Property="BorderBrush" Value="Red" />
-                    <Setter Property="BorderThickness" Value="1" />
-                </DataTrigger>
-            </Style.Triggers>
+            --><!-- Default Border Style --><!--
+            <Setter Property="BorderBrush" Value="Gray" />
+            <Setter Property="BorderThickness" Value="0" />-->
+
+            
         </Style>
+
     </DataGrid.Resources>
                 <DataGrid.Columns>
 
