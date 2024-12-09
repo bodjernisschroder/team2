@@ -9,9 +9,9 @@
     d:DesignHeight="700"
     d:DesignWidth="550"
     mc:Ignorable="d">
-<UserControl.Resources
+    <UserControl.Resources>
 
-    <!-- Rounded Button Style -->
+        <!-- Rounded Button Style -->
     <Style TargetType="Button" x:Key="ProductListButtonStyle">
         <!-- Default Properties -->
         <Setter Property="Background" Value="White" />

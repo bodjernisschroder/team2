@@ -257,6 +257,7 @@
                 FontSize="14"
                 ItemsSource="{Binding QuoteProducts}">
 
+
                 <DataGrid.Resources>
         <!-- Style for DataGridRow -->
         <Style TargetType="DataGridCell">
@@ -273,8 +274,18 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+<Style TargetType="DataGridCell">
+            <Style.Triggers>
+                <!-- Trigger: Check if the cell's value is 0 -->
+                <DataTrigger Binding="{Binding}" Value="0">
+                    <Setter Property="BorderBrush" Value="Red" />
+                    <Setter Property="BorderThickness" Value="1" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
     </DataGrid.Resources>
                 <DataGrid.Columns>
+
                     <DataGridTextColumn
                         Width="0.5*"
                         Binding="{Binding ProductName}"
@@ -335,7 +346,6 @@
                 <TextBlock
                     Width="128"
                     Height="30"
-                    FontWeight="SemiBold"
                     VerticalAlignment="Center"
                     Text="{Binding Sum, UpdateSourceTrigger=PropertyChanged, StringFormat='DKK {0:N2}'}"
                     TextAlignment="right" />
