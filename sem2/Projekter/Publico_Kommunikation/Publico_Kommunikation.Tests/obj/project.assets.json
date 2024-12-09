@@ -3486,23 +3486,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\AnnaFoldberg\\.nuget\\packages\\": {},
+    "C:\\Users\\Eske\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\AnnaFoldberg\\team2\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation.Tests\\Publico_Kommunikation.Tests.csproj",
+      "projectUniqueName": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation.Tests\\Publico_Kommunikation.Tests.csproj",
       "projectName": "Publico_Kommunikation.Tests",
-      "projectPath": "C:\\Users\\AnnaFoldberg\\team2\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation.Tests\\Publico_Kommunikation.Tests.csproj",
-      "packagesPath": "C:\\Users\\AnnaFoldberg\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\AnnaFoldberg\\team2\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation.Tests\\obj\\",
+      "projectPath": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation.Tests\\Publico_Kommunikation.Tests.csproj",
+      "packagesPath": "C:\\Users\\Eske\\.nuget\\packages\\",
+      "outputPath": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\AnnaFoldberg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Eske\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3518,8 +3518,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\AnnaFoldberg\\team2\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\Publico_Kommunikation.csproj": {
-              "projectPath": "C:\\Users\\AnnaFoldberg\\team2\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\Publico_Kommunikation.csproj"
+            "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\Publico_Kommunikation.csproj": {
+              "projectPath": "E:\\Team 2 Repo\\sem2\\Projekter\\Publico_Kommunikation\\Publico_Kommunikation\\Publico_Kommunikation.csproj"
             }
           }
         }
@@ -3532,8 +3532,9 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "direct"
-      }
+        "auditMode": "all"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -3576,7 +3577,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
