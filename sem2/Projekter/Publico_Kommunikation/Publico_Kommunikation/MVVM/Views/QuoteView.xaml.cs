@@ -1,10 +1,9 @@
 ﻿using System.Windows.Controls;
-using System.Windows.Input;
 
 namespace Publico_Kommunikation.MVVM.Views
 {
     /// <summary>
-    /// Interaction logic for QutoeView.xaml
+    /// Interaction logic for QuoteView.xaml
     /// </summary>
     public partial class QuoteView : UserControl
     {

@@ -1,11 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Publico_Kommunikation.MVVM.ViewModels;
-using Moq;
-using System.Collections.ObjectModel;
-using Publico_Kommunikation.DataAccess;
-using Publico_Kommunikation.MVVM.Models;
+﻿using Moq;
 using Publico_Kommunikation.Core;
 using Publico_Kommunikation.Services;
+using Publico_Kommunikation.DataAccess;
+using Publico_Kommunikation.MVVM.Models;
+using Publico_Kommunikation.MVVM.ViewModels;
 
 namespace Publico_Kommunikation.Tests.Services
 {

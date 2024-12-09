@@ -2,7 +2,6 @@ using Publico_Kommunikation.Core;
 using Publico_Kommunikation.Services;
 using Publico_Kommunikation.DataAccess;
 using Publico_Kommunikation.MVVM.Models;
-using System.Windows.Controls;
 
 namespace Publico_Kommunikation.MVVM.ViewModels
 {
@@ -57,13 +56,12 @@ namespace Publico_Kommunikation.MVVM.ViewModels
                 }
             }
         }
-        // public RelayCommand ShowQuoteAndProductsCommand { get; }
         public RelayCommand ShowQuoteOverviewCommand { get; }
 
         /// <summary>
         /// Initializes a new instance of <see cref="MainViewModel"/>.
         /// Assigns the specified <paramref name="navigation"/> and <paramref name="quoteRepository"/>
-        /// instances, and configures the <see cref="ShowQuoteAndProductsCommand"/> command.
+        /// instances, and configures the <see cref="ShowQuoteOverviewCommand"/> command.
         /// </summary>
         /// <param name="navigation">The <see cref="INavigationService"/> instance used to handle navigation operations.</param>
         /// <param name="quoteRepository">The repository for managing <see cref="Quote"/> instances.</param>
@@ -73,11 +71,11 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));
             _quoteRepository = quoteRepository ?? throw new ArgumentNullException(nameof(quoteRepository));
 
-            // ShowQuoteAndProductsCommand = new RelayCommand(execute: o => { ShowQuoteAndProducts(); }, canExecute: o => true);
             ShowQuoteOverviewCommand = new RelayCommand(execute: o => { ShowQuoteOverview(); }, canExecute: o => true);
         }
 
         /// <summary>
+        /// Resets any currently set views after unsubscribing from any associated events.
         /// Initializes and navigates to <see cref="QuoteView"/> and <see cref="ProductsView"/>.
         /// Subscribes the <see cref="QuoteView"/> to the <see cref="QuoteViewModel.OnSwitchRequested"/> event.
         /// </summary>
@@ -85,28 +83,20 @@ namespace Publico_Kommunikation.MVVM.ViewModels
         {
             ResetViews();
 
-            // Navigates to and initializes SumQuoteViewModel with the instance of quote.
             QuoteView = _navigation.NavigateTo<SumQuoteViewModel>(vm => { vm.InitializeQuote(quote); });
             (QuoteView as QuoteViewModel).OnSwitchRequested += SwitchQuoteViewModel;
 
-            // Navigates to and initializes ProductsViewModel with the instance of quote.
             ProductsView = _navigation.NavigateTo<ProductsViewModel>(vm => { vm.InitializeQuoteViewModel(QuoteView as QuoteViewModel); });
         }
 
-        //Burak
+        /// <summary>
+        /// Resets any currently set views. Initializes and navigates to <see cref="QuotesViewModel"/>.
+        /// </summary>
         private void ShowQuoteOverview()
         {
             ResetViews();
             QuotesView = _navigation.NavigateTo<QuotesViewModel>(vm => { vm.InitializeQuotes(); });
             (QuotesView as QuotesViewModel).OnSwitchRequested += ShowQuoteAndProducts;
-        }
-
-        private void ResetViews()
-        {
-            QuoteView = null;
-            ProductsView = null;
-            QuotesView = null;
-            // (QuotesView as QuotesViewModel).OnSwitchRequested -= ShowQuoteAndProducts;
         }
 
         /// <summary>
@@ -126,6 +116,19 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             (QuoteView as QuoteViewModel).OnSwitchRequested += SwitchQuoteViewModel;
 
             ProductsView = _navigation.NavigateTo<ProductsViewModel>(vm => { vm.InitializeQuoteViewModel(QuoteView as QuoteViewModel); });
+        }
+
+        /// <summary>
+        /// Resets any currently set views after unsubscribing from any associated events.
+        /// </summary>
+        private void ResetViews()
+        {
+            if (QuoteView is QuoteViewModel quoteViewModel) quoteViewModel.OnSwitchRequested -= SwitchQuoteViewModel;
+            if (QuotesView is QuotesViewModel quotesViewModel) quotesViewModel.OnSwitchRequested -= ShowQuoteAndProducts;
+
+            QuoteView = null;
+            ProductsView = null;
+            QuotesView = null;
         }
     }
 }
