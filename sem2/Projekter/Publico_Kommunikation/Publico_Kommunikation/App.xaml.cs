@@ -57,7 +57,7 @@ namespace Publico_Kommunikation
         /// <param name="configuration">The <see cref="IConfiguration"/> that contains the database connection string.</param>
         private void RegisterDatabase(IServiceCollection services, IConfiguration configuration)
         {
-            string connectionString = configuration.GetConnectionString("AnnaConnection");
+            string connectionString = configuration.GetConnectionString("EskeConnection");
             services.AddSingleton(connectionString);
         }
 
@@ -141,6 +141,7 @@ namespace Publico_Kommunikation
                 Exception e = (Exception)args.ExceptionObject;
                 LogError(e);
                 MessageBox.Show("Der skete en uventet fejl. Programmet Lukkes", "Uventet fejl", MessageBoxButton.OK, MessageBoxImage.Error);
+                Thread.Sleep(1000);
                 ShutdownApplication();
             };
             // Global exception handler for UI thread exceptions
@@ -159,10 +160,23 @@ namespace Publico_Kommunikation
 
         private void ShutdownApplication()
         {
-            if (Application.Current != null)
-                Application.Current.Shutdown();
-            else
+            try
+            {
+                if (Application.Current != null)
+                {
+                    Application.Current.Shutdown();
+                }
+            }
+            catch (Exception e)
+            {
+                LogError(e);
+            }
+            finally
+            {
                 Environment.Exit(1);
+            }
         }
+
+
     }
 }
