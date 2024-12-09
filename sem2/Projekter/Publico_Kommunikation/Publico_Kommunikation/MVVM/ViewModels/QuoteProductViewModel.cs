@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Input;
 using Publico_Kommunikation.Core;
 using Publico_Kommunikation.DataAccess;
 using Publico_Kommunikation.MVVM.Models;
@@ -108,6 +107,11 @@ namespace Publico_Kommunikation.MVVM.ViewModels
                 _quoteProductRepository.Update(Model);
         }
 
+        /// <summary>
+        /// Updates the <see cref="QuoteProductPrice"/> based on the specified <paramref name="hourlyRate"/>
+        /// and the <see cref="QuoteProductTimeEstimate"/>.
+        /// </summary>
+        /// <param name="hourlyRate">The hourly rate used to calculate the <see cref="QuoteProductPrice"/>.</param>
         public void UpdateQuoteProductPrice(double hourlyRate)
         {
             QuoteProductPrice = Math.Round(QuoteProductTimeEstimate * hourlyRate, 2);

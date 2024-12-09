@@ -1,11 +1,7 @@
-﻿using Publico_Kommunikation.Services;
+﻿using System.Windows;
+using Publico_Kommunikation.Core;
 using Publico_Kommunikation.DataAccess;
 using Publico_Kommunikation.MVVM.Models;
-using System.ComponentModel;
-using System.Collections.ObjectModel;
-using Publico_Kommunikation.Core;
-using System.Collections;
-using System.Windows;
 
 namespace Publico_Kommunikation.MVVM.ViewModels
 {
@@ -55,31 +51,26 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             get => true;
         }
 
+        public override string SwitchText
+        {
+            get => "Konvertér Til Fast Totalpris";
+        }
 
-        /// <summary>
+        ///// <summary>
         /// Initializes a new instance of <see cref="HourlyRateQuoteViewModel"/>
         /// using the constructor logic from the base class, <see cref="QuoteViewModel"/>.
-        /// Sets the <see cref="SwitchText"/> property to "Konvertér Til Fast Timepris."
         /// </summary>
         /// <param name="quoteRepository">The repository for managing <see cref="Quote"/> instances.</param>
         /// <param name="productRepository">The repository for managing <see cref="Product"/> instances.</param>
         /// <param name="quoteProductRepository">The repository for managing <see cref="QuoteProduct"/> instances.</param>
         public HourlyRateQuoteViewModel(IQuoteRepository quoteRepository, ISimpleKeyRepository<Product> productRepository, ICompositeKeyRepository<QuoteProduct> quoteProductRepository) :
-            base(quoteRepository, productRepository, quoteProductRepository)
-        {
-            SwitchText = "Konvertér Til Fast Totalpris";
-        }
+            base(quoteRepository, productRepository, quoteProductRepository) { }
 
         /// <summary>
-        /// Initializes the specified <paramref name="quote"/> using the implementation in
-        /// the base class, <see cref="QuoteViewModel"/>.
+        /// Updates the price of the current <see cref="Quote"/>. <see cref="Sum"/> is calculated based
+        /// on the total of all <see cref="QuoteProduct.QuoteProductTimeEstimate"/> in the <see cref="Quote"/>
+        /// and the manually set <see cref="HourlyRate"/>.
         /// </summary>
-        /// <param name="quote">The <see cref="Quote"/> to initialize.</param>
-        public override void InitializeQuote(Quote quote)
-        {
-            base.InitializeQuote(quote);
-        }
-
         public override void UpdatePrice()
         {
             var totalEstimatedTime = QuoteProducts.Sum(qp => qp.QuoteProductTimeEstimate);

@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using System.Configuration;
 using Microsoft.Data.SqlClient;
 using Publico_Kommunikation.MVVM.Models;
 using System.Windows;
@@ -173,7 +172,13 @@ namespace Publico_Kommunikation.DataAccess
                 sql_cmnd.ExecuteNonQuery();
             }
         }
-        
+
+        /// <summary>
+        /// Retrieves all <see cref="Quote"/> entities where <see cref="Quote.QuoteName"/> or <see cref="Quote.Tags"/>
+        /// matches the specified <paramref name="searchQuery"/> by executing the stored procedure <c>uspGetBySearchQueryQuote</c>.
+        /// </summary>
+        /// <param name="searchQuery">The <see cref="string"/> to be used as the search query in the stored procedure.</param>
+        /// <returns>A collection of <see cref="Quote"/>entities that match the specified <paramref name="searchQuery"/>.</returns>
         public IEnumerable<Quote> GetBySearchQuery(string searchQuery)
         {
             var quotes = new List<Quote>();

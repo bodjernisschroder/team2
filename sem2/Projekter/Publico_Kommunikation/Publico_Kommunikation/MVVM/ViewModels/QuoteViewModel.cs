@@ -1,12 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Windows;
+using System.Collections.ObjectModel;
 using Publico_Kommunikation.Core;
-using Publico_Kommunikation.Services;
 using Publico_Kommunikation.DataAccess;
 using Publico_Kommunikation.MVVM.Models;
-using System.ComponentModel;
-using System.Collections;
-using System.Windows;
-using Microsoft.Data.SqlClient;
 
 namespace Publico_Kommunikation.MVVM.ViewModels
 {
@@ -95,16 +91,7 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             get => Math.Round(Sum - (Sum * ((double)DiscountPercentage / 100)), 2);
         }
 
-        public string SwitchText
-        {
-            get => _switchText;
-            set
-            {
-                if (_switchText  == value) return;
-                _switchText = value;
-                OnPropertyChanged(nameof(SwitchText));
-            }
-        }
+        public virtual string SwitchText { get; set; }
 
         public event Action<Quote> OnSwitchRequested;
         public RelayCommand SwitchCommand { get; set; }
@@ -144,7 +131,7 @@ namespace Publico_Kommunikation.MVVM.ViewModels
         /// any associated quoteProducts using the <see cref="GetAllQuoteProducts"/> method.
         /// </summary>
         /// <param name="quote">The <see cref="Quote"/> to initialize.</param>
-        public virtual void InitializeQuote(Quote quote)
+        public void InitializeQuote(Quote quote)
         {
             Model = quote;
             GetAllQuoteProducts();

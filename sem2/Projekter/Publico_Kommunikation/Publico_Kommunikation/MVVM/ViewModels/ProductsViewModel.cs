@@ -1,5 +1,5 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows;
+﻿using System.Windows;
+using System.Collections.ObjectModel;
 using Microsoft.Data.SqlClient;
 using Publico_Kommunikation.Core;
 using Publico_Kommunikation.DataAccess;
@@ -15,11 +15,10 @@ namespace Publico_Kommunikation.MVVM.ViewModels
     /// </summary>
     public class ProductsViewModel : ViewModel
     {
-        private int _selectedIndex;
         private readonly ISimpleKeyRepository<Category> _categoryRepository;
         private readonly ISimpleKeyRepository<Product> _productRepository;
-
         private QuoteViewModel _quoteViewModel;
+        private int _selectedIndex;
 
         public int SelectedIndex
         {
@@ -28,9 +27,9 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             {
                 if (_selectedIndex != value)
                 {
+                    ClearSelection();
                     _selectedIndex = value;
                     OnPropertyChanged(nameof(SelectedIndex));
-                    ClearSelection();
                 }
             }
         }
@@ -48,14 +47,11 @@ namespace Publico_Kommunikation.MVVM.ViewModels
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="categoryRepository"/> or <paramref name="productRepository"/> is <c>null</c>.</exception>
         public ProductsViewModel(ISimpleKeyRepository<Category> categoryRepository, ISimpleKeyRepository<Product> productRepository)
         {
-            // Initialize repositories
             _categoryRepository = categoryRepository ?? throw new ArgumentNullException(nameof(categoryRepository));
             _productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
             
-            // Initialize CategoryProducts
             InitializeCategoryProducts();
 
-            // Initialize AddProductsToQuoteCommand
             AddProductsToQuoteCommand = new RelayCommand(execute: o => { AddProductsToQuote(); }, canExecute: o => true);
         }
 
@@ -100,47 +96,50 @@ namespace Publico_Kommunikation.MVVM.ViewModels
         }
 
         /// <summary>
-        /// Iterates through the <see cref="CategoryProducts"/> collection. For each selected
-        /// <see cref="ProductViewModel"/>, calls <see cref="QuoteViewModel.AddQuoteProduct(Product)"/>
+        /// Iterates through the <see cref="ProductViewModel"/> entities in the currently selected <see cref="Category"/>.
+        /// For each selected <see cref="ProductViewModel"/>, calls <see cref="QuoteViewModel.AddQuoteProduct(Product)"/>
         /// with its associated <see cref="Product"/>, and resets the selection state of the <see cref="ProductViewModel"/>.
+        /// Displays a <see cref="MessageBox"/> to notify the user in case any of the selected <see cref="ProductViewModel"/> entities are
+        /// already associated to the current <see cref="Quote"/>. Duplicates are not added to the <see cref="Quote"/>, while all
+        /// other selected <see cref="ProductViewModel"/> entities will be added to the <see cref="Quote"/>.
         /// </summary>
         public void AddProductsToQuote()
         {
             var duplicates = new List<string>();
+            Category selectedCategory = CategoryProducts.Keys.ToList()[SelectedIndex];
 
-            foreach (Category category in CategoryProducts.Keys)
+            foreach (var product in CategoryProducts[selectedCategory])
             {
-                foreach (ProductViewModel product in CategoryProducts[category])
+                if (product.IsSelected)
                 {
-                    if (product.IsSelected)
+                    try
                     {
-                        try
-                        {
-                            _quoteViewModel.AddQuoteProduct(product.Model);
-                        }
-                        catch (SqlException)
-                        {
-                            duplicates.Add(product.ProductName);
-                        }
-                        product.IsSelected = false;
+                        _quoteViewModel.AddQuoteProduct(product.Model);
                     }
+                    catch (SqlException)
+                    {
+                        duplicates.Add(product.ProductName);
+                    }
+                    product.IsSelected = false;
                 }
             }
             if (duplicates.Any())
             {
-                MessageBox.Show("Disse valgte ydelser findes allerede i tilbuddet:\n\t" + string.Join("\n\t", duplicates) + "\n\nResterende valgte ydelser er blevet korrekt tilføjet til tilbuddet.", "Ydelser findes allerede", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Disse valgte ydelser findes allerede i tilbuddet:\n\t" + string.Join("\n\t", duplicates) +
+                    "\n\nResterende valgte ydelser er blevet korrekt tilføjet til tilbuddet.", "Ydelser findes allerede", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
-
+        /// <summary>
+        /// Sets <see cref="ProductViewModel.IsSelected"/> values to false for all <see cref="ProductViewModel"/>
+        /// entities in the currently selected <see cref="Category"/>.
+        /// </summary>
         public void ClearSelection()
         {
-            foreach (var products in CategoryProducts.Values)
+            Category selectedCategory = CategoryProducts.Keys.ToList()[SelectedIndex];
+            foreach (var product in CategoryProducts[selectedCategory])
             {
-                foreach (var product in products)
-                {                    
-                        product.IsSelected = false;   
-                }
+                product.IsSelected = false;
             }
         }
     }

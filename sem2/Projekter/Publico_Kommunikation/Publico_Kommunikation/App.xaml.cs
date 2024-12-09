@@ -3,11 +3,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Publico_Kommunikation.Core;
 using Publico_Kommunikation.Services;
-using Publico_Kommunikation.MVVM.Views;
-using Publico_Kommunikation.MVVM.ViewModels;
 using Publico_Kommunikation.DataAccess;
-using System.Collections.ObjectModel;
 using Publico_Kommunikation.MVVM.Models;
+using Publico_Kommunikation.MVVM.ViewModels;
+using Publico_Kommunikation.MVVM.Views;
 
 namespace Publico_Kommunikation
 {
@@ -127,7 +126,9 @@ namespace Publico_Kommunikation
         }
 
         /// <summary>
-        /// Overrides the OnStartup method. Executes application startup logic.
+        /// Overrides the OnStartup method to execute application startup logic.
+        /// Shows <see cref="MainView"/> and sets up error handling for unhandled exceptions.
+        /// In case of unhandled exceptions, logs the error and displays a <see cref="MessageBox"/> to notify the user.
         /// </summary>
         /// <param name="e">Provides information about the startup event, including command-line arguments.</param>
         protected override void OnStartup(StartupEventArgs e)
@@ -135,6 +136,7 @@ namespace Publico_Kommunikation
             var mainWindow = _serviceProvider.GetRequiredService<MainView>();
             mainWindow.Show();
             base.OnStartup(e);
+            
             // Global exception handler for non-UI thread exceptions
             AppDomain.CurrentDomain.UnhandledException += (sender, args) =>
             {
@@ -143,6 +145,7 @@ namespace Publico_Kommunikation
                 MessageBox.Show("Der skete en uventet fejl. Programmet Lukkes", "Uventet fejl", MessageBoxButton.OK, MessageBoxImage.Error);
                 ShutdownApplication();
             };
+
             // Global exception handler for UI thread exceptions
             DispatcherUnhandledException += (sender, args) =>
             {
@@ -151,12 +154,21 @@ namespace Publico_Kommunikation
                 args.Handled = true;
             };
         }
+
+        /// <summary>
+        /// Logs the error specified by <paramref name="e"/>.
+        /// </summary>
+        /// <param name="e"></param>
         private void LogError(Exception e)
         {
             Console.WriteLine($"Error: {e.Message}");
             Console.WriteLine($"Stack Trace: {e.StackTrace}");
         }
 
+        /// <summary>
+        /// Shuts down the application if it is currently running.
+        /// If the application instance is unavailable, forces the process to terminate.
+        /// </summary>
         private void ShutdownApplication()
         {
             if (Application.Current != null)
