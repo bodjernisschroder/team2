@@ -6,12 +6,57 @@
     xmlns:local="clr-namespace:Publico_Kommunikation_Project.MVVM.ViewModels"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DataContext="{d:DesignInstance Type=local:ProductsViewModel}"
-    d:DesignHeight="450"
-    d:DesignWidth="300"
+    d:DesignHeight="700"
+    d:DesignWidth="550"
     mc:Ignorable="d">
+<UserControl.Resources
+
+    <!-- Rounded Button Style -->
+    <Style TargetType="Button" x:Key="ProductListButtonStyle">
+        <!-- Default Properties -->
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="#282828" />
+        <Setter Property="BorderBrush" Value="#282828" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Width" Value="175" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border
+                        x:Name="Border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="10"
+                        Padding="10, 8">
+                        <Grid>
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <!-- Hover Effect -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="#282828" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</UserControl.Resources>
     <Grid>
         <TabControl
-            Margin="0,40,0,65"
+
+            Cursor="Hand"
+            Margin="0,0,0,60"
+            Height="430"
+            Width="275"
             ItemsSource="{Binding CategoryProducts}"
             SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}">
             <TabControl.ItemTemplate>
@@ -23,6 +68,7 @@
                 <DataTemplate>
                     <Grid Background="#FFFFFF">
                         <ListBox
+                            Cursor="Hand"
                             Margin="0,0,0,0"
                             DisplayMemberPath="ProductName"
                             ItemsSource="{Binding Value}"
@@ -30,6 +76,29 @@
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="ListBoxItem">
                                     <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <Border
+                            Name="Border"
+                            Background="White"
+                            BorderBrush="#282828"
+                            BorderThickness="0.3">
+                                    <ContentPresenter
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Margin="2" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="Border" Property="Background" Value="#282828" />
+                                        <Setter TargetName="Border" Property="BorderBrush" Value="#282828" />
+                                        <Setter Property="Foreground" Value="White" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
                                 </Style>
                             </ListBox.ItemContainerStyle>
                         </ListBox>
@@ -38,8 +107,11 @@
             </TabControl.ContentTemplate>
         </TabControl>
         <Button
-            Width="160"
-            Margin="0,400,0,0"
+            Style="{StaticResource ProductListButtonStyle}"
+            Width="275"
+            Margin="0,0,0,15"
+            Padding="15"
+            Cursor="Hand"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
             Command="{Binding AddProductsToQuoteCommand}"
