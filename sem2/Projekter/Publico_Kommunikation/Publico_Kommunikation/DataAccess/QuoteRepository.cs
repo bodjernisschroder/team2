@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using Publico_Kommunikation.MVVM.Models;
 using System.Windows;
+using System.Diagnostics;
 
 namespace Publico_Kommunikation.DataAccess
 {
@@ -118,9 +119,9 @@ namespace Publico_Kommunikation.DataAccess
                 sqlCon.Open();
                 SqlCommand sql_cmnd = new SqlCommand("uspCreateQuote", sqlCon);
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
-                sql_cmnd.Parameters.AddWithValue("@Tags", SqlDbType.NVarChar).Value = quote.Tags;
-                sql_cmnd.Parameters.AddWithValue("@FilePath", SqlDbType.NVarChar).Value = quote.FilePath;
-                sql_cmnd.Parameters.AddWithValue("@HourlyRate", SqlDbType.Int).Value = quote.HourlyRate;
+                sql_cmnd.Parameters.AddWithValue("@Tags", SqlDbType.NVarChar).Value = quote.Tags ?? (object)DBNull.Value;
+                sql_cmnd.Parameters.AddWithValue("@FilePath", SqlDbType.NVarChar).Value = quote.FilePath ?? (object)DBNull.Value;
+                sql_cmnd.Parameters.AddWithValue("@HourlyRate", SqlDbType.Float).Value = quote.HourlyRate ?? (object)DBNull.Value;
                 sql_cmnd.Parameters.AddWithValue("@DiscountPercentage", SqlDbType.Int).Value = quote.DiscountPercentage;
                 sql_cmnd.Parameters.AddWithValue("@Sum", SqlDbType.Float).Value = quote.Sum;
                 var quoteId = new SqlParameter { ParameterName = "@QuoteId", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Output };
@@ -149,7 +150,7 @@ namespace Publico_Kommunikation.DataAccess
                 sql_cmnd.Parameters.AddWithValue("@QuoteName", SqlDbType.NVarChar).Value = quote.QuoteName;
                 sql_cmnd.Parameters.AddWithValue("@Tags", SqlDbType.NVarChar).Value = quote.Tags ?? (object)DBNull.Value;
                 sql_cmnd.Parameters.AddWithValue("@FilePath", SqlDbType.NVarChar).Value = quote.FilePath ?? (object)DBNull.Value;
-                sql_cmnd.Parameters.AddWithValue("@HourlyRate", SqlDbType.Int).Value = quote.HourlyRate;
+                sql_cmnd.Parameters.AddWithValue("@HourlyRate", SqlDbType.Float).Value = quote.HourlyRate ?? (object)DBNull.Value;
                 sql_cmnd.Parameters.AddWithValue("@DiscountPercentage", SqlDbType.Int).Value = quote.DiscountPercentage;
                 sql_cmnd.Parameters.AddWithValue("@Sum", SqlDbType.Float).Value = quote.Sum;
                 sql_cmnd.ExecuteNonQuery();
