@@ -11,7 +11,7 @@ namespace Publico_Kommunikation.MVVM.ViewModels
     /// </summary>
     public class SumQuoteViewModel : QuoteViewModel
     {
-        public override double HourlyRate
+        public override double? HourlyRate
         {
             get => Model.HourlyRate;
 
@@ -80,8 +80,8 @@ namespace Publico_Kommunikation.MVVM.ViewModels
         public override void UpdatePrice()
         {
             var totalEstimatedTime = QuoteProducts.Sum(qp => qp.QuoteProductTimeEstimate);
-            Model.HourlyRate = totalEstimatedTime > 0 ? Math.Round(Sum / totalEstimatedTime, 2) : 0;
-            QuoteProducts.ToList().ForEach(qp => qp.UpdateQuoteProductPrice(HourlyRate));
+            Model.HourlyRate = totalEstimatedTime > 0 ? Math.Round((Sum / (totalEstimatedTime ?? 1)), 2) : 0;
+            QuoteProducts.ToList().ForEach(qp => qp.UpdateQuoteProductPrice(HourlyRate ?? 0));
             OnPropertyChanged(nameof(HourlyRate));
             OnPropertyChanged(nameof(DiscountedSum));
             UpdateQuote();

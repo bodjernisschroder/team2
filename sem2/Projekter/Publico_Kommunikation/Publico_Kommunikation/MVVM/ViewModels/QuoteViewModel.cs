@@ -94,7 +94,7 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             }
         }
 
-        public virtual double HourlyRate { get; set; }
+        public virtual double? HourlyRate { get; set; }
         public virtual bool HourlyRateIsReadOnly { get; set; }
 
         public int DiscountPercentage

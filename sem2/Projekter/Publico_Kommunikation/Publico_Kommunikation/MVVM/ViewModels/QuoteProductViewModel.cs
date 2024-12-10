@@ -62,7 +62,7 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             }
         }
 
-        public double QuoteProductTimeEstimate
+        public double? QuoteProductTimeEstimate
         {
             get => Model.QuoteProductTimeEstimate;
             set
@@ -129,7 +129,7 @@ namespace Publico_Kommunikation.MVVM.ViewModels
         /// <param name="hourlyRate">The hourly rate used to calculate the <see cref="QuoteProductPrice"/>.</param>
         public void UpdateQuoteProductPrice(double hourlyRate)
         {
-            QuoteProductPrice = Math.Round(QuoteProductTimeEstimate * hourlyRate, 2);
+            QuoteProductPrice = Math.Round((QuoteProductTimeEstimate ?? 0) * hourlyRate, 2);
         }
 
         /// <summary>
