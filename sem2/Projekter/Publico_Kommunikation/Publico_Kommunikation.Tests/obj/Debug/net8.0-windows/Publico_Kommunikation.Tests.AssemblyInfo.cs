@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Publico_Kommunikation.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2cd65e1433af21c6b551129cb05fe156a91c2bb8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ebaa0d4b3a026f2f6805ceefe9f4557bb400504e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Publico_Kommunikation.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Publico_Kommunikation.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
