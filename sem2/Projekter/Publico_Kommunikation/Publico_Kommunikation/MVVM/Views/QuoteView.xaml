@@ -18,9 +18,8 @@
         <Setter Property="BorderBrush" Value="#282828" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="Padding" Value="15, 20" />
-
-        <Setter Property="Template">
+            <Setter Property="Padding" Value="15, 20" />
+            <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border
