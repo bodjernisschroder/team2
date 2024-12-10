@@ -96,6 +96,34 @@ namespace Publico_Kommunikation.Tests.ViewModels
             Assert.AreEqual(16000, sumQuoteViewModel.DiscountedSum);
         }
 
+        [TestMethod]
+        public void Sum_WhenSetToNegative_DoesNotUpdate()
+        {
+            // Arrange
+            var SumQuoteViewModel = UpdatePriceArrange();
+            SumQuoteViewModel.Sum = 100;
+
+            // Act
+            SumQuoteViewModel.Sum = -500;
+
+            // Assert
+            Assert.AreEqual(100, SumQuoteViewModel.Sum);
+        }
+
+        [TestMethod]
+        public void Sum_WhenSetToPositive_UpdatesValue()
+        {
+            // Arrange
+            var SumQuoteViewModel = UpdatePriceArrange();
+            SumQuoteViewModel.Sum = 100;
+
+            // Act
+            SumQuoteViewModel.Sum = 500;
+
+            // Assert
+            Assert.AreEqual(500, SumQuoteViewModel.Sum);
+        }
+
         // ---------- Helper Methods -----------
         private SumQuoteViewModel UpdatePriceArrange()
         {

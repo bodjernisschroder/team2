@@ -96,6 +96,34 @@ namespace Publico_Kommunikation.Tests.ViewModels
             Assert.AreEqual(14400, hourlyRateQuoteViewModel.DiscountedSum);
         }
 
+        [TestMethod]
+        public void HourlyRate_WhenSetToNegative_DoesNotUpdate()
+        {
+            // Arrange
+            var hourlyRateQuoteViewModel = UpdatePriceArrange();
+            hourlyRateQuoteViewModel.HourlyRate = 100;
+
+            // Act
+            hourlyRateQuoteViewModel.HourlyRate = -500;
+
+            // Assert
+            Assert.AreEqual(100, hourlyRateQuoteViewModel.HourlyRate);
+        }
+
+        [TestMethod]
+        public void HourlyRate_WhenSetToPositive_UpdatesValue()
+        {
+            // Arrange
+            var hourlyRateQuoteViewModel = UpdatePriceArrange();
+            hourlyRateQuoteViewModel.HourlyRate = 100;
+
+            // Act
+            hourlyRateQuoteViewModel.HourlyRate = 500;
+
+            // Assert
+            Assert.AreEqual(500, hourlyRateQuoteViewModel.HourlyRate);
+        }
+
         // ---------- Helper Methods -----------
         private HourlyRateQuoteViewModel UpdatePriceArrange()
         {
@@ -117,5 +145,6 @@ namespace Publico_Kommunikation.Tests.ViewModels
 
             return hourlyRateQuoteViewModel;
         }
+
     }
 }

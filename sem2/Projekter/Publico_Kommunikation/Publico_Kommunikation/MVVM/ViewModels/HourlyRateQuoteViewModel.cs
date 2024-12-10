@@ -61,7 +61,7 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             get => "Konvertér Til Fast Totalpris";
         }
 
-        ///// <summary>
+        /// <summary>
         /// Initializes a new instance of <see cref="HourlyRateQuoteViewModel"/>
         /// using the constructor logic from the base class, <see cref="QuoteViewModel"/>.
         /// </summary>
