@@ -46,7 +46,6 @@ namespace Publico_Kommunikation.MVVM.ViewModels
                     Model.Sum = value;
                     OnPropertyChanged(nameof(Sum));
                     UpdatePrice();
-                    UpdateQuote();
                 }
             }
         }

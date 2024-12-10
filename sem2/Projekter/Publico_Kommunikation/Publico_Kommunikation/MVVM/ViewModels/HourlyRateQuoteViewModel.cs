@@ -29,7 +29,6 @@ namespace Publico_Kommunikation.MVVM.ViewModels
                     Model.HourlyRate = value;
                     OnPropertyChanged(nameof(HourlyRate));
                     UpdatePrice();
-                    UpdateQuote();
                 }
             }
         }
