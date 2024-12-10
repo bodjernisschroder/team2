@@ -24,10 +24,13 @@ namespace Publico_Kommunikation.MVVM.ViewModels
                     MessageBox.Show("Timepris kan ikke være negativ", "Fejl", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
-                Model.HourlyRate = value;
-                OnPropertyChanged(nameof(HourlyRate));
-                UpdatePrice();
-                UpdateQuote();
+                if (Model.HourlyRate != value)
+                {
+                    Model.HourlyRate = value;
+                    OnPropertyChanged(nameof(HourlyRate));
+                    UpdatePrice();
+                    UpdateQuote();
+                }
             }
         }
 
@@ -78,6 +81,7 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             QuoteProducts.ToList().ForEach(qp => qp.UpdateQuoteProductPrice(HourlyRate));
             OnPropertyChanged(nameof(Sum));
             OnPropertyChanged(nameof(DiscountedSum));
+            UpdateQuote();
         }
     }
 }

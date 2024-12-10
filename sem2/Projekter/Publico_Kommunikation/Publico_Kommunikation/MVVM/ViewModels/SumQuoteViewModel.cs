@@ -78,6 +78,7 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             QuoteProducts.ToList().ForEach(qp => qp.UpdateQuoteProductPrice(HourlyRate));
             OnPropertyChanged(nameof(HourlyRate));
             OnPropertyChanged(nameof(DiscountedSum));
+            UpdateQuote();
         }
     }
 }
