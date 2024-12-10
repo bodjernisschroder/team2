@@ -878,6 +878,7 @@
           "Microsoft.Extensions.Configuration.Json": "9.0.0",
           "Microsoft.Extensions.DependencyInjection": "9.0.0",
           "Microsoft.NETCore.Platforms": "7.0.4",
+          "Moq": "4.20.72",
           "System.Drawing.Common": "9.0.0"
         },
         "runtime": {

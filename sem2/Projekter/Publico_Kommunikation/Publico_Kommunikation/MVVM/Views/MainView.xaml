@@ -13,29 +13,29 @@
     ResizeMode="NoResize"
     mc:Ignorable="d">
 
-<Window.Resources>
-    <!--Styles til alle menu items i hovedmenuen-->
-    <Style x:Key="MenuItemButtonStyle" TargetType="Button">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="Padding" Value="0"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="FontSize" Value="22"/>
-        <Setter Property="Margin" Value="15,15,5,0"/>
-        <Setter Property="Padding" Value="5"/>
-        <Setter Property="Cursor" Value="Hand"/>
+    <Window.Resources>
+        <!--Styles til alle menu items i hovedmenuen-->
+        <Style x:Key="MenuItemButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="Margin" Value="15,15,5,0"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
                 <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
+                    <ControlTemplate TargetType="Button">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
-</Window.Resources>
+    </Window.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
