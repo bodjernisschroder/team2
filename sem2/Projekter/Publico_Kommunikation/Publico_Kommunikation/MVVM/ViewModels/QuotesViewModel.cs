@@ -93,7 +93,7 @@ namespace Publico_Kommunikation.MVVM.ViewModels
         /// the newly created <see cref="quote"/> instance as a parameter
         /// </summary>
         public void CreateQuote()
-        {
+        {   
             var quote = new Quote();
             _quoteRepository.Add(quote);
             OnSwitchRequested?.Invoke(quote);

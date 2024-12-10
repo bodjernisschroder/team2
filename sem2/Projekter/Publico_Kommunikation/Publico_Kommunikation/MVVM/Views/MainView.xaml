@@ -7,25 +7,57 @@
     xmlns:local="clr-namespace:Publico_Kommunikation.MVVM.ViewModels"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Publico Kommunikation"
-    Width="1000"
+    Width="1100"
     Height="550"
     d:DataContext="{d:DesignInstance Type=local:MainViewModel}"
     ResizeMode="NoResize"
     mc:Ignorable="d">
 
+<Window.Resources>
+    <!--Styles til alle menu items i hovedmenuen-->
+    <Style x:Key="MenuItemButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="Margin" Value="15,15,5,0"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</Window.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" />
-            <ColumnDefinition Width="500" />
-            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="575" />
+            <ColumnDefinition Width="325" />
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0">
-            <Button Content="Tilbudshåndtering"
-                    Height="25"
+        <StackPanel Grid.Column="0" Background="#282828">
+            <Image Source="pack://application:,,,/MVVM/Views/img/publico_light.png"/>
+            <Button Content="Tilbudsoversigt"
+                    Style="{StaticResource MenuItemButtonStyle}"
+                    Foreground="GhostWhite"
+                    FontSize="22"
+                    Margin="0,20,0,0" 
+                    BorderThickness="0.0"
+                    Background="#282828"
                     Command="{Binding ShowQuoteOverviewCommand}"/>
         </StackPanel>
+        <Label Content="Version 2.0" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold" FontFamily="Arial" Foreground="White"/>
+
         <ContentControl Grid.Column="1" Content="{Binding QuoteView}"/>
-        <ContentControl Grid.Column="1" Content="{Binding QuotesView}"/>
+        <ContentControl Grid.Column="1" Content="{Binding QuotesView}" Grid.ColumnSpan="2" Margin="0,0,200,0"/>
         <ContentControl Grid.Column="2" Content="{Binding ProductsView}"/>
     </Grid>
 </Window>

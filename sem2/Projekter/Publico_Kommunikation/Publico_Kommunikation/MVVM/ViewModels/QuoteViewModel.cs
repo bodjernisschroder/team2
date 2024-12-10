@@ -1,8 +1,12 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Collections.ObjectModel;
-using Publico_Kommunikation.Core;
-using Publico_Kommunikation.DataAccess;
-using Publico_Kommunikation.MVVM.Models;
+using Publico_Kommunikation_Project.Core;
+using Publico_Kommunikation_Project.Services;
+using Publico_Kommunikation_Project.MVVM.Models;
+using System.ComponentModel;
+using System.Collections;
+using Publico_Kommunikation_Project.MVVM.Views;
+using Publico_Kommunikation_Project.DataAccess;
 
 namespace Publico_Kommunikation.MVVM.ViewModels
 {
@@ -169,6 +173,7 @@ namespace Publico_Kommunikation.MVVM.ViewModels
         {
             OnSwitchRequested?.Invoke(Model);
         }
+
 
         /// <summary>
         /// Creates a new <see cref="QuoteProduct"/> and its corresponding <see cref="QuoteProductViewModel"/>,
