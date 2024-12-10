@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace Publico_Kommunikation_Project.Core
+namespace Publico_Kommunikation.Core
 {
     /// <summary>
     /// Represents a command that can be bound to UI elements.

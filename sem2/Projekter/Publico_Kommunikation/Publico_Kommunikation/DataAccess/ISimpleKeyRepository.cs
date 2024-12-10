@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Publico_Kommunikation_Project.DataAccess
+﻿namespace Publico_Kommunikation.DataAccess
 {
     /// <summary>
     /// A repository interface for managing entities with simple keys.

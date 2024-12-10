@@ -1,15 +1,15 @@
 ﻿using System.Data;
-using System.Configuration;
 using Microsoft.Data.SqlClient;
-using Publico_Kommunikation_Project.MVVM.Models;
+using Publico_Kommunikation.MVVM.Models;
+using System.Windows;
 
-namespace Publico_Kommunikation_Project.DataAccess
+namespace Publico_Kommunikation.DataAccess
 {
     /// <summary>
     /// A repository class for managing <see cref="Quote"/> entities.
-    /// Implements the <see cref="ISimpleKeyRepository{T}"/> interface.
+    /// Implements the <see cref="IQuoteRepository{T}"/> interface.
     /// </summary>
-    public class QuoteRepository : ISimpleKeyRepository<Quote>
+    public class QuoteRepository : IQuoteRepository
     {
         private readonly string _connectionString; // Connection string for the SQL database
 
@@ -30,29 +30,41 @@ namespace Publico_Kommunikation_Project.DataAccess
         public IEnumerable<Quote> GetAll()
         {
             var quotes = new List<Quote>();
-            using (var sqlCon = new SqlConnection(_connectionString))
+            try
             {
-                sqlCon.Open();
-                SqlCommand sql_cmnd = new SqlCommand("uspGetAllQuote", sqlCon);
-                sql_cmnd.CommandType = CommandType.StoredProcedure;
-
-                using (SqlDataReader reader = sql_cmnd.ExecuteReader())
+                using (var sqlCon = new SqlConnection(_connectionString))
                 {
-                    while (reader.Read())
+                    sqlCon.Open();
+                    SqlCommand sql_cmnd = new SqlCommand("uspGetAllQuote", sqlCon);
+                    sql_cmnd.CommandType = CommandType.StoredProcedure;
+
+                    using (SqlDataReader reader = sql_cmnd.ExecuteReader())
                     {
-                        // Populate the object from the SQL data
-                        quotes.Add(new Quote
+                        while (reader.Read())
                         {
-                            QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("QuoteId")),
-                            QuoteName = reader.IsDBNull(reader.GetOrdinal("QuoteName")) ? string.Empty : reader.GetString(reader.GetOrdinal("QuoteName")),
-                            Tags = reader.IsDBNull(reader.GetOrdinal("Tags")) ? string.Empty : reader.GetString(reader.GetOrdinal("Tags")),
-                            FilePath = reader.IsDBNull(reader.GetOrdinal("FilePath")) ? string.Empty : reader.GetString(reader.GetOrdinal("FilePath")),
-                            HourlyRate = reader.IsDBNull(reader.GetOrdinal("HourlyRate")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("HourlyRate")),
-                            DiscountPercentage = reader.IsDBNull(reader.GetOrdinal("DiscountPercentage")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("DiscountPercentage")),
-                            Sum = reader.IsDBNull(reader.GetOrdinal("Sum")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("Sum"))
-                        });
+                            // Populate the object from the SQL data
+                            quotes.Add(new Quote
+                            {
+                                QuoteId = reader.IsDBNull(reader.GetOrdinal("QuoteId")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("QuoteId")),
+                                QuoteName = reader.IsDBNull(reader.GetOrdinal("QuoteName")) ? string.Empty : reader.GetString(reader.GetOrdinal("QuoteName")),
+                                Tags = reader.IsDBNull(reader.GetOrdinal("Tags")) ? string.Empty : reader.GetString(reader.GetOrdinal("Tags")),
+                                FilePath = reader.IsDBNull(reader.GetOrdinal("FilePath")) ? string.Empty : reader.GetString(reader.GetOrdinal("FilePath")),
+                                HourlyRate = reader.IsDBNull(reader.GetOrdinal("HourlyRate")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("HourlyRate")),
+                                DiscountPercentage = reader.IsDBNull(reader.GetOrdinal("DiscountPercentage")) ? 0 : (int)reader.GetInt32(reader.GetOrdinal("DiscountPercentage")),
+                                Sum = reader.IsDBNull(reader.GetOrdinal("Sum")) ? 0.0 : reader.GetDouble(reader.GetOrdinal("Sum"))
+                            });
+                        }
                     }
                 }
+        }
+            catch (Exception)
+            {
+                MessageBox.Show("Kunne ikke oprette forbindelse til databasen. Programmet lukkes.");
+                if (Application.Current != null)
+                    Application.Current.Shutdown();
+                else
+                    Environment.Exit(1);
+
             }
             return quotes;
         }
@@ -160,8 +172,14 @@ namespace Publico_Kommunikation_Project.DataAccess
                 sql_cmnd.ExecuteNonQuery();
             }
         }
-        
-        public IEnumerable<Quote> GetBySearchQueryQuote(string searchQuery)
+
+        /// <summary>
+        /// Retrieves all <see cref="Quote"/> entities where <see cref="Quote.QuoteName"/> or <see cref="Quote.Tags"/>
+        /// matches the specified <paramref name="searchQuery"/> by executing the stored procedure <c>uspGetBySearchQueryQuote</c>.
+        /// </summary>
+        /// <param name="searchQuery">The <see cref="string"/> to be used as the search query in the stored procedure.</param>
+        /// <returns>A collection of <see cref="Quote"/>entities that match the specified <paramref name="searchQuery"/>.</returns>
+        public IEnumerable<Quote> GetBySearchQuery(string searchQuery)
         {
             var quotes = new List<Quote>();
             using (var sqlCon = new SqlConnection(_connectionString))

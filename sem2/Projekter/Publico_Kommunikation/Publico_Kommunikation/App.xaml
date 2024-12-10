@@ -1,10 +1,10 @@
 <Application
-    x:Class="Publico_Kommunikation_Project.App"
+    x:Class="Publico_Kommunikation.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Publico_Kommunikation_Project"
-    xmlns:view="clr-namespace:Publico_Kommunikation_Project.MVVM.Views"
-    xmlns:viewModel="clr-namespace:Publico_Kommunikation_Project.MVVM.ViewModels">
+    xmlns:local="clr-namespace:Publico_Kommunikation"
+    xmlns:view="clr-namespace:Publico_Kommunikation.MVVM.Views"
+    xmlns:viewModel="clr-namespace:Publico_Kommunikation.MVVM.ViewModels">
     <Application.Resources>
         <DataTemplate DataType="{x:Type viewModel:QuoteViewModel}">
             <view:QuoteView />

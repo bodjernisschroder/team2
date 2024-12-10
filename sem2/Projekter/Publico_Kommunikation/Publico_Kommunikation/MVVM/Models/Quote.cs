@@ -1,5 +1,8 @@
-﻿namespace Publico_Kommunikation_Project.MVVM.Models
+﻿namespace Publico_Kommunikation.MVVM.Models
 {
+    /// <summary>
+    /// Represents the data structure for a <see cref="Quote"/> entity.
+    /// </summary>
     public class Quote
     {
         public int QuoteId { get; set; }

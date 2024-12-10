@@ -1,14 +1,14 @@
 ﻿using System.Windows;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Publico_Kommunikation_Project.Core;
-using Publico_Kommunikation_Project.Services;
-using Publico_Kommunikation_Project.MVVM.Views;
-using Publico_Kommunikation_Project.MVVM.ViewModels;
-using Publico_Kommunikation_Project.DataAccess;
-using System.Collections.ObjectModel;
+using Publico_Kommunikation.Core;
+using Publico_Kommunikation.Services;
+using Publico_Kommunikation.DataAccess;
+using Publico_Kommunikation.MVVM.Models;
+using Publico_Kommunikation.MVVM.ViewModels;
+using Publico_Kommunikation.MVVM.Views;
 
-namespace Publico_Kommunikation_Project
+namespace Publico_Kommunikation
 {
     /// <summary>
     /// Acts as the entry point and core logic of the application.
@@ -56,7 +56,7 @@ namespace Publico_Kommunikation_Project
         /// <param name="configuration">The <see cref="IConfiguration"/> that contains the database connection string.</param>
         private void RegisterDatabase(IServiceCollection services, IConfiguration configuration)
         {
-            string connectionString = configuration.GetConnectionString("BurakConnection");
+            string connectionString = configuration.GetConnectionString("EskeConnection");
             services.AddSingleton(connectionString);
         }
 
@@ -75,10 +75,10 @@ namespace Publico_Kommunikation_Project
         /// <param name="services">The <see cref="IServiceCollection"/> to configure.</param>
         private void RegisterRepositories(IServiceCollection services)
         {
-            services.AddScoped<CategoryRepository>();
-            services.AddScoped<ProductRepository>();
-            services.AddScoped<QuoteRepository>();
-            services.AddScoped<QuoteProductRepository>();
+            services.AddScoped<ISimpleKeyRepository<Category>, CategoryRepository>();
+            services.AddScoped<ISimpleKeyRepository<Product>, ProductRepository>();
+            services.AddScoped<IQuoteRepository, QuoteRepository>();
+            services.AddScoped<ICompositeKeyRepository<QuoteProduct>, QuoteProductRepository>();
         }
 
         /// <summary>
@@ -126,7 +126,9 @@ namespace Publico_Kommunikation_Project
         }
 
         /// <summary>
-        /// Overrides the OnStartup method. Executes application startup logic.
+        /// Overrides the OnStartup method to execute application startup logic.
+        /// Shows <see cref="MainView"/> and sets up error handling for unhandled exceptions.
+        /// In case of unhandled exceptions, logs the error and displays a <see cref="MessageBox"/> to notify the user.
         /// </summary>
         /// <param name="e">Provides information about the startup event, including command-line arguments.</param>
         protected override void OnStartup(StartupEventArgs e)
@@ -142,6 +144,59 @@ namespace Publico_Kommunikation_Project
             }
 
             base.OnStartup(e);
+            
+            // Global exception handler for non-UI thread exceptions
+            AppDomain.CurrentDomain.UnhandledException += (sender, args) =>
+            {
+                Exception e = (Exception)args.ExceptionObject;
+                LogError(e);
+                MessageBox.Show("Der skete en uventet fejl. Programmet Lukkes", "Uventet fejl", MessageBoxButton.OK, MessageBoxImage.Error);
+                Thread.Sleep(1000);
+                ShutdownApplication();
+            };
+
+            // Global exception handler for UI thread exceptions
+            DispatcherUnhandledException += (sender, args) =>
+            {
+                LogError(args.Exception);
+                MessageBox.Show("Der skete en uventet fejl. Prøv igen. \nHvis problemet fortsætter, genstart programmet.", "UI-fejl", MessageBoxButton.OK, MessageBoxImage.Error);
+                args.Handled = true;
+            };
         }
+
+        /// <summary>
+        /// Logs the error specified by <paramref name="e"/>.
+        /// </summary>
+        /// <param name="e"></param>
+        private void LogError(Exception e)
+        {
+            Console.WriteLine($"Error: {e.Message}");
+            Console.WriteLine($"Stack Trace: {e.StackTrace}");
+        }
+
+        /// <summary>
+        /// Shuts down the application if it is currently running.
+        /// If the application instance is unavailable, forces the process to terminate.
+        /// </summary>
+        private void ShutdownApplication()
+        {
+            try
+            {
+                if (Application.Current != null)
+                {
+                    Application.Current.Shutdown();
+                }
+            }
+            catch (Exception e)
+            {
+                LogError(e);
+            }
+            finally
+            {
+                Environment.Exit(1);
+            }
+        }
+
+
     }
 }

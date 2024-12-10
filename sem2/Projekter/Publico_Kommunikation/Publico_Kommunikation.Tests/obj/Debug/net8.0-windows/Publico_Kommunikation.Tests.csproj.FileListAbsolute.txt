@@ -169,6 +169,7 @@ C:\Users\AnnaFoldberg\team2\sem2\Projekter\Publico_Kommunikation\Publico_Kommuni
 C:\Users\AnnaFoldberg\team2\sem2\Projekter\Publico_Kommunikation\Publico_Kommunikation.Tests\obj\Debug\net8.0-windows\Publico_Kommunikation.Tests.pdb
 C:\Users\AnnaFoldberg\team2\sem2\Projekter\Publico_Kommunikation\Publico_Kommunikation.Tests\obj\Debug\net8.0-windows\Publico_Kommunikation.Tests.genruntimeconfig.cache
 C:\Users\AnnaFoldberg\team2\sem2\Projekter\Publico_Kommunikation\Publico_Kommunikation.Tests\obj\Debug\net8.0-windows\ref\Publico_Kommunikation.Tests.dll
+<<<<<<< HEAD
 C:\Users\burak\source\repos\team2\sem2\Projekter\Publico_Kommunikation\Publico_Kommunikation.Tests\bin\Debug\net8.0-windows\CoverletSourceRootsMapping_Publico_Kommunikation.Tests
 C:\Users\burak\source\repos\team2\sem2\Projekter\Publico_Kommunikation\Publico_Kommunikation.Tests\bin\Debug\net8.0-windows\testhost.exe
 C:\Users\burak\source\repos\team2\sem2\Projekter\Publico_Kommunikation\Publico_Kommunikation.Tests\bin\Debug\net8.0-windows\testhost.dll
@@ -511,3 +512,7 @@ C:\Users\bosch\Desktop\Skole\team2\sem2\Projekter\Publico_Kommunikation\Publico_
 C:\Users\bosch\Desktop\Skole\team2\sem2\Projekter\Publico_Kommunikation\Publico_Kommunikation.Tests\obj\Debug\net8.0-windows\Publico_Kommunikation.Tests.pdb
 C:\Users\bosch\Desktop\Skole\team2\sem2\Projekter\Publico_Kommunikation\Publico_Kommunikation.Tests\obj\Debug\net8.0-windows\Publico_Kommunikation.Tests.genruntimeconfig.cache
 C:\Users\bosch\Desktop\Skole\team2\sem2\Projekter\Publico_Kommunikation\Publico_Kommunikation.Tests\obj\Debug\net8.0-windows\ref\Publico_Kommunikation.Tests.dll
+=======
+C:\Users\AnnaFoldberg\team2\sem2\Projekter\Publico_Kommunikation\Publico_Kommunikation.Tests\bin\Debug\net8.0-windows\Castle.Core.dll
+C:\Users\AnnaFoldberg\team2\sem2\Projekter\Publico_Kommunikation\Publico_Kommunikation.Tests\bin\Debug\net8.0-windows\Moq.dll
+>>>>>>> main
