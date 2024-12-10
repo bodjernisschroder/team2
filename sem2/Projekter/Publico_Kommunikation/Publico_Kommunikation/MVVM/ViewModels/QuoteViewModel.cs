@@ -44,7 +44,7 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             {
                 if (value.Length > 50)
                 {
-                    MessageBox.Show("Tilbuddets navn kan ikke overskride 50 tegn.", "Ugyldigt navn");
+                    MessageBox.Show("Tilbuddets navn må ikke overskride 50 tegn.", "Ugyldigt navn");
                     return;
                 }
                 if (Model.QuoteName != value)
@@ -61,6 +61,11 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             get { return Model.Tags; }
             set
             {
+                if (value.Length > 200)
+                {
+                    MessageBox.Show("Tags må ikke overstige 200 tegn.", "Ugyldige tags");
+                    return;
+                }
                 if (Model.Tags != value)
                 {
                     Model.Tags = value;
@@ -75,6 +80,11 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             get { return Model.FilePath; }
             set
             {
+                if (value.Length > 200)
+                {
+                    MessageBox.Show("Filsti må ikke overstige 200 tegn.", "Ugyldig filsti");
+                    return;
+                }
                 if (Model.FilePath != value)
                 {
                     Model.FilePath = value;

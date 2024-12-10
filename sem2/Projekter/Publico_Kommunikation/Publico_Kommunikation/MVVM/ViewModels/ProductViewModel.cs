@@ -1,4 +1,5 @@
-﻿using Publico_Kommunikation.Core;
+﻿using System.Windows;
+using Publico_Kommunikation.Core;
 using Publico_Kommunikation.MVVM.Models;
 
 namespace Publico_Kommunikation.MVVM.ViewModels
@@ -31,6 +32,11 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             get => Model.ProductName;
             private set
             {
+                if (value.Length > 50)
+                {
+                    MessageBox.Show("Ydelsesnavn må ikke overstige 50 tegn.", "Ugyldigt navn");
+                    return;
+                }
                 if (Model.ProductName != value)
                 {
                     Model.ProductName = value;
