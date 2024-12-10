@@ -11,14 +11,17 @@ namespace Publico_Kommunikation.MVVM.ViewModels
     /// </summary>
     public class SumQuoteViewModel : QuoteViewModel
     {
-        public override double HourlyRate
+        public override double? HourlyRate
         {
             get => Model.HourlyRate;
 
             set
             {
-                Model.HourlyRate = value;
-                OnPropertyChanged(nameof(HourlyRate));
+                if (Model.HourlyRate != value)
+                {
+                    Model.HourlyRate = value;
+                    OnPropertyChanged(nameof(HourlyRate));
+                }
             }
         }
 
@@ -38,10 +41,12 @@ namespace Publico_Kommunikation.MVVM.ViewModels
                     MessageBox.Show("Totalpris kan ikke være negativ", "Fejl", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
-                Model.Sum = value;
-                OnPropertyChanged(nameof(Sum));
-                UpdatePrice();
-                UpdateQuote();
+                if (Model.Sum != value)
+                {
+                    Model.Sum = value;
+                    OnPropertyChanged(nameof(Sum));
+                    UpdatePrice();
+                }
             }
         }
 
@@ -74,8 +79,8 @@ namespace Publico_Kommunikation.MVVM.ViewModels
         public override void UpdatePrice()
         {
             var totalEstimatedTime = QuoteProducts.Sum(qp => qp.QuoteProductTimeEstimate);
-            Model.HourlyRate = totalEstimatedTime > 0 ? Math.Round(Sum / totalEstimatedTime, 2) : 0;
-            QuoteProducts.ToList().ForEach(qp => qp.UpdateQuoteProductPrice(HourlyRate));
+            Model.HourlyRate = totalEstimatedTime > 0 ? Math.Round((Sum / (totalEstimatedTime ?? 1)), 2) : 0;
+            QuoteProducts.ToList().ForEach(qp => qp.UpdateQuoteProductPrice(HourlyRate ?? 0));
             OnPropertyChanged(nameof(HourlyRate));
             OnPropertyChanged(nameof(DiscountedSum));
             UpdateQuote();

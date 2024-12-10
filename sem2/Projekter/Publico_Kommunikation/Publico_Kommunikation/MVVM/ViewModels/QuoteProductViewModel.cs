@@ -27,8 +27,11 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             get => Model.QuoteId;
             set
             {
-                Model.QuoteId = value;
-                OnPropertyChanged(nameof(QuoteId));
+                if (Model.QuoteId != value)
+                {
+                    Model.QuoteId = value;
+                    OnPropertyChanged(nameof(QuoteId));
+                }
             }
         }
 
@@ -37,9 +40,12 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             get => Model.ProductId;
             set
             {
-                Model.ProductId = value;
-                OnPropertyChanged(nameof(ProductId));
-                GetProductName();
+                if (Model.ProductId != value)
+                {
+                    Model.ProductId = value;
+                    OnPropertyChanged(nameof(ProductId));
+                    GetProductName();
+                }
             }
         }
 
@@ -47,13 +53,16 @@ namespace Publico_Kommunikation.MVVM.ViewModels
         {
             get => _productName;
             private set 
-            { 
-                _productName = value;
-                OnPropertyChanged(nameof(ProductName));
+            {
+                if (_productName != value)
+                {
+                    _productName = value;
+                    OnPropertyChanged(nameof(ProductName));
+                }
             }
         }
 
-        public double QuoteProductTimeEstimate
+        public double? QuoteProductTimeEstimate
         {
             get => Model.QuoteProductTimeEstimate;
             set
@@ -63,10 +72,13 @@ namespace Publico_Kommunikation.MVVM.ViewModels
                     MessageBox.Show("Tidsestimatet kan ikke være negativt", "Fejl", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
-                Model.QuoteProductTimeEstimate = value;
-                OnPropertyChanged(nameof(QuoteProductTimeEstimate));
-                OnTimeEstimateChanged?.Invoke();
-                UpdateQuoteProduct();
+                if (Model.QuoteProductTimeEstimate != value)
+                {
+                    Model.QuoteProductTimeEstimate = value;
+                    OnPropertyChanged(nameof(QuoteProductTimeEstimate));
+                    OnTimeEstimateChanged?.Invoke();
+                    UpdateQuoteProduct();
+                }
             }
         }
 
@@ -75,8 +87,11 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             get => Model.QuoteProductPrice;
             set
             {
-                Model.QuoteProductPrice = value;
-                OnPropertyChanged(nameof(QuoteProductPrice));
+                if (Model.QuoteProductPrice != value)
+                {
+                    Model.QuoteProductPrice = value;
+                    OnPropertyChanged(nameof(QuoteProductPrice));
+                }
             }
         }
 
@@ -114,7 +129,7 @@ namespace Publico_Kommunikation.MVVM.ViewModels
         /// <param name="hourlyRate">The hourly rate used to calculate the <see cref="QuoteProductPrice"/>.</param>
         public void UpdateQuoteProductPrice(double hourlyRate)
         {
-            QuoteProductPrice = Math.Round(QuoteProductTimeEstimate * hourlyRate, 2);
+            QuoteProductPrice = Math.Round((QuoteProductTimeEstimate ?? 0) * hourlyRate, 2);
         }
 
         /// <summary>

@@ -14,7 +14,7 @@ namespace Publico_Kommunikation.MVVM.ViewModels
     {
         public RelayCommand UpdateTotalPriceCommand { get; }
 
-        public override double HourlyRate
+        public override double? HourlyRate
         {
             get => Model.HourlyRate;
             set
@@ -29,7 +29,6 @@ namespace Publico_Kommunikation.MVVM.ViewModels
                     Model.HourlyRate = value;
                     OnPropertyChanged(nameof(HourlyRate));
                     UpdatePrice();
-                    UpdateQuote();
                 }
             }
         }
@@ -44,8 +43,11 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             get => Model.Sum;
             set
             {
-                Model.Sum = value;
-                OnPropertyChanged(nameof(Sum));
+                if (Model.Sum != value)
+                {
+                    Model.Sum = value;
+                    OnPropertyChanged(nameof(Sum));
+                }
             }
         }
 
@@ -59,7 +61,7 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             get => "Konvertér Til Fast Totalpris";
         }
 
-        ///// <summary>
+        /// <summary>
         /// Initializes a new instance of <see cref="HourlyRateQuoteViewModel"/>
         /// using the constructor logic from the base class, <see cref="QuoteViewModel"/>.
         /// </summary>
@@ -77,8 +79,8 @@ namespace Publico_Kommunikation.MVVM.ViewModels
         public override void UpdatePrice()
         {
             var totalEstimatedTime = QuoteProducts.Sum(qp => qp.QuoteProductTimeEstimate);
-            Model.Sum = totalEstimatedTime > 0 ? Math.Round(totalEstimatedTime * HourlyRate, 2) : 0;
-            QuoteProducts.ToList().ForEach(qp => qp.UpdateQuoteProductPrice(HourlyRate));
+            Model.Sum = totalEstimatedTime > 0 ? Math.Round((totalEstimatedTime ?? 0) * (HourlyRate ?? 0), 2) : 0;
+            QuoteProducts.ToList().ForEach(qp => qp.UpdateQuoteProductPrice(HourlyRate ?? 0));
             OnPropertyChanged(nameof(Sum));
             OnPropertyChanged(nameof(DiscountedSum));
             UpdateQuote();

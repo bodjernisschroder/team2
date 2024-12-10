@@ -29,8 +29,11 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             get { return Model.QuoteId; }
             set
             {
-                Model.QuoteId = value;
-                OnPropertyChanged(nameof(QuoteId));
+                if (Model.QuoteId != value)
+                {
+                    Model.QuoteId = value;
+                    OnPropertyChanged(nameof(QuoteId));
+                }
             }
         }
 
@@ -39,9 +42,17 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             get { return Model.QuoteName; }
             set
             {
-                Model.QuoteName = value;
-                OnPropertyChanged(nameof(QuoteName));
-                UpdateQuote();
+                if (value.Length > 50)
+                {
+                    MessageBox.Show("Tilbuddets navn må ikke overskride 50 tegn.", "Ugyldigt navn");
+                    return;
+                }
+                if (Model.QuoteName != value)
+                {
+                    Model.QuoteName = value;
+                    OnPropertyChanged(nameof(QuoteName));
+                    UpdateQuote();
+                }
             }
         }
 
@@ -50,9 +61,17 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             get { return Model.Tags; }
             set
             {
-                Model.Tags = value;
-                OnPropertyChanged(nameof(Tags));
-                UpdateQuote();
+                if (value.Length > 200)
+                {
+                    MessageBox.Show("Tags må ikke overstige 200 tegn.", "Ugyldige tags");
+                    return;
+                }
+                if (Model.Tags != value)
+                {
+                    Model.Tags = value;
+                    OnPropertyChanged(nameof(Tags));
+                    UpdateQuote();
+                }
             }
         }
 
@@ -61,13 +80,21 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             get { return Model.FilePath; }
             set
             {
-                Model.FilePath = value;
-                OnPropertyChanged(nameof(FilePath));
-                UpdateQuote();
+                if (value.Length > 200)
+                {
+                    MessageBox.Show("Filsti må ikke overstige 200 tegn.", "Ugyldig filsti");
+                    return;
+                }
+                if (Model.FilePath != value)
+                {
+                    Model.FilePath = value;
+                    OnPropertyChanged(nameof(FilePath));
+                    UpdateQuote();
+                }
             }
         }
 
-        public virtual double HourlyRate { get; set; }
+        public virtual double? HourlyRate { get; set; }
         public virtual bool HourlyRateIsReadOnly { get; set; }
 
         public int DiscountPercentage
@@ -80,10 +107,13 @@ namespace Publico_Kommunikation.MVVM.ViewModels
                     MessageBox.Show("Rabat skal være mellem 0 og 50 %", "ugyldig værdi", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
-                Model.DiscountPercentage = value;
-                OnPropertyChanged(nameof(DiscountPercentage));
-                OnPropertyChanged(nameof(DiscountedSum));
-                UpdateQuote();
+                if (Model.DiscountPercentage != value)
+                {
+                    Model.DiscountPercentage = value;
+                    OnPropertyChanged(nameof(DiscountPercentage));
+                    OnPropertyChanged(nameof(DiscountedSum));
+                    UpdateQuote();
+                }
             }
         }
 

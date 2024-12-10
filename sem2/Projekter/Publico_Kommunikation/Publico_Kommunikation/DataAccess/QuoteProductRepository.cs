@@ -168,7 +168,7 @@ namespace Publico_Kommunikation.DataAccess
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
                 sql_cmnd.Parameters.AddWithValue("@QuoteId", SqlDbType.Int).Value = quoteProduct.QuoteId;
                 sql_cmnd.Parameters.AddWithValue("@ProductId", SqlDbType.Int).Value = quoteProduct.ProductId;
-                sql_cmnd.Parameters.AddWithValue("@QuoteProductTimeEstimate", SqlDbType.Float).Value = quoteProduct.QuoteProductTimeEstimate;
+                sql_cmnd.Parameters.AddWithValue("@QuoteProductTimeEstimate", SqlDbType.Float).Value = quoteProduct.QuoteProductTimeEstimate ?? (object)DBNull.Value;
                 sql_cmnd.Parameters.AddWithValue("@QuoteProductPrice", SqlDbType.Float).Value = quoteProduct.QuoteProductPrice;
                 sql_cmnd.ExecuteNonQuery();
             }
@@ -188,7 +188,7 @@ namespace Publico_Kommunikation.DataAccess
                 sql_cmnd.CommandType = CommandType.StoredProcedure;
                 sql_cmnd.Parameters.AddWithValue("@QuoteId", SqlDbType.Int).Value = quoteProduct.QuoteId;
                 sql_cmnd.Parameters.AddWithValue("@ProductId", SqlDbType.Int).Value = quoteProduct.ProductId;
-                sql_cmnd.Parameters.AddWithValue("@QuoteProductTimeEstimate", SqlDbType.Float).Value = quoteProduct.QuoteProductTimeEstimate;
+                sql_cmnd.Parameters.AddWithValue("@QuoteProductTimeEstimate", SqlDbType.Float).Value = quoteProduct.QuoteProductTimeEstimate ?? (object)DBNull.Value;
                 sql_cmnd.Parameters.AddWithValue("@QuoteProductPrice", SqlDbType.Float).Value = quoteProduct.QuoteProductPrice;
                 sql_cmnd.ExecuteNonQuery();
                 
