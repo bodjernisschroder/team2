@@ -18,8 +18,11 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             get => Model.ProductId;
             private set
             {
-                Model.ProductId = value;
-                OnPropertyChanged(nameof(ProductId));
+                if (Model.ProductId != value)
+                {
+                    Model.ProductId = value;
+                    OnPropertyChanged(nameof(ProductId));
+                }
             }
         }
 
@@ -28,8 +31,11 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             get => Model.ProductName;
             private set
             {
-                Model.ProductName = value;
-                OnPropertyChanged(nameof(ProductName));
+                if (Model.ProductName != value)
+                {
+                    Model.ProductName = value;
+                    OnPropertyChanged(nameof(ProductName));
+                }
             }
         }
 
@@ -38,8 +44,11 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             get => Model.CategoryId;
             private set
             {
-                Model.CategoryId = value;
-                OnPropertyChanged(nameof(CategoryId));
+                if (Model.CategoryId != value)
+                {
+                    Model.CategoryId = value;
+                    OnPropertyChanged(nameof(CategoryId));
+                }
             }
         }
 
@@ -48,8 +57,11 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             get => _isSelected;
             set
             {
-                _isSelected = value;
-                OnPropertyChanged(nameof(IsSelected));
+                if (_isSelected != value)
+                {
+                    _isSelected = value;
+                    OnPropertyChanged(nameof(IsSelected));
+                }
             }
         }
 

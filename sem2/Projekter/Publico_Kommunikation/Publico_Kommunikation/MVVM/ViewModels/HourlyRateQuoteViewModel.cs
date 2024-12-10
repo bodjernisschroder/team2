@@ -44,8 +44,11 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             get => Model.Sum;
             set
             {
-                Model.Sum = value;
-                OnPropertyChanged(nameof(Sum));
+                if (Model.Sum != value)
+                {
+                    Model.Sum = value;
+                    OnPropertyChanged(nameof(Sum));
+                }
             }
         }
 

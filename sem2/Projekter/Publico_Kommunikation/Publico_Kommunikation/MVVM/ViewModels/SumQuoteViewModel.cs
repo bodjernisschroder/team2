@@ -17,8 +17,11 @@ namespace Publico_Kommunikation.MVVM.ViewModels
 
             set
             {
-                Model.HourlyRate = value;
-                OnPropertyChanged(nameof(HourlyRate));
+                if (Model.HourlyRate != value)
+                {
+                    Model.HourlyRate = value;
+                    OnPropertyChanged(nameof(HourlyRate));
+                }
             }
         }
 
@@ -38,10 +41,13 @@ namespace Publico_Kommunikation.MVVM.ViewModels
                     MessageBox.Show("Totalpris kan ikke være negativ", "Fejl", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
-                Model.Sum = value;
-                OnPropertyChanged(nameof(Sum));
-                UpdatePrice();
-                UpdateQuote();
+                if (Model.Sum != value)
+                {
+                    Model.Sum = value;
+                    OnPropertyChanged(nameof(Sum));
+                    UpdatePrice();
+                    UpdateQuote();
+                }
             }
         }
 
