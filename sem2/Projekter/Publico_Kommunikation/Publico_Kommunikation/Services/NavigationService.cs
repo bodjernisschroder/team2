@@ -5,7 +5,7 @@ namespace Publico_Kommunikation.Services
     /// <summary>
     /// An implementation of the <see cref="INavigationService"/> interface.
     /// </summary>
-    public class NavigationService : ObservableObject, INavigationService
+    public class NavigationService : INavigationService
     {
         private readonly Func<Type, ViewModel> _viewModelFactory;
 

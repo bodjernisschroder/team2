@@ -13,7 +13,6 @@ namespace Publico_Kommunikation.MVVM.ViewModels
     public class MainViewModel : ViewModel
     {
         private readonly INavigationService _navigation;
-        private readonly IQuoteRepository _quoteRepository;
         private ViewModel _quoteView;
         private ViewModel _productsView;
         private ViewModel _quotesView;
@@ -60,16 +59,14 @@ namespace Publico_Kommunikation.MVVM.ViewModels
 
         /// <summary>
         /// Initializes a new instance of <see cref="MainViewModel"/>.
-        /// Assigns the specified <paramref name="navigation"/> and <paramref name="quoteRepository"/>
-        /// instances, and configures the <see cref="ShowQuoteOverviewCommand"/> command.
+        /// Assigns the specified <paramref name="navigation"/>
+        /// instance, and configures the <see cref="ShowQuoteOverviewCommand"/> command.
         /// </summary>
         /// <param name="navigation">The <see cref="INavigationService"/> instance used to handle navigation operations.</param>
-        /// <param name="quoteRepository">The repository for managing <see cref="Quote"/> instances.</param>
-        /// <exception cref="ArgumentNullException">Thrown when <paramref name="navigation"/> or <paramref name="quoteRepository"/> is <c>null</c>.</exception>
-        public MainViewModel(INavigationService navigation, IQuoteRepository quoteRepository)
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="navigation"/> is <c>null</c>.</exception>
+        public MainViewModel(INavigationService navigation)
         {
             _navigation = navigation ?? throw new ArgumentNullException(nameof(navigation));
-            _quoteRepository = quoteRepository ?? throw new ArgumentNullException(nameof(quoteRepository));
 
             ShowQuoteOverviewCommand = new RelayCommand(execute: o => { ShowQuoteOverview(); }, canExecute: o => true);
         }

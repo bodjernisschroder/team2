@@ -39,18 +39,6 @@ namespace Publico_Kommunikation.MVVM.ViewModels
         public event Action<Quote> OnSwitchRequested;
 
         /// <summary>
-        /// Initializes a new instance of <see cref="QuoteViewModel"/>.
-        /// Assigns the specified repositories, initializes the <see cref="QuoteProducts"/>
-        /// collection, and configures the <see cref="DeleteQuoteProductCommand"/> and
-        /// <see cref="SwitchCommand"/> commands. 
-        /// </summary>
-        /// <param name="quoteRepository">The repository for managing <see cref="Quote"/> instances.</param>
-        /// <param name="productRepository">The repository for managing <see cref="Product"/> instances.</param>
-        /// <param name="quoteProductRepository">The repository for managing <see cref="QuoteProduct"/> instances.</param>
-        /// <exception cref="ArgumentNullException">Thrown when any of the specified repositories are <c>null</c>.</exception>
-
-
-        /// <summary>
         /// Initializes a new instance of <see cref="QuotesViewModel"/>.
         /// Assigns the specified <paramref name="quoteRepository"/> to <see cref="_quoteRepository"/>,
         /// configures the <see cref="CreateQuoteCommand"/>, <see cref="LoadQuoteCommand"/>, and

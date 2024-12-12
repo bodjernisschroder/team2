@@ -10,13 +10,11 @@ namespace Publico_Kommunikation.Tests.ViewModels
     public class MainViewModelTests
     {
         private Mock<INavigationService> mockNavigation;
-        private Mock<IQuoteRepository> mockQuoteRepository;
 
         [TestInitialize]
         public void TestInitialize()
         {
             mockNavigation = new Mock<INavigationService>();
-            mockQuoteRepository = new Mock<IQuoteRepository>();
         }
 
         [TestMethod]
@@ -24,21 +22,13 @@ namespace Publico_Kommunikation.Tests.ViewModels
         public void Constructor_NullNavigationService_ThrowsArgumentNullException()
         {
             // Act
-            var mainViewModel = new MainViewModel(null, mockQuoteRepository.Object);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void Constructor_NullQuoteRepository_ThrowsArgumentNullException()
-        {
-            // Act
-            var mainViewModel = new MainViewModel(mockNavigation.Object, null);
+            var mainViewModel = new MainViewModel(null);
         }
 
         public void Constructor_ValidNavigationServiceAndQuoteRepository_InitializesShowQuoteOverviewCommand()
         {
             // Act
-            var mainViewModel = new MainViewModel(mockNavigation.Object, mockQuoteRepository.Object);
+            var mainViewModel = new MainViewModel(mockNavigation.Object);
 
             // Assert
             Assert.IsNotNull(mainViewModel.ShowQuoteOverviewCommand);
@@ -48,7 +38,7 @@ namespace Publico_Kommunikation.Tests.ViewModels
         public void ShowQuoteoverviewCommand_Execute_ResetsViewsAndInitializesQuotesView()
         {
             // Arrange
-            var mainViewModel = new MainViewModel(mockNavigation.Object, mockQuoteRepository.Object);
+            var mainViewModel = new MainViewModel(mockNavigation.Object);
             var quote = new Quote { QuoteId = 1, QuoteName = "TestQuote" };
 
             // Act
