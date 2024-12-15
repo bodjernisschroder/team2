@@ -63,7 +63,6 @@ namespace Publico_Kommunikation.MVVM.ViewModels
         /// <summary>
         /// Initializes a new instance of <see cref="SumQuoteViewModel"/>
         /// using the constructor logic from the base class, <see cref="QuoteViewModel"/>.
-        /// Sets the <see cref="SwitchText"/> property to "Konvertér Til Fast Timepris."
         /// </summary>
         /// <param name="quoteRepository">The repository for managing <see cref="Quote"/> instances.</param>
         /// <param name="productRepository">The repository for managing <see cref="Product"/> instances.</param>

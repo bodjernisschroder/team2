@@ -13,14 +13,14 @@ namespace Publico_Kommunikation.MVVM.ViewModels
     /// </summary>
     public class QuoteProductViewModel : ViewModel
     {
-        private ISimpleKeyRepository<Product> _productRepository;
-        private ICompositeKeyRepository<QuoteProduct> _quoteProductRepository;
-
-        public Action? OnTimeEstimateChanged { get; set; } 
+        private readonly ISimpleKeyRepository<Product> _productRepository;
+        private readonly ICompositeKeyRepository<QuoteProduct> _quoteProductRepository;
 
         private string _productName;
+
         public QuoteProduct Model { get; private set; }
 
+        public Action? OnTimeEstimateChanged { get; set; }
 
         public int QuoteId
         {

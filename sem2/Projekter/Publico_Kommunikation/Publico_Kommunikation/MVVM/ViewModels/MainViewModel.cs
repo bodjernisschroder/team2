@@ -13,48 +13,49 @@ namespace Publico_Kommunikation.MVVM.ViewModels
     public class MainViewModel : ViewModel
     {
         private readonly INavigationService _navigation;
-        private ViewModel _quoteView;
-        private ViewModel _productsView;
-        private ViewModel _quotesView;
+        private ViewModel _quoteViewModel;
+        private ViewModel _productsViewModel;
+        private ViewModel _quotesViewModel;
 
-        public ViewModel QuoteView
+        public ViewModel QuoteViewModel
         {
-            get => _quoteView;
+            get => _quoteViewModel;
             private set
             {
-                if (_quoteView != value)
+                if (_quoteViewModel != value)
                 {
-                    _quoteView = value;
-                    OnPropertyChanged(nameof(QuoteView));
+                    _quoteViewModel = value;
+                    OnPropertyChanged(nameof(QuoteViewModel));
                 }
             }
         }
 
-        public ViewModel ProductsView
+        public ViewModel ProductsViewModel
         {
-            get => _productsView;
+            get => _productsViewModel;
             set
             {
-                if (_productsView != value)
+                if (_productsViewModel != value)
                 {
-                    _productsView = value;
-                    OnPropertyChanged(nameof(ProductsView));
+                    _productsViewModel = value;
+                    OnPropertyChanged(nameof(ProductsViewModel));
                 }
             }
         }
 
-        public ViewModel QuotesView
+        public ViewModel QuotesViewModel
         {
-            get => _quotesView;
+            get => _quotesViewModel;
             set
             {
-                if (_quotesView != value)
+                if (_quotesViewModel != value)
                 {
-                    _quotesView = value;
-                    OnPropertyChanged(nameof(QuotesView));
+                    _quotesViewModel = value;
+                    OnPropertyChanged(nameof(QuotesViewModel));
                 }
             }
         }
+
         public RelayCommand ShowQuoteOverviewCommand { get; }
 
         /// <summary>
@@ -80,10 +81,10 @@ namespace Publico_Kommunikation.MVVM.ViewModels
         {
             ResetViews();
 
-            QuoteView = _navigation.NavigateTo<SumQuoteViewModel>(vm => { vm.InitializeQuote(quote); });
-            (QuoteView as QuoteViewModel).OnSwitchRequested += SwitchQuoteViewModel;
+            QuoteViewModel = _navigation.NavigateTo<SumQuoteViewModel>(vm => { vm.InitializeQuote(quote); });
+            (QuoteViewModel as QuoteViewModel).OnSwitchRequested += SwitchQuoteViewModel;
 
-            ProductsView = _navigation.NavigateTo<ProductsViewModel>(vm => { vm.InitializeQuoteViewModel(QuoteView as QuoteViewModel); });
+            ProductsViewModel = _navigation.NavigateTo<ProductsViewModel>(vm => { vm.InitializeQuoteViewModel(QuoteViewModel as QuoteViewModel); });
         }
 
         /// <summary>
@@ -92,8 +93,8 @@ namespace Publico_Kommunikation.MVVM.ViewModels
         private void ShowQuoteOverview()
         {
             ResetViews();
-            QuotesView = _navigation.NavigateTo<QuotesViewModel>(vm => { vm.InitializeQuotes(); });
-            (QuotesView as QuotesViewModel).OnSwitchRequested += ShowQuoteAndProducts;
+            QuotesViewModel = _navigation.NavigateTo<QuotesViewModel>(vm => { vm.InitializeQuotes(); });
+            (QuotesViewModel as QuotesViewModel).OnSwitchRequested += ShowQuoteAndProducts;
         }
 
         /// <summary>
@@ -105,14 +106,14 @@ namespace Publico_Kommunikation.MVVM.ViewModels
         /// <param name="quote">The <see cref="Quote"/> used to initialize the new <see cref="QuoteViewModel"/>.</param>
         private void SwitchQuoteViewModel(Quote quote)
         {
-            (QuoteView as QuoteViewModel).OnSwitchRequested -= SwitchQuoteViewModel;
+            (QuoteViewModel as QuoteViewModel).OnSwitchRequested -= SwitchQuoteViewModel;
 
-            QuoteView = QuoteView.GetType() == typeof(SumQuoteViewModel)
+            QuoteViewModel = QuoteViewModel.GetType() == typeof(SumQuoteViewModel)
                 ? _navigation.NavigateTo<HourlyRateQuoteViewModel>(vm => { vm.InitializeQuote(quote); })
                 : _navigation.NavigateTo<SumQuoteViewModel>(vm => { vm.InitializeQuote(quote); });
-            (QuoteView as QuoteViewModel).OnSwitchRequested += SwitchQuoteViewModel;
+            (QuoteViewModel as QuoteViewModel).OnSwitchRequested += SwitchQuoteViewModel;
 
-            ProductsView = _navigation.NavigateTo<ProductsViewModel>(vm => { vm.InitializeQuoteViewModel(QuoteView as QuoteViewModel); });
+            ProductsViewModel = _navigation.NavigateTo<ProductsViewModel>(vm => { vm.InitializeQuoteViewModel(QuoteViewModel as QuoteViewModel); });
         }
 
         /// <summary>
@@ -120,12 +121,12 @@ namespace Publico_Kommunikation.MVVM.ViewModels
         /// </summary>
         private void ResetViews()
         {
-            if (QuoteView is QuoteViewModel quoteViewModel) quoteViewModel.OnSwitchRequested -= SwitchQuoteViewModel;
-            if (QuotesView is QuotesViewModel quotesViewModel) quotesViewModel.OnSwitchRequested -= ShowQuoteAndProducts;
+            if (QuoteViewModel is QuoteViewModel quoteViewModel) quoteViewModel.OnSwitchRequested -= SwitchQuoteViewModel;
+            if (QuotesViewModel is QuotesViewModel quotesViewModel) quotesViewModel.OnSwitchRequested -= ShowQuoteAndProducts;
 
-            QuoteView = null;
-            ProductsView = null;
-            QuotesView = null;
+            QuoteViewModel = null;
+            ProductsViewModel = null;
+            QuotesViewModel = null;
         }
     }
 }

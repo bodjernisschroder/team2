@@ -67,6 +67,7 @@ namespace Publico_Kommunikation
         private void RegisterServices(IServiceCollection services)
         {
             services.AddSingleton<INavigationService, NavigationService>();
+            services.AddSingleton<Func<Type, ViewModel>>(serviceProvider => viewModelType => (ViewModel)serviceProvider.GetRequiredService(viewModelType));
         }
 
         /// <summary>
@@ -87,15 +88,13 @@ namespace Publico_Kommunikation
         /// <param name="services">The <see cref="IServiceCollection"/> to configure.</param>
         private void RegisterViewModels(IServiceCollection services)
         {
-            services.AddScoped<MainViewModel>();
+            services.AddSingleton<MainViewModel>();
             services.AddTransient<HourlyRateQuoteViewModel>();
-            services.AddScoped<ProductsViewModel>();
-            services.AddScoped<ProductViewModel>();
+            services.AddTransient<ProductsViewModel>();
+            services.AddTransient<ProductViewModel>();
             services.AddTransient<QuoteViewModel>();
             services.AddTransient<QuotesViewModel>();
             services.AddTransient<SumQuoteViewModel>();
-
-            services.AddSingleton<Func<Type, ViewModel>>(serviceProvider => viewModelType => (ViewModel)serviceProvider.GetRequiredService(viewModelType));
         }
 
         /// <summary>

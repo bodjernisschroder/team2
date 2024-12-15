@@ -204,7 +204,6 @@ namespace Publico_Kommunikation.MVVM.ViewModels
             OnSwitchRequested?.Invoke(Model);
         }
 
-
         /// <summary>
         /// Creates a new <see cref="QuoteProduct"/> and its corresponding <see cref="QuoteProductViewModel"/>,
         /// associating them with the specified <paramref name="product"/> and the current <see cref="Model"/>.

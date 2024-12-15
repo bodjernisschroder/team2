@@ -56,8 +56,8 @@
         </StackPanel>
         <Label Content="Version 2.0" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold" FontFamily="Arial" Foreground="White"/>
 
-        <ContentControl Grid.Column="1" Content="{Binding QuoteView}"/>
-        <ContentControl Grid.Column="1" Content="{Binding QuotesView}" Grid.ColumnSpan="2" Margin="0,0,200,0"/>
-        <ContentControl Grid.Column="2" Content="{Binding ProductsView}"/>
+        <ContentControl Grid.Column="1" Content="{Binding QuoteViewModel}"/>
+        <ContentControl Grid.Column="1" Content="{Binding QuotesViewModel}" Grid.ColumnSpan="2" Margin="0,0,200,0"/>
+        <ContentControl Grid.Column="2" Content="{Binding ProductsViewModel}"/>
     </Grid>
 </Window>

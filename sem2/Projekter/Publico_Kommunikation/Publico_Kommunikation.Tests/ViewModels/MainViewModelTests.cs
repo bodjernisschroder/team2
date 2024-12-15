@@ -45,10 +45,10 @@ namespace Publico_Kommunikation.Tests.ViewModels
             mainViewModel.ShowQuoteOverviewCommand.Execute(null);
 
             // Assert
-            Assert.IsNull(mainViewModel.QuoteView);
-            Assert.IsNull(mainViewModel.ProductsView);
-            Assert.IsNotNull(mainViewModel.QuotesView);
-            Assert.AreEqual(typeof(QuotesViewModel), mainViewModel.QuotesView.GetType());
+            Assert.IsNull(mainViewModel.QuoteViewModel);
+            Assert.IsNull(mainViewModel.ProductsViewModel);
+            Assert.IsNotNull(mainViewModel.QuotesViewModel);
+            Assert.AreEqual(typeof(QuotesViewModel), mainViewModel.QuotesViewModel.GetType());
         }
     }
 }

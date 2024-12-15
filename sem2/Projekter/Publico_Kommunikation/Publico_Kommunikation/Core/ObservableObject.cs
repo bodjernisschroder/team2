@@ -5,7 +5,7 @@ namespace Publico_Kommunikation.Core
     /// <summary>
     /// Serves as a base class for ViewModels. Implements the <see cref="INotifyPropertyChanged"/> interface.
     /// </summary>
-    public class ObservableObject : INotifyPropertyChanged
+    public abstract class ObservableObject : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
