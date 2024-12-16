@@ -29,7 +29,7 @@ namespace Publico_Kommunikation.Tests.Services
         }
 
         [TestMethod]
-        public void NavigateTo_CallsViewModelFactory()
+        public void NavigateTo_RetrievesViewModelFromFactory()
         {
             // Arrange
             var navigationService = new NavigationService(mockViewModelFactory.Object);

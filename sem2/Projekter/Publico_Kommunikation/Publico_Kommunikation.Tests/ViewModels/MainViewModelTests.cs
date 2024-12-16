@@ -10,11 +10,13 @@ namespace Publico_Kommunikation.Tests.ViewModels
     public class MainViewModelTests
     {
         private Mock<INavigationService> mockNavigation;
+        private Mock<IQuoteRepository> mockQuoteRepository;
 
         [TestInitialize]
         public void TestInitialize()
         {
             mockNavigation = new Mock<INavigationService>();
+            mockQuoteRepository = new Mock<IQuoteRepository>();
         }
 
         [TestMethod]
@@ -25,7 +27,8 @@ namespace Publico_Kommunikation.Tests.ViewModels
             var mainViewModel = new MainViewModel(null);
         }
 
-        public void Constructor_ValidNavigationServiceAndQuoteRepository_InitializesShowQuoteOverviewCommand()
+        [TestMethod]
+        public void Constructor_ValidNavigationService_InitializesShowQuoteOverviewCommand()
         {
             // Act
             var mainViewModel = new MainViewModel(mockNavigation.Object);
@@ -35,11 +38,15 @@ namespace Publico_Kommunikation.Tests.ViewModels
             Assert.IsTrue(mainViewModel.ShowQuoteOverviewCommand.CanExecute(null));
         }
 
-        public void ShowQuoteoverviewCommand_Execute_ResetsViewsAndInitializesQuotesView()
+        [TestMethod]
+        public void ShowQuoteOverviewCommand_Execute_ResetsViewsAndInitializesQuotesView()
         {
             // Arrange
             var mainViewModel = new MainViewModel(mockNavigation.Object);
             var quote = new Quote { QuoteId = 1, QuoteName = "TestQuote" };
+
+            mockNavigation.Setup(navigation => navigation.NavigateTo<QuotesViewModel>(It.IsAny<Action<QuotesViewModel>>()))
+                .Returns(new QuotesViewModel(mockQuoteRepository.Object));
 
             // Act
             mainViewModel.ShowQuoteOverviewCommand.Execute(null);

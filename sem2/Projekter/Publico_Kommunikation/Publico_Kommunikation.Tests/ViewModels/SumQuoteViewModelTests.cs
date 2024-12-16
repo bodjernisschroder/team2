@@ -96,6 +96,7 @@ namespace Publico_Kommunikation.Tests.ViewModels
             Assert.AreEqual(16000, sumQuoteViewModel.DiscountedSum);
         }
 
+        // ----------- Sum Tests ----------
         [TestMethod]
         public void Sum_WhenSetToNegative_DoesNotUpdate()
         {
@@ -108,6 +109,20 @@ namespace Publico_Kommunikation.Tests.ViewModels
 
             // Assert
             Assert.AreEqual(100, SumQuoteViewModel.Sum);
+        }
+
+        [TestMethod]
+        public void Sum_WhenSetToZero_UpdatesValue()
+        {
+            // Arrange
+            var SumQuoteViewModel = UpdatePriceArrange();
+            SumQuoteViewModel.Sum = 100;
+
+            // Act
+            SumQuoteViewModel.Sum = 0;
+
+            // Assert
+            Assert.AreEqual(0, SumQuoteViewModel.Sum);
         }
 
         [TestMethod]

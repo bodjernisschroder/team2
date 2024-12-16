@@ -52,6 +52,7 @@ namespace Publico_Kommunikation.Tests.ViewModels
         {
             // Arrange
             var quoteProduct = new QuoteProduct { QuoteId = 1, ProductId = 1 };
+            mockProductRepository.Setup(repo => repo.GetByKey(1)).Returns((Product)null);
 
             // Act
             var quoteProductViewModel = new QuoteProductViewModel(quoteProduct, mockProductRepository.Object, mockQuoteProductRepository.Object);
