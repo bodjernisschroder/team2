@@ -56,7 +56,7 @@ namespace Publico_Kommunikation
         /// <param name="configuration">The <see cref="IConfiguration"/> that contains the database connection string.</param>
         private void RegisterDatabase(IServiceCollection services, IConfiguration configuration)
         {
-            string connectionString = configuration.GetConnectionString("AnnaConnection");
+            string connectionString = configuration.GetConnectionString("BurakConnection");
             services.AddSingleton(connectionString);
         }
 

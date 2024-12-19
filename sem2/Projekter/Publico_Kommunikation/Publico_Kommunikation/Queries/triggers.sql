@@ -119,7 +119,7 @@ CREATE TABLE QUOTE_AUDIT
 
 GO
 
--- Creates QUOTE logging Trigger
+-- Creates QUOTE logging trigger
 CREATE OR ALTER TRIGGER trgQuoteAuditInsert
 ON QUOTE
 AFTER INSERT, UPDATE, DELETE
@@ -171,7 +171,7 @@ CREATE TABLE QUOTE_PRODUCT_AUDIT
 
 GO
 
--- Creates QUOTEPRODUCT logging Trigger
+-- Creates QUOTEPRODUCT logging trigger
 CREATE OR ALTER TRIGGER trgQuoteProductAuditInsert
 ON QUOTE_PRODUCT
 AFTER INSERT, UPDATE, DELETE

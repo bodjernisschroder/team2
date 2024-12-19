@@ -16,7 +16,7 @@ CREATE TABLE PRODUCT (
 );
 GO
 
---Creates Quote table
+--Creates QUOTE table
 CREATE TABLE QUOTE (
 	QuoteId INT IDENTITY PRIMARY KEY,
 	[QuoteName] NVARCHAR (50) DEFAULT 'Tilbud' NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE QUOTE (
 );
 GO
 
---Creates QuoteProduct table 
+--Creates QUOTEPRODUCT table 
  CREATE TABLE QUOTE_PRODUCT(
 	QuoteId INT,
 	ProductId INT,

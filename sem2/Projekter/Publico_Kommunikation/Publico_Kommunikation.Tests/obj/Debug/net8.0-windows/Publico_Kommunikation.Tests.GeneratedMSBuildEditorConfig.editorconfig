@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Publico_Kommunikation.Tests
-build_property.ProjectDir = C:\Users\AnnaFoldberg\team2\sem2\Projekter\Publico_Kommunikation\Publico_Kommunikation.Tests\
+build_property.ProjectDir = C:\Users\burak\source\repos\team2\sem2\Projekter\Publico_Kommunikation\Publico_Kommunikation.Tests\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
